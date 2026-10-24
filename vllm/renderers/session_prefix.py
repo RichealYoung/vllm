@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
-"""Session-selected token reuse for the initially audited Qwen tokenizer."""
+"""Session-selected token reuse for audited tokenizer configurations."""
 
 import hashlib
 import importlib.metadata
@@ -29,7 +29,28 @@ if TYPE_CHECKING:
     from vllm.tokenizers import TokenizerLike
 
 logger = init_logger(__name__)
-_QWEN_BACKEND = "934c73f70d9dbdc5c03916ec8045c27749cc2580d14447fc90d05696101af934"
+_AUDITED_BACKENDS = frozenset(
+    {
+        "934c73f70d9dbdc5c03916ec8045c27749cc2580d14447fc90d05696101af934",
+        "2dc9fd24fef5bc6d04a0560ee89362ba5b4ee47e171b53e4287cc6726237de6f",
+        "9f92c5ce6e58fd9e6eeb78dfd123444b215872568280ff7d657096b97fec7bbd",
+        "5b9f0248fe79162f480706697d946f8f0d40158249268eb8b11ce56a8b678c88",
+        "42d0ac7b973045f18f40122d7ca656fa6099af07c6efe9d81bc1c20e522df2d2",
+    }
+)
+_SUPPORTED_TOKENIZER_VERSIONS = frozenset(
+    (transformers_version, tokenizers_version)
+    for transformers_version in (
+        "5.16.1",
+        "5.17.0",
+        "5.18.0",
+        "5.19.0",
+        "5.20.0",
+        "5.20.1",
+        "5.20.2",
+    )
+    for tokenizers_version in ("0.23.2", "0.23.3")
+)
 _ENCODING_METHODS = (
     "__call__",
     "_encode_plus",
@@ -104,8 +125,11 @@ class SessionTokenCache:
             if (
                 not isinstance(tokenizer, TokenizersBackend)
                 or sysconfig.get_config_var("Py_GIL_DISABLED")
-                or importlib.metadata.version("transformers") != "5.19.0"
-                or importlib.metadata.version("tokenizers") != "0.23.3"
+                or (
+                    importlib.metadata.version("transformers"),
+                    importlib.metadata.version("tokenizers"),
+                )
+                not in _SUPPORTED_TOKENIZER_VERSIONS
                 # Backend JSON does not describe Python encoding overrides.
                 or any(
                     name in vars(tokenizer)
@@ -121,8 +145,8 @@ class SessionTokenCache:
             digest = hashlib.sha256(
                 json.dumps(graph, sort_keys=True, separators=(",", ":")).encode()
             ).hexdigest()
-            if digest != _QWEN_BACKEND:
-                raise ValueError("tokenizer differs from the audited Qwen3 tokenizer")
+            if digest not in _AUDITED_BACKENDS:
+                raise ValueError("tokenizer differs from the audited configurations")
             markers, boundaries, self.rstrip_markers = _marker_tables(
                 graph["added_tokens"]
             )

@@ -737,7 +737,7 @@ steps:
   key: cpu-session-prefix
   depends_on:
   - image-build-cpu
-  timeout_in_minutes: 20
+  timeout_in_minutes: 35
   device: cpu-small
   working_dir: "/vllm-workspace"
   source_file_dependencies: &session-prefix-deps
@@ -746,6 +746,8 @@ steps:
   - setup.py
   - vllm/utils/session_prefix.py
   - vllm/renderers/
+  - vllm/tool_parsers/deepseekv31_tool_parser.py
+  - examples/tool_chat_template_deepseekv31.jinja
   - vllm/v1/core/session_prefix.py
   - vllm/v1/request.py
   - vllm/v1/engine/core.py
@@ -758,19 +760,29 @@ steps:
   - tests/config/test_config_utils.py
   - tests/entrypoints/openai/chat_completion/test_serving_chat.py
   commands:
-  - uv venv --system-site-packages .venv-session-prefix
-  - uv pip install --python .venv-session-prefix/bin/python transformers==5.19.0 tokenizers==0.23.3
-  - .venv-session-prefix/bin/python -m pytest -v tests/utils_/test_session_prefix.py tests/renderers/test_session_prefix.py tests/v1/test_request.py tests/config/test_config_utils.py
+  - |
+    for transformers_version in 5.16.1 5.17.0 5.18.0 5.19.0 5.20.0 5.20.1 5.20.2; do
+      for tokenizers_version in 0.23.2 0.23.3; do
+        environment=".venv-session-prefix-$${transformers_version}-$${tokenizers_version}"
+        uv venv --system-site-packages "$$environment" || exit 1
+        uv pip install --python "$$environment/bin/python" "transformers==$$transformers_version" "tokenizers==$$tokenizers_version" huggingface-hub==1.31.0 || exit 1
+        if [ "$$transformers_version:$$tokenizers_version" = "5.20.2:0.23.3" ]; then
+          "$$environment/bin/python" -m pytest -v tests/utils_/test_session_prefix.py tests/renderers/test_session_prefix.py tests/v1/test_request.py tests/config/test_config_utils.py || exit 1
+        else
+          "$$environment/bin/python" -m pytest -v tests/renderers/test_session_prefix.py -k 'test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse' || exit 1
+        fi
+      done
+    done
 
 - label: ":nvidia: (H200 MIG 18GB) Session Prefix Serving"
   key: session-prefix-serving
   device: h200_18gb
-  timeout_in_minutes: 20
+  timeout_in_minutes: 30
   working_dir: "/vllm-workspace"
   source_file_dependencies: *session-prefix-deps
   commands:
   - uv venv --system-site-packages .venv-session-prefix-gpu
-  - uv pip install --python .venv-session-prefix-gpu/bin/python transformers==5.19.0 tokenizers==0.23.3
+  - uv pip install --python .venv-session-prefix-gpu/bin/python transformers==5.20.2 tokenizers==0.23.3 huggingface-hub==1.31.0
   # RemoteOpenAIServer launches the CLI; keep it in the pinned Python environment.
   - |
     printf '#!/bin/sh\nexec "%s" -m vllm.entrypoints.cli.main "$@"\n' "$PWD/.venv-session-prefix-gpu/bin/python" > .venv-session-prefix-gpu/bin/vllm

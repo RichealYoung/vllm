@@ -4,13 +4,14 @@
 import asyncio
 import copy
 import importlib.metadata
+import json
 import os
 import subprocess
 import sys
 import threading
 from dataclasses import replace
 from pathlib import Path
-from typing import cast
+from typing import Any, cast
 
 import pytest
 
@@ -36,10 +37,18 @@ MODEL = os.environ.get("VLLM_TEST_QWEN3_MODEL", "Qwen/Qwen3-0.6B")
 
 @pytest.fixture
 def renderer(request):
+    model, revision = (
+        request.param
+        if isinstance(getattr(request, "param", None), tuple)
+        else (MODEL, "c1899de289a04d12100db370d81485cdf75e47ca")
+    )
+    truncation_side = (
+        request.param if isinstance(getattr(request, "param", None), str) else None
+    )
     config = VllmConfig(
         model_config=ModelConfig(
-            model=MODEL,
-            tokenizer_revision="c1899de289a04d12100db370d81485cdf75e47ca",
+            model=model,
+            tokenizer_revision=revision,
             dtype="float16",
             max_model_len=1024,
             renderer_num_workers=2,
@@ -49,9 +58,9 @@ def renderer(request):
     result = HfRenderer(
         config,
         get_tokenizer(
-            MODEL,
+            model,
             revision=config.model_config.tokenizer_revision,
-            **({"truncation_side": request.param} if hasattr(request, "param") else {}),
+            **({"truncation_side": truncation_side} if truncation_side else {}),
         ),
     )
     yield result
@@ -287,12 +296,52 @@ finally:
 
 
 @pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "renderer",
+    [
+        (MODEL, "c1899de289a04d12100db370d81485cdf75e47ca"),
+        (
+            os.environ.get("VLLM_TEST_QWEN25_TOKENIZER", "Qwen/Qwen2.5-7B-Instruct"),
+            "a09a35458c702b33eeacc393d103063234e8bc28",
+        ),
+        (
+            os.environ.get(
+                "VLLM_TEST_LLAMA32_TOKENIZER", "unsloth/Llama-3.2-1B-Instruct"
+            ),
+            "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+        ),
+        (
+            os.environ.get("VLLM_TEST_GLM45_TOKENIZER", "zai-org/GLM-4.5"),
+            "cbb2c7cfb52fa128a9660cb1a7a78e017899e115",
+        ),
+        (
+            os.environ.get(
+                "VLLM_TEST_DEEPSEEK31_TOKENIZER", "deepseek-ai/DeepSeek-V3.1"
+            ),
+            "c0781d039fb7a1ba2abc4add0bdc293e92d2b8db",
+        ),
+    ],
+    indirect=True,
+    ids=["qwen3", "qwen25", "llama32", "glm45", "deepseek31"],
+)
 async def test_real_renderer_chat_growth_matches_native_and_hits(renderer):
     cache = renderer.session_token_cache
     supported = (
-        importlib.metadata.version("transformers") == "5.19.0"
-        and importlib.metadata.version("tokenizers") == "0.23.3"
-    )
+        importlib.metadata.version("transformers"),
+        importlib.metadata.version("tokenizers"),
+    ) in {
+        (transformers_version, tokenizers_version)
+        for transformers_version in (
+            "5.16.1",
+            "5.17.0",
+            "5.18.0",
+            "5.19.0",
+            "5.20.0",
+            "5.20.1",
+            "5.20.2",
+        )
+        for tokenizers_version in ("0.23.2", "0.23.3")
+    }
     assert cache.enabled == supported
     online = OnlineRenderer(
         renderer.model_config,
@@ -304,7 +353,9 @@ async def test_real_renderer_chat_growth_matches_native_and_hits(renderer):
     )
     messages = [{"role": "user", "content": "中文 e\u0301 👩🏽‍💻\n```\nx=1\n```"}]
     for i in range(4):
-        request = ChatCompletionRequest(model=MODEL, messages=messages, max_tokens=1)
+        request = ChatCompletionRequest(
+            model=renderer.model_config.model, messages=messages, max_tokens=1
+        )
         _, expected = await online.render_chat(request)
         _, actual = await online.render_chat(request, session_id="s")
         assert (
@@ -328,6 +379,150 @@ async def test_real_renderer_chat_growth_matches_native_and_hits(renderer):
     else:
         assert not cache.stats
         assert cache.store.bytes_used == 0
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "renderer",
+    [
+        (
+            os.environ.get(
+                "VLLM_TEST_DEEPSEEK31_TOKENIZER", "deepseek-ai/DeepSeek-V3.1"
+            ),
+            "c0781d039fb7a1ba2abc4add0bdc293e92d2b8db",
+        ),
+    ],
+    indirect=True,
+)
+async def test_deepseek_documented_tools_preserve_native_ids_and_reuse(
+    renderer, tmp_path
+):
+    from vllm.renderers.chat_utils import load_chat_template
+
+    cache = renderer.session_token_cache
+    supported = importlib.metadata.version("transformers") in {
+        "5.16.1",
+        "5.17.0",
+        "5.18.0",
+        "5.19.0",
+        "5.20.0",
+        "5.20.1",
+        "5.20.2",
+    } and importlib.metadata.version("tokenizers") in {"0.23.2", "0.23.3"}
+    assert cache.enabled == supported
+    template = (
+        Path(__file__).resolve().parents[2]
+        / "examples/tool_chat_template_deepseekv31.jinja"
+    )
+    online = OnlineRenderer(
+        renderer.model_config,
+        renderer,
+        request_logger=None,
+        chat_template=load_chat_template(template),
+        chat_template_content_format="auto",
+        default_chat_template_kwargs={"thinking": False},
+        enable_auto_tools=True,
+        tool_parser="deepseek_v31",
+    )
+    tools = [
+        {
+            "type": "function",
+            "function": {
+                "name": name,
+                "description": "Read a file or search its Unicode content.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {"text": {"type": "string"}},
+                    "required": ["text"],
+                },
+            },
+        }
+        for name in ("read_file", "search")
+    ]
+
+    def tool_call(identifier, name, text):
+        return {
+            "id": identifier,
+            "type": "function",
+            "function": {
+                "name": name,
+                "arguments": json.dumps({"text": text}, ensure_ascii=False),
+            },
+        }
+
+    extensions: list[list[dict[str, Any]]] = [
+        [
+            {
+                "role": "assistant",
+                "content": None,
+                "tool_calls": [
+                    tool_call("x", "read_file", "x.py"),
+                    tool_call("y", "read_file", "y.py"),
+                ],
+            },
+            {"role": "tool", "tool_call_id": "x", "content": "中文 👩🏽‍💻"},
+            {"role": "tool", "tool_call_id": "y", "content": "e\u0301"},
+        ],
+        [
+            {"role": "assistant", "content": "Read both."},
+            {"role": "user", "content": "Search e\u0301."},
+        ],
+        [
+            {
+                "role": "assistant",
+                "content": "Searching.",
+                "tool_calls": [tool_call("z", "search", "e\u0301")],
+            },
+            {"role": "tool", "tool_call_id": "z", "content": "Found 🙂"},
+        ],
+        [
+            {"role": "assistant", "content": "Found."},
+            {"role": "user", "content": "Continue."},
+        ],
+    ]
+    messages: list[dict[str, Any]] = [
+        {"role": "user", "content": "Read x.py and y.py. 中文 e\u0301 👩🏽‍💻"}
+    ]
+    for turn in range(5):
+        request = ChatCompletionRequest(
+            model=renderer.model_config.model,
+            messages=messages,
+            tools=tools,
+            tool_choice="auto",
+            max_tokens=1,
+        )
+        _, expected = await online.render_chat(request.model_copy(deep=True))
+        native_ids = cast(TokensInput, expected[0])["prompt_token_ids"]
+        if turn == 0:
+            rendered = renderer.get_tokenizer().decode(native_ids)
+            assert "read_file" in rendered and "search" in rendered
+        for _repeat in range(2):
+            _, actual = await online.render_chat(
+                request.model_copy(deep=True), session_id="deepseek-tools"
+            )
+            assert cast(TokensInput, actual[0])["prompt_token_ids"] == native_ids
+            with (tmp_path / "deepseek-tools.jsonl").open(
+                "a", encoding="utf-8"
+            ) as output:
+                output.write(
+                    json.dumps(
+                        {
+                            "turn": turn,
+                            "native_ids": native_ids,
+                            "actual_ids": cast(TokensInput, actual[0])[
+                                "prompt_token_ids"
+                            ],
+                            "stats": dict(cache.stats),
+                        }
+                    )
+                    + "\n"
+                )
+        if turn < len(extensions):
+            messages = messages + extensions[turn]
+    if supported:
+        assert cache.stats["exact"] >= 5 and cache.stats["partial"] >= 4
+    else:
+        assert not cache.stats and cache.store.bytes_used == 0
 
 
 def test_length_error_and_unsupported_offsets_do_not_publish(renderer):

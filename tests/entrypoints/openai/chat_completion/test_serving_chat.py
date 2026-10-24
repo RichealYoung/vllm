@@ -3446,16 +3446,31 @@ async def test_non_streaming_finish_reason_matches_tool_calls(
 
 @pytest.mark.asyncio
 @pytest.mark.parametrize(("token_mb", "hash_mb"), [(0, 0), (8, 0), (0, 8), (8, 8)])
+@pytest.mark.parametrize(
+    ("model", "revision"),
+    [
+        (
+            os.environ.get("VLLM_TEST_QWEN3_MODEL", "Qwen/Qwen3-0.6B"),
+            "c1899de289a04d12100db370d81485cdf75e47ca",
+        ),
+        (
+            os.environ.get("VLLM_TEST_LLAMA32_MODEL", "unsloth/Llama-3.2-1B-Instruct"),
+            "5a8abab4a5d6f164389b1079fb721cfab8d7126c",
+        ),
+    ],
+    ids=["qwen3", "llama32"],
+)
 async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
-    token_mb, hash_mb, capfd, tmp_path
+    model, revision, token_mb, hash_mb, capfd, tmp_path
 ):
     """Exercise HTTP, renderer, IPC and native core with real model weights."""
     from tests.models.utils import check_logprobs_close
 
-    model = os.environ.get("VLLM_TEST_QWEN3_MODEL", "Qwen/Qwen3-0.6B")
     args = [
+        "--revision",
+        revision,
         "--tokenizer-revision",
-        "c1899de289a04d12100db370d81485cdf75e47ca",
+        revision,
         "--session-token-cache-mb",
         str(token_mb),
         "--session-hash-cache-mb",
@@ -3495,6 +3510,7 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
                         model=model,
                         messages=messages,
                         temperature=0,
+                        seed=0,
                         max_tokens=2,
                         logprobs=True,
                         top_logprobs=2,
@@ -3506,6 +3522,20 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
                         },
                     )
                     responses.append(response)
+                    with (tmp_path / "responses.jsonl").open(
+                        "a", encoding="utf-8"
+                    ) as response_log:
+                        response_log.write(
+                            json.dumps(
+                                {
+                                    "turn": turn,
+                                    "session_hint": hinted,
+                                    "response": response.model_dump(mode="json"),
+                                },
+                                ensure_ascii=False,
+                            )
+                            + "\n"
+                        )
                 native = responses[0]
                 assert native.prompt_token_ids
                 for response in responses[1:]:
@@ -3528,10 +3558,15 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
     captured = capfd.readouterr()
     server_log = captured.out + captured.err
     (tmp_path / "server.log").write_text(server_log)
-    pinned = (
-        importlib.metadata.version("transformers") == "5.19.0"
-        and importlib.metadata.version("tokenizers") == "0.23.3"
-    )
+    pinned = importlib.metadata.version("transformers") in {
+        "5.16.1",
+        "5.17.0",
+        "5.18.0",
+        "5.19.0",
+        "5.20.0",
+        "5.20.1",
+        "5.20.2",
+    } and importlib.metadata.version("tokenizers") in {"0.23.2", "0.23.3"}
     if token_mb and pinned:
         assert "Session token reuse: route=exact" in server_log, server_log[-12000:]
         assert "Session token reuse: route=partial" in server_log, server_log[-12000:]

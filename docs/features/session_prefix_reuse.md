@@ -26,10 +26,53 @@ content validation. No new request protocol fields are required.
 
 ## Initial support
 
-Token reuse supports text Chat Completions using the audited Qwen3 tokenizer
-configuration identified by the Qwen3-0.6B revision above, Transformers 5.19.0
-and tokenizers 0.23.3. Other model revisions using the same audited configuration
-can pass the same checks. Activation checks the complete backend configuration
+Token reuse supports text Chat Completions with the following exact library
+versions and audited tokenizer configurations. Each Transformers version in
+the table can be paired with either listed tokenizers version:
+
+| Transformers | tokenizers |
+| --- | --- |
+| 5.16.1 | 0.23.2, 0.23.3 |
+| 5.17.0 | 0.23.2, 0.23.3 |
+| 5.18.0 | 0.23.2, 0.23.3 |
+| 5.19.0 | 0.23.2, 0.23.3 |
+| 5.20.0 | 0.23.2, 0.23.3 |
+| 5.20.1 | 0.23.2, 0.23.3 |
+| 5.20.2 | 0.23.2, 0.23.3 |
+
+These are explicit supported pairs, not a continuous version range. Install
+mutually compatible dependencies: tokenizers 0.23.2 requires
+`huggingface-hub<2.0`; compatibility validation used Hub 1.31.0.
+
+| Tokenizer asset repository | Audited revision |
+| --- | --- |
+| Qwen/Qwen3-0.6B | `c1899de289a04d12100db370d81485cdf75e47ca` |
+| Qwen/Qwen3-Coder-30B-A3B-Instruct | `b2cff646eb4bb1d68355c01b18ae02e7cf42d120` |
+| Qwen/Qwen2.5-7B-Instruct | `a09a35458c702b33eeacc393d103063234e8bc28` |
+| unsloth/Llama-3.2-1B-Instruct | `5a8abab4a5d6f164389b1079fb721cfab8d7126c` |
+| zai-org/GLM-4.5 | `cbb2c7cfb52fa128a9660cb1a7a78e017899e115` |
+| deepseek-ai/DeepSeek-V3.1 | `c0781d039fb7a1ba2abc4add0bdc293e92d2b8db` |
+
+These repositories identify tokenizer assets, not a guarantee for every model
+in a family. Qwen3 and Qwen3-Coder load the same audited backend. Compatibility
+validation checks complete input token IDs, real chat templates, history edits,
+length errors and fallback behavior; it does not certify GPU model execution
+or performance for every listed model.
+
+For DeepSeek-V3.1 tool calling, use vLLM's documented configuration:
+`--tool-call-parser deepseek_v31` together with
+`--chat-template examples/tool_chat_template_deepseekv31.jinja`.
+See [DeepSeek-V3.1 tool calling](tool_calling.md#deepseek-v31-models-deepseek_v31).
+The repository template serializes dictionary arguments and includes tool
+definitions. The model-bundled template is not equivalent: it expects string
+arguments and can reject tool-call histories after vLLM parses the arguments.
+Token reuse neither substitutes templates automatically nor repairs such errors.
+Mistral-7B-Instruct-v0.3's Metaspace backend is not admitted: encoding a suffix
+independently can change its IDs. Other tokenizer configurations, including
+ones that passed a preliminary raw-JSON survey, are not automatically admitted.
+
+Other model revisions using an identical audited configuration can pass the same
+checks. Activation checks the complete backend configuration
 and public encoding implementation; a model name alone is insufficient.
 The tokenizer must remain immutable. Unsupported configurations or library
 versions disable token reuse with a warning and use native tokenization, even
@@ -41,10 +84,10 @@ disabled with a warning and requests use the existing computation path.
 
 ### Boundary contract
 
-The certified configuration extracts context-independent added tokens before
-NFC normalization. Their literals do not overlap across a complete marker,
-consume neighboring whitespace or require word context. Subsequent regex,
-ByteLevel and deterministic BPE processing is local to the separated text.
+The audited configurations extract non-normalized added tokens before any
+normalizer runs. Certified boundaries do not require word context or overlap
+another added-token occurrence. Subsequent normalization, regex, ByteLevel and
+deterministic BPE processing is local to the separated text in these backends.
 Consequently an unchanged prefix ending at a complete certified marker has
 the same IDs when a suffix changes. Snapshots store only the prompt text and
 token IDs. On a partial match, the frontend finds the last complete marker in
