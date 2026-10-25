@@ -82,6 +82,15 @@ This initial native helper path requires a GIL-enabled CPython build.
 If the helper extension is unavailable, the corresponding reuse stage is
 disabled with a warning and requests use the existing computation path.
 
+### Image requests
+
+Image-path validation uses Qwen/Qwen2.5-VL-3B-Instruct revision
+`66285546d2b821cf421d4f5eb2576359d3770cd3`. CPU processor tests cover the 14
+library-version pairs above, including changes in image dimensions. Real-model
+serving tests use Transformers 5.20.2, tokenizers 0.23.3 and 56-by-56 synthetic
+images. These checks do not establish support for other image models or sizes,
+audio, video or resumable inputs, or a multimodal performance improvement.
+
 ### Boundary contract
 
 The audited configurations extract non-normalized added tokens before any
@@ -107,15 +116,15 @@ reuses only exact token prefixes ending at certified added-token boundaries.
 Plain character matches and offsets alone are not treated as stability proofs.
 Changed tools, thinking settings or template tails are handled through actual
 rendered content comparison. Explicit input truncation, padding, offsets,
-lowercasing, multimodal/embedding inputs, LoRA configurations and connector
+lowercasing, embedding inputs, LoRA configurations and connector
 configurations do not use the initial frontend fast path.
 
-Hash reuse requires an existing native block hasher, plain token inputs and
+Hash reuse requires an existing native block hasher, token inputs and
 compatible salt/context. It independently compares full token IDs against its
 own candidate, reuses complete blocks at the native hash granularity, and
 continues the native hash chain. Frontend and EngineCore histories need not
-refer to the same request. Resumable inputs, multimodal/embedding inputs, LoRA
-and KV connectors are outside initial hash support.
+refer to the same request. Resumable inputs, embedding inputs, LoRA and KV
+connectors are outside initial hash support.
 
 Requests without a session hint or with an incompatible configuration use the
 existing computation path for the corresponding stage. Without a reusable
@@ -124,6 +133,31 @@ may still succeed. Insufficient history capacity prevents saving a new
 snapshot without discarding results already computed or reused. A non-reusable
 request can still incur bounded history publication work. Disabling token reuse
 does not disable independent hash reuse, or vice versa.
+
+### Multimodal reuse
+
+Token reuse applies to the rendered text before media placeholder expansion,
+using the same tokenizer and encoding-option checks as text requests. An
+unchanged text prompt can therefore reuse token IDs even when an image changes.
+The native processor still handles the current media and expands its
+placeholders; the cached IDs do not preserve an old image or its layout.
+
+Hash reuse compares the final token IDs and each media item's modality, native
+identifier, offset and length. Unchanged media can be part of a reused prefix.
+At the first changed, inserted or removed media span, reuse stops at complete
+blocks before the earlier of the old and new span starts. Later hashes are
+computed by the native hasher, even if the text after that span is unchanged.
+
+Eligible media spans must be ordered, non-overlapping, positive-length and
+within the prompt, with nonempty identifiers and no embedding mask. Unsupported
+spans use native hashing without replacing or clearing older history. Later
+requests still validate their prefixes against that history. Session snapshots
+retain media descriptions, not media payloads. Native media identity and the
+existing client UUID trust contract are unchanged; reuse does not verify that
+a supplied UUID matches the media bytes.
+
+Media loading, processing, input validation, encoder caching and KV-cache lookup
+follow the native path. Neither reuse stage adds a media or vision-encoder cache.
 
 ## Memory and lifecycle
 
@@ -135,7 +169,12 @@ charges shared Python objects; it is not an exact process RSS limit. Native
 request inputs, outputs, Python allocators and other serving state are separate.
 Temporary text-matching workspace is outside the retained-history budget.
 
-Cancelled/failed frontend preprocessing does not publish a partial result.
+Cancelled or failed rendering does not publish a staged token snapshot. Token
+history is published after rendering and request adjustment, before EngineCore
+input validation. A later validation error may leave that valid text-to-token
+snapshot cached; it does not admit the rejected request or cache media expansion.
+Initial hash prefixes are internal: callers must validate tokens and media spans
+before passing them to Request.
 Cache clearing and shutdown invalidate in-flight publication. EngineCore
 prefix-cache reset also clears its CPU history. Restart creates empty histories;
 there is no cross-worker sharing or persistence.
@@ -146,4 +185,6 @@ do not bypass authorization or existing cache isolation policy.
 
 This is an opt-in CPU optimization. Helper and component microbenchmarks do not
 establish HTTP/IPC or GPU serving improvements; measure representative text
-requests with the enabled stages and normal renderer concurrency.
+and image workloads with the enabled stages and normal renderer concurrency.
+Image compatibility does not imply that media decoding or vision encoding is
+skipped, or that every workload benefits from reuse.

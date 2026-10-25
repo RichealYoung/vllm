@@ -36,6 +36,271 @@ MODEL = os.environ.get("VLLM_TEST_QWEN3_MODEL", "Qwen/Qwen3-0.6B")
 
 
 @pytest.fixture
+def staged_token_snapshots():
+    from vllm.utils.session_prefix import PrefixContext
+
+    staged = []
+    previous = threading.getprofile()
+
+    def observe(frame, event, argument):
+        if frame.f_code is PrefixContext.stage.__code__ and event == "return":
+            context = frame.f_locals["self"]
+            if context.pending is not None:
+                staged.append(context.pending[1].text)
+
+    threading.setprofile(observe)
+    try:
+        yield staged
+    finally:
+        threading.setprofile(previous)
+
+
+@pytest.mark.asyncio
+@pytest.mark.parametrize(
+    "token_reuse,hash_reuse",
+    [(False, False), (True, False), (False, True), (True, True)],
+)
+async def test_multimodal_session_reuse_preserves_processor_outputs(
+    token_reuse, hash_reuse, staged_token_snapshots
+):
+    """Image edits retain native IDs, media tensors and the complete hash chain."""
+    import io
+
+    import pybase64
+    import torch
+    from PIL import Image
+
+    from vllm import SamplingParams
+    from vllm.config import CacheConfig, SchedulerConfig
+    from vllm.multimodal.cache import engine_receiver_cache_from_config
+    from vllm.utils.hashing import sha256
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+    from vllm.v1.engine.input_processor import InputProcessor
+    from vllm.v1.request import Request
+
+    config = VllmConfig(
+        model_config=ModelConfig(
+            model=os.environ.get(
+                "VLLM_TEST_QWEN25_VL_MODEL", "Qwen/Qwen2.5-VL-3B-Instruct"
+            ),
+            revision="66285546d2b821cf421d4f5eb2576359d3770cd3",
+            tokenizer_revision="66285546d2b821cf421d4f5eb2576359d3770cd3",
+            dtype="float16",
+            max_model_len=8192,
+            renderer_num_workers=1,
+            session_token_cache_mb=8 if token_reuse else 0,
+            limit_mm_per_prompt={"image": 4},
+            mm_processor_cache_gb=0.1,
+            mm_processor_cache_type="lru",
+            mm_processor_device="cpu",
+        ),
+        cache_config=CacheConfig(enable_prefix_caching=True, block_size=16),
+        scheduler_config=SchedulerConfig(
+            is_encoder_decoder=False,
+            max_model_len=8192,
+            max_num_seqs=2,
+            max_num_batched_tokens=2048,
+        ),
+    )
+    renderer = HfRenderer(
+        config,
+        get_tokenizer(
+            config.model_config.model,
+            revision=config.model_config.tokenizer_revision,
+        ),
+    )
+    online = OnlineRenderer(
+        config.model_config,
+        renderer,
+        request_logger=None,
+        chat_template=None,
+        chat_template_content_format="auto",
+        trust_request_mm_kwargs=True,
+    )
+    processor = InputProcessor(config, renderer)
+    receiver = engine_receiver_cache_from_config(config)
+    assert receiver is not None
+    init_none_hash(sha256)
+    hasher = get_request_block_hasher(16, sha256)
+    hashes = SessionHashCache(1 << 20, 16) if hash_reuse else None
+    images = []
+    for color, size in (("red", (56, 56)), ("blue", (56, 56)), ("green", (84, 56))):
+        stream = io.BytesIO()
+        Image.new("RGB", size, color).save(stream, format="PNG")
+        images.append(
+            "data:image/png;base64," + pybase64.b64encode(stream.getvalue()).decode()
+        )
+    cases = [(0,), (0,), (1,), (2,), (0, 1), (1, 0), (0,), (), (0,)]
+    try:
+        if token_reuse:
+            assert renderer.session_token_cache is not None
+            assert renderer.session_token_cache.enabled
+        for index, selected in enumerate(cases):
+            content: list[dict[str, Any]] = [
+                {"type": "text", "text": "Describe 截图 e\u0301 👩‍💻."}
+            ]
+            content.extend(
+                {"type": "image_url", "image_url": {"url": images[item]}}
+                for item in selected
+            )
+            messages = [
+                {"role": "system", "content": "Preserve the visible history. " * 40},
+                {"role": "user", "content": content},
+            ]
+            request = ChatCompletionRequest(
+                model=config.model_config.model,
+                messages=cast(Any, messages),
+                max_tokens=1,
+            )
+            _, reference = await online.render_chat(request.model_copy(deep=True))
+            _, candidate = await online.render_chat(
+                request.model_copy(deep=True), session_id="images"
+            )
+            expected_input = processor.process_inputs(
+                f"reference-{index}",
+                reference[0],
+                SamplingParams(max_tokens=1),
+                ("generate",),
+            )
+            incoming = processor.process_inputs(
+                f"candidate-{index}",
+                candidate[0],
+                SamplingParams(max_tokens=1),
+                ("generate",),
+                session_id="images",
+            )
+            assert incoming.prompt_token_ids == expected_input.prompt_token_ids
+            if expected_input.mm_features:
+                receiver.get_and_update_features(expected_input.mm_features)
+            if incoming.mm_features:
+                receiver.get_and_update_features(incoming.mm_features)
+            assert incoming.mm_features == expected_input.mm_features
+            prefix = hashes.prefix(incoming) if hashes else None
+            actual = Request.from_engine_core_request(incoming, hasher, prefix)
+            expected = Request.from_engine_core_request(expected_input, hasher)
+            assert actual.block_hashes == expected.block_hashes
+            if hashes:
+                if index == 1:
+                    assert prefix is not None and prefix[1]
+                hashes.publish(incoming, actual, hashes.store.epoch)
+        bad = ChatCompletionRequest(
+            model=config.model_config.model,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": "data:image/png;base64,bm90LWFuLWltYWdl"
+                            },
+                        }
+                    ],
+                }
+            ],
+            max_tokens=1,
+        )
+        cache = renderer.session_token_cache
+        retained = cache.store.bytes_used if cache else 0
+        with pytest.raises((ValueError, OSError)) as error:
+            await online.render_chat(bad.model_copy(deep=True))
+        with pytest.raises(type(error.value)):
+            await online.render_chat(bad.model_copy(deep=True), session_id="images")
+        if cache:
+            assert cache.store.bytes_used == retained
+        _, recovered = await online.render_chat(
+            request.model_copy(deep=True), session_id="images"
+        )
+        assert (
+            cast(TokensInput, recovered[0])["prompt_token_ids"]
+            == cast(TokensInput, candidate[0])["prompt_token_ids"]
+        )
+        if token_reuse:
+            assert cache is not None
+            assert cache.stats["exact"] > 0 and cache.stats["partial"] > 0
+            assert 0 < cache.store.bytes_used <= cache.store.capacity
+            key = (None, "images")
+            with cache.store.borrow(key) as snapshot:
+                assert snapshot is not None
+                before = (snapshot.text, snapshot.ids.copy())
+            failing = request.model_copy(deep=True)
+            failing.messages[0] = {
+                "role": "system",
+                "content": "A different render must roll back. " * 40,
+            }
+            failing.mm_processor_kwargs = {
+                "size": {"shortest_edge": -1, "longest_edge": -1}
+            }
+            staged_before = len(staged_token_snapshots)
+            with pytest.raises((ValueError, TypeError, OverflowError)) as error:
+                await online.render_chat(failing.model_copy(deep=True))
+            with pytest.raises(type(error.value)):
+                await online.render_chat(
+                    failing.model_copy(deep=True), session_id="images"
+                )
+            assert len(staged_token_snapshots) == staged_before + 1
+            assert staged_token_snapshots[-1] != before[0]
+            with cache.store.borrow(key) as snapshot:
+                assert snapshot is not None
+                assert (snapshot.text, snapshot.ids) == before
+            exact_before = cache.stats["exact"]
+            _, recovered = await online.render_chat(
+                request.model_copy(deep=True), session_id="images"
+            )
+            assert cache.stats["exact"] == exact_before + 1
+            assert (
+                cast(TokensInput, recovered[0])["prompt_token_ids"]
+                == cast(TokensInput, candidate[0])["prompt_token_ids"]
+            )
+            late = request.model_copy(deep=True)
+            late.messages[0] = {
+                "role": "system",
+                "content": "Valid render, invalid engine parameters. " * 40,
+            }
+            _, rendered = await online.render_chat(late, session_id="images")
+            with cache.store.borrow(key) as snapshot:
+                assert snapshot is not None
+                published = (snapshot.text, snapshot.ids.copy())
+                assert published != before
+            params = SamplingParams(
+                max_tokens=1,
+                routed_experts_prompt_start=len(
+                    cast(TokensInput, rendered[0])["prompt_token_ids"]
+                )
+                + 1,
+            )
+            with pytest.raises(
+                VLLMValidationError, match="routed_experts_prompt_start"
+            ):
+                processor.process_inputs(
+                    "late-validation",
+                    rendered[0],
+                    params,
+                    ("generate",),
+                    session_id="images",
+                )
+            with cache.store.borrow(key) as snapshot:
+                assert snapshot is not None
+                assert (snapshot.text, snapshot.ids) == published
+            exact_before = cache.stats["exact"]
+            _, retry = await online.render_chat(
+                late.model_copy(deep=True), session_id="images"
+            )
+            assert cache.stats["exact"] == exact_before + 1
+            _, native = await online.render_chat(late.model_copy(deep=True))
+            assert (
+                cast(TokensInput, retry[0])["prompt_token_ids"]
+                == cast(TokensInput, native[0])["prompt_token_ids"]
+            )
+        if hashes:
+            assert hashes.stats["reused_blocks"] > 0
+    finally:
+        renderer.shutdown()
+    assert not torch.cuda.is_initialized()
+
+
+@pytest.fixture
 def renderer(request):
     model, revision = (
         request.param
