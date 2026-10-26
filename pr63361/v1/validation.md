@@ -11,7 +11,7 @@ Separately, the public replay scripts passed CPU HTTP checks and four real-serve
 <details>
 <summary>Source and evidence mapping</summary>
 
-[Final functional acceptance](../identities/final-functional-acceptance.json) identifies the reviewed source. [Earlier correctness evidence](../identities/r5-correctness-acceptance.json) includes the historical dependency checks. [Source/build files](../identities/) distinguish actual runs from evidence associated through unchanged file hashes. Git tree IDs in those records describe file content, not published commit IDs.
+[Earlier frozen-source acceptance](../identities/final-functional-acceptance.json) identifies the snapshot before the update to main. The updated source and fresh regression evidence are linked above. [Earlier correctness evidence](../identities/r5-correctness-acceptance.json) includes the historical dependency checks. [Source/build files](../identities/) distinguish actual runs from evidence associated through unchanged file hashes. Git tree IDs in those records describe file content, not published commit IDs.
 
 Earlier performance builds also carry the same independent shutdown patch on both sides. This patch is excluded from the code under review. Test/documentation cleanup did not change token reuse product code; the exact source snapshots and both patch forms remain available. Author validation does not mean upstream CI has passed.
 
