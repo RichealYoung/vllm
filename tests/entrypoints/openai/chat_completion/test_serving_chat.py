@@ -12,6 +12,7 @@ from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 import pytest_asyncio
+import regex as re
 from openai import OpenAI
 from starlette.requests import Request
 
@@ -3444,7 +3445,7 @@ async def test_non_streaming_finish_reason_matches_tool_calls(
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("token_mb", [0, 8])
+@pytest.mark.parametrize(("token_mb", "hash_mb"), [(0, 0), (8, 0), (0, 8), (8, 8)])
 @pytest.mark.parametrize(
     ("model", "revision"),
     [
@@ -3460,7 +3461,7 @@ async def test_non_streaming_finish_reason_matches_tool_calls(
     ids=["qwen3", "llama32"],
 )
 async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
-    model, revision, token_mb, capfd, tmp_path
+    model, revision, token_mb, hash_mb, capfd, tmp_path
 ):
     """Exercise HTTP, renderer, IPC and native core with real model weights."""
     from tests.models.utils import check_logprobs_close
@@ -3472,6 +3473,8 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
         revision,
         "--session-token-cache-mb",
         str(token_mb),
+        "--session-hash-cache-mb",
+        str(hash_mb),
         "--dtype",
         "float16",
         "--max-model-len",
@@ -3567,3 +3570,157 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
     if token_mb and pinned:
         assert "Session token reuse: route=exact" in server_log, server_log[-12000:]
         assert "Session token reuse: route=partial" in server_log, server_log[-12000:]
+    if hash_mb:
+        assert re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
+            server_log[-12000:]
+        )
+
+
+@pytest.mark.asyncio
+async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path):
+    """Text-only T/H must leave image requests on their native computation path."""
+    import io
+
+    import pybase64
+    from PIL import Image
+
+    token_mb = hash_mb = 8
+
+    from tests.models.utils import check_logprobs_close
+
+    model = os.environ.get("VLLM_TEST_QWEN25_VL_MODEL", "Qwen/Qwen2.5-VL-3B-Instruct")
+    revision = "66285546d2b821cf421d4f5eb2576359d3770cd3"
+    args = [
+        "--revision",
+        revision,
+        "--tokenizer-revision",
+        revision,
+        "--session-token-cache-mb",
+        str(token_mb),
+        "--session-hash-cache-mb",
+        str(hash_mb),
+        "--dtype",
+        "float16",
+        "--max-model-len",
+        "2048",
+        "--gpu-memory-utilization",
+        "0.7",
+        "--max-num-seqs",
+        "2",
+        "--limit-mm-per-prompt",
+        '{"image": 4, "video": 0}',
+        "--mm-processor-kwargs",
+        '{"min_pixels": 3136, "max_pixels": 3136}',
+        "--shutdown-timeout",
+        "10",
+    ]
+    images = []
+    for color in ("red", "blue"):
+        stream = io.BytesIO()
+        Image.new("RGB", (56, 56), color).save(stream, format="PNG")
+        images.append(
+            "data:image/png;base64," + pybase64.b64encode(stream.getvalue()).decode()
+        )
+
+    def output(response):
+        choice = response.choices[0]
+        return (
+            choice.token_ids,
+            choice.message.content or "",
+            [
+                {
+                    int(item.token.split(":", 1)[1]): item.logprob
+                    for item in token.top_logprobs
+                }
+                for token in choice.logprobs.content
+            ],
+        )
+
+    try:
+        with RemoteOpenAIServer(
+            model,
+            args,
+            env_dict={"VLLM_LOGGING_LEVEL": "DEBUG", "VLLM_SERVER_DEV_MODE": "1"},
+        ) as server:
+            async with server.get_async_client() as client:
+                previous_native = None
+                for turn, selected in enumerate(((0,), (1,), (0,))):
+                    text = "Describe 截图 e\u0301 👩‍💻." + " Continue." * max(
+                        0, turn - 2
+                    )
+                    content: list[dict[str, Any]] = [{"type": "text", "text": text}]
+                    content.extend(
+                        {"type": "image_url", "image_url": {"url": images[item]}}
+                        for item in selected
+                    )
+                    messages = [
+                        {
+                            "role": "system",
+                            "content": "Preserve the visible history. " * 40,
+                        },
+                        {"role": "user", "content": content},
+                    ]
+                    responses = []
+                    for hinted in (False, True, True):
+                        response = await client.chat.completions.create(
+                            model=model,
+                            messages=messages,
+                            temperature=0,
+                            seed=0,
+                            max_tokens=2,
+                            logprobs=True,
+                            top_logprobs=2,
+                            extra_body={
+                                "session_id": "images" if hinted else None,
+                                "return_token_ids": True,
+                                "return_tokens_as_token_ids": True,
+                            },
+                        )
+                        responses.append(response)
+                        with (tmp_path / "responses.jsonl").open(
+                            "a", encoding="utf-8"
+                        ) as response_log:
+                            response_log.write(
+                                json.dumps(
+                                    {
+                                        "turn": turn,
+                                        "session_hint": hinted,
+                                        "response": response.model_dump(mode="json"),
+                                    },
+                                    ensure_ascii=False,
+                                )
+                                + "\n"
+                            )
+                    native = responses[0]
+                    assert native.prompt_token_ids
+                    if turn == 2:
+                        assert previous_native is not None
+                        assert (
+                            native.prompt_token_ids == previous_native.prompt_token_ids
+                        )
+                    for response in responses[1:]:
+                        assert response.prompt_token_ids == native.prompt_token_ids
+                        assert (
+                            response.usage.prompt_tokens == native.usage.prompt_tokens
+                        )
+                        assert (
+                            response.usage.completion_tokens
+                            == native.usage.completion_tokens
+                        )
+                        check_logprobs_close(
+                            outputs_0_lst=[output(native)],
+                            outputs_1_lst=[output(response)],
+                            name_0="native image request without session",
+                            name_1="image session prefix reuse",
+                            always_check_logprobs=True,
+                        )
+                    previous_native = native
+    finally:
+        captured = capfd.readouterr()
+        server_log = captured.out + captured.err
+        (tmp_path / "server.log").write_text(server_log)
+    assert "Session token cache disabled:" not in server_log, server_log[-12000:]
+    assert "Session token reuse: route=" not in server_log, server_log[-12000:]
+    assert not re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
+        server_log[-12000:]
+    )

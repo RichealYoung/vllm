@@ -1,16 +1,17 @@
 # Session prefix reuse
 
 Session prefix reuse uses the existing session ID to select a recent candidate
-for exact input tokenization reuse.
+for exact input tokenization and prompt block hash reuse.
 Enable it explicitly; the default budget is zero (disabled):
 
 ```console
 vllm serve Qwen/Qwen3-0.6B \
     --tokenizer-revision c1899de289a04d12100db370d81485cdf75e47ca \
-    --session-token-cache-mb 32
+    --session-token-cache-mb 32 \
+    --session-hash-cache-mb 32
 ```
 
-Budgets are MiB per renderer. Histories
+Budgets are MiB per renderer and EngineCore, independently. Histories
 occupy CPU memory; they do not retain physical KV blocks or replace APC.
 Accounting includes reservations and in-flight readers, and conservatively
 charges each token occurrence. The budget is not a process RSS limit.
@@ -82,7 +83,7 @@ versions disable token reuse with a warning and use native tokenization, even
 when those library versions satisfy vLLM's installation requirements.
 
 The implementation requires GIL-enabled CPython. Token accounting uses Python
-and does not depend on a native helper.
+and does not depend on a native helper. Hash reuse requires the optional native `token_lcp` helper. If it is unavailable, H warns and falls back; T remains independent.
 
 ## Exactness and scope
 
@@ -91,7 +92,11 @@ token boundaries. Unsafe overlap, whitespace stripping, unsupported options,
 encoding overrides or content mismatches take the native path. Full input IDs
 remain the correctness reference.
 
-Requests containing images or other media use native tokenization.
+Hash reuse compares exact token IDs and resumes only complete validated blocks.
+Salt, hash-function state, weight version, reset and lifecycle boundaries isolate
+histories. Native full block hashing remains the correctness reference.
+
+Requests containing images or other media use native tokenization and native block hashing.
 They do not publish media reuse histories. This stage optimizes text chat only.
 
 No performance improvement is guaranteed. Misses, short inputs, frequent edits,

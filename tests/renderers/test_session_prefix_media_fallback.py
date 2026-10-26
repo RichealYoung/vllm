@@ -15,9 +15,12 @@ from vllm.tokenizers import get_tokenizer
 
 
 @pytest.mark.asyncio
-@pytest.mark.parametrize("token_reuse", [False, True])
-async def test_multimodal_session_falls_back_to_native(token_reuse):
-    """Image edits retain native IDs, media tensors and native block hashes."""
+@pytest.mark.parametrize(
+    "token_reuse,hash_reuse",
+    [(False, False), (True, False), (False, True), (True, True)],
+)
+async def test_multimodal_session_falls_back_to_native(token_reuse, hash_reuse):
+    """Image edits retain native IDs, media tensors and the complete hash chain."""
     import io
 
     import pybase64
@@ -29,6 +32,7 @@ async def test_multimodal_session_falls_back_to_native(token_reuse):
     from vllm.multimodal.cache import engine_receiver_cache_from_config
     from vllm.utils.hashing import sha256
     from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
     from vllm.v1.engine.input_processor import InputProcessor
     from vllm.v1.request import Request
 
@@ -76,6 +80,7 @@ async def test_multimodal_session_falls_back_to_native(token_reuse):
     assert receiver is not None
     init_none_hash(sha256)
     hasher = get_request_block_hasher(16, sha256)
+    hashes = SessionHashCache(1 << 20, 16) if hash_reuse else None
     images = []
     for color, size in (("red", (56, 56)), ("blue", (56, 56)), ("green", (84, 56))):
         stream = io.BytesIO()
@@ -132,9 +137,17 @@ async def test_multimodal_session_falls_back_to_native(token_reuse):
             if incoming.mm_features:
                 receiver.get_and_update_features(incoming.mm_features)
             assert incoming.mm_features == expected_input.mm_features
-            actual = Request.from_engine_core_request(incoming, hasher)
+            prefix = hashes.prefix(incoming) if hashes else None
+            actual = Request.from_engine_core_request(incoming, hasher, prefix)
             expected = Request.from_engine_core_request(expected_input, hasher)
             assert actual.block_hashes == expected.block_hashes
+            if hashes:
+                if incoming.mm_features:
+                    assert prefix is None
+                retained_hashes = hashes.store.bytes_used
+                hashes.publish(incoming, actual, hashes.store.epoch)
+                if incoming.mm_features:
+                    assert hashes.store.bytes_used == retained_hashes
     finally:
         renderer.shutdown()
     assert not torch.cuda.is_initialized()
