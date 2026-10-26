@@ -10,16 +10,16 @@ With tokenization and hash reuse alone, requests that contain images use normal 
 
 - Uses the same opt-in budgets as the previous stages; no new options.
 - This is a correctness extension, not a speedup claim. Replacing an image while keeping identical token IDs changes the normal hash chain, and reuse stops before the affected block.
-- No image-workload performance is claimed. On text-only requests this version performed like the previous stage: mean time to first output 421.8 → 421.1 ms (individual runs −3.7% to +2.5%); short independent requests changed +1.6% on average with mixed directions. This shows neither a speedup nor statistical equivalence.
+- No image-workload performance is claimed. In the earlier frozen-source experiment, text-only requests performed like the previous stage: mean time to first output 421.8 → 421.1 ms (individual runs −3.7% to +2.5%); short independent requests changed +1.6% on average with mixed directions. This shows neither a speedup nor statistical equivalence.
 
 ## Validation
 
 Qwen2.5-VL-3B-Instruct (revision `66285546d2b821cf421d4f5eb2576359d3770cd3`), comparing no reuse, tokenization reuse, hash reuse and both, against requests without a session hint.
 
-- **CPU:** an earlier tested source passed 403 CPU tests, including the real image processor, image replacement, resizing, insertion and removal, reordering, block boundaries, invalid image spans, and discarding pending entries after failures. It also passed 72 requests to running text-model servers.
+- **CPU:** the updated source passed 405 CPU tests, including the real image processor, image replacement, resizing, insertion and removal, reordering, block boundaries, invalid image spans, and discarding pending entries after failures. It also passed 72 requests to running text-model servers.
 - **Image serving:** 60 valid image requests, 8 invalid image requests and 12 streaming-close/reset/recovery requests. Complete prompt token IDs and usage matched requests without a session hint, and 72 complete normal hash chains were checked independently.
 - The synthetic test images produce the same first output tokens, so comparing outputs alone does not prove that images are distinguished; the hash checks do.
-- The published source was reassembled and passed source-hash and pre-commit checks; its CPU/GPU tests were not rerun. See [validation details](validation.md).
+- The source was derived from the current text PR through the hash follow-up. Its helper build, CPU/GPU suites and applicable pre-commit checks were rerun. See [validation details](validation.md). The performance figures above remain from `be08fa535`; they were not rerun on the updated source.
 
 ## Limitations
 
@@ -28,6 +28,6 @@ Qwen2.5-VL-3B-Instruct (revision `66285546d2b821cf421d4f5eb2576359d3770cd3`), co
 
 ## Code
 
-- [Incremental changes: hash reuse → image compatibility](https://github.com/RichealYoung/vllm/compare/6360b1aa9473faf377fa0c383c14ad6a53fac587...f9732fa728c5f7507373f0790ce8a1f6babc64fa)
-- [Full source snapshot](https://github.com/RichealYoung/vllm/tree/f9732fa728c5f7507373f0790ce8a1f6babc64fa) · [patch](../patches/V2-to-V3.patch) · [design notes](design.md)
+- [Incremental changes: hash reuse → image compatibility](https://github.com/RichealYoung/vllm/compare/813ade25f0fdecb93a1ab0547f362c1b0404aa37...4327e413c12ca9c3a066035f827d5f1c9bb5487a)
+- [Full source snapshot](https://github.com/RichealYoung/vllm/tree/4327e413c12ca9c3a066035f827d5f1c9bb5487a) · [patch](../patches/current-main/hash-to-image.patch) · [design notes](design.md)
 - Previous: [block-hash reuse](../v2/README.md)

@@ -1,0 +1,20 @@
+[
+  {
+    "patch": "patches/current-main/BASE-to-text.patch",
+    "sha256": "4902dd00f07101ec07aa66a6dc1d0931717f5986acc5b169469aafe1cd2d4e3f",
+    "tree": "af1302ed4f8a269418c146b1fd6184af02590c37",
+    "status": "exact_git_tree_reconstructed"
+  },
+  {
+    "patch": "patches/current-main/text-to-hash.patch",
+    "sha256": "231e6f0042d080a1297e02185e075fffd095ce63ffb72be088f30c40846040a6",
+    "tree": "70a720a04bc62f912076b4226e5ca0bc4b982752",
+    "status": "exact_git_tree_reconstructed"
+  },
+  {
+    "patch": "patches/current-main/hash-to-image.patch",
+    "sha256": "7382b187765de591f8a0b5c7ee718f34fb729fa6980a54d5cf44f6fb3d6e4ed3",
+    "tree": "2094b1a7e43d916344f9aa75dd50c4f27ac2e1ad",
+    "status": "exact_git_tree_reconstructed"
+  }
+]

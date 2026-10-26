@@ -8,4 +8,4 @@ Real vision-model validation used Qwen2.5-VL-3B revision `66285546d2b821cf421d4f
 
 The existing performance experiment used only text requests for this version. Against tokenization plus hash reuse, mean time to first output changed 421.757→421.076 ms; the mean paired change was −0.131%, range −3.732% to +2.499%. Short independent requests changed +1.624% on average, with mixed directions. This proves neither multimodal speedup nor statistical equivalence.
 
-[Incremental source patch](../patches/V2-to-V3.patch), [validation](validation.md).
+[Incremental source patch](../patches/current-main/hash-to-image.patch), [validation](validation.md).

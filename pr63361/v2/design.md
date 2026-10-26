@@ -14,4 +14,4 @@ A separate [native/Python token-memory-size comparison](accounting-paired-summar
 
 For growing histories, adding hash reuse changed mean time to first output from 515.324 to 421.757 ms. The mean paired change was −16.977%, ranging from −32.612% to −11.021%; end-to-end latency changed only −0.116%. Combined tokenization and hash reuse improved time to first output by 34.219% against the baseline. This combined benefit must not be attributed to tokenization reuse alone. Short-request changes varied in direction.
 
-[Validation](validation.md), [incremental source patch](../patches/V1-to-V2.patch), [complete result data](../performance/results/summary-001.json).
+[Validation](validation.md), [incremental source patch](../patches/current-main/text-to-hash.patch), [complete performance result data](../performance/results/summary-001.json).

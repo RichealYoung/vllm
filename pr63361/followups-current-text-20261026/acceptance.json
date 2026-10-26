@@ -1,0 +1,191 @@
+{
+  "status": "passed",
+  "identities": {
+    "text_commit": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+    "text_tree": "af1302ed4f8a269418c146b1fd6184af02590c37",
+    "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+    "hash": {
+      "commit": "813ade25f0fdecb93a1ab0547f362c1b0404aa37",
+      "tree": "70a720a04bc62f912076b4226e5ca0bc4b982752",
+      "parent": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+      "archive_sha256": "4a396ddc2a6549a4eb0e9ef6726e36fc8778c2e957b62fffce888c84cc32fbbb",
+      "files": 8228
+    },
+    "image": {
+      "commit": "4327e413c12ca9c3a066035f827d5f1c9bb5487a",
+      "tree": "2094b1a7e43d916344f9aa75dd50c4f27ac2e1ad",
+      "parent": "813ade25f0fdecb93a1ab0547f362c1b0404aa37",
+      "archive_sha256": "a9bd75cf602e345633cf0697800f1f09a7dab40939d22a706f66b3afdcea4c5c",
+      "deleted_files": [
+        "tests/renderers/test_session_prefix_media_fallback.py"
+      ],
+      "files": 8227
+    }
+  },
+  "cpu": {
+    "status": "passed",
+    "reports": {
+      "hash": {
+        "tests": 397,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      },
+      "image": {
+        "tests": 405,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "exit_code": 0
+      }
+    },
+    "helper": {
+      "path": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-followups-current-text-validation-20261026-001/helper-build/_session_prefix.abi3.so",
+      "sha256": "fff059187086dec0a5e422e2a669ab045a85a8164a3d8c2312e27efb71d56c4c",
+      "source_sha256": "60271f46025ff85e31cda0ecf34e8984fb7fb6353422bc183954928d5d607c32",
+      "exports": [
+        "token_lcp"
+      ]
+    },
+    "performance": false
+  },
+  "gpu": {
+    "status": "passed",
+    "reports": {
+      "hash": {
+        "text": {
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0,
+          "requests": 72,
+          "execution": "fresh",
+          "performance": false
+        },
+        "fallback": {
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0,
+          "requests": 9,
+          "execution": "fresh",
+          "performance": false
+        }
+      },
+      "image": {
+        "text": {
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0,
+          "requests": 72,
+          "execution": "fresh",
+          "performance": false
+        },
+        "images": {
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "exit_code": 0,
+          "requests": 60,
+          "execution": "fresh",
+          "performance": false
+        }
+      }
+    },
+    "performance": false
+  },
+  "jobs": {
+    "cpu": {
+      "schema_version": 2,
+      "id": "codex-pr63361-followups-cpu-20261026-r1",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "Approved hash and image follow-ups derived from current text PR; correctness only, no performance",
+      "manager_pid": 537993,
+      "created_utc": "2026-10-26T07:25:30.763632+00:00",
+      "cwd": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-followups-current-text-validation-20261026-001",
+      "log": "/root/autodl-tmp/codex-projects/vllm-main-cu13/coord-jobs/codex-pr63361-followups-cpu-20261026-r1.log",
+      "status": "finished",
+      "command_argv": [
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/.venv/bin/python",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-followups-current-text-validation-20261026-001/inputs/cpu.py"
+      ],
+      "command_sha256": "8cda3b3fbdd89b411fbc1a6449a08357199c3ae8a0244b2e4b88f59ce5d2e34f",
+      "expected_duration_seconds": 2400,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "/root/autodl-tmp/shared/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-26T07:25:30.765285+00:00",
+      "child_pid": 537996,
+      "pgid": 537996,
+      "child_created": 1792999529.92,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-26T07:46:36.755305+00:00",
+      "elapsed_seconds": 1265.991298276931,
+      "signal": null
+    },
+    "gpu": {
+      "schema_version": 2,
+      "id": "codex-pr63361-followups-gpu-20261026-r1",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "functional",
+      "purpose": "Approved hash and image follow-ups derived from current text PR; correctness only, no performance",
+      "manager_pid": 540411,
+      "created_utc": "2026-10-26T07:46:36.911532+00:00",
+      "cwd": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-followups-current-text-validation-20261026-001",
+      "log": "/root/autodl-tmp/codex-projects/vllm-main-cu13/coord-jobs/codex-pr63361-followups-gpu-20261026-r1.log",
+      "status": "finished",
+      "command_argv": [
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/.venv/bin/python",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-followups-current-text-validation-20261026-001/inputs/gpu.py"
+      ],
+      "command_sha256": "4d6891f1c49fcc24c4351efe54fb6b4e149a4594222eaf608c5989411d71fa43",
+      "expected_duration_seconds": 2400,
+      "overdue": true,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "/root/autodl-tmp/shared/locks/host.lock",
+          "mode": "shared"
+        },
+        {
+          "path": "/root/autodl-tmp/shared/locks/gpu.lock",
+          "mode": "exclusive"
+        }
+      ],
+      "started_utc": "2026-10-26T07:46:37.010878+00:00",
+      "child_pid": 540416,
+      "pgid": 540416,
+      "child_created": 1793000796.16,
+      "overdue_since_utc": "2026-10-26T08:26:37.133334+00:00",
+      "coordination_required": true,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-26T08:36:13.154235+00:00",
+      "elapsed_seconds": 2976.1444339826703,
+      "signal": null
+    }
+  },
+  "performance_rerun": false,
+  "publication": "pending local evidence verification"
+}

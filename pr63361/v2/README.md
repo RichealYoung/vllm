@@ -14,7 +14,7 @@ After tokenization, EngineCore still computes the prefix-cache hash of every com
 
 ## Validation
 
-Same setup, workload and run protocol as PR #63361: Qwen3-0.6B on an RTX 3090, four concurrent clients, four fresh-server runs of 80 requests per configuration.
+The performance measurements below use the earlier frozen `be08fa535` source; they were not rerun after updating to main. Setup: Qwen3-0.6B on an RTX 3090, four concurrent clients, four fresh-server runs of 80 requests per configuration.
 
 | Metric | Token reuse | Token + hash reuse | Result |
 |---|---:|---:|---|
@@ -29,7 +29,7 @@ The largest change (−32.6%) comes from the run pair in which the tokenization-
 
 Against the baseline without any reuse, tokenization plus hash reuse reduced mean time to first output by 34.2% (runs −35.2% to −32.8%) and end-to-end latency by about 1.1%. This combined result must not be attributed to tokenization reuse alone.
 
-Correctness: an earlier tested source passed 395 CPU tests, 72 requests to running Qwen3 and Llama servers, and 9 image requests checking normal-processing fallback. Complete token IDs and complete block hashes from normal computation are the references; tests also confirm that reuse actually occurs and cover hash-state resets and memory limits. The published source was reassembled from the tokenization-only version and passed file-hash and pre-commit checks; its CPU/GPU tests were not rerun. See [validation details](validation.md).
+Correctness on the updated source: 397 CPU tests, 72 requests to running Qwen3 and Llama servers, and 9 image requests checking normal-processing fallback passed. Complete token IDs and complete block hashes from normal computation are the references; tests also confirm actual reuse and cover hash-state resets and memory limits. The native helper was rebuilt and applicable pre-commit checks passed. See [validation details](validation.md).
 
 ## Details
 
@@ -39,6 +39,6 @@ Correctness: an earlier tested source passed 395 CPU tests, 72 requests to runni
 
 ## Code
 
-- [Incremental changes: token reuse → hash reuse](https://github.com/RichealYoung/vllm/compare/97e901c7f00b6d14f538400e0be57c7e67bcefd8...6360b1aa9473faf377fa0c383c14ad6a53fac587)
-- [Full source snapshot](https://github.com/RichealYoung/vllm/tree/6360b1aa9473faf377fa0c383c14ad6a53fac587) · [patch](../patches/V1-to-V2.patch) · [raw results](../performance/results/summary-001.json)
+- [Incremental changes: token reuse → hash reuse](https://github.com/RichealYoung/vllm/compare/045e9051b2c8c93e90aed3e30516855edc57d99d...813ade25f0fdecb93a1ab0547f362c1b0404aa37)
+- [Full source snapshot](https://github.com/RichealYoung/vllm/tree/813ade25f0fdecb93a1ab0547f362c1b0404aa37) · [patch](../patches/current-main/text-to-hash.patch) · [raw performance results](../performance/results/summary-001.json)
 - Next: [image compatibility](../v3/README.md)
