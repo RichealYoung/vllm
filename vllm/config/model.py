@@ -422,7 +422,7 @@ class ModelConfig:
 
     session_token_cache_mb: int = Field(default=0, ge=0)
     """Per-renderer CPU session token history budget in MiB; zero disables it.
-    Supports text chat with audited tokenizer implementations, versions, and backends.
+    Reuse requires an audited tokenizer implementation, version, and backend.
     Session IDs select candidates; exact content validation remains required.
     """
 

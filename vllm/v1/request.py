@@ -233,7 +233,6 @@ class Request:
                 or prompt_token_ids is None
                 or prompt_embeds is not None
                 or prompt_is_token_ids is not None
-                or self.mm_features
                 or lora_request is not None
                 or resumable
             ):

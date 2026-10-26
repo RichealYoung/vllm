@@ -22,6 +22,7 @@ logger = init_logger(__name__)
 class HashSnapshot:
     ids: list[int]
     hashes: list[BlockHash]
+    media: tuple[tuple[str, str, int, int], ...] = ()
 
 
 class SessionHashCache:
@@ -50,15 +51,49 @@ class SessionHashCache:
             and type(request.prompt_token_ids) is list
             and request.prompt_embeds is None
             and request.prompt_is_token_ids is None
-            and not request.mm_features
             and request.lora_request is None
             and not request.resumable
             and request.pooling_params is None
             and request.sampling_params is not None
         )
 
+    @staticmethod
+    def media_descriptors(
+        request: EngineCoreRequest,
+    ) -> tuple[tuple[str, str, int, int], ...] | None:
+        if not request.mm_features:
+            return ()
+        ids = request.prompt_token_ids
+        if ids is None:
+            return None
+        media = []
+        previous_end = 0
+        for feature in request.mm_features:
+            position = feature.mm_position
+            if (
+                type(feature.modality) is not str
+                or not feature.modality
+                or type(feature.identifier) is not str
+                or not feature.identifier
+                or type(position.offset) is not int
+                or type(position.length) is not int
+                or position.offset < previous_end
+                or position.length <= 0
+                or position.offset + position.length > len(ids)
+                or position.is_embed is not None
+            ):
+                return None
+            media.append(
+                (feature.modality, feature.identifier, position.offset, position.length)
+            )
+            previous_end = position.offset + position.length
+        return tuple(media)
+
     def prefix(self, request: EngineCoreRequest) -> tuple[int, list[BlockHash]] | None:
         if not self.eligible(request) or self.none_hash != kv_cache_utils.NONE_HASH:
+            return None
+        media = self.media_descriptors(request) if request.mm_features else ()
+        if media is None:
             return None
         key = (request.cache_salt, request.session_id)
         with self.store.borrow(key) as old:
@@ -67,6 +102,20 @@ class SessionHashCache:
             ids = request.prompt_token_ids
             assert ids is not None
             limit = min(len(old.hashes), len(ids) // self.block_size) * self.block_size
+            if old.media or media:
+                for index in range(max(len(old.media), len(media))):
+                    previous = old.media[index] if index < len(old.media) else None
+                    current = media[index] if index < len(media) else None
+                    if previous != current:
+                        limit = min(
+                            limit,
+                            *(
+                                item[2]
+                                for item in (previous, current)
+                                if item is not None
+                            ),
+                        )
+                        break
             try:
                 count = self.helper.token_lcp(ids, old.ids, limit) // self.block_size
             except (OverflowError, ValueError):
@@ -85,6 +134,9 @@ class SessionHashCache:
             return
         ids = request.prompt_token_ids
         assert ids is not None
+        media = self.media_descriptors(request) if request.mm_features else ()
+        if media is None:
+            return
         hashes = result.block_hashes
         key = (request.cache_salt, request.session_id)
         size = (
@@ -94,11 +146,20 @@ class SessionHashCache:
             + sys.getsizeof([])
             + len(hashes) * struct.calcsize("P")
             + sum(map(sys.getsizeof, hashes))
+            + (
+                sys.getsizeof(media)
+                + sum(
+                    sys.getsizeof(item) + sum(map(sys.getsizeof, item))
+                    for item in media
+                )
+                if media
+                else 0
+            )
         )
         reservation = self.store.reserve(key, size)
         if reservation is not None:
             try:
-                snapshot = HashSnapshot(ids.copy(), hashes.copy())
+                snapshot = HashSnapshot(ids.copy(), hashes.copy(), media)
                 if reservation.epoch == epoch:
                     reservation.commit(snapshot, size)
             finally:
