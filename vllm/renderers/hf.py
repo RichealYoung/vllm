@@ -1092,11 +1092,7 @@ class HfRenderer(BaseRenderer[HfTokenizer]):
         self, prompt: TextPrompt, params: TokenizeParams
     ) -> TokensPrompt:
         cache = self.session_token_cache
-        if (
-            cache is not None
-            and not prompt.get("multi_modal_data")
-            and not prompt.get("multi_modal_uuids")
-        ):
+        if cache is not None:
             ids = cache.encode(self.get_tokenizer(), prompt["prompt"], params)
             if ids is not None:
                 return self._build_tokens_prompt(ids, prompt)

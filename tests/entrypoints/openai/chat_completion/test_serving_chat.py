@@ -2,6 +2,7 @@
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 import asyncio
 import importlib.metadata
+import io
 import json
 import os
 from collections.abc import AsyncIterator, Coroutine
@@ -10,10 +11,12 @@ from dataclasses import dataclass, field
 from typing import Any
 from unittest.mock import AsyncMock, MagicMock
 
+import pybase64
 import pytest
 import pytest_asyncio
 import regex as re
 from openai import OpenAI
+from PIL import Image
 from starlette.requests import Request
 
 from tests.entrypoints.openai.utils import (
@@ -3577,14 +3580,13 @@ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
 
 
 @pytest.mark.asyncio
-async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path):
-    """Text-only T/H must leave image requests on their native computation path."""
-    import io
-
-    import pybase64
-    from PIL import Image
-
-    token_mb = hash_mb = 8
+@pytest.mark.parametrize(("token_mb", "hash_mb"), [(0, 0), (8, 0), (0, 8), (8, 8)])
+async def test_session_prefix_image_requests_preserve_native_ids_and_outputs(
+    token_mb, hash_mb, capfd, tmp_path
+):
+    """Keep native image processing and generation correct across session reuse."""
+    import httpx
+    from openai import BadRequestError
 
     from tests.models.utils import check_logprobs_close
 
@@ -3644,7 +3646,8 @@ async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path
         ) as server:
             async with server.get_async_client() as client:
                 previous_native = None
-                for turn, selected in enumerate(((0,), (1,), (0,))):
+                invalid_image = "data:image/png;base64,!!!"
+                for turn, selected in enumerate(((0,), (0, 1), (1, 1), (1, 0), (0,))):
                     text = "Describe 截图 e\u0301 👩‍💻." + " Continue." * max(
                         0, turn - 2
                     )
@@ -3660,6 +3663,30 @@ async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path
                         },
                         {"role": "user", "content": content},
                     ]
+                    if turn == 4:
+                        for hinted in (False, True):
+                            with pytest.raises(BadRequestError) as error:
+                                await client.chat.completions.create(
+                                    model=model,
+                                    messages=[
+                                        {
+                                            "role": "user",
+                                            "content": [
+                                                {
+                                                    "type": "image_url",
+                                                    "image_url": {"url": invalid_image},
+                                                }
+                                            ],
+                                        }
+                                    ],
+                                    max_tokens=2,
+                                    extra_body={
+                                        "session_id": "images" if hinted else None
+                                    },
+                                )
+                            assert error.value.status_code == 400
+                            with (tmp_path / "errors.jsonl").open("a") as error_log:
+                                error_log.write(json.dumps(error.value.body) + "\n")
                     responses = []
                     for hinted in (False, True, True):
                         response = await client.chat.completions.create(
@@ -3715,12 +3742,80 @@ async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path
                             always_check_logprobs=True,
                         )
                     previous_native = native
+                stream = await client.chat.completions.create(
+                    model=model,
+                    messages=messages,
+                    temperature=0,
+                    max_tokens=128,
+                    stream=True,
+                    extra_body={"session_id": "images-control", "ignore_eos": True},
+                )
+                try:
+                    async for chunk in stream:
+                        if chunk.choices and chunk.choices[0].delta.content:
+                            break
+                    else:
+                        pytest.fail("Image stream ended without content")
+                finally:
+                    await stream.close()
+                async with httpx.AsyncClient() as control:
+                    reset = await control.post(
+                        server.url_for("reset_prefix_cache"),
+                        params={"reset_running_requests": "true"},
+                    )
+                    reset.raise_for_status()
+                    assert reset.json()["success"]
+                    reset_media = await control.post(server.url_for("reset_mm_cache"))
+                    reset_media.raise_for_status()
+                recovered = []
+                for hinted in (False, True):
+                    response = await client.chat.completions.create(
+                        model=model,
+                        messages=messages,
+                        temperature=0,
+                        seed=0,
+                        max_tokens=2,
+                        logprobs=True,
+                        top_logprobs=2,
+                        extra_body={
+                            "session_id": "images-control" if hinted else None,
+                            "return_token_ids": True,
+                            "return_tokens_as_token_ids": True,
+                        },
+                    )
+                    recovered.append(response)
+                assert recovered[0].prompt_token_ids == recovered[1].prompt_token_ids
+                assert (
+                    recovered[0].usage.prompt_tokens == recovered[1].usage.prompt_tokens
+                )
+                check_logprobs_close(
+                    outputs_0_lst=[output(recovered[0])],
+                    outputs_1_lst=[output(recovered[1])],
+                    name_0="native image request after reset",
+                    name_1="session image request after reset",
+                    always_check_logprobs=True,
+                )
+                (tmp_path / "lifecycle.json").write_text(
+                    json.dumps(
+                        {
+                            "stream_closed_after_content": True,
+                            "prefix_reset": reset.json(),
+                            "media_reset_status": reset_media.status_code,
+                            "recovered": [
+                                response.model_dump(mode="json")
+                                for response in recovered
+                            ],
+                        }
+                    )
+                )
     finally:
         captured = capfd.readouterr()
         server_log = captured.out + captured.err
         (tmp_path / "server.log").write_text(server_log)
-    assert "Session token cache disabled:" not in server_log, server_log[-12000:]
-    assert "Session token reuse: route=" not in server_log, server_log[-12000:]
-    assert not re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
-        server_log[-12000:]
-    )
+    if token_mb:
+        assert "Session token reuse: route=exact" in server_log, server_log[-12000:]
+        assert "Session token reuse: route=partial" in server_log, server_log[-12000:]
+    if hash_mb:
+        assert re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
+            server_log[-12000:]
+        )

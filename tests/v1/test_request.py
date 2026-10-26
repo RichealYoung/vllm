@@ -1,10 +1,248 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: Copyright contributors to the vLLM project
 
+import pytest
+
 from vllm import SamplingParams
+from vllm.multimodal.inputs import MultiModalFeatureSpec, PlaceholderRange
 from vllm.v1.engine import EngineCoreRequest
 from vllm.v1.kv_hints import KvHintAction, KvHintsEnvelope
 from vllm.v1.request import Request, RequestStatus
+
+
+def _multimodal_session_request(ids, media, salt="salt"):
+    return EngineCoreRequest(
+        request_id="multimodal",
+        prompt_token_ids=ids,
+        mm_features=[
+            MultiModalFeatureSpec(
+                data=None,
+                modality="image",
+                identifier=identifier,
+                mm_position=PlaceholderRange(offset=offset, length=length),
+            )
+            for identifier, offset, length in media
+        ],
+        sampling_params=SamplingParams(max_tokens=3),
+        pooling_params=None,
+        arrival_time=0.0,
+        lora_request=None,
+        cache_salt=salt,
+        data_parallel_rank=None,
+        session_id="multimodal-session",
+    )
+
+
+@pytest.mark.parametrize("block_size", [4, 8, 16])
+def test_multimodal_session_hash_reuse_matches_native_at_media_boundaries(block_size):
+    """Media edits invalidate the hash chain even when every token is unchanged."""
+    from vllm.utils.hashing import sha256
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+
+    init_none_hash(sha256)
+    hasher = get_request_block_hasher(block_size, sha256)
+    ids = list(range(12 * block_size + 1))
+    for offset in (0, block_size - 1, block_size, block_size + 1):
+        for length in (
+            1,
+            block_size - 1,
+            block_size,
+            block_size + 1,
+            2 * block_size + 1,
+        ):
+            original = [("first", offset, length)]
+            variants = [
+                (original, len(ids) // block_size),
+                ([("changed", offset, length)], offset // block_size),
+                ([], offset // block_size),
+                ([("first", offset + 1, length)], offset // block_size),
+                ([("first", offset, length + 1)], offset // block_size),
+                (
+                    original + [("first", 8 * block_size, 1)],
+                    8,
+                ),
+            ]
+            for media, expected_blocks in variants:
+                cache = SessionHashCache(1 << 20, block_size)
+                previous = _multimodal_session_request(ids.copy(), original)
+                native = Request.from_engine_core_request(previous, hasher)
+                cache.publish(previous, native, cache.store.epoch)
+                incoming = _multimodal_session_request(ids.copy(), media)
+                prefix = cache.prefix(incoming)
+                assert (len(prefix[1]) if prefix else 0) == expected_blocks
+                actual = Request.from_engine_core_request(incoming, hasher, prefix)
+                expected = Request.from_engine_core_request(incoming, hasher)
+                assert actual.block_hashes == expected.block_hashes
+                for token in range(500, 500 + block_size + 1):
+                    actual.append_output_token_ids(token)
+                    expected.append_output_token_ids(token)
+                    assert actual.block_hashes == expected.block_hashes
+                if (not media or media[0][0] == "changed") and offset >= block_size:
+                    assert native.block_hashes != expected.block_hashes
+                incoming.cache_salt = "other"
+                assert cache.prefix(incoming) is None
+
+
+@pytest.mark.parametrize("block_size", [4, 8, 16])
+def test_multimodal_session_hash_reuse_stops_before_either_changed_media(block_size):
+    """Left moves and leading insertions/deletions require both span starts."""
+    from vllm.utils.hashing import sha256
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+
+    init_none_hash(sha256)
+    hasher = get_request_block_hasher(block_size, sha256)
+    ids = list(range(10 * block_size + 1))
+    cases = (
+        ([("first", block_size, 1)], [("first", block_size - 1, 1)], 0),
+        (
+            [("A", 6 * block_size, 1)],
+            [("X", block_size, 1), ("A", 6 * block_size, 1)],
+            1,
+        ),
+        (
+            [("A", block_size, 1), ("C", 6 * block_size, 1)],
+            [("C", 6 * block_size, 1)],
+            1,
+        ),
+    )
+    for previous_media, current_media, expected_blocks in cases:
+        cache = SessionHashCache(1 << 20, block_size)
+        previous = _multimodal_session_request(ids.copy(), previous_media)
+        old = Request.from_engine_core_request(previous, hasher)
+        cache.publish(previous, old, cache.store.epoch)
+        incoming = _multimodal_session_request(ids.copy(), current_media)
+        prefix = cache.prefix(incoming)
+        assert (len(prefix[1]) if prefix else 0) == expected_blocks
+        expected = Request.from_engine_core_request(incoming, hasher)
+        actual = Request.from_engine_core_request(incoming, hasher, prefix)
+        assert actual.block_hashes == expected.block_hashes
+        assert old.block_hashes != expected.block_hashes
+
+
+def test_multimodal_session_hash_generated_edits_preserve_native_chain():
+    """Seeded token/media edits cover append, reorder and text/media transitions."""
+    import random
+
+    from vllm.utils.hashing import sha256
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+
+    init_none_hash(sha256)
+    randomizer = random.Random(20261025)
+    for iteration in range(200):
+        block_size = randomizer.choice((4, 8, 16))
+        hasher = get_request_block_hasher(block_size, sha256)
+        cache = SessionHashCache(1 << 20, block_size)
+        ids = list(range(10 * block_size + 1))
+        media = [("first", block_size, block_size + 1), ("second", 6 * block_size, 1)]
+        previous = _multimodal_session_request(ids, media if iteration % 8 else [])
+        cache.publish(
+            previous,
+            Request.from_engine_core_request(previous, hasher),
+            cache.store.epoch,
+        )
+        changed = ids.copy()
+        if iteration % 4 == 0:
+            changed.extend([1000] * block_size)
+        elif iteration % 4 == 1:
+            changed[randomizer.randrange(len(ids))] = 999
+        if iteration % 8 == 2:
+            media = [
+                ("second", block_size, block_size + 1),
+                ("first", 6 * block_size, 1),
+            ]
+        elif iteration % 8 == 3:
+            media = []
+        elif iteration % 8 == 5:
+            media[0] = ("replacement", block_size, block_size + 1)
+        incoming = _multimodal_session_request(changed, media)
+        prefix = cache.prefix(incoming)
+        expected_end = next(
+            (
+                index
+                for index, (old_token, new_token) in enumerate(zip(ids, changed))
+                if old_token != new_token
+            ),
+            len(ids),
+        )
+        previous_media = [
+            (feature.identifier, feature.mm_position.offset, feature.mm_position.length)
+            for feature in previous.mm_features or []
+        ]
+        for old_item, new_item in zip(previous_media, media):
+            if old_item != new_item:
+                expected_end = min(expected_end, old_item[1], new_item[1])
+                break
+        else:
+            unmatched = previous_media[len(media) :] or media[len(previous_media) :]
+            if unmatched:
+                expected_end = min(expected_end, unmatched[0][1])
+        assert (len(prefix[1]) if prefix else 0) == expected_end // block_size, (
+            iteration
+        )
+        actual = Request.from_engine_core_request(incoming, hasher, prefix)
+        expected = Request.from_engine_core_request(incoming, hasher)
+        assert actual.block_hashes == expected.block_hashes, iteration
+        if iteration % 8 in (0, 3, 4, 6, 7) and iteration % 4 != 1:
+            assert prefix is not None
+
+
+def test_multimodal_session_hash_snapshot_isolated_and_invalid_spans_decline():
+    """New spans are validated and retained metadata is immutable and budgeted."""
+    import copy
+
+    import torch
+
+    from vllm.utils.hashing import sha256
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+
+    init_none_hash(sha256)
+    hasher = get_request_block_hasher(4, sha256)
+    original = _multimodal_session_request(list(range(40)), [("first", 8, 5)])
+    native = Request.from_engine_core_request(original, hasher)
+    cache = SessionHashCache(1 << 20, 4)
+    cache.publish(original, native, cache.store.epoch)
+    assert cache.prefix(original) is not None
+    assert original.mm_features is not None
+    original.mm_features[0].identifier = "changed"
+    prefix = cache.prefix(original)
+    assert prefix is not None and len(prefix[1]) == 2
+    used = cache.store.bytes_used
+    for offset, length, identifier, mask in (
+        (-1, 5, "first", None),
+        (True, 5, "first", None),
+        (8, 0, "first", None),
+        (8, 50, "first", None),
+        (8, 5, "", None),
+        (8, 5, "first", torch.ones(5, dtype=torch.bool)),
+    ):
+        incoming = copy.deepcopy(original)
+        assert incoming.mm_features is not None
+        feature = incoming.mm_features[0]
+        feature.identifier = identifier
+        feature.mm_position = PlaceholderRange(
+            offset=offset, length=length, is_embed=mask
+        )
+        assert cache.prefix(incoming) is None
+        cache.publish(incoming, native, cache.store.epoch)
+        assert cache.store.bytes_used == used
+    for media in (
+        [("first", 8, 5), ("second", 10, 3)],
+        [("first", 20, 2), ("second", 8, 3)],
+    ):
+        incoming = _multimodal_session_request(list(range(40)), media)
+        assert cache.prefix(incoming) is None
+        cache.publish(incoming, native, cache.store.epoch)
+        assert cache.store.bytes_used == used
+    tiny = SessionHashCache(used - 1, 4)
+    tiny.publish(original, native, tiny.store.epoch)
+    assert tiny.store.bytes_used == 0
+    assert tiny.prefix(original) is None
+    cache.store.clear()
+    assert cache.store.bytes_used == 0 and cache.prefix(original) is None
 
 
 def test_hash_publication_reserved_before_reset_cannot_publish_after_reset():

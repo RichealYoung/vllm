@@ -96,8 +96,12 @@ Hash reuse compares exact token IDs and resumes only complete validated blocks.
 Salt, hash-function state, weight version, reset and lifecycle boundaries isolate
 histories. Native full block hashing remains the correctness reference.
 
-Requests containing images or other media use native tokenization and native block hashing.
-They do not publish media reuse histories. This stage optimizes text chat only.
+Image compatibility keeps native processing, encoder caching and APC active.
+Tokenization may reuse rendered text; hash reuse additionally compares media
+descriptors and stops before the earliest changed media span on either side.
+Invalid or unsupported descriptors fall back. Validation targets Qwen2.5-VL-3B
+revision `66285546d2b821cf421d4f5eb2576359d3770cd3`; this is not certification
+for arbitrary images, audio or video and establishes no multimodal speedup.
 
 No performance improvement is guaranteed. Misses, short inputs, frequent edits,
 concurrency and routing can make admission, validation and publication cost
