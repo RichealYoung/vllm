@@ -684,6 +684,7 @@ class EngineArgs:
     io_processor_plugin: str | None = None
     renderer_num_workers: int = 1
     session_token_cache_mb: int = 0
+    session_hash_cache_mb: int = 0
     skip_mm_profiling: bool = MultiModalConfig.skip_mm_profiling
     video_pruning_rate: float | None = MultiModalConfig.video_pruning_rate
     video_pruning_method: str = MultiModalConfig.video_pruning_method
@@ -1411,6 +1412,9 @@ class EngineArgs:
         )
         cache_group.add_argument(
             "--prefix-caching-hash-algo", **cache_kwargs["prefix_caching_hash_algo"]
+        )
+        cache_group.add_argument(
+            "--session-hash-cache-mb", **cache_kwargs["session_hash_cache_mb"]
         )
         cache_group.add_argument(
             "--prefix-cache-retention-interval",
@@ -2318,6 +2322,7 @@ class EngineArgs:
             num_gpu_blocks_override=self.num_gpu_blocks_override,
             sliding_window=sliding_window,
             enable_prefix_caching=self.enable_prefix_caching,
+            session_hash_cache_mb=self.session_hash_cache_mb,
             prefix_caching_hash_algo=self.prefix_caching_hash_algo,
             prefix_cache_retention_interval=self.prefix_cache_retention_interval,
             kv_cache_dtype_skip_layers=self.kv_cache_dtype_skip_layers,

@@ -259,6 +259,7 @@ from vllm.config import ModelConfig, VllmConfig
 from vllm.renderers.hf import HfRenderer
 from vllm.renderers.params import TokenizeParams
 from vllm.tokenizers import get_tokenizer
+from vllm.v1.core.session_prefix import SessionHashCache
 
 assert importlib.util.find_spec('vllm._session_prefix') is None
 config = VllmConfig(model_config=ModelConfig(
@@ -282,6 +283,7 @@ try:
         assert actual['prompt_token_ids'] == expected
         context.finish(publish=True)
     assert renderer.session_token_cache.stats['exact'] > 0
+    assert SessionHashCache.create(8 << 20, 16) is None
 finally:
     renderer.shutdown()
 """
