@@ -61,8 +61,8 @@
   },
   {
     "file": "identities/versions.json",
-    "bytes": 1893,
-    "sha256": "8f7453aaef759745864e4f5d1f15b8825a416ca3446bd9d951a095ebdbe12138"
+    "bytes": 2172,
+    "sha256": "2f47667d76e2022cc286095f12b7a2a6fd2e06840c6ea6970ef4a6bb568b549f"
   },
   {
     "file": "patches/BASE-to-V1.patch",
@@ -1721,8 +1721,8 @@
   },
   {
     "file": "README.md",
-    "bytes": 2620,
-    "sha256": "de4c40b8cb41acf5306a6c4af1ef5748e70bbf7fb114489224fca18ff88b9070"
+    "bytes": 2834,
+    "sha256": "ab7dae4d02ca86501b4983064a0759270064835bf259391691e0608f144f5aac"
   },
   {
     "file": "v1/benchmark.md",
@@ -1735,9 +1735,34 @@
     "sha256": "0afb390743f6341e2642ac83a92fd71df7c4d2be78a35153e7e09fc58eb6f6f8"
   },
   {
+    "file": "v1/main-update-20261026/acceptance.json",
+    "bytes": 11116,
+    "sha256": "bc98968405d106de84acfdcecf2bb0553c13a2205cd810c95ff7a784122daa64"
+  },
+  {
+    "file": "v1/main-update-20261026/evidence-initial.tar.gz",
+    "bytes": 819257,
+    "sha256": "26ca06d2136204af281f448b1b3e2987d7c2795928fbe8e5b35109a028683f20"
+  },
+  {
+    "file": "v1/main-update-20261026/evidence-portable.tar.gz",
+    "bytes": 1062372,
+    "sha256": "ba10205d8064d72279f12d73c7304e4014f090c337dbf417b11919f875f46512"
+  },
+  {
+    "file": "v1/main-update-20261026/file-sha256.json",
+    "bytes": 10373,
+    "sha256": "08e6227c5c64cf13cba535564e2ee40fd1bb6b00b73c0bf204e5bae6bbd88786"
+  },
+  {
+    "file": "v1/main-update-20261026/README.md",
+    "bytes": 3679,
+    "sha256": "eb003d71600c73cbfcc0747ab9a37dacc673aa4456706a23cfb3fafcd0879f35"
+  },
+  {
     "file": "v1/validation.md",
-    "bytes": 2016,
-    "sha256": "fbdb88cab507f5b5f0a9422f91b501f2e4e6a179dc2b51f8c331048a616065d8"
+    "bytes": 2407,
+    "sha256": "95e65601a8b1725551b5c7e6ae4609f5cdf687b6a248a165e6df26db928ff1c7"
   },
   {
     "file": "v2/accounting-paired-summary.json",

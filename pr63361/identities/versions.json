@@ -31,5 +31,12 @@
   "original_M2_archive_sha256": "1b230eeb315b85868fc769a88e830d5848c66d14bbb4bed7205dd9a609e54ddb",
   "original_r5_archive_sha256": "b4e405bf0818009077a6fc3a2f6fe2334c6e43348f87e18b5ef3f46b4d596e88",
   "original_final_functional_archive_sha256": "4b7a487c041dcc26276549d7da91a90854698547b971f5ebbffeba07c931fa6a",
-  "new_public_client_runtime_validation": "passed; see performance/replay-validation.json; existing server libraries reused, not a clean GPU-stack build"
+  "new_public_client_runtime_validation": "passed; see performance/replay-validation.json; existing server libraries reused, not a clean GPU-stack build",
+  "current_pr": {
+    "commit": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+    "tree": "af1302ed4f8a269418c146b1fd6184af02590c37",
+    "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+    "validation": "v1/main-update-20261026/README.md",
+    "performance_rerun": false
+  }
 }

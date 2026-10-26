@@ -4,6 +4,8 @@
 
 Successive chat turns often resend most of the previous conversation. This feature uses an agent hint, the existing `session_id`, to select the previous rendered prompt, reuse token IDs for its unchanged prefix, and tokenize only the remaining suffix. Text comparison and tokenizer compatibility checks determine whether reuse is safe.
 
+The current PR has been updated to main: [source and fresh correctness checks](v1/main-update-20261026/README.md). The fixed benchmark and optional follow-up snapshots below retain their original source versions.
+
 - [Run the baseline and token reuse comparison](performance/REPRODUCTION.md).
 - [Performance results and limitations](v1/benchmark.md).
 - [How reuse works](v1/design.md) and [correctness tests](v1/validation.md).

@@ -1,0 +1,147 @@
+{
+  "status": "passed",
+  "identities": {
+    "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+    "head": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+    "old_pr_head": "97e901c7f00b6d14f538400e0be57c7e67bcefd8",
+    "transport": "git archive core.autocrlf=false core.eol=lf",
+    "baseline": {
+      "files": 8219,
+      "archive_sha256": "29dbf52866cb3cd3ab6b7f2f91ea74178b77b17eb71491ff05055d822ff6df38"
+    },
+    "candidate": {
+      "feature_archive_sha256": "def1bd336dc13dcd766e82f73b00fa8888c064b7506201f5bbf3d38293e5bc2c",
+      "files": 8225
+    },
+    "red_mapping_sha256": "c7002bb34ca8c49e1d89cbdf6aa51fba6a46a11577c3b14b6e1a348972dad391"
+  },
+  "cpu": {
+    "status": "passed",
+    "cpu": {
+      "tests": 368,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "exit_code": 0
+    },
+    "performance": false,
+    "identities": {
+      "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+      "head": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+      "old_pr_head": "97e901c7f00b6d14f538400e0be57c7e67bcefd8",
+      "transport": "git archive core.autocrlf=false core.eol=lf",
+      "baseline": {
+        "files": 8219,
+        "archive_sha256": "29dbf52866cb3cd3ab6b7f2f91ea74178b77b17eb71491ff05055d822ff6df38"
+      },
+      "candidate": {
+        "feature_archive_sha256": "def1bd336dc13dcd766e82f73b00fa8888c064b7506201f5bbf3d38293e5bc2c",
+        "files": 8225
+      },
+      "red_mapping_sha256": "c7002bb34ca8c49e1d89cbdf6aa51fba6a46a11577c3b14b6e1a348972dad391"
+    }
+  },
+  "gpu": {
+    "status": "passed",
+    "text": {
+      "argv": [
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/.venv/bin/python",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/inputs/gpu_pytest.py",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2",
+        "text",
+        "-v",
+        "-p",
+        "no:cacheprovider",
+        "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+        "-k",
+        "test_session_prefix_text_requests_preserve_native_ids_and_outputs",
+        "--basetemp=/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp",
+        "--junitxml=/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text.xml"
+      ],
+      "exit_code": 0,
+      "common_C": false,
+      "source_manifest_sha256": "342d3e8ab0c8c64a4e4c695fd191196f3e7dd2a2bbf033cb8f8b503f50d32418",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "requests": 36,
+      "server_logs": [
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque0/server.log",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque1/server.log",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque2/server.log",
+        "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque3/server.log"
+      ],
+      "shutdown_logs": [
+        {
+          "path": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque0/server.log",
+          "fixture_reported_terminated": true,
+          "engine_dead_mentions": 1,
+          "error_lines": [
+            "(EngineCore pid=536337) DEBUG 10-26 14:49:29 [compilation/backends.py:1148]  'VLLM_TOOL_JSON_ERROR_AUTOMATIC_RETRY': False,",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943] AsyncLLM output_handler failed.",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943] Traceback (most recent call last):",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/async_llm.py\", line 880, in output_handler",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943]     outputs = await engine_core.get_output_async()",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/core_client.py\", line 1278, in get_output_async",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943]     raise self._format_exception(outputs) from None",
+            "(APIServer pid=536319) ERROR 10-26 14:52:21 [v1/engine/async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause."
+          ]
+        },
+        {
+          "path": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque1/server.log",
+          "fixture_reported_terminated": true,
+          "engine_dead_mentions": 1,
+          "error_lines": [
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943] AsyncLLM output_handler failed.",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943] Traceback (most recent call last):",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/async_llm.py\", line 880, in output_handler",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943]     outputs = await engine_core.get_output_async()",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/core_client.py\", line 1278, in get_output_async",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943]     raise self._format_exception(outputs) from None",
+            "(APIServer pid=536674) ERROR 10-26 14:53:21 [v1/engine/async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause."
+          ]
+        },
+        {
+          "path": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque2/server.log",
+          "fixture_reported_terminated": true,
+          "engine_dead_mentions": 1,
+          "error_lines": [
+            "(EngineCore pid=536844) DEBUG 10-26 14:54:12 [compilation/backends.py:1148]  'VLLM_TOOL_JSON_ERROR_AUTOMATIC_RETRY': False,",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943] AsyncLLM output_handler failed.",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943] Traceback (most recent call last):",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/async_llm.py\", line 880, in output_handler",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943]     outputs = await engine_core.get_output_async()",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/core_client.py\", line 1278, in get_output_async",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943]     raise self._format_exception(outputs) from None",
+            "(APIServer pid=536807) ERROR 10-26 14:54:34 [v1/engine/async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause."
+          ]
+        },
+        {
+          "path": "/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/gpu-r2/text-tmp/test_session_prefix_text_reque3/server.log",
+          "fixture_reported_terminated": true,
+          "engine_dead_mentions": 1,
+          "error_lines": [
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943] AsyncLLM output_handler failed.",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943] Traceback (most recent call last):",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/async_llm.py\", line 880, in output_handler",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943]     outputs = await engine_core.get_output_async()",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943]   File \"/root/autodl-tmp/codex-projects/vllm-main-cu13/experiments/pr63361-main-conflict-20261026-001/attempt-r2/candidate/vllm/v1/engine/core_client.py\", line 1278, in get_output_async",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943]     raise self._format_exception(outputs) from None",
+            "(APIServer pid=536964) ERROR 10-26 14:55:27 [v1/engine/async_llm.py:943] vllm.v1.engine.exceptions.EngineDeadError: EngineCore encountered an issue. See stack trace (above) for the root cause."
+          ]
+        }
+      ],
+      "shutdown_scope": "Real fixture SIGTERM/cleanup and raw logs retained; this test is not C's dedicated waiter-cancellation contract"
+    },
+    "common_C": false,
+    "V2_V3_GPU_rerun": false,
+    "performance_rerun": false
+  },
+  "scope": "correctness only; no new performance result",
+  "controller_recovery": "original gate read GPU job before asynchronous receipt creation; no tests restarted"
+}

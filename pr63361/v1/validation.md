@@ -1,6 +1,8 @@
 # Token reuse validation
 
-The code under review passed 366 CPU tests, applicable pre-commit checks and 36 requests to running Qwen3/Llama servers with reuse enabled and disabled. Tests compare complete prompt token IDs, reported token counts and generated outputs, and confirm whole-prompt and prefix reuse. They cover compatibility checks, edited histories, memory limits, shared entries, cancellation, reset and normal processing of requests containing media.
+After updating to main, the code under review passed 368 CPU tests, 18 applicable pre-commit checks and 36 requests to running Qwen3/Llama servers with reuse enabled and disabled. Existing reasoning/CLI checks passed 19 cases each on main and the candidate; a deliberately broken mapping failed the new regression test. See [source identity and complete regression evidence](main-update-20261026/README.md).
+
+Tests compare complete prompt token IDs, reported token counts and generated outputs, and confirm whole-prompt and prefix reuse. They cover compatibility checks, edited histories, memory limits, shared entries, cancellation, reset and normal processing of requests containing media. The earlier frozen source passed 366 CPU tests and the same 36-request serving suite; those historical records remain available below.
 
 The CPU and serving test commands are included in the PR description and in the source tree. Historical compatibility checks cover 182 lightweight cases across 14 library combinations. Those library checks were not rerun on the final tree; the relevant product modules have matching file hashes.
 
