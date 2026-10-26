@@ -11,7 +11,7 @@ Successive chat turns often resend most of the previous conversation. This featu
 
 The replay scripts have been checked in a fresh client environment and against running Qwen3 servers, with reuse disabled and enabled. See [what was validated](performance/replay-validation.md). Existing server dependencies, compiled libraries and model files were reused; this does not certify a from-scratch installation of the GPU software stack.
 
-The default instructions cover tokenization reuse. Optional follow-ups describe [block-hash reuse](v2/design.md) and [image compatibility](v3/design.md). Their combined results are not attributed to tokenization reuse.
+The default instructions cover tokenization reuse. Optional follow-ups describe [block-hash reuse](v2/README.md) and [image compatibility](v3/README.md). Their combined results are not attributed to tokenization reuse.
 
 | Scope | Source snapshot | Incremental review |
 |---|---|---|
