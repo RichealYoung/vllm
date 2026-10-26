@@ -3,7 +3,26 @@
   "preserved_original_head": "580cf373d7af587f845e518650aef74744dfa359",
   "final_candidates": "candidate-trees.json",
   "candidate_ids_are": "Git trees, not commits",
-  "published_commits": null,
+  "published_commits": {
+    "token_reuse": {
+      "commit": "97e901c7f00b6d14f538400e0be57c7e67bcefd8",
+      "tree": "77222e382866e588680bdbc9bfd1202000e77e2d",
+      "parent": "be08fa5355a049b838803540211fed5647490b39",
+      "branch": "codex/pr63361-v1-token-reuse"
+    },
+    "hash_reuse": {
+      "commit": "6360b1aa9473faf377fa0c383c14ad6a53fac587",
+      "tree": "a06fb67442ae2dd23783bfd72297037fd74283e5",
+      "parent": "97e901c7f00b6d14f538400e0be57c7e67bcefd8",
+      "branch": "codex/pr63361-v2-hash-reuse"
+    },
+    "image_compatibility": {
+      "commit": "f9732fa728c5f7507373f0790ce8a1f6babc64fa",
+      "tree": "f6c7fe28a6732a72f3fbee3ca9cad942f274369d",
+      "parent": "6360b1aa9473faf377fa0c383c14ad6a53fac587",
+      "branch": "codex/pr63361-v3-image-compat"
+    }
+  },
   "measured_source": "measured-{N,V1,V2,V3}.json; original r5 patches under patches/measured-r5",
   "common_performance_patch_sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977",
   "final_candidates_include_common_patch": false,

@@ -61,8 +61,8 @@
   },
   {
     "file": "identities/versions.json",
-    "bytes": 1142,
-    "sha256": "d3e1ddd5276d520b146a94d6e9595df9b796c78f0951771cf9e3e22414939bd9"
+    "bytes": 1893,
+    "sha256": "8f7453aaef759745864e4f5d1f15b8825a416ca3446bd9d951a095ebdbe12138"
   },
   {
     "file": "patches/BASE-to-V1.patch",
@@ -1721,8 +1721,8 @@
   },
   {
     "file": "README.md",
-    "bytes": 1733,
-    "sha256": "b6854611439fa190e868e8ca20388ed0a6793417ccd024dbb3308cf0f42276f2"
+    "bytes": 2620,
+    "sha256": "43d5090d674d30db78719243190b2bfdbd94de2bfae542e8487e61272114609f"
   },
   {
     "file": "v1/benchmark.md",

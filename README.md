@@ -7,4 +7,4 @@
 - [Optional image compatibility](pr63361/v3/design.md).
 - [File checksums](pr63361/FILES.sha256.json).
 
-This branch contains review documents, patches, fixed benchmark inputs, results and replay scripts. It does not update PR #63361 or its source branch. The documents distinguish measured source versions, the proposed review scope and historical evidence. AI assistance was used to prepare the implementation and these materials.
+This branch contains review documents, patches, fixed benchmark inputs, results and replay scripts for PR #63361. The source snapshots and incremental comparisons are linked from the index. The documents distinguish measured source versions, the tokenization-only review scope and historical evidence. AI assistance was used to prepare the implementation and these materials.
