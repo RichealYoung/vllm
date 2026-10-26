@@ -1,0 +1,2060 @@
+[
+  {
+    "distributed_file": "performance/results/summary-001.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/summary-001.json",
+    "original_sha256": "540528ed8733c2b1a3fad6bf21bff44f03f58d345314e680e836954eebafe97d",
+    "distributed_sha256": "540528ed8733c2b1a3fad6bf21bff44f03f58d345314e680e836954eebafe97d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/schedule-001.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/schedule-001.json",
+    "original_sha256": "fdb233252700773b9110c15aada8a82c43b1b4882342579d710766d8da7e51d7",
+    "distributed_sha256": "fdb233252700773b9110c15aada8a82c43b1b4882342579d710766d8da7e51d7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/terminal-001.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/terminal-001.json",
+    "original_sha256": "89c71d0f090e1466bc2e9bfaf49890cc63dc7f882360119af2539aa12811ebb6",
+    "distributed_sha256": "89c71d0f090e1466bc2e9bfaf49890cc63dc7f882360119af2539aa12811ebb6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/posthoc-alignment-review-001.json",
+    "original_workspace_relative_file": "docs/pr63361-v1-review-layout-20261026-r2/evidence/performance/posthoc-alignment-review-001.json",
+    "original_sha256": "0ba167e580143aea2dcc65f72bd21b063604d4d76f4b745cd5b64d2ec2519462",
+    "distributed_sha256": "0ba167e580143aea2dcc65f72bd21b063604d4d76f4b745cd5b64d2ec2519462",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "identities/r5-correctness-acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-three-stage-build-20261025-001/server-evidence-final/FINAL_ACCEPTANCE.json",
+    "original_sha256": "7df457006671782af25b68b453aef61871d1496c69673bbbd1f9d4e78bae4372",
+    "distributed_sha256": "be541d05c9b38fba7511ede9369b1c030b552a136f8dd458161ec2f067c09b8e",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/workload-v1.json",
+    "original_workspace_relative_file": "experiments/session-prefix-workload-minimal-20261024-001/remote-results/reproduction-inputs/workload-v1.json",
+    "original_sha256": "935e387020d27548aba5da24c997c9381a03bd4fc8735e3d1ef5e3c2dd44f833",
+    "distributed_sha256": "935e387020d27548aba5da24c997c9381a03bd4fc8735e3d1ef5e3c2dd44f833",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "patches/BASE-to-V1.patch",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/patches-r2/BASE-to-V1.patch",
+    "original_sha256": "1231be85f76c2ec9fe4e45572d90a1fa54a0cfae97c770c0df7860bba8fd7627",
+    "distributed_sha256": "1231be85f76c2ec9fe4e45572d90a1fa54a0cfae97c770c0df7860bba8fd7627",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "patches/V1-to-V2.patch",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/patches-r2/V1-to-V2.patch",
+    "original_sha256": "6dc3668e067668d98cd3b31436b1828b1186346b93223a8b7ec625e3d76d4b23",
+    "distributed_sha256": "6dc3668e067668d98cd3b31436b1828b1186346b93223a8b7ec625e3d76d4b23",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "patches/V2-to-V3.patch",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/patches-r2/V2-to-V3.patch",
+    "original_sha256": "335c7553f41649eac0c277431c5d872c5afdcff7cb65baad5555da87005048e4",
+    "distributed_sha256": "335c7553f41649eac0c277431c5d872c5afdcff7cb65baad5555da87005048e4",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "prerequisites/shutdown-C.patch",
+    "original_workspace_relative_file": "docs/pr63361-v1-review-layout-20261026-r2/patches/common-shutdown.patch",
+    "original_sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977",
+    "distributed_sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "identities/candidate-trees.json",
+    "original_workspace_relative_file": "docs/pr63361-v1-final-candidate-20261026/GIT_TREE_IDENTITIES.json",
+    "original_sha256": "2369abc0fa1a042113bb18a4a55efca02725d4431b0ebac43fdc67c1a7162aa8",
+    "distributed_sha256": "2369abc0fa1a042113bb18a4a55efca02725d4431b0ebac43fdc67c1a7162aa8",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/client/session_prefix_bench/__init__.py",
+    "original_workspace_relative_file": "maintenance/pr63361-full-matrix-20261026/framework/session_prefix_bench/__init__.py",
+    "original_sha256": "b5129fe651fadc1e280fcc93fcc83586a00805759e594f94a0f9e83f6d1538fe",
+    "distributed_sha256": "b5129fe651fadc1e280fcc93fcc83586a00805759e594f94a0f9e83f6d1538fe",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/client/session_prefix_bench/common.py",
+    "original_workspace_relative_file": "maintenance/pr63361-full-matrix-20261026/framework/session_prefix_bench/common.py",
+    "original_sha256": "6a6ad58022259eb98eea9ed922609e2f4ba95b9d1dab3620d19f4f5ddd36eb24",
+    "distributed_sha256": "6a6ad58022259eb98eea9ed922609e2f4ba95b9d1dab3620d19f4f5ddd36eb24",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/client/session_prefix_bench/measure.py",
+    "original_workspace_relative_file": "maintenance/pr63361-full-matrix-20261026/framework/session_prefix_bench/measure.py",
+    "original_sha256": "8abbdcdc80468bccfdbb18bab447f13253ddc6e3ee236a91e8001a06f60724f2",
+    "distributed_sha256": "8abbdcdc80468bccfdbb18bab447f13253ddc6e3ee236a91e8001a06f60724f2",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/client/session_prefix_bench/cpu.py",
+    "original_workspace_relative_file": "maintenance/pr63361-full-matrix-20261026/framework/session_prefix_bench/cpu.py",
+    "original_sha256": "63c33184c65e7e381c6af368e12c676ddcf6394397d1f45da91507fa3037993f",
+    "distributed_sha256": "63c33184c65e7e381c6af368e12c676ddcf6394397d1f45da91507fa3037993f",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/client/session_prefix_bench/telemetry.py",
+    "original_workspace_relative_file": "maintenance/pr63361-full-matrix-20261026/framework/session_prefix_bench/telemetry.py",
+    "original_sha256": "97541f251d8707e0b520c4d9bbb119ba99e48bba7a537901635855341d400d1e",
+    "distributed_sha256": "97541f251d8707e0b520c4d9bbb119ba99e48bba7a537901635855341d400d1e",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "v2/historical-match/run.py",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/run.py",
+    "original_sha256": "9d90690988a104cd714f60c416f73919b59d9d49ce9920c2f64d47a9a7f12e3f",
+    "distributed_sha256": "9d90690988a104cd714f60c416f73919b59d9d49ce9920c2f64d47a9a7f12e3f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/matcher.c",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/matcher.c",
+    "original_sha256": "527e31ea443c07b14e6cde9bfd4a617ac544bd98e824f5c69fc81fefcf326a77",
+    "distributed_sha256": "527e31ea443c07b14e6cde9bfd4a617ac544bd98e824f5c69fc81fefcf326a77",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/build.py",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/build.py",
+    "original_sha256": "66afe0cb39637d8622ab37796992e55c329dbe38f4f7f0a94f59a6c2a6387617",
+    "distributed_sha256": "66afe0cb39637d8622ab37796992e55c329dbe38f4f7f0a94f59a6c2a6387617",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/analyze.py",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/analyze.py",
+    "original_sha256": "7c23b796b0f7f966ac40989aee621e124b57977f4b5400c30ba3e39d3c68b2ca",
+    "distributed_sha256": "7c23b796b0f7f966ac40989aee621e124b57977f4b5400c30ba3e39d3c68b2ca",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/analysis.json",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/analysis.json",
+    "original_sha256": "a600e7d10c37efe1b70498d01cb7b0598c2836c5e557b524c80a8071ba25140b",
+    "distributed_sha256": "a600e7d10c37efe1b70498d01cb7b0598c2836c5e557b524c80a8071ba25140b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/results.json",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/results.json",
+    "original_sha256": "85fd86dd771ab7d727e788e6c24fa22879b0bb8377fb8edcdb2f54b3548459b5",
+    "distributed_sha256": "85fd86dd771ab7d727e788e6c24fa22879b0bb8377fb8edcdb2f54b3548459b5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/samples.jsonl",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/samples.jsonl",
+    "original_sha256": "0f98ffaf5d873b766ab52419254ce6d33f018298ac826e697e064c8b3cfd414d",
+    "distributed_sha256": "0f98ffaf5d873b766ab52419254ce6d33f018298ac826e697e064c8b3cfd414d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/correctness.json",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/correctness.json",
+    "original_sha256": "e79c08344f3a23d8ba1d21ce52e060e7ed18c90c44dd3d88535edc2088ecef08",
+    "distributed_sha256": "e79c08344f3a23d8ba1d21ce52e060e7ed18c90c44dd3d88535edc2088ecef08",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/environment.json",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/environment.json",
+    "original_sha256": "ee112153d7d5f9ef25a89a1871a954c30a9a5341ce457e9083fbc861ef567f31",
+    "distributed_sha256": "fd3d10086e116254cb77f625930c4f435aed4c1b850f9f53575397141338b3b6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/expected-native.json",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/expected-native.json",
+    "original_sha256": "970beda0491f0fe317c26b68de77dbef731690e4d84c220f65900b6af4de4239",
+    "distributed_sha256": "5a53ffdb088c16ac16e9c21b673eaa66fe10ad4461e4c2f4cdbf44bda1a80b0a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/historical-match/build.log",
+    "original_workspace_relative_file": "experiments/predecessor-hash-match-20261021-001/build.log",
+    "original_sha256": "0ec21cf8b719125019defe8cc971ad969bdd951735594a2c4e9e86d193b3cd1d",
+    "distributed_sha256": "19b74e64f079c29d86dcee3d47c02795ca9015e74c8ec51e6e05b597bf38f305",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "v2/accounting-paired-summary.json",
+    "original_workspace_relative_file": "experiments/pr63361-current-v1-accounting-paired-20261026-001/server-evidence-final/paired-summary-001.json",
+    "original_sha256": "ff257360c8385bc70704946a067c9f48c650cf9c01b257ab078b1bddfc6ebf47",
+    "distributed_sha256": "ff257360c8385bc70704946a067c9f48c650cf9c01b257ab078b1bddfc6ebf47",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "identities/measured-N.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/N-target.json",
+    "original_sha256": "bdd4cd761271c39817e7800cd0185b3fe3e2e04d994b212a290b9e71d89a881c",
+    "distributed_sha256": "e6847b515c66148f5d597548fc2af697fad146040a63b545d9442a78f2337db1",
+    "transformation": "selected source/build/environment identity fields; author paths substituted; no original outer seal"
+  },
+  {
+    "distributed_file": "identities/measured-V1.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/V1-target.json",
+    "original_sha256": "deae550e9f694ff7aa74ace9262c95210cb1c5bf490317f08142c1e16e69beb9",
+    "distributed_sha256": "5849365e683a1decfab08319dc7a2cc292c21e88dbad94374c96c7b21515adb2",
+    "transformation": "selected source/build/environment identity fields; author paths substituted; no original outer seal"
+  },
+  {
+    "distributed_file": "identities/measured-V2.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/V2-target.json",
+    "original_sha256": "3be3aaedd54b0bbeb6413617b8888082d67e1c4d1b67960c63c55c12faeb959e",
+    "distributed_sha256": "259cbfcdeb125b172507d7ee720abe4ddd946c6fd13422c598c58adb0f784fad",
+    "transformation": "selected source/build/environment identity fields; author paths substituted; no original outer seal"
+  },
+  {
+    "distributed_file": "identities/measured-V3.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/V3-target.json",
+    "original_sha256": "10783a63d477f63c9fcbddbee7af723ea8dcdf036632695c31a11a4aa2b581f6",
+    "distributed_sha256": "7f265d39bccec08f11b33623f842879f7991ef2e767d366e55aabbfd2c726400",
+    "transformation": "selected source/build/environment identity fields; author paths substituted; no original outer seal"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/acceptance.json",
+    "original_sha256": "f89f0748588421dd0748a646f4bc1b0c9f9c0f643839cb1a57fe5707cb0acb2e",
+    "distributed_sha256": "f89f0748588421dd0748a646f4bc1b0c9f9c0f643839cb1a57fe5707cb0acb2e",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/server-exit.json",
+    "original_sha256": "51dd431074b27bb7a4d50898012f7bf3595adf2fd0119c38a14d2b809695de08",
+    "distributed_sha256": "51dd431074b27bb7a4d50898012f7bf3595adf2fd0119c38a14d2b809695de08",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/warmup.json",
+    "original_sha256": "3937ec9684c7d16d60ec8dde55e14f7f1afebef2912364b2f7ca91ab0607ff53",
+    "distributed_sha256": "3937ec9684c7d16d60ec8dde55e14f7f1afebef2912364b2f7ca91ab0607ff53",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/coding/measurement.json",
+    "original_sha256": "b5dd31a692b78c80e6fb0bacbbfbab00c608716f5bea1dceb53815f268a8cbdf",
+    "distributed_sha256": "9a5d08da132a92f020b44d9bd14ca6b795958b819a18e33455d01d4c3e0ccdce",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/coding/metrics-after.txt",
+    "original_sha256": "b4a36c638e30ea16e4e2c0967f182784a65210f0ab056a1db68dfb662ec68fb5",
+    "distributed_sha256": "b4a36c638e30ea16e4e2c0967f182784a65210f0ab056a1db68dfb662ec68fb5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/coding/metrics-before.txt",
+    "original_sha256": "2b56a4f54fa57d40b01315a3e42b03d158990394a85b73b2e59c0ee82ea9f39d",
+    "distributed_sha256": "2b56a4f54fa57d40b01315a3e42b03d158990394a85b73b2e59c0ee82ea9f39d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/coding/metrics.jsonl",
+    "original_sha256": "bfe6c7692195bda068a31e532b94ac8ea12bb80656df58f7ea603d5de165f06b",
+    "distributed_sha256": "bfe6c7692195bda068a31e532b94ac8ea12bb80656df58f7ea603d5de165f06b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-1-N/coding/requests.jsonl",
+    "original_sha256": "ebfacba969536137421db9fb62f4efb19f87555c57a93b275f245f14403da489",
+    "distributed_sha256": "ebfacba969536137421db9fb62f4efb19f87555c57a93b275f245f14403da489",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/acceptance.json",
+    "original_sha256": "097d299e241eb00e1b6148ca4236abbd4b7e44bb0c683d0d31813fce149f5857",
+    "distributed_sha256": "097d299e241eb00e1b6148ca4236abbd4b7e44bb0c683d0d31813fce149f5857",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/server-exit.json",
+    "original_sha256": "73b522b4855bdf5319e58067aa52f78e628669bf6a6ded9d83daf5f126a93acc",
+    "distributed_sha256": "73b522b4855bdf5319e58067aa52f78e628669bf6a6ded9d83daf5f126a93acc",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/warmup.json",
+    "original_sha256": "be26b62fe328d7ecf7adb42123b2947fd07ef3d9c9e1c6b78c9e4ba3e7c72815",
+    "distributed_sha256": "be26b62fe328d7ecf7adb42123b2947fd07ef3d9c9e1c6b78c9e4ba3e7c72815",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/coding/measurement.json",
+    "original_sha256": "c013716353095eecff08d3edc93fbca0e40ef376e1d6cef423f2d11ae2f3cd3d",
+    "distributed_sha256": "313c7aae05047c7fb96e080779eb758aeda0aec8f19e7c612af1a99c04cd6c57",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/coding/metrics-after.txt",
+    "original_sha256": "7fe90d13cfe1c0f9bc4c0318f78a091acdbcbbf1c8e14fd46dbb12e5c504aee0",
+    "distributed_sha256": "7fe90d13cfe1c0f9bc4c0318f78a091acdbcbbf1c8e14fd46dbb12e5c504aee0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/coding/metrics-before.txt",
+    "original_sha256": "131f60a3cb57e82b883da19cec2dfb35c0d0658e1fca2809b4b0d6f5167ff015",
+    "distributed_sha256": "131f60a3cb57e82b883da19cec2dfb35c0d0658e1fca2809b4b0d6f5167ff015",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/coding/metrics.jsonl",
+    "original_sha256": "2c9ae53d07fbdc4c7395aeb089b5171c2136533091d92c274c1f5a07809f5b3b",
+    "distributed_sha256": "2c9ae53d07fbdc4c7395aeb089b5171c2136533091d92c274c1f5a07809f5b3b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-2-V1/coding/requests.jsonl",
+    "original_sha256": "15318a43bfba2507d52aebcac512acc6cb67859ba9747abf35492a479580e21b",
+    "distributed_sha256": "15318a43bfba2507d52aebcac512acc6cb67859ba9747abf35492a479580e21b",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/acceptance.json",
+    "original_sha256": "0fd6d540fd04fbfe18da1e54ae92283c7123f1826aac8ff478b82d9ebfeafa8f",
+    "distributed_sha256": "0fd6d540fd04fbfe18da1e54ae92283c7123f1826aac8ff478b82d9ebfeafa8f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/server-exit.json",
+    "original_sha256": "38df4601027b9eeb951b705733e9dc85215ddc1b86ac57fc449e794083cc324d",
+    "distributed_sha256": "38df4601027b9eeb951b705733e9dc85215ddc1b86ac57fc449e794083cc324d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/warmup.json",
+    "original_sha256": "b2a12686a3b1baca0d5c769c34800a5b121251162c73b8701a70608cf23a2329",
+    "distributed_sha256": "b2a12686a3b1baca0d5c769c34800a5b121251162c73b8701a70608cf23a2329",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/coding/measurement.json",
+    "original_sha256": "fcac22c89e02098cbe5ace0386407b0b82ae7a91aabbbfd9952b764376d28e9b",
+    "distributed_sha256": "328ad359b4d6b6935142c06fe4e507a21a32e7a7222f459b5e5bba94c1b4cf32",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/coding/metrics-after.txt",
+    "original_sha256": "ec94def7272398b12ea50c7cba0b592481f84f8b0f96cdf5d0d4079e74ccff3b",
+    "distributed_sha256": "ec94def7272398b12ea50c7cba0b592481f84f8b0f96cdf5d0d4079e74ccff3b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/coding/metrics-before.txt",
+    "original_sha256": "b3856e4b409ef388a7a2c69ef846dcdf6e24e8b2b936ded84b90a33ed38cd259",
+    "distributed_sha256": "b3856e4b409ef388a7a2c69ef846dcdf6e24e8b2b936ded84b90a33ed38cd259",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/coding/metrics.jsonl",
+    "original_sha256": "6e6ce2552e9abad52214b4f53509d954c6d50b02ed743c0e4bf6f49058fec937",
+    "distributed_sha256": "6e6ce2552e9abad52214b4f53509d954c6d50b02ed743c0e4bf6f49058fec937",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-3-V3/coding/requests.jsonl",
+    "original_sha256": "da44f8232859d521d02ab330449a159435f0a4fd94bdc57057f2dbdc694fe254",
+    "distributed_sha256": "da44f8232859d521d02ab330449a159435f0a4fd94bdc57057f2dbdc694fe254",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/acceptance.json",
+    "original_sha256": "68e8eaca124b213448c4aa706c78fa0807e81db5c7b8f06b80226486583a6136",
+    "distributed_sha256": "68e8eaca124b213448c4aa706c78fa0807e81db5c7b8f06b80226486583a6136",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/server-exit.json",
+    "original_sha256": "e641aadab949ac853ae6a72e89ddfc5aed4018c59504d677846243fa3cbd831c",
+    "distributed_sha256": "e641aadab949ac853ae6a72e89ddfc5aed4018c59504d677846243fa3cbd831c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/warmup.json",
+    "original_sha256": "a53a1bbdace2c71a6d634e60bbfbec37d5a7d940bb43d57d12db1d894a2ac1d6",
+    "distributed_sha256": "a53a1bbdace2c71a6d634e60bbfbec37d5a7d940bb43d57d12db1d894a2ac1d6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/coding/measurement.json",
+    "original_sha256": "06559d7fe538a299911875f1e50f876ec40b54844108a74a634f206abeccb98a",
+    "distributed_sha256": "a0bf8ef4115738c6e3077186242bf4342abef34b5c5f1355a62e565d51bc7c32",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/coding/metrics-after.txt",
+    "original_sha256": "97fa43ffaa12f0d8e5084a1fa763accae7a68939e8a914907e11bb50296322f5",
+    "distributed_sha256": "97fa43ffaa12f0d8e5084a1fa763accae7a68939e8a914907e11bb50296322f5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/coding/metrics-before.txt",
+    "original_sha256": "7784b1ef4554133acb6f2fbc71d768f7a603ccae9b0b55f0ca5550972e4d9e70",
+    "distributed_sha256": "7784b1ef4554133acb6f2fbc71d768f7a603ccae9b0b55f0ca5550972e4d9e70",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/coding/metrics.jsonl",
+    "original_sha256": "0e9ef82a5f14d95e02dfde0b95e07ae1067998f7624db457748a406286b72b2a",
+    "distributed_sha256": "0e9ef82a5f14d95e02dfde0b95e07ae1067998f7624db457748a406286b72b2a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-1/pos-4-V2/coding/requests.jsonl",
+    "original_sha256": "23e2e09159eae8c92fc5ed4c6727843a09b2146f9151efb7b98e3a23979b44b1",
+    "distributed_sha256": "23e2e09159eae8c92fc5ed4c6727843a09b2146f9151efb7b98e3a23979b44b1",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/acceptance.json",
+    "original_sha256": "4a5298ae2bf54daaf6c1aaa0dfd5f970492889722ee14c9f4f5e64e5659317a1",
+    "distributed_sha256": "4a5298ae2bf54daaf6c1aaa0dfd5f970492889722ee14c9f4f5e64e5659317a1",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/server-exit.json",
+    "original_sha256": "6c006d4abd8adc42836418afddc84fb8c6f462227096948f1e368730421eb414",
+    "distributed_sha256": "6c006d4abd8adc42836418afddc84fb8c6f462227096948f1e368730421eb414",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/warmup.json",
+    "original_sha256": "902c29df7fba2f804c358d32e7e280158db8bbad4d8b97209a782c2239177852",
+    "distributed_sha256": "902c29df7fba2f804c358d32e7e280158db8bbad4d8b97209a782c2239177852",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/coding/measurement.json",
+    "original_sha256": "2df827bec959b69d2f43c7bcef85c3445f386ee85c56e7422ba9fe48927db1ab",
+    "distributed_sha256": "fe9b0280f1698e56e4d0c42e8cd709dbb55f24f1f5980f4fe59c034f2b0d70e1",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/coding/metrics-after.txt",
+    "original_sha256": "5935979eb9760131ab11b8342e5b0723c835c1366c630e64af5d2d6e19ff4b12",
+    "distributed_sha256": "5935979eb9760131ab11b8342e5b0723c835c1366c630e64af5d2d6e19ff4b12",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/coding/metrics-before.txt",
+    "original_sha256": "6abcbf0d438f254d689bf7b2f0f0f4d8809978f220896517c3d0174be5684aaa",
+    "distributed_sha256": "6abcbf0d438f254d689bf7b2f0f0f4d8809978f220896517c3d0174be5684aaa",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/coding/metrics.jsonl",
+    "original_sha256": "96cde667ab76ea04ba901d8ed4bfb70b635e3492b36f302ed6527f954169feab",
+    "distributed_sha256": "96cde667ab76ea04ba901d8ed4bfb70b635e3492b36f302ed6527f954169feab",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-1-V1/coding/requests.jsonl",
+    "original_sha256": "8764882d48b202a3da7cbf205b012aa32d13258872caecc79387da0ee4b0ab69",
+    "distributed_sha256": "8764882d48b202a3da7cbf205b012aa32d13258872caecc79387da0ee4b0ab69",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/acceptance.json",
+    "original_sha256": "d7c954f00f216b5f35b3d8c6382124d3c710a2ad9f1f60a0ad4bd4c96127469b",
+    "distributed_sha256": "d7c954f00f216b5f35b3d8c6382124d3c710a2ad9f1f60a0ad4bd4c96127469b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/server-exit.json",
+    "original_sha256": "184c814e872b7407b24312cf55cabc72882284bbf3a6ae98b7545ce4a6df767d",
+    "distributed_sha256": "184c814e872b7407b24312cf55cabc72882284bbf3a6ae98b7545ce4a6df767d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/warmup.json",
+    "original_sha256": "f67edfe9d22a9848bb5a972dff42f4ceaa924119b71ce2e77cb81a2a99285338",
+    "distributed_sha256": "f67edfe9d22a9848bb5a972dff42f4ceaa924119b71ce2e77cb81a2a99285338",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/coding/measurement.json",
+    "original_sha256": "0c4d5dbae7608b1a3d8d680644df789bd77050341d80dff32d85125a07817205",
+    "distributed_sha256": "e3d2f541175ac87801fae0bef3ac21b4daa121e36ff7fe2703c31bfe417162a0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/coding/metrics-after.txt",
+    "original_sha256": "a3b23ee5f92d328dcc149a8ab2fa52d6426a231cbf83437a039817f1f4f00722",
+    "distributed_sha256": "a3b23ee5f92d328dcc149a8ab2fa52d6426a231cbf83437a039817f1f4f00722",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/coding/metrics-before.txt",
+    "original_sha256": "93493a2d2aba817108123080acf1a9aef01f6a06b897a2e1a3cbfd1508a5599b",
+    "distributed_sha256": "93493a2d2aba817108123080acf1a9aef01f6a06b897a2e1a3cbfd1508a5599b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/coding/metrics.jsonl",
+    "original_sha256": "2605afe700ef97ef2f0077725b8810df1ae3a2c1ed2b036af45079aa083e651c",
+    "distributed_sha256": "2605afe700ef97ef2f0077725b8810df1ae3a2c1ed2b036af45079aa083e651c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-2-V2/coding/requests.jsonl",
+    "original_sha256": "a8980030c032717ef410901c28ef667cdbccea04e09c1a96dabffaab5aa511d6",
+    "distributed_sha256": "a8980030c032717ef410901c28ef667cdbccea04e09c1a96dabffaab5aa511d6",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/acceptance.json",
+    "original_sha256": "749ff8441364b7f703f08b35a556f57d3bb0c391b21c3b930f018d5c206159d0",
+    "distributed_sha256": "749ff8441364b7f703f08b35a556f57d3bb0c391b21c3b930f018d5c206159d0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/server-exit.json",
+    "original_sha256": "a7f63edf131fcf87d3c76acbf0f3a4fdb880f55968d6f31baee832a88134da12",
+    "distributed_sha256": "a7f63edf131fcf87d3c76acbf0f3a4fdb880f55968d6f31baee832a88134da12",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/warmup.json",
+    "original_sha256": "036959cba7c2233621d36a0af7fb6b035f919d991ab7e075f084f19c547a9665",
+    "distributed_sha256": "036959cba7c2233621d36a0af7fb6b035f919d991ab7e075f084f19c547a9665",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/coding/measurement.json",
+    "original_sha256": "456a8460d3e1a8909ad5be302a3a9b8244db0464ac794855108ff30c18465452",
+    "distributed_sha256": "14de251da999b96c844ffb50cf52bf7155527761b0fd598c100c06f10cde414b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/coding/metrics-after.txt",
+    "original_sha256": "ebdb1722cf420f05a21fbff37297a0f5565d108a48a27a90145c410ea7726da7",
+    "distributed_sha256": "ebdb1722cf420f05a21fbff37297a0f5565d108a48a27a90145c410ea7726da7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/coding/metrics-before.txt",
+    "original_sha256": "0c7db3e460907640625c97e6c72a22ed32c84baa4353fc9cf38c3e6a51ad2bce",
+    "distributed_sha256": "0c7db3e460907640625c97e6c72a22ed32c84baa4353fc9cf38c3e6a51ad2bce",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/coding/metrics.jsonl",
+    "original_sha256": "f5b9f79c72ceb264d9e781d5e5e67c5cd1f1c43f3ee6492885c1164ee23f9114",
+    "distributed_sha256": "f5b9f79c72ceb264d9e781d5e5e67c5cd1f1c43f3ee6492885c1164ee23f9114",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-3-N/coding/requests.jsonl",
+    "original_sha256": "3cbb96ff78e727b8a1d1780a84935a3a165b06add0de7d24f7bde901b028411e",
+    "distributed_sha256": "3cbb96ff78e727b8a1d1780a84935a3a165b06add0de7d24f7bde901b028411e",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/acceptance.json",
+    "original_sha256": "cc127dd581dd1277c8ec3ecdf3633c751e6d32f6c77f28cffaa2777768853855",
+    "distributed_sha256": "cc127dd581dd1277c8ec3ecdf3633c751e6d32f6c77f28cffaa2777768853855",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/server-exit.json",
+    "original_sha256": "e2f78d82581429e4737a5a6fdc86a2fa96cfb9fc0bc277f978128cbd20981819",
+    "distributed_sha256": "e2f78d82581429e4737a5a6fdc86a2fa96cfb9fc0bc277f978128cbd20981819",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/warmup.json",
+    "original_sha256": "210d327f9dd9372fe6fcd286df9405dfa5e08f76b92052ad3d326a23d883f8b1",
+    "distributed_sha256": "210d327f9dd9372fe6fcd286df9405dfa5e08f76b92052ad3d326a23d883f8b1",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/coding/measurement.json",
+    "original_sha256": "ae35a5b8e8fa3f7ec14022993e2c7b6e84f4878bdab2fa8802395e7737fdb843",
+    "distributed_sha256": "e31df5dcdc0b8b6624ac937940448090db255e8031719ba1a5f31960ca153561",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/coding/metrics-after.txt",
+    "original_sha256": "b2ce4da18c08691bc52f6485eadfd31f4cbb2dc8fc663eea2b3e4f763018fe5c",
+    "distributed_sha256": "b2ce4da18c08691bc52f6485eadfd31f4cbb2dc8fc663eea2b3e4f763018fe5c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/coding/metrics-before.txt",
+    "original_sha256": "b91d5bb90bb64df85437b0794d665772a0890ae2c3c51c1a3781a2c15c804953",
+    "distributed_sha256": "b91d5bb90bb64df85437b0794d665772a0890ae2c3c51c1a3781a2c15c804953",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/coding/metrics.jsonl",
+    "original_sha256": "c0576a5ec5d86a314eaa8b1de7e17a4a74b1b6bb795be8f65a4ca84986ba4c49",
+    "distributed_sha256": "c0576a5ec5d86a314eaa8b1de7e17a4a74b1b6bb795be8f65a4ca84986ba4c49",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-2/pos-4-V3/coding/requests.jsonl",
+    "original_sha256": "af23edaa68097f753f3f6dcd2855e1fa765ac712e787693600507535de030806",
+    "distributed_sha256": "af23edaa68097f753f3f6dcd2855e1fa765ac712e787693600507535de030806",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/acceptance.json",
+    "original_sha256": "c7e48dc97bb6aae6ee72de2c25e94e61aed67da2c96aed90168a4fecc4d18fdd",
+    "distributed_sha256": "c7e48dc97bb6aae6ee72de2c25e94e61aed67da2c96aed90168a4fecc4d18fdd",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/server-exit.json",
+    "original_sha256": "f0268f9ff3de45a6da77f116c86417419bdd74cd738d9af9150c73bb589a8bd3",
+    "distributed_sha256": "f0268f9ff3de45a6da77f116c86417419bdd74cd738d9af9150c73bb589a8bd3",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/warmup.json",
+    "original_sha256": "a632bc47ebc1ee2bc5033820b921cf9849c2c90b3b4cc694b90d7c934f270bad",
+    "distributed_sha256": "a632bc47ebc1ee2bc5033820b921cf9849c2c90b3b4cc694b90d7c934f270bad",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/coding/measurement.json",
+    "original_sha256": "494ef393a09930ffc62cf9d1c59cd19f95c50178c052e8961244926177cf2163",
+    "distributed_sha256": "7d184e1d65239a6368f11638cf21274b6423e25574a18edbd440df8b23627810",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/coding/metrics-after.txt",
+    "original_sha256": "6cf46b883162ee8b8635a32f3063810f04deab87d94de7ec58e6407e5b7e6ad1",
+    "distributed_sha256": "6cf46b883162ee8b8635a32f3063810f04deab87d94de7ec58e6407e5b7e6ad1",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/coding/metrics-before.txt",
+    "original_sha256": "ab6e8f7fdf7ede047f1adb3a200b99b87753a90cd6f64f3ebe398bae99062008",
+    "distributed_sha256": "ab6e8f7fdf7ede047f1adb3a200b99b87753a90cd6f64f3ebe398bae99062008",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/coding/metrics.jsonl",
+    "original_sha256": "ea3c0b30697bf8cd249d8ba825a76db11c41ef92f3b1f7a45d1b00cf4b06154c",
+    "distributed_sha256": "ea3c0b30697bf8cd249d8ba825a76db11c41ef92f3b1f7a45d1b00cf4b06154c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-1-V2/coding/requests.jsonl",
+    "original_sha256": "8e99d2ffd82ead9b5ddcbac48187a47638d039cbf756c1490b6d49ab9c155892",
+    "distributed_sha256": "8e99d2ffd82ead9b5ddcbac48187a47638d039cbf756c1490b6d49ab9c155892",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/acceptance.json",
+    "original_sha256": "d1a1855f9655d810d808e003794b29c977b9c5bd6553b8ef78f85005d9671765",
+    "distributed_sha256": "d1a1855f9655d810d808e003794b29c977b9c5bd6553b8ef78f85005d9671765",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/server-exit.json",
+    "original_sha256": "fc9ce1f579710d66f5d1b1a6b7bbf8f537f78d6bb7a3fc513ad9d6f8ef1d2d20",
+    "distributed_sha256": "fc9ce1f579710d66f5d1b1a6b7bbf8f537f78d6bb7a3fc513ad9d6f8ef1d2d20",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/warmup.json",
+    "original_sha256": "d364aefa51cd2516393339a3c8674a4abd4ad68231f415175b19db8b1aac89a7",
+    "distributed_sha256": "d364aefa51cd2516393339a3c8674a4abd4ad68231f415175b19db8b1aac89a7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/coding/measurement.json",
+    "original_sha256": "28c065b98a6194991dbccb2f83946fabd207605b2f6d98875ef39be8211b6ccd",
+    "distributed_sha256": "e02164346058ed7a469ad424352a12e816088d9619fe16767b820766c0a7d519",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/coding/metrics-after.txt",
+    "original_sha256": "aec34053a6aca0576d157d0e9b5ef44a9cde3a2be5dc149424639cd4f648b38f",
+    "distributed_sha256": "aec34053a6aca0576d157d0e9b5ef44a9cde3a2be5dc149424639cd4f648b38f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/coding/metrics-before.txt",
+    "original_sha256": "8fad34bdc991b6df707fbde6e2172e7575a58b9da09a2a298b3043f1fe0839df",
+    "distributed_sha256": "8fad34bdc991b6df707fbde6e2172e7575a58b9da09a2a298b3043f1fe0839df",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/coding/metrics.jsonl",
+    "original_sha256": "abce2ec4c6dea50f2f2a7c4eeb09f2e9f3eed67d5dc9ee9691ff6163ceee0a07",
+    "distributed_sha256": "abce2ec4c6dea50f2f2a7c4eeb09f2e9f3eed67d5dc9ee9691ff6163ceee0a07",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-2-V3/coding/requests.jsonl",
+    "original_sha256": "9c9de9cad72b0f8b31d5f16a97a19a30ca34cf594528d54a559d425dc60dd521",
+    "distributed_sha256": "9c9de9cad72b0f8b31d5f16a97a19a30ca34cf594528d54a559d425dc60dd521",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/acceptance.json",
+    "original_sha256": "ea1e7d6e6f862222189e90648710c4605596704795f7e5ddb31de95ecb0657da",
+    "distributed_sha256": "ea1e7d6e6f862222189e90648710c4605596704795f7e5ddb31de95ecb0657da",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/server-exit.json",
+    "original_sha256": "3063e50bc1839f24e0f7fa67f7efe55e7c44d7be042751632bb6a484b9a69a5f",
+    "distributed_sha256": "3063e50bc1839f24e0f7fa67f7efe55e7c44d7be042751632bb6a484b9a69a5f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/warmup.json",
+    "original_sha256": "af355814a868da99a82af9ca9a8346bec3d63606c80e3db59605f9e950c50772",
+    "distributed_sha256": "af355814a868da99a82af9ca9a8346bec3d63606c80e3db59605f9e950c50772",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/coding/measurement.json",
+    "original_sha256": "ee25021219e93745e1933dca8f11eaa656d7b4dfe4ef668e91a2dbf989f185e0",
+    "distributed_sha256": "f8e18fcdfad06b021c51d0abc47ee09790bdc3be25601fa62644b0496b0557bd",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/coding/metrics-after.txt",
+    "original_sha256": "7a306b40cef1d7d8efdf44a3702020b3973da6dcbd96ab7ab426ed8eeaaa4e4e",
+    "distributed_sha256": "7a306b40cef1d7d8efdf44a3702020b3973da6dcbd96ab7ab426ed8eeaaa4e4e",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/coding/metrics-before.txt",
+    "original_sha256": "a04835b19ca64b04aa7c1f612a10e8f5807d0b723b97a7fede9f4f51d5d87d83",
+    "distributed_sha256": "a04835b19ca64b04aa7c1f612a10e8f5807d0b723b97a7fede9f4f51d5d87d83",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/coding/metrics.jsonl",
+    "original_sha256": "d491ab9737bf129df3584fd3bdaecf71afb127a5177675f1434a3a9c1f045e8c",
+    "distributed_sha256": "d491ab9737bf129df3584fd3bdaecf71afb127a5177675f1434a3a9c1f045e8c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-3-V1/coding/requests.jsonl",
+    "original_sha256": "b7b9af20d4ad2d4635c36d0cfc06ebf3b741136dd55981740f61aedee2b71cfc",
+    "distributed_sha256": "b7b9af20d4ad2d4635c36d0cfc06ebf3b741136dd55981740f61aedee2b71cfc",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/acceptance.json",
+    "original_sha256": "e86755955462c9d2de516e79b32a6bf6aa421c755273cf902d303c46181ee94b",
+    "distributed_sha256": "e86755955462c9d2de516e79b32a6bf6aa421c755273cf902d303c46181ee94b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/server-exit.json",
+    "original_sha256": "78cc2f1efed111dabd896b9eeeb5f8e36ec982c59a46edc711fc262fa7316459",
+    "distributed_sha256": "78cc2f1efed111dabd896b9eeeb5f8e36ec982c59a46edc711fc262fa7316459",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/warmup.json",
+    "original_sha256": "f36af5c2539a0a9e7489a2b64a3c87d75bef8b7d5a6c3bb994473d9853dc7065",
+    "distributed_sha256": "f36af5c2539a0a9e7489a2b64a3c87d75bef8b7d5a6c3bb994473d9853dc7065",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/coding/measurement.json",
+    "original_sha256": "341f8bbb79ef594fb4326e8df8773e144dc71eb23a125c4eab278c66c00a551f",
+    "distributed_sha256": "dd25ff8a57d7eaabad8d777dda87fbfd961c6ecb2dd9c7b7005bb828b0246df7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/coding/metrics-after.txt",
+    "original_sha256": "fa782510c19c7bd25e520208d03abae448f004485bcb884cc4d929b5b53f7d65",
+    "distributed_sha256": "fa782510c19c7bd25e520208d03abae448f004485bcb884cc4d929b5b53f7d65",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/coding/metrics-before.txt",
+    "original_sha256": "6398d43051f66f5216aeab816bd50c72c0e6060126f648e7bb932156d51d7eb6",
+    "distributed_sha256": "6398d43051f66f5216aeab816bd50c72c0e6060126f648e7bb932156d51d7eb6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/coding/metrics.jsonl",
+    "original_sha256": "a9659dac8c31bd0b50e86544891a73784c381da5ee68343585c7b25ac41f91c0",
+    "distributed_sha256": "a9659dac8c31bd0b50e86544891a73784c381da5ee68343585c7b25ac41f91c0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-3/pos-4-N/coding/requests.jsonl",
+    "original_sha256": "cdff851d3b4a0ff8b32ceb8150aa95b03a162f7d1fd684926de0e4be2e01332c",
+    "distributed_sha256": "cdff851d3b4a0ff8b32ceb8150aa95b03a162f7d1fd684926de0e4be2e01332c",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/acceptance.json",
+    "original_sha256": "f853c667064c49e8b69b46ed5e27766dfc37951bbce32184776eca8e862187cb",
+    "distributed_sha256": "f853c667064c49e8b69b46ed5e27766dfc37951bbce32184776eca8e862187cb",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/server-exit.json",
+    "original_sha256": "448d8556d6f12059f7905b9ce568a59dba2ba39d367eec7d5ae53be58b4f6e40",
+    "distributed_sha256": "448d8556d6f12059f7905b9ce568a59dba2ba39d367eec7d5ae53be58b4f6e40",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/warmup.json",
+    "original_sha256": "3b4f9cc9fb0b75533e2a7ccb63f455a4b9efe213b5b72c128710fd3ea740e1b0",
+    "distributed_sha256": "3b4f9cc9fb0b75533e2a7ccb63f455a4b9efe213b5b72c128710fd3ea740e1b0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/coding/measurement.json",
+    "original_sha256": "4e5fad65f649ef20ecb8c2490850c92495625d78eb6176d26e2e3580323629c7",
+    "distributed_sha256": "80643be33248ae1c7bc83f974eb64c35e96a5df3440f46a639ddef94770436b7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/coding/metrics-after.txt",
+    "original_sha256": "9d3f640f7c27a3555754823f3b1c1940734e363fafc39bce9ece474ff872974d",
+    "distributed_sha256": "9d3f640f7c27a3555754823f3b1c1940734e363fafc39bce9ece474ff872974d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/coding/metrics-before.txt",
+    "original_sha256": "921a33222bc728d4f28ab5f202ba4299c67db41f75cbdf55f19303ba65f06404",
+    "distributed_sha256": "921a33222bc728d4f28ab5f202ba4299c67db41f75cbdf55f19303ba65f06404",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/coding/metrics.jsonl",
+    "original_sha256": "f9820a2f062061411cc6f11e0129091014ee20f8c776a082cce16f928fe27a2c",
+    "distributed_sha256": "f9820a2f062061411cc6f11e0129091014ee20f8c776a082cce16f928fe27a2c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-1-V3/coding/requests.jsonl",
+    "original_sha256": "bea4e2c16506e980575a829b8a3128952ff3c05ddb08cb1bcd83d31dc67bcbd2",
+    "distributed_sha256": "bea4e2c16506e980575a829b8a3128952ff3c05ddb08cb1bcd83d31dc67bcbd2",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/acceptance.json",
+    "original_sha256": "aefd94ee7f726197604d6b002a8e8c406697a05fbb1d9f7bf530644183afd086",
+    "distributed_sha256": "aefd94ee7f726197604d6b002a8e8c406697a05fbb1d9f7bf530644183afd086",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/server-exit.json",
+    "original_sha256": "31b9ad19deae1bc42a9a07619df0910d8d77c111c1dea90a3ddb7d0496d34b13",
+    "distributed_sha256": "31b9ad19deae1bc42a9a07619df0910d8d77c111c1dea90a3ddb7d0496d34b13",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/warmup.json",
+    "original_sha256": "597e6846a549f7926a0fbcaedbaf691631d377fee19bd624a1f8704a221e3b42",
+    "distributed_sha256": "597e6846a549f7926a0fbcaedbaf691631d377fee19bd624a1f8704a221e3b42",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/coding/measurement.json",
+    "original_sha256": "fd92fe707f0b6f5b1e29d8ac9131070c1660f6849524a262fe5eb1906d1b94b8",
+    "distributed_sha256": "fff24419d238909710afa85f52ccf79959fd5fbb305b87e8cb80ba5886ae2af0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/coding/metrics-after.txt",
+    "original_sha256": "f852c23f8b7a825182cc872bd9511bed38e045e0641162803e0b8c508b720750",
+    "distributed_sha256": "f852c23f8b7a825182cc872bd9511bed38e045e0641162803e0b8c508b720750",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/coding/metrics-before.txt",
+    "original_sha256": "e910d677b4af9af92c1f77aa802e946721b36ebfbf3359a98e99c41db1042d0f",
+    "distributed_sha256": "e910d677b4af9af92c1f77aa802e946721b36ebfbf3359a98e99c41db1042d0f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/coding/metrics.jsonl",
+    "original_sha256": "60639f45dafec08ba53314e161ed74b5b9f23ee8622bae6484c8842761435577",
+    "distributed_sha256": "60639f45dafec08ba53314e161ed74b5b9f23ee8622bae6484c8842761435577",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-2-N/coding/requests.jsonl",
+    "original_sha256": "08753456d4d548bcddfbc3a9d230ec3cbf1dcd0a178e111a253e82e396f7b963",
+    "distributed_sha256": "08753456d4d548bcddfbc3a9d230ec3cbf1dcd0a178e111a253e82e396f7b963",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/acceptance.json",
+    "original_sha256": "4af62dc1038184a186ee0d0a23f59375e64052fe4787e1d52a99a1fd7242a2cf",
+    "distributed_sha256": "4af62dc1038184a186ee0d0a23f59375e64052fe4787e1d52a99a1fd7242a2cf",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/server-exit.json",
+    "original_sha256": "12a0bbb9a40a286463e1ea0aebcdab8e04287962a3246a9e73b3cae5753e9e01",
+    "distributed_sha256": "12a0bbb9a40a286463e1ea0aebcdab8e04287962a3246a9e73b3cae5753e9e01",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/warmup.json",
+    "original_sha256": "9fc0654aa162c6c3359de25a57502f76a7d1ad7699ef9eabaaaa0345772e2453",
+    "distributed_sha256": "9fc0654aa162c6c3359de25a57502f76a7d1ad7699ef9eabaaaa0345772e2453",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/coding/measurement.json",
+    "original_sha256": "b580b2c990bfe95850b7ba978d5d7dfbd05dfc9262fbe73e6d74c8705ca38219",
+    "distributed_sha256": "6f7263fa3db1f7071c818b363bb86e3e7631a18c37091891005c53cf9be00dc7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/coding/metrics-after.txt",
+    "original_sha256": "f35ad7b53b41cdf7c57783abdcfdd1856cfbf44d8a810f47993b282c0aca2329",
+    "distributed_sha256": "f35ad7b53b41cdf7c57783abdcfdd1856cfbf44d8a810f47993b282c0aca2329",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/coding/metrics-before.txt",
+    "original_sha256": "e38c4e24bce3a15d2a08ec251f219c18ba8453c662da9bad36b1f5f1af3d05a2",
+    "distributed_sha256": "e38c4e24bce3a15d2a08ec251f219c18ba8453c662da9bad36b1f5f1af3d05a2",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/coding/metrics.jsonl",
+    "original_sha256": "d01dc59c0cc7e22ecb403b069bb4ee57d53c65877d1efa37e1af9253ab986572",
+    "distributed_sha256": "d01dc59c0cc7e22ecb403b069bb4ee57d53c65877d1efa37e1af9253ab986572",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-3-V2/coding/requests.jsonl",
+    "original_sha256": "d9fdb4dbb4d95b2a82eca997fbba0cadd4962df8f69fd8b4b9e7e20cbba69128",
+    "distributed_sha256": "d9fdb4dbb4d95b2a82eca997fbba0cadd4962df8f69fd8b4b9e7e20cbba69128",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/acceptance.json",
+    "original_sha256": "44588b210185b1ed6f43d978dc782381de970d45daa468aca9d2b66d8b32bf6d",
+    "distributed_sha256": "44588b210185b1ed6f43d978dc782381de970d45daa468aca9d2b66d8b32bf6d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/server-exit.json",
+    "original_sha256": "be59c7a6f86c8f4af5c5f2b252d1714b7bbf38428835d943a302dc4d448f77f4",
+    "distributed_sha256": "be59c7a6f86c8f4af5c5f2b252d1714b7bbf38428835d943a302dc4d448f77f4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/warmup.json",
+    "original_sha256": "cd0bbc534d43876ba210a338ca4b6a1e39ec1d76ed6fdc2e776d08af5c91bf8a",
+    "distributed_sha256": "cd0bbc534d43876ba210a338ca4b6a1e39ec1d76ed6fdc2e776d08af5c91bf8a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/coding/measurement.json",
+    "original_sha256": "5827e2b10462dbb162feda0b83bc9007839bad2e4d6d513e718e4d2012703aa8",
+    "distributed_sha256": "97155de1fe6513581c1c4b60a86d0a8628403fd289508f940679a8d7c880a3a0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/coding/metrics-after.txt",
+    "original_sha256": "b9da1d69af4678ec698ca33a46c79fc99efd3713e30a967fc137def79a661ee2",
+    "distributed_sha256": "b9da1d69af4678ec698ca33a46c79fc99efd3713e30a967fc137def79a661ee2",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/coding/metrics-before.txt",
+    "original_sha256": "ec50d88fd9a559791497fead0f59240aa822e06c81ded38556bfb4ecece5310d",
+    "distributed_sha256": "ec50d88fd9a559791497fead0f59240aa822e06c81ded38556bfb4ecece5310d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/coding/metrics.jsonl",
+    "original_sha256": "2d248e2c997fe77061122d11be186389315cfe8c931be67ba2a9c112a49dd260",
+    "distributed_sha256": "2d248e2c997fe77061122d11be186389315cfe8c931be67ba2a9c112a49dd260",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/coding/block-4/pos-4-V1/coding/requests.jsonl",
+    "original_sha256": "8645f8e12dad53e1ec6af4255322d505b3b28516174f7a97bc8e576bc5a9083a",
+    "distributed_sha256": "8645f8e12dad53e1ec6af4255322d505b3b28516174f7a97bc8e576bc5a9083a",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/acceptance.json",
+    "original_sha256": "f9f7be022f41e174865655bc885ec96a692f8aaaf34b906a9e16b4aeae07bcef",
+    "distributed_sha256": "f9f7be022f41e174865655bc885ec96a692f8aaaf34b906a9e16b4aeae07bcef",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/server-exit.json",
+    "original_sha256": "482c108dfc3ed0e05b46058be978f093e1027a285cad814f14141752f64e995b",
+    "distributed_sha256": "482c108dfc3ed0e05b46058be978f093e1027a285cad814f14141752f64e995b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/warmup.json",
+    "original_sha256": "fcbc89fede87c0833be5d2fb34a356c1fdac942b952c6b2659cb63b8259aca25",
+    "distributed_sha256": "fcbc89fede87c0833be5d2fb34a356c1fdac942b952c6b2659cb63b8259aca25",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/independent/measurement.json",
+    "original_sha256": "1137b24abf0e23c8ae3eed80dc049d9582f7d64b5985334a3cd6b39461bd8ff9",
+    "distributed_sha256": "de8e958e230c1c363032f149095618f87b9cb964694a1d2654a54391c4bf878f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/independent/metrics-after.txt",
+    "original_sha256": "86ff71aad41d85b230209b8c4e8185b7bd79e0e91fa61d148cdbb3e73da62c65",
+    "distributed_sha256": "86ff71aad41d85b230209b8c4e8185b7bd79e0e91fa61d148cdbb3e73da62c65",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/independent/metrics-before.txt",
+    "original_sha256": "fa0a493b213de1c40b2b309173ec50cf3ea248bedf9dc7e1bd1022fa627546bd",
+    "distributed_sha256": "fa0a493b213de1c40b2b309173ec50cf3ea248bedf9dc7e1bd1022fa627546bd",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/independent/metrics.jsonl",
+    "original_sha256": "123e89887f2213a1637d14f5960a7f0de89bb14a228670062ab1f5f636a2a8b8",
+    "distributed_sha256": "123e89887f2213a1637d14f5960a7f0de89bb14a228670062ab1f5f636a2a8b8",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-1-N/independent/requests.jsonl",
+    "original_sha256": "fd8cb3868ee9582df3993c9529c5b34e203f4eed783407ff1cb1fd6b316de93e",
+    "distributed_sha256": "fd8cb3868ee9582df3993c9529c5b34e203f4eed783407ff1cb1fd6b316de93e",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/acceptance.json",
+    "original_sha256": "8bffb408a64234bd39b10be6047cde16bf86ccdc4c1e6387e007a50709efceb6",
+    "distributed_sha256": "8bffb408a64234bd39b10be6047cde16bf86ccdc4c1e6387e007a50709efceb6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/server-exit.json",
+    "original_sha256": "6e24bc0dcbab7816d3c29363ead30f07ba0cb9583e54a89d4454e46fc90a6a8d",
+    "distributed_sha256": "6e24bc0dcbab7816d3c29363ead30f07ba0cb9583e54a89d4454e46fc90a6a8d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/warmup.json",
+    "original_sha256": "2a1d35f2f2275c6acd79c525b60d690a522b9e025019c27601dca0f2023851e5",
+    "distributed_sha256": "2a1d35f2f2275c6acd79c525b60d690a522b9e025019c27601dca0f2023851e5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/independent/measurement.json",
+    "original_sha256": "ff7b9d0c55b85724c5bd8ed908b4561bb32e6159e8810a91d8d9c6d5032bbab6",
+    "distributed_sha256": "9c15aedaba306b8267676b31744aa47af634b3d0e6d7a3ca2504c401038fad8d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/independent/metrics-after.txt",
+    "original_sha256": "4c36124fce2cb09e12a365d03468b5d142255883407330d24ae0a65937cd8bab",
+    "distributed_sha256": "4c36124fce2cb09e12a365d03468b5d142255883407330d24ae0a65937cd8bab",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/independent/metrics-before.txt",
+    "original_sha256": "87fbf57fbce6351f19c38f6731295cca64cc9156bfae549b0936d4caedb705b5",
+    "distributed_sha256": "87fbf57fbce6351f19c38f6731295cca64cc9156bfae549b0936d4caedb705b5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/independent/metrics.jsonl",
+    "original_sha256": "08980cfe99beea43211d4f189f44ac280eef7e2111e0baea5344fa2f7b5f563e",
+    "distributed_sha256": "08980cfe99beea43211d4f189f44ac280eef7e2111e0baea5344fa2f7b5f563e",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-2-V1/independent/requests.jsonl",
+    "original_sha256": "40fe1b39606e6547b75853bd76b16dee45d84568946ad3aea11ff75509632105",
+    "distributed_sha256": "40fe1b39606e6547b75853bd76b16dee45d84568946ad3aea11ff75509632105",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/acceptance.json",
+    "original_sha256": "f6f2e8fdee089dfc5c788e6f39ab896fe8d86c51efab05b501f8b77be09073f4",
+    "distributed_sha256": "f6f2e8fdee089dfc5c788e6f39ab896fe8d86c51efab05b501f8b77be09073f4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/server-exit.json",
+    "original_sha256": "80837c0885cce75f5a45ccc30d584af520ffa054173eec9182b0a884bbf0556d",
+    "distributed_sha256": "80837c0885cce75f5a45ccc30d584af520ffa054173eec9182b0a884bbf0556d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/warmup.json",
+    "original_sha256": "f4d02c37b77334c62e658137156a664713c6d241a51dc47d41080ac9d3cef6dd",
+    "distributed_sha256": "f4d02c37b77334c62e658137156a664713c6d241a51dc47d41080ac9d3cef6dd",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/independent/measurement.json",
+    "original_sha256": "16bdf0ffce32ba3ca5e56cb794c4310ab7aa33c91b4cfdd81a5270e11aef9f64",
+    "distributed_sha256": "b7fcbdd456e783a4cc9d3b3eacfdd02d5a03c747d7e2cb4acc7c34039c691888",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/independent/metrics-after.txt",
+    "original_sha256": "b19c51753e39be2ed9b90c606524acc92155196425d5bb7457b22c9f6df61a0f",
+    "distributed_sha256": "b19c51753e39be2ed9b90c606524acc92155196425d5bb7457b22c9f6df61a0f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/independent/metrics-before.txt",
+    "original_sha256": "3bd5aa4051e6f6f08e17b6a2dd7e30436bf2e8d5ed62460405d6e47d777f8481",
+    "distributed_sha256": "3bd5aa4051e6f6f08e17b6a2dd7e30436bf2e8d5ed62460405d6e47d777f8481",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/independent/metrics.jsonl",
+    "original_sha256": "4bcc6295abf85c114bafa3c8bcb93f016aa803fa4842080b60a922b940e22163",
+    "distributed_sha256": "4bcc6295abf85c114bafa3c8bcb93f016aa803fa4842080b60a922b940e22163",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-3-V3/independent/requests.jsonl",
+    "original_sha256": "8cd307c2850a30aa667893849cfc3acba528c4e83493c3df2563b9162a6f8527",
+    "distributed_sha256": "8cd307c2850a30aa667893849cfc3acba528c4e83493c3df2563b9162a6f8527",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/acceptance.json",
+    "original_sha256": "234a6e55017c39d927891b2b1e2c643353b1beb11d6b468ee12bf1a5a8a9cbdb",
+    "distributed_sha256": "234a6e55017c39d927891b2b1e2c643353b1beb11d6b468ee12bf1a5a8a9cbdb",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/server-exit.json",
+    "original_sha256": "f40bd95cf09ba13b5840781db994c83a292705a8b490b8cf380c0a7bbb8bd317",
+    "distributed_sha256": "f40bd95cf09ba13b5840781db994c83a292705a8b490b8cf380c0a7bbb8bd317",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/warmup.json",
+    "original_sha256": "753ec7432d0980a2d42e8dfa422cc844039f2ac16019ea3be36134f4c8f84287",
+    "distributed_sha256": "753ec7432d0980a2d42e8dfa422cc844039f2ac16019ea3be36134f4c8f84287",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/independent/measurement.json",
+    "original_sha256": "22f02b9abf2769dd06f418c9d481bbe38313a82a24d31c9a40058bb03147bb04",
+    "distributed_sha256": "b7b745eaeae27b27120861260a4b26d6d3b2b553ac2be34365e0ece4c653d40d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/independent/metrics-after.txt",
+    "original_sha256": "cdf0d168e66a2a63eb2b6eefe15f55b3db7972ff5d4678851ef57336ab7ee671",
+    "distributed_sha256": "cdf0d168e66a2a63eb2b6eefe15f55b3db7972ff5d4678851ef57336ab7ee671",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/independent/metrics-before.txt",
+    "original_sha256": "6013a64d222973ef72999f59ce7d2d929dd8e7d093a1083e6efe94ee7b806e7a",
+    "distributed_sha256": "6013a64d222973ef72999f59ce7d2d929dd8e7d093a1083e6efe94ee7b806e7a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/independent/metrics.jsonl",
+    "original_sha256": "b2ccae066a57f4c3398ae6842ec395e22a2153b40532b4440cebb76bc5ff1569",
+    "distributed_sha256": "b2ccae066a57f4c3398ae6842ec395e22a2153b40532b4440cebb76bc5ff1569",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-1/pos-4-V2/independent/requests.jsonl",
+    "original_sha256": "d0ca0d0feff8c52a09ed649915bba623e82021bc02a1095ce5999c518feb0df1",
+    "distributed_sha256": "d0ca0d0feff8c52a09ed649915bba623e82021bc02a1095ce5999c518feb0df1",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/acceptance.json",
+    "original_sha256": "18ce8f53a7dfd8247946d31c46435c4f77437e7862ec1677ed7a0152f7eb8045",
+    "distributed_sha256": "18ce8f53a7dfd8247946d31c46435c4f77437e7862ec1677ed7a0152f7eb8045",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/server-exit.json",
+    "original_sha256": "2d09075fadc3c6bad1483f75f066b15cf6dc4a60feeafe622fedb9ad6c0c51cf",
+    "distributed_sha256": "2d09075fadc3c6bad1483f75f066b15cf6dc4a60feeafe622fedb9ad6c0c51cf",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/warmup.json",
+    "original_sha256": "3769ae783f0ec11cb51054308e84d4ad2c30a850cf1aaf5927d5d47c86ff5a1f",
+    "distributed_sha256": "3769ae783f0ec11cb51054308e84d4ad2c30a850cf1aaf5927d5d47c86ff5a1f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/independent/measurement.json",
+    "original_sha256": "d76fe9cd17aa9ac6181cb07d202702c8d92cf9b189893325e0114ba9ea2127e4",
+    "distributed_sha256": "8829964e339b68234fab8ad67a82725167948270af551521d672c9b45422345a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/independent/metrics-after.txt",
+    "original_sha256": "89ec7b32433c81aad80d360f3b26ec35198312e47ea6276828a54befcf5942f8",
+    "distributed_sha256": "89ec7b32433c81aad80d360f3b26ec35198312e47ea6276828a54befcf5942f8",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/independent/metrics-before.txt",
+    "original_sha256": "f7da1b162dcb87d0652f06e034a5984ae34bbbee0bc10c01bb8fc4f8a57f656a",
+    "distributed_sha256": "f7da1b162dcb87d0652f06e034a5984ae34bbbee0bc10c01bb8fc4f8a57f656a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/independent/metrics.jsonl",
+    "original_sha256": "3a6f0a845aa5ea6d9f59061119f8543d98b0d22e141fc46fb47f934a31428355",
+    "distributed_sha256": "3a6f0a845aa5ea6d9f59061119f8543d98b0d22e141fc46fb47f934a31428355",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-1-V1/independent/requests.jsonl",
+    "original_sha256": "79b2b0a68ae040b9e894926dbc83bc8dbb05afd69a25d120e488e14edb85a679",
+    "distributed_sha256": "79b2b0a68ae040b9e894926dbc83bc8dbb05afd69a25d120e488e14edb85a679",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/acceptance.json",
+    "original_sha256": "4fc48fc8f449052ae134430986f8f6bc5d4cfc7f13e88a99e4364ec3712db794",
+    "distributed_sha256": "4fc48fc8f449052ae134430986f8f6bc5d4cfc7f13e88a99e4364ec3712db794",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/server-exit.json",
+    "original_sha256": "cbaba55bacab6bced52b71c47ea8a49d5c0cf2b88905fae8c2a1273940eec523",
+    "distributed_sha256": "cbaba55bacab6bced52b71c47ea8a49d5c0cf2b88905fae8c2a1273940eec523",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/warmup.json",
+    "original_sha256": "ca27724b19ddcf41056070810e74a4441ba62389c1bd8b9b5d8abb77c5a199d4",
+    "distributed_sha256": "ca27724b19ddcf41056070810e74a4441ba62389c1bd8b9b5d8abb77c5a199d4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/independent/measurement.json",
+    "original_sha256": "f84d2250db73a7e9213908d030439ab570360a5a629d18f9b6ecd013442fc479",
+    "distributed_sha256": "970bda098356b32e11ac5055f368ff2702e4c595d5c24d2b04a58b444ab5f08c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/independent/metrics-after.txt",
+    "original_sha256": "8d755c26b8a0730a811a2d92c977d789d351bd6d4340a91101cc7202bf677de7",
+    "distributed_sha256": "8d755c26b8a0730a811a2d92c977d789d351bd6d4340a91101cc7202bf677de7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/independent/metrics-before.txt",
+    "original_sha256": "d41dc8272535f047106c7d17550a68483f0d6236e2264d3ea37be8c99705f6ce",
+    "distributed_sha256": "d41dc8272535f047106c7d17550a68483f0d6236e2264d3ea37be8c99705f6ce",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/independent/metrics.jsonl",
+    "original_sha256": "78b1256a2307e86816edf28038ff7149e2e40b287ddd653837539c283f18a58b",
+    "distributed_sha256": "78b1256a2307e86816edf28038ff7149e2e40b287ddd653837539c283f18a58b",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-2-V2/independent/requests.jsonl",
+    "original_sha256": "fc158dc6e0e4eb5caa46f74834181ccc6047662591c064081234ecaf80843c98",
+    "distributed_sha256": "fc158dc6e0e4eb5caa46f74834181ccc6047662591c064081234ecaf80843c98",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/acceptance.json",
+    "original_sha256": "7867c2a3865aeff628b90293a3cbe9de73dd4f074c1c0b40f30d44405799ddd8",
+    "distributed_sha256": "7867c2a3865aeff628b90293a3cbe9de73dd4f074c1c0b40f30d44405799ddd8",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/server-exit.json",
+    "original_sha256": "b813796ccaba9671fa4f88892b8fdc12f9d180f460dc8eb25623bce13a0831a9",
+    "distributed_sha256": "b813796ccaba9671fa4f88892b8fdc12f9d180f460dc8eb25623bce13a0831a9",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/warmup.json",
+    "original_sha256": "08ce0e34f5e95b697f38fe25cf89eb3588f550b02b50f1953850a6e968979bab",
+    "distributed_sha256": "08ce0e34f5e95b697f38fe25cf89eb3588f550b02b50f1953850a6e968979bab",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/independent/measurement.json",
+    "original_sha256": "d3e76b4b7612e2fb4ac9b1e2fcb894c243b1a540d3e5b80e129bd4dd10838170",
+    "distributed_sha256": "7110e77bb1a243ff8fbebdd1d6de8297341070b6ed6ea034c7f08f94f9edc787",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/independent/metrics-after.txt",
+    "original_sha256": "f016c154a40070bbbb690827298096f4814a7f5111c0f011601d4a5f98c458e6",
+    "distributed_sha256": "f016c154a40070bbbb690827298096f4814a7f5111c0f011601d4a5f98c458e6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/independent/metrics-before.txt",
+    "original_sha256": "3e12e0878abc68a40c14c6b6ea2cb3580bea5efea4f5faaf48a7eb7b3c87162f",
+    "distributed_sha256": "3e12e0878abc68a40c14c6b6ea2cb3580bea5efea4f5faaf48a7eb7b3c87162f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/independent/metrics.jsonl",
+    "original_sha256": "6a461e4dc1377578e5b6cca81049b6822e1574c605b96654c360c374948d5b84",
+    "distributed_sha256": "6a461e4dc1377578e5b6cca81049b6822e1574c605b96654c360c374948d5b84",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-3-N/independent/requests.jsonl",
+    "original_sha256": "a2834963cb2bbd484b606f06203121cbfe074c56c4f550a28a8b6474af9c70e7",
+    "distributed_sha256": "a2834963cb2bbd484b606f06203121cbfe074c56c4f550a28a8b6474af9c70e7",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/acceptance.json",
+    "original_sha256": "fb92e277f77c860de9f4ecaaf8cf3bf6f524ebe750ee5d61a8a361bb14ff4b4f",
+    "distributed_sha256": "fb92e277f77c860de9f4ecaaf8cf3bf6f524ebe750ee5d61a8a361bb14ff4b4f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/server-exit.json",
+    "original_sha256": "c14b6e34d60528ccfd0be38ed82c1a774f460dfa4376695cf06fa594856ba2ca",
+    "distributed_sha256": "c14b6e34d60528ccfd0be38ed82c1a774f460dfa4376695cf06fa594856ba2ca",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/warmup.json",
+    "original_sha256": "17e7ab954504aab4604e4059848b16c95f69ee00ccf665a489cd8001d4dc2a24",
+    "distributed_sha256": "17e7ab954504aab4604e4059848b16c95f69ee00ccf665a489cd8001d4dc2a24",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/independent/measurement.json",
+    "original_sha256": "b1557d4efd6277e0f004591cf3183bb404790b5ea78940b23e48456f8efd992c",
+    "distributed_sha256": "b0baaff3693d97ddbd5c3060ed3ec5b904df89b60db1f2cb53634ab1cf5da3b9",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/independent/metrics-after.txt",
+    "original_sha256": "ec2087fe2b215133269a5ed7888550f8d9f627341b984b5b5d9006a2beceb898",
+    "distributed_sha256": "ec2087fe2b215133269a5ed7888550f8d9f627341b984b5b5d9006a2beceb898",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/independent/metrics-before.txt",
+    "original_sha256": "da4900b9160e81616ee77f5824c7aa55e03fd73c1769968660a56978c0d3302d",
+    "distributed_sha256": "da4900b9160e81616ee77f5824c7aa55e03fd73c1769968660a56978c0d3302d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/independent/metrics.jsonl",
+    "original_sha256": "42a7b6bd2cab36aeceeed6cddca71fa6a97b563c12b7bf01d82ffdeab9622664",
+    "distributed_sha256": "42a7b6bd2cab36aeceeed6cddca71fa6a97b563c12b7bf01d82ffdeab9622664",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-2/pos-4-V3/independent/requests.jsonl",
+    "original_sha256": "98ff1e8b0721649f29a72592702b9374d3a40ee7bd43445da9a15ac279fa0146",
+    "distributed_sha256": "98ff1e8b0721649f29a72592702b9374d3a40ee7bd43445da9a15ac279fa0146",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/acceptance.json",
+    "original_sha256": "a3c1825957f86b660643c95a7531397798105e19a882a0cacfef719e890f1ccc",
+    "distributed_sha256": "a3c1825957f86b660643c95a7531397798105e19a882a0cacfef719e890f1ccc",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/server-exit.json",
+    "original_sha256": "77b019eaa59d5679f69cd4b0dae028363865157fed21be196706e561a845868e",
+    "distributed_sha256": "77b019eaa59d5679f69cd4b0dae028363865157fed21be196706e561a845868e",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/warmup.json",
+    "original_sha256": "dbdb4855e385de4e41b91d43f017bbae1bf9089d46058da21d2a204f2b5daaad",
+    "distributed_sha256": "dbdb4855e385de4e41b91d43f017bbae1bf9089d46058da21d2a204f2b5daaad",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/independent/measurement.json",
+    "original_sha256": "158785f90a70c33aab25359c1c567ef1eb7bea6f43615f3f5e4e3824fcc28d59",
+    "distributed_sha256": "533a1608004eab165af5341585ba9d6041ae63e251adff62a2f5d17db9687674",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/independent/metrics-after.txt",
+    "original_sha256": "dbfa7c264901556d46701d4cbcc5dddaccf38341bbbcc4c17f9d7c471d4f8668",
+    "distributed_sha256": "dbfa7c264901556d46701d4cbcc5dddaccf38341bbbcc4c17f9d7c471d4f8668",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/independent/metrics-before.txt",
+    "original_sha256": "9212846f5e7eb83196eb770b093e92078a24e7c4d7f41fac4b8f68cb9cc08293",
+    "distributed_sha256": "9212846f5e7eb83196eb770b093e92078a24e7c4d7f41fac4b8f68cb9cc08293",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/independent/metrics.jsonl",
+    "original_sha256": "bb7dc0ba87c292e25c153c937bbec71b5538626bd54b526f05a637cc546470c4",
+    "distributed_sha256": "bb7dc0ba87c292e25c153c937bbec71b5538626bd54b526f05a637cc546470c4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-1-V2/independent/requests.jsonl",
+    "original_sha256": "3cdca5c7d4286b764156ccd332fe4a0c61ffd4df3658e41274264b27f716a349",
+    "distributed_sha256": "3cdca5c7d4286b764156ccd332fe4a0c61ffd4df3658e41274264b27f716a349",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/acceptance.json",
+    "original_sha256": "84e929501c02719aea314b10f679112342d18fd1faa3040f7ed79014e83dacbc",
+    "distributed_sha256": "84e929501c02719aea314b10f679112342d18fd1faa3040f7ed79014e83dacbc",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/server-exit.json",
+    "original_sha256": "8ea1010b708f92df07d15c67e33279685cd0c07f00b8d8b643cc71be2d5f4783",
+    "distributed_sha256": "8ea1010b708f92df07d15c67e33279685cd0c07f00b8d8b643cc71be2d5f4783",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/warmup.json",
+    "original_sha256": "f73e1c3fff43a0409bbd4430b3f1cb34f7f922a8372970c9c28c516bf85d420c",
+    "distributed_sha256": "f73e1c3fff43a0409bbd4430b3f1cb34f7f922a8372970c9c28c516bf85d420c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/independent/measurement.json",
+    "original_sha256": "997f2d8950d3b6a220c790581e3d8b6059785b80b322c43c68781e4039f777c2",
+    "distributed_sha256": "6ec97fbdb334faebba87f5269edb786a1f49d3a97a5f5b8103b1213a613ba9c8",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/independent/metrics-after.txt",
+    "original_sha256": "f71ef0bbc6d7e7b263fd8dfa91e22c79a95ac8145166ce1cfad044700835cd8f",
+    "distributed_sha256": "f71ef0bbc6d7e7b263fd8dfa91e22c79a95ac8145166ce1cfad044700835cd8f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/independent/metrics-before.txt",
+    "original_sha256": "4fdb0e50ac9188c4de6003bd0bc476b5d96f2a4eefdb01bcd7be676caf74ed7f",
+    "distributed_sha256": "4fdb0e50ac9188c4de6003bd0bc476b5d96f2a4eefdb01bcd7be676caf74ed7f",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/independent/metrics.jsonl",
+    "original_sha256": "d974cc2ae3bf8dad8630e9e03d20f1f20ff5f76aec7718e5233049375ea8baf7",
+    "distributed_sha256": "d974cc2ae3bf8dad8630e9e03d20f1f20ff5f76aec7718e5233049375ea8baf7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-2-V3/independent/requests.jsonl",
+    "original_sha256": "7c4844a2ee08ced52fd48660d80b1aa4eda24c952b67d17cd36eb936c31ca5aa",
+    "distributed_sha256": "7c4844a2ee08ced52fd48660d80b1aa4eda24c952b67d17cd36eb936c31ca5aa",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/acceptance.json",
+    "original_sha256": "d4c54534440551ac7d6ca69cecfe2b7e0ec060e75f259be99540442b50a1c6bd",
+    "distributed_sha256": "d4c54534440551ac7d6ca69cecfe2b7e0ec060e75f259be99540442b50a1c6bd",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/server-exit.json",
+    "original_sha256": "ed50581f9a0ef2d593568b3bcaaeecb85556c603005d02c628315394dffee34d",
+    "distributed_sha256": "ed50581f9a0ef2d593568b3bcaaeecb85556c603005d02c628315394dffee34d",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/warmup.json",
+    "original_sha256": "84add8444053bae564f11cf197659706a0edf7a75d1ff10709a5d3d28b617bda",
+    "distributed_sha256": "84add8444053bae564f11cf197659706a0edf7a75d1ff10709a5d3d28b617bda",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/independent/measurement.json",
+    "original_sha256": "169a53a3f442cb1a61efffb05adddc48aaddd8988b0727b47652b5a7128335c5",
+    "distributed_sha256": "84adfb07b6fcc315bb1ccef297c3991c4c396d413a7e043557e6b7bbff92aeb4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/independent/metrics-after.txt",
+    "original_sha256": "136acf7156581bead20384e14194ca1c66bb8a661ab82e358c14ffb7d8484cf7",
+    "distributed_sha256": "136acf7156581bead20384e14194ca1c66bb8a661ab82e358c14ffb7d8484cf7",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/independent/metrics-before.txt",
+    "original_sha256": "b40edf230b5aae9c671fc19f93663d918f525cfc0718f8a4cbff175ce91ec5eb",
+    "distributed_sha256": "b40edf230b5aae9c671fc19f93663d918f525cfc0718f8a4cbff175ce91ec5eb",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/independent/metrics.jsonl",
+    "original_sha256": "0afb9eeec9460c37b7d3623631b64ced8d3f56b814792108f6c0c683b927617a",
+    "distributed_sha256": "0afb9eeec9460c37b7d3623631b64ced8d3f56b814792108f6c0c683b927617a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-3-V1/independent/requests.jsonl",
+    "original_sha256": "7cae128a131122cd2263ec61443ba40225d990bef3b93927a0170bb4e4fa7e9a",
+    "distributed_sha256": "7cae128a131122cd2263ec61443ba40225d990bef3b93927a0170bb4e4fa7e9a",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/acceptance.json",
+    "original_sha256": "d017d0904d4efcdbaa1008c66f816bdcb2e32967e81a44770779ac1376159264",
+    "distributed_sha256": "d017d0904d4efcdbaa1008c66f816bdcb2e32967e81a44770779ac1376159264",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/server-exit.json",
+    "original_sha256": "38ccda7fcd8565fba719c7799fffb071c4b4b99a5950e9e5d25268eb25896be0",
+    "distributed_sha256": "38ccda7fcd8565fba719c7799fffb071c4b4b99a5950e9e5d25268eb25896be0",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/warmup.json",
+    "original_sha256": "3b60737c50c12f37be36eccb7f688b802efa6e105f9ed60449c034445a70e7e4",
+    "distributed_sha256": "3b60737c50c12f37be36eccb7f688b802efa6e105f9ed60449c034445a70e7e4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/independent/measurement.json",
+    "original_sha256": "9b8233186725e0ccbb492efecb9849e8e182891f9449eed238183336891db7ae",
+    "distributed_sha256": "f546392d32c2e3fa370bcd2f522f850b4a312f21594484cba95afa4615d1220c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/independent/metrics-after.txt",
+    "original_sha256": "28e0abac8a853af86630c25d892a81862474fd190f1a6535b077abd1feec7fcc",
+    "distributed_sha256": "28e0abac8a853af86630c25d892a81862474fd190f1a6535b077abd1feec7fcc",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/independent/metrics-before.txt",
+    "original_sha256": "9bdf1045fd5e9777d1c3303585604f2940b9cdda620764c5ed48c66594899a7a",
+    "distributed_sha256": "9bdf1045fd5e9777d1c3303585604f2940b9cdda620764c5ed48c66594899a7a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/independent/metrics.jsonl",
+    "original_sha256": "3529049d0085711b771127c33c40ee7d383eabfc23036e12a5e0dc9d5291c0f9",
+    "distributed_sha256": "3529049d0085711b771127c33c40ee7d383eabfc23036e12a5e0dc9d5291c0f9",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-3/pos-4-N/independent/requests.jsonl",
+    "original_sha256": "7ce4175373997ba30a5aedd765798dfd7a10ab3c94ba3001c5c603358c22ac0e",
+    "distributed_sha256": "7ce4175373997ba30a5aedd765798dfd7a10ab3c94ba3001c5c603358c22ac0e",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/acceptance.json",
+    "original_sha256": "14d81f07a98e8ba2364fbea031de80b048ca0e90f170143ee9a4c8ae860952d4",
+    "distributed_sha256": "14d81f07a98e8ba2364fbea031de80b048ca0e90f170143ee9a4c8ae860952d4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/server-exit.json",
+    "original_sha256": "bc779c754d4ffe5606439162b1eb90e4882ab8e440ae4d8207cf2f8b28fce10c",
+    "distributed_sha256": "bc779c754d4ffe5606439162b1eb90e4882ab8e440ae4d8207cf2f8b28fce10c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/warmup.json",
+    "original_sha256": "e276b7c0d6e5cdb9fb86a34781f7959971435b94d64c443f770783ca5fdc5382",
+    "distributed_sha256": "e276b7c0d6e5cdb9fb86a34781f7959971435b94d64c443f770783ca5fdc5382",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/independent/measurement.json",
+    "original_sha256": "89600a755d6d90e536dbf7040ed85c17471e43749ccfd5e8f9eca43dda981d43",
+    "distributed_sha256": "544fe93cd0a6c186bf9456043f34c2f31118b869a60fcb342c45ffd622be1874",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/independent/metrics-after.txt",
+    "original_sha256": "64a72f426a2c9f74579e5971ca7b65e1823880b1edb04c09488b473a27a62311",
+    "distributed_sha256": "64a72f426a2c9f74579e5971ca7b65e1823880b1edb04c09488b473a27a62311",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/independent/metrics-before.txt",
+    "original_sha256": "707fa058ce7c17e5c51f49c4718293d8689003f89a25a5d180085d4cc253c191",
+    "distributed_sha256": "707fa058ce7c17e5c51f49c4718293d8689003f89a25a5d180085d4cc253c191",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/independent/metrics.jsonl",
+    "original_sha256": "f7da052782598a288ee17db4d5934f5fb0942e77d893dcb0b53bac99f3db2bf4",
+    "distributed_sha256": "f7da052782598a288ee17db4d5934f5fb0942e77d893dcb0b53bac99f3db2bf4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-1-V3/independent/requests.jsonl",
+    "original_sha256": "3de44b4d34aefbc0649cea7de1f6eb659f8c74cfceab53b8daa210a91d20ed7f",
+    "distributed_sha256": "3de44b4d34aefbc0649cea7de1f6eb659f8c74cfceab53b8daa210a91d20ed7f",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/acceptance.json",
+    "original_sha256": "9db36913f2a7e4d96555d5c55d4947645858595ce7f524d013799ca4a1ed8130",
+    "distributed_sha256": "9db36913f2a7e4d96555d5c55d4947645858595ce7f524d013799ca4a1ed8130",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/server-exit.json",
+    "original_sha256": "0f58a272550c4287f3f159bbc7518d792bdeef4d005aeff88422f53a12c37241",
+    "distributed_sha256": "0f58a272550c4287f3f159bbc7518d792bdeef4d005aeff88422f53a12c37241",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/warmup.json",
+    "original_sha256": "aad5a84f64aed6ab29f7a76eb2188c298c673c0db5bac83f3af48985d1a0fee5",
+    "distributed_sha256": "aad5a84f64aed6ab29f7a76eb2188c298c673c0db5bac83f3af48985d1a0fee5",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/independent/measurement.json",
+    "original_sha256": "78d2fae78ed44a3fc4b4e40ec0b4e5f26ba032e799fa6fd16b516d4f23019073",
+    "distributed_sha256": "5df962d57989ce26497a643256d6c5c0d428b5069958a6e3a0572d80fa336d59",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/independent/metrics-after.txt",
+    "original_sha256": "e8625ad897e530850112aee23e165d28a58acadb798be3be877b4333c6a561ed",
+    "distributed_sha256": "e8625ad897e530850112aee23e165d28a58acadb798be3be877b4333c6a561ed",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/independent/metrics-before.txt",
+    "original_sha256": "d52be44c855eb6373d099cc9f9b309079489a7645f6af1cffa090241ea41e9cf",
+    "distributed_sha256": "d52be44c855eb6373d099cc9f9b309079489a7645f6af1cffa090241ea41e9cf",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/independent/metrics.jsonl",
+    "original_sha256": "c9d2c61d26021ab684c8aeb29e9846a7c196311b7f8c4f4d1c8e00f842127520",
+    "distributed_sha256": "c9d2c61d26021ab684c8aeb29e9846a7c196311b7f8c4f4d1c8e00f842127520",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-2-N/independent/requests.jsonl",
+    "original_sha256": "67f3c2fca289535ad68316974c1139e3cfd88c8eaf04c3f67cdc852dee99d087",
+    "distributed_sha256": "67f3c2fca289535ad68316974c1139e3cfd88c8eaf04c3f67cdc852dee99d087",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/acceptance.json",
+    "original_sha256": "8cac0a5aaba17b030ceaa723ccd32753d4bdd7f4a856a0cda5e5d015221aa0ac",
+    "distributed_sha256": "8cac0a5aaba17b030ceaa723ccd32753d4bdd7f4a856a0cda5e5d015221aa0ac",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/server-exit.json",
+    "original_sha256": "4e641adf5df5961bcede4ec5d3b3ce81ba9dae591047bd8291f785eb8f3623d6",
+    "distributed_sha256": "4e641adf5df5961bcede4ec5d3b3ce81ba9dae591047bd8291f785eb8f3623d6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/warmup.json",
+    "original_sha256": "b2ca5dc02d367dfba74d77481c62e5d5ef99aca5d6f80fc9c2f1beddc985f1b4",
+    "distributed_sha256": "b2ca5dc02d367dfba74d77481c62e5d5ef99aca5d6f80fc9c2f1beddc985f1b4",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/independent/measurement.json",
+    "original_sha256": "0efc729204a1205b31913bf50a9a4d605d6b0fbc66fab3aef30f09c62836a09e",
+    "distributed_sha256": "87024013645633087fb546167e87b1e0c8f85e6c2a71df6dbc493351318204ee",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/independent/metrics-after.txt",
+    "original_sha256": "0fb702bb729b49e178295a82155a0b49cbd7a7c1a69edc3e683d485e5b098583",
+    "distributed_sha256": "0fb702bb729b49e178295a82155a0b49cbd7a7c1a69edc3e683d485e5b098583",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/independent/metrics-before.txt",
+    "original_sha256": "e82286f67b1600a241b54c9cecd6acd71aecc1b166218792dd7267093e609035",
+    "distributed_sha256": "e82286f67b1600a241b54c9cecd6acd71aecc1b166218792dd7267093e609035",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/independent/metrics.jsonl",
+    "original_sha256": "4a89a118974d70adc1d1c4296508bbfc7eb91c40d8d1f156378c1289f5751974",
+    "distributed_sha256": "4a89a118974d70adc1d1c4296508bbfc7eb91c40d8d1f156378c1289f5751974",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-3-V2/independent/requests.jsonl",
+    "original_sha256": "15f39e5f2510849cc6f1a88d403feb7f20cd8041a7d8619711c10cfff85e1090",
+    "distributed_sha256": "15f39e5f2510849cc6f1a88d403feb7f20cd8041a7d8619711c10cfff85e1090",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/acceptance.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/acceptance.json",
+    "original_sha256": "1caf1607ffa1178fb324d6c71350834538d20d4a292c41f35f74578e02b4bc61",
+    "distributed_sha256": "1caf1607ffa1178fb324d6c71350834538d20d4a292c41f35f74578e02b4bc61",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/server-exit.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/server-exit.json",
+    "original_sha256": "828f6d457c3ab4ec1fb9cd04dd4f5eb40d8c57f54064a111a65c27fcefa89765",
+    "distributed_sha256": "828f6d457c3ab4ec1fb9cd04dd4f5eb40d8c57f54064a111a65c27fcefa89765",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/warmup.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/warmup.json",
+    "original_sha256": "9d065ff4096f0909293222ae51865d54c16f312d51d254a74ed62a63192ac287",
+    "distributed_sha256": "9d065ff4096f0909293222ae51865d54c16f312d51d254a74ed62a63192ac287",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/measurement.json",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/independent/measurement.json",
+    "original_sha256": "5cf1d1b9e07f3d3de0cdc7e57f65c70b4d2b8528536c083bdd5ecc26c864f820",
+    "distributed_sha256": "c6b42df4a4b626614ba582cbc15323f05f9685d4eb12429453763ba00d8f2031",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics-after.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/independent/metrics-after.txt",
+    "original_sha256": "a3b0dd6e5a5366a4a07a6e7879fee37177e83f70648f68ece700dbbc6194a46c",
+    "distributed_sha256": "a3b0dd6e5a5366a4a07a6e7879fee37177e83f70648f68ece700dbbc6194a46c",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics-before.txt",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/independent/metrics-before.txt",
+    "original_sha256": "1dd620e553fa1d69e0787e46819eea03ed23685ca72c84acb7ac3258584eec25",
+    "distributed_sha256": "1dd620e553fa1d69e0787e46819eea03ed23685ca72c84acb7ac3258584eec25",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/independent/metrics.jsonl",
+    "original_sha256": "3568ef10a3d4afb903fd3705c257293dd547c5d8678b0aa3f8463eb744f57131",
+    "distributed_sha256": "3568ef10a3d4afb903fd3705c257293dd547c5d8678b0aa3f8463eb744f57131",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/requests.jsonl",
+    "original_workspace_relative_file": "experiments/pr63361-performance-matrix-20261026-001/server-evidence-final/runs-001/independent/block-4/pos-4-V1/independent/requests.jsonl",
+    "original_sha256": "f84dbbfc884d7563d448b73f5932a63757d57651c8926ed1e8f792d7c08f39ed",
+    "distributed_sha256": "f84dbbfc884d7563d448b73f5932a63757d57651c8926ed1e8f792d7c08f39ed",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "identities/V1-source-manifest.json",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/inputs/V1-manifest-r2.json",
+    "original_sha256": "c031b52d74166632a133b4f679cea00735603b2a8abb76ed3258aeaf48a4cc7a",
+    "distributed_sha256": "c031b52d74166632a133b4f679cea00735603b2a8abb76ed3258aeaf48a4cc7a",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "identities/V2-source-manifest.json",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/inputs/V2-manifest-r2.json",
+    "original_sha256": "b34486a371511b2682f17f5e9031e18a8189595935fc67700fc48455de19a0b2",
+    "distributed_sha256": "b34486a371511b2682f17f5e9031e18a8189595935fc67700fc48455de19a0b2",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "identities/V3-source-manifest.json",
+    "original_workspace_relative_file": "experiments/pr63361-v1-without-C-final-validation-20261026-001/server-evidence-final/inputs/V3-manifest-r2.json",
+    "original_sha256": "6bf420cc7d6e0746df74a8950e992ca1cf739ed38bc31b266046111580460ab6",
+    "distributed_sha256": "6bf420cc7d6e0746df74a8950e992ca1cf739ed38bc31b266046111580460ab6",
+    "transformation": "author-path substitution only; embedded original seals are provenance, not seals of this copy"
+  },
+  {
+    "distributed_file": "patches/measured-r5/N-to-V1.patch",
+    "original_workspace_relative_file": "docs/pr63361-v1-review-layout-20261026-r2/patches/N-to-V1.patch",
+    "original_sha256": "c03df0402d16ffe765e47586a231d81cf8188e0cb51216ad4691285670126008",
+    "distributed_sha256": "c03df0402d16ffe765e47586a231d81cf8188e0cb51216ad4691285670126008",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "patches/measured-r5/V1-to-V2.patch",
+    "original_workspace_relative_file": "docs/pr63361-v1-review-layout-20261026-r2/patches/V1-to-V2.patch",
+    "original_sha256": "5ad7032aaea969b231c7836d79d90e68109bc18ea61c5b5f7141d8e157b760a1",
+    "distributed_sha256": "5ad7032aaea969b231c7836d79d90e68109bc18ea61c5b5f7141d8e157b760a1",
+    "transformation": "byte-for-byte"
+  },
+  {
+    "distributed_file": "patches/measured-r5/V2-to-V3.patch",
+    "original_workspace_relative_file": "docs/pr63361-v1-review-layout-20261026-r2/patches/V2-to-V3.patch",
+    "original_sha256": "b823d21711b8d76c73adb50c7f131806c964c36511eb79cfd66f9cf2a088589b",
+    "distributed_sha256": "b823d21711b8d76c73adb50c7f131806c964c36511eb79cfd66f9cf2a088589b",
+    "transformation": "byte-for-byte"
+  }
+]

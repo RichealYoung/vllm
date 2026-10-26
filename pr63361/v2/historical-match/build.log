@@ -1,0 +1,8 @@
+matcher.c:99:15: warning: missing initializer for field ‘m_slots’ of ‘struct PyModuleDef’ [-Wmissing-field-initializers]
+   99 | static struct PyModuleDef module={PyModuleDef_HEAD_INIT,"matcher",NULL,-1,methods};
+      |               ^~~~~~~~~~~
+In file included from {AUTHOR_CONDA}/include/python3.12/Python.h:69,
+                 from matcher.c:2:
+{AUTHOR_CONDA}/include/python3.12/moduleobject.h:104:21: note: ‘m_slots’ declared here
+  104 |   PyModuleDef_Slot *m_slots;
+      |                     ^~~~~~~

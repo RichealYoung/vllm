@@ -1,0 +1,177 @@
+{
+  "workload": "independent",
+  "block": 4,
+  "position": 2,
+  "letter": "A",
+  "stage": "N",
+  "order": "DACB",
+  "relative_output": "runs-001/independent/block-4/pos-2-N",
+  "target_sha256": "9e0e36e3ed9d2630d20f04fadcb58812de99438b14201f1b31c88626a2336f99",
+  "groups": {
+    "all": {
+      "first_output_chunk_s": {
+        "n": 80,
+        "mean": 0.0941138461375,
+        "p50": 0.0907576625,
+        "p95": 0.1304475689
+      },
+      "http_e2e_s": {
+        "n": 80,
+        "mean": 0.3159226063625,
+        "p50": 0.307857819,
+        "p95": 0.3621107099499999
+      }
+    },
+    "512": {
+      "first_output_chunk_s": {
+        "n": 20,
+        "mean": 0.0861993585,
+        "p50": 0.085322802,
+        "p95": 0.12183339055
+      },
+      "http_e2e_s": {
+        "n": 20,
+        "mean": 0.2982232623,
+        "p50": 0.301084915,
+        "p95": 0.34292589935
+      }
+    },
+    "1024": {
+      "first_output_chunk_s": {
+        "n": 40,
+        "mean": 0.09251997325,
+        "p50": 0.08689192949999999,
+        "p95": 0.12711947474999996
+      },
+      "http_e2e_s": {
+        "n": 40,
+        "mean": 0.314136406275,
+        "p50": 0.30552783699999997,
+        "p95": 0.3593534747
+      }
+    },
+    "2048": {
+      "first_output_chunk_s": {
+        "n": 20,
+        "mean": 0.10521607955,
+        "p50": 0.100953342,
+        "p95": 0.13664042035
+      },
+      "http_e2e_s": {
+        "n": 20,
+        "mean": 0.3371943506,
+        "p50": 0.3315828375,
+        "p95": 0.4021285618
+      }
+    }
+  },
+  "batch_s": 6.321890634,
+  "cpu": {
+    "seconds": {
+      "frontend": 3.2600000000000016,
+      "engine_core": 5.049999999999997,
+      "other_workers": 0.0
+    },
+    "total_seconds": 8.309999999999999,
+    "seconds_per_request": 0.10387499999999998,
+    "details": [
+      {
+        "pid": 519858,
+        "group": "frontend",
+        "cpu_s": 3.2600000000000016
+      },
+      {
+        "pid": 519877,
+        "group": "other_workers",
+        "cpu_s": 0.0
+      },
+      {
+        "pid": 519878,
+        "group": "engine_core",
+        "cpu_s": 5.049999999999997
+      }
+    ]
+  },
+  "actual_cached_tokens": {
+    "independent-0-00": 0,
+    "independent-1-00": 256,
+    "independent-2-00": 1008,
+    "independent-3-00": 256,
+    "independent-0-01": 256,
+    "independent-1-01": 256,
+    "independent-2-01": 256,
+    "independent-3-01": 256,
+    "independent-0-02": 256,
+    "independent-1-02": 256,
+    "independent-3-02": 256,
+    "independent-2-02": 256,
+    "independent-0-03": 256,
+    "independent-1-03": 256,
+    "independent-3-03": 256,
+    "independent-2-03": 256,
+    "independent-0-04": 256,
+    "independent-1-04": 256,
+    "independent-3-04": 256,
+    "independent-2-04": 256,
+    "independent-0-05": 1008,
+    "independent-1-05": 256,
+    "independent-3-05": 256,
+    "independent-2-05": 496,
+    "independent-0-06": 496,
+    "independent-1-06": 256,
+    "independent-2-06": 256,
+    "independent-3-06": 256,
+    "independent-0-07": 256,
+    "independent-1-07": 496,
+    "independent-3-07": 496,
+    "independent-2-07": 1008,
+    "independent-0-08": 1008,
+    "independent-1-08": 496,
+    "independent-3-08": 1008,
+    "independent-2-08": 496,
+    "independent-0-09": 1008,
+    "independent-1-09": 256,
+    "independent-2-09": 256,
+    "independent-3-09": 496,
+    "independent-0-10": 256,
+    "independent-1-10": 1008,
+    "independent-2-10": 1008,
+    "independent-3-10": 256,
+    "independent-0-11": 256,
+    "independent-1-11": 1008,
+    "independent-2-11": 496,
+    "independent-3-11": 256,
+    "independent-0-12": 496,
+    "independent-1-12": 256,
+    "independent-2-12": 496,
+    "independent-3-12": 256,
+    "independent-0-13": 256,
+    "independent-1-13": 256,
+    "independent-2-13": 496,
+    "independent-3-13": 1008,
+    "independent-0-14": 1008,
+    "independent-1-14": 1008,
+    "independent-2-14": 256,
+    "independent-3-14": 256,
+    "independent-0-15": 256,
+    "independent-1-15": 496,
+    "independent-2-15": 1008,
+    "independent-3-15": 496,
+    "independent-0-16": 1008,
+    "independent-1-16": 496,
+    "independent-2-16": 1008,
+    "independent-3-16": 256,
+    "independent-0-17": 1008,
+    "independent-1-17": 496,
+    "independent-2-17": 256,
+    "independent-3-17": 496,
+    "independent-0-18": 1008,
+    "independent-1-18": 496,
+    "independent-3-18": 1008,
+    "independent-2-18": 496,
+    "independent-0-19": 1008,
+    "independent-1-19": 1008,
+    "independent-3-19": 496,
+    "independent-2-19": 496
+  }
+}

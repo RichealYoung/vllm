@@ -1,0 +1,128 @@
+{
+  "kind": "functional acceptance projection",
+  "base": "be08fa5355a049b838803540211fed5647490b39",
+  "git_tree_identities": {
+    "V1": {
+      "git_tree_sha": "77222e382866e588680bdbc9bfd1202000e77e2d",
+      "source_manifest_sha256": "c031b52d74166632a133b4f679cea00735603b2a8abb76ed3258aeaf48a4cc7a",
+      "base": "be08fa5355a049b838803540211fed5647490b39",
+      "commit_created": false,
+      "original_index_untouched": true
+    },
+    "V2": {
+      "git_tree_sha": "a06fb67442ae2dd23783bfd72297037fd74283e5",
+      "source_manifest_sha256": "b34486a371511b2682f17f5e9031e18a8189595935fc67700fc48455de19a0b2",
+      "base": "be08fa5355a049b838803540211fed5647490b39",
+      "commit_created": false,
+      "original_index_untouched": true
+    },
+    "V3": {
+      "git_tree_sha": "f6c7fe28a6732a72f3fbee3ca9cad942f274369d",
+      "source_manifest_sha256": "6bf420cc7d6e0746df74a8950e992ca1cf739ed38bc31b266046111580460ab6",
+      "base": "be08fa5355a049b838803540211fed5647490b39",
+      "commit_created": false,
+      "original_index_untouched": true
+    }
+  },
+  "cpu": {
+    "tests": 366,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "hooks": "V1/V2/V3 passed without source changes",
+  "sequential_derivation": [
+    {
+      "from": "BASE",
+      "to": "V1",
+      "files": [
+        ".buildkite/test_areas/misc.yaml",
+        "docs/features/automatic_prefix_caching.md",
+        "docs/features/session_prefix_reuse.md",
+        "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+        "tests/renderers/test_session_prefix.py",
+        "tests/renderers/test_session_prefix_media_fallback.py",
+        "tests/utils_/test_session_prefix.py",
+        "vllm/config/model.py",
+        "vllm/engine/arg_utils.py",
+        "vllm/entrypoints/openai/chat_completion/serving.py",
+        "vllm/renderers/base.py",
+        "vllm/renderers/hf.py",
+        "vllm/renderers/online_renderer.py",
+        "vllm/renderers/params.py",
+        "vllm/renderers/session_prefix.py",
+        "vllm/utils/session_prefix.py"
+      ],
+      "patch_sha256": "1231be85f76c2ec9fe4e45572d90a1fa54a0cfae97c770c0df7860bba8fd7627",
+      "sequential_reconstruction": "passed",
+      "common_C": false
+    },
+    {
+      "from": "V1",
+      "to": "V2",
+      "files": [
+        ".buildkite/test_areas/misc.yaml",
+        "CMakeLists.txt",
+        "csrc/session_prefix.cpp",
+        "docs/features/automatic_prefix_caching.md",
+        "docs/features/session_prefix_reuse.md",
+        "setup.py",
+        "tests/config/test_config_utils.py",
+        "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+        "tests/renderers/test_session_prefix.py",
+        "tests/renderers/test_session_prefix_media_fallback.py",
+        "tests/utils_/test_session_prefix.py",
+        "tests/v1/test_request.py",
+        "vllm/_session_prefix.pyi",
+        "vllm/config/cache.py",
+        "vllm/engine/arg_utils.py",
+        "vllm/v1/core/session_prefix.py",
+        "vllm/v1/engine/core.py",
+        "vllm/v1/request.py"
+      ],
+      "patch_sha256": "6dc3668e067668d98cd3b31436b1828b1186346b93223a8b7ec625e3d76d4b23",
+      "sequential_reconstruction": "passed",
+      "common_C": false
+    },
+    {
+      "from": "V2",
+      "to": "V3",
+      "files": [
+        ".buildkite/test_areas/misc.yaml",
+        "docs/features/session_prefix_reuse.md",
+        "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+        "tests/renderers/test_session_prefix.py",
+        "tests/renderers/test_session_prefix_media_fallback.py",
+        "tests/v1/test_request.py",
+        "vllm/config/model.py",
+        "vllm/renderers/hf.py",
+        "vllm/v1/core/session_prefix.py",
+        "vllm/v1/request.py"
+      ],
+      "patch_sha256": "335c7553f41649eac0c277431c5d872c5afdcff7cb65baad5555da87005048e4",
+      "sequential_reconstruction": "passed",
+      "common_C": false
+    }
+  ],
+  "v1_gpu": {
+    "tests": 4,
+    "requests": 36,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "models": [
+      "Qwen3-0.6B",
+      "Llama-3.2-1B-Instruct"
+    ],
+    "token_cache_mib": [
+      0,
+      8
+    ]
+  },
+  "V2_V3_CPU_GPU_rerun": false,
+  "performance_rerun": false,
+  "upstream_CI_claim": false,
+  "limitation": "Functional contracts only; not exhaustive lifecycle validation. Detailed original logs retained by author.",
+  "original_file_sha256": "c1e1a9946fc839219507dd768fcb9c3434d970d071da9550a453c57d117f0d6e",
+  "original_gpu_result_sha256": "7d6f9a7abc0d25473f6edece6805f499361b60957ae5f2f727cad122cbccc615"
+}

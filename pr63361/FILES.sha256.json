@@ -1,0 +1,1827 @@
+[
+  {
+    "file": "history/index.md",
+    "bytes": 1953,
+    "sha256": "9d7838febb6539abb1319a7931ad953da9ce3511c589809204550922d8e99e88"
+  },
+  {
+    "file": "identities/artifact-provenance.json",
+    "bytes": 168526,
+    "sha256": "ab5bcef30621db46ef10532ce27553171a170b621fac3446527e5206d690fb06"
+  },
+  {
+    "file": "identities/candidate-trees.json",
+    "bytes": 923,
+    "sha256": "2369abc0fa1a042113bb18a4a55efca02725d4431b0ebac43fdc67c1a7162aa8"
+  },
+  {
+    "file": "identities/final-functional-acceptance.json",
+    "bytes": 4667,
+    "sha256": "e52b3669315b3bfcf573c6bc843549593c53972d0401dbb625044828e82a79cc"
+  },
+  {
+    "file": "identities/measured-N.json",
+    "bytes": 559202,
+    "sha256": "e6847b515c66148f5d597548fc2af697fad146040a63b545d9442a78f2337db1"
+  },
+  {
+    "file": "identities/measured-V1.json",
+    "bytes": 559707,
+    "sha256": "5849365e683a1decfab08319dc7a2cc292c21e88dbad94374c96c7b21515adb2"
+  },
+  {
+    "file": "identities/measured-V2.json",
+    "bytes": 564831,
+    "sha256": "259cbfcdeb125b172507d7ee720abe4ddd946c6fd13422c598c58adb0f784fad"
+  },
+  {
+    "file": "identities/measured-V3.json",
+    "bytes": 560621,
+    "sha256": "7f265d39bccec08f11b33623f842879f7991ef2e767d366e55aabbfd2c726400"
+  },
+  {
+    "file": "identities/r5-correctness-acceptance.json",
+    "bytes": 50592,
+    "sha256": "be541d05c9b38fba7511ede9369b1c030b552a136f8dd458161ec2f067c09b8e"
+  },
+  {
+    "file": "identities/V1-source-manifest.json",
+    "bytes": 1063967,
+    "sha256": "c031b52d74166632a133b4f679cea00735603b2a8abb76ed3258aeaf48a4cc7a"
+  },
+  {
+    "file": "identities/V2-source-manifest.json",
+    "bytes": 1064269,
+    "sha256": "b34486a371511b2682f17f5e9031e18a8189595935fc67700fc48455de19a0b2"
+  },
+  {
+    "file": "identities/V3-source-manifest.json",
+    "bytes": 1064141,
+    "sha256": "6bf420cc7d6e0746df74a8950e992ca1cf739ed38bc31b266046111580460ab6"
+  },
+  {
+    "file": "identities/versions.json",
+    "bytes": 1142,
+    "sha256": "d3e1ddd5276d520b146a94d6e9595df9b796c78f0951771cf9e3e22414939bd9"
+  },
+  {
+    "file": "patches/BASE-to-V1.patch",
+    "bytes": 92014,
+    "sha256": "1231be85f76c2ec9fe4e45572d90a1fa54a0cfae97c770c0df7860bba8fd7627"
+  },
+  {
+    "file": "patches/measured-r5/N-to-V1.patch",
+    "bytes": 91769,
+    "sha256": "c03df0402d16ffe765e47586a231d81cf8188e0cb51216ad4691285670126008"
+  },
+  {
+    "file": "patches/measured-r5/V1-to-V2.patch",
+    "bytes": 41089,
+    "sha256": "5ad7032aaea969b231c7836d79d90e68109bc18ea61c5b5f7141d8e157b760a1"
+  },
+  {
+    "file": "patches/measured-r5/V2-to-V3.patch",
+    "bytes": 46116,
+    "sha256": "b823d21711b8d76c73adb50c7f131806c964c36511eb79cfd66f9cf2a088589b"
+  },
+  {
+    "file": "patches/token-reuse.patch",
+    "bytes": 91769,
+    "sha256": "c03df0402d16ffe765e47586a231d81cf8188e0cb51216ad4691285670126008"
+  },
+  {
+    "file": "patches/V1-to-V2.patch",
+    "bytes": 41301,
+    "sha256": "6dc3668e067668d98cd3b31436b1828b1186346b93223a8b7ec625e3d76d4b23"
+  },
+  {
+    "file": "patches/V2-to-V3.patch",
+    "bytes": 46116,
+    "sha256": "335c7553f41649eac0c277431c5d872c5afdcff7cb65baad5555da87005048e4"
+  },
+  {
+    "file": "performance/client/replay_client.py",
+    "bytes": 4865,
+    "sha256": "ed146731e96b73651040c9275c4a930f84ff3ecb5a8e2cd35c9d49936fde5e02"
+  },
+  {
+    "file": "performance/client/requirements.txt",
+    "bytes": 179,
+    "sha256": "3f49f909e2778c81e3472971224794a6e9aa58520f5c5ba106f298ebcfba4e35"
+  },
+  {
+    "file": "performance/client/serve.py",
+    "bytes": 2091,
+    "sha256": "39ef897a53acf844b61659675ff1a636042f08275277d4fd79f591f07969ac28"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/__init__.py",
+    "bytes": 89,
+    "sha256": "b5129fe651fadc1e280fcc93fcc83586a00805759e594f94a0f9e83f6d1538fe"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/adapter.py",
+    "bytes": 1917,
+    "sha256": "710e6819f75e1b240931dd690f7d6acaf3f30271d32112475b9b86a002ababe0"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/common.py",
+    "bytes": 3320,
+    "sha256": "6a6ad58022259eb98eea9ed922609e2f4ba95b9d1dab3620d19f4f5ddd36eb24"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/cpu.py",
+    "bytes": 2342,
+    "sha256": "63c33184c65e7e381c6af368e12c676ddcf6394397d1f45da91507fa3037993f"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/measure.py",
+    "bytes": 4964,
+    "sha256": "8abbdcdc80468bccfdbb18bab447f13253ddc6e3ee236a91e8001a06f60724f2"
+  },
+  {
+    "file": "performance/client/session_prefix_bench/telemetry.py",
+    "bytes": 1925,
+    "sha256": "97541f251d8707e0b520c4d9bbb119ba99e48bba7a537901635855341d400d1e"
+  },
+  {
+    "file": "performance/client/summarize.py",
+    "bytes": 4045,
+    "sha256": "44c3a94ce100b80448b664df14362fb20d2c3805d415ffd6f01dc2e742afdca1"
+  },
+  {
+    "file": "performance/protocol.md",
+    "bytes": 4078,
+    "sha256": "c5bcc905291a2a65c62d61bd53e5736de9a70708142280c0cdf13d484f85505e"
+  },
+  {
+    "file": "performance/replay-validation.json",
+    "bytes": 17697,
+    "sha256": "3851ee6bc63f1f9f33ccde3491ac1296ff37f7af02f1b89b249195b50bc3a136"
+  },
+  {
+    "file": "performance/replay-validation.md",
+    "bytes": 2712,
+    "sha256": "465b5b24fb48e2347d5b0bb4ce0baa0b6cc41a0ac377d08927dbfaf91221e862"
+  },
+  {
+    "file": "performance/REPRODUCTION.md",
+    "bytes": 6757,
+    "sha256": "a451f74730db48208ec15262af059f3b5b080c2816f506a3893cd56b44dd48ef"
+  },
+  {
+    "file": "performance/results/posthoc-alignment-review-001.json",
+    "bytes": 81075,
+    "sha256": "0ba167e580143aea2dcc65f72bd21b063604d4d76f4b745cd5b64d2ec2519462"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/acceptance.json",
+    "bytes": 3890,
+    "sha256": "f89f0748588421dd0748a646f4bc1b0c9f9c0f643839cb1a57fe5707cb0acb2e"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/measurement.json",
+    "bytes": 8730,
+    "sha256": "9a5d08da132a92f020b44d9bd14ca6b795958b819a18e33455d01d4c3e0ccdce"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics-after.txt",
+    "bytes": 59827,
+    "sha256": "b4a36c638e30ea16e4e2c0967f182784a65210f0ab056a1db68dfb662ec68fb5"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics-before.txt",
+    "bytes": 59562,
+    "sha256": "2b56a4f54fa57d40b01315a3e42b03d158990394a85b73b2e59c0ee82ea9f39d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "bfe6c7692195bda068a31e532b94ac8ea12bb80656df58f7ea603d5de165f06b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/coding/requests.jsonl",
+    "bytes": 33856,
+    "sha256": "ebfacba969536137421db9fb62f4efb19f87555c57a93b275f245f14403da489"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "51dd431074b27bb7a4d50898012f7bf3595adf2fd0119c38a14d2b809695de08"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-1-N/warmup.json",
+    "bytes": 4225,
+    "sha256": "3937ec9684c7d16d60ec8dde55e14f7f1afebef2912364b2f7ca91ab0607ff53"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/acceptance.json",
+    "bytes": 3871,
+    "sha256": "097d299e241eb00e1b6148ca4236abbd4b7e44bb0c683d0d31813fce149f5857"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/measurement.json",
+    "bytes": 8828,
+    "sha256": "313c7aae05047c7fb96e080779eb758aeda0aec8f19e7c612af1a99c04cd6c57"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics-after.txt",
+    "bytes": 59825,
+    "sha256": "7fe90d13cfe1c0f9bc4c0318f78a091acdbcbbf1c8e14fd46dbb12e5c504aee0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics-before.txt",
+    "bytes": 59561,
+    "sha256": "131f60a3cb57e82b883da19cec2dfb35c0d0658e1fca2809b4b0d6f5167ff015"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "2c9ae53d07fbdc4c7395aeb089b5171c2136533091d92c274c1f5a07809f5b3b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/coding/requests.jsonl",
+    "bytes": 33856,
+    "sha256": "15318a43bfba2507d52aebcac512acc6cb67859ba9747abf35492a479580e21b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "73b522b4855bdf5319e58067aa52f78e628669bf6a6ded9d83daf5f126a93acc"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-2-V1/warmup.json",
+    "bytes": 4226,
+    "sha256": "be26b62fe328d7ecf7adb42123b2947fd07ef3d9c9e1c6b78c9e4ba3e7c72815"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/acceptance.json",
+    "bytes": 3878,
+    "sha256": "0fd6d540fd04fbfe18da1e54ae92283c7123f1826aac8ff478b82d9ebfeafa8f"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/measurement.json",
+    "bytes": 8923,
+    "sha256": "328ad359b4d6b6935142c06fe4e507a21a32e7a7222f459b5e5bba94c1b4cf32"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics-after.txt",
+    "bytes": 59859,
+    "sha256": "ec94def7272398b12ea50c7cba0b592481f84f8b0f96cdf5d0d4079e74ccff3b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics-before.txt",
+    "bytes": 59592,
+    "sha256": "b3856e4b409ef388a7a2c69ef846dcdf6e24e8b2b936ded84b90a33ed38cd259"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "6e6ce2552e9abad52214b4f53509d954c6d50b02ed743c0e4bf6f49058fec937"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/coding/requests.jsonl",
+    "bytes": 33846,
+    "sha256": "da44f8232859d521d02ab330449a159435f0a4fd94bdc57057f2dbdc694fe254"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "38df4601027b9eeb951b705733e9dc85215ddc1b86ac57fc449e794083cc324d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-3-V3/warmup.json",
+    "bytes": 4225,
+    "sha256": "b2a12686a3b1baca0d5c769c34800a5b121251162c73b8701a70608cf23a2329"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/acceptance.json",
+    "bytes": 3895,
+    "sha256": "68e8eaca124b213448c4aa706c78fa0807e81db5c7b8f06b80226486583a6136"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/measurement.json",
+    "bytes": 8963,
+    "sha256": "a0bf8ef4115738c6e3077186242bf4342abef34b5c5f1355a62e565d51bc7c32"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics-after.txt",
+    "bytes": 59874,
+    "sha256": "97fa43ffaa12f0d8e5084a1fa763accae7a68939e8a914907e11bb50296322f5"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics-before.txt",
+    "bytes": 59597,
+    "sha256": "7784b1ef4554133acb6f2fbc71d768f7a603ccae9b0b55f0ca5550972e4d9e70"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "0e9ef82a5f14d95e02dfde0b95e07ae1067998f7624db457748a406286b72b2a"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/coding/requests.jsonl",
+    "bytes": 33864,
+    "sha256": "23e2e09159eae8c92fc5ed4c6727843a09b2146f9151efb7b98e3a23979b44b1"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "e641aadab949ac853ae6a72e89ddfc5aed4018c59504d677846243fa3cbd831c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-1/pos-4-V2/warmup.json",
+    "bytes": 4227,
+    "sha256": "a53a1bbdace2c71a6d634e60bbfbec37d5a7d940bb43d57d12db1d894a2ac1d6"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/acceptance.json",
+    "bytes": 3889,
+    "sha256": "4a5298ae2bf54daaf6c1aaa0dfd5f970492889722ee14c9f4f5e64e5659317a1"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/measurement.json",
+    "bytes": 8831,
+    "sha256": "fe9b0280f1698e56e4d0c42e8cd709dbb55f24f1f5980f4fe59c034f2b0d70e1"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics-after.txt",
+    "bytes": 59832,
+    "sha256": "5935979eb9760131ab11b8342e5b0723c835c1366c630e64af5d2d6e19ff4b12"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics-before.txt",
+    "bytes": 59564,
+    "sha256": "6abcbf0d438f254d689bf7b2f0f0f4d8809978f220896517c3d0174be5684aaa"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "96cde667ab76ea04ba901d8ed4bfb70b635e3492b36f302ed6527f954169feab"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/coding/requests.jsonl",
+    "bytes": 33855,
+    "sha256": "8764882d48b202a3da7cbf205b012aa32d13258872caecc79387da0ee4b0ab69"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "6c006d4abd8adc42836418afddc84fb8c6f462227096948f1e368730421eb414"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-1-V1/warmup.json",
+    "bytes": 4223,
+    "sha256": "902c29df7fba2f804c358d32e7e280158db8bbad4d8b97209a782c2239177852"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/acceptance.json",
+    "bytes": 3854,
+    "sha256": "d7c954f00f216b5f35b3d8c6382124d3c710a2ad9f1f60a0ad4bd4c96127469b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/measurement.json",
+    "bytes": 8905,
+    "sha256": "e3d2f541175ac87801fae0bef3ac21b4daa121e36ff7fe2703c31bfe417162a0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics-after.txt",
+    "bytes": 59859,
+    "sha256": "a3b23ee5f92d328dcc149a8ab2fa52d6426a231cbf83437a039817f1f4f00722"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics-before.txt",
+    "bytes": 59593,
+    "sha256": "93493a2d2aba817108123080acf1a9aef01f6a06b897a2e1a3cbfd1508a5599b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "2605afe700ef97ef2f0077725b8810df1ae3a2c1ed2b036af45079aa083e651c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/coding/requests.jsonl",
+    "bytes": 33857,
+    "sha256": "a8980030c032717ef410901c28ef667cdbccea04e09c1a96dabffaab5aa511d6"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "184c814e872b7407b24312cf55cabc72882284bbf3a6ae98b7545ce4a6df767d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-2-V2/warmup.json",
+    "bytes": 4223,
+    "sha256": "f67edfe9d22a9848bb5a972dff42f4ceaa924119b71ce2e77cb81a2a99285338"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/acceptance.json",
+    "bytes": 3860,
+    "sha256": "749ff8441364b7f703f08b35a556f57d3bb0c391b21c3b930f018d5c206159d0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/measurement.json",
+    "bytes": 8696,
+    "sha256": "14de251da999b96c844ffb50cf52bf7155527761b0fd598c100c06f10cde414b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics-after.txt",
+    "bytes": 59841,
+    "sha256": "ebdb1722cf420f05a21fbff37297a0f5565d108a48a27a90145c410ea7726da7"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics-before.txt",
+    "bytes": 59562,
+    "sha256": "0c7db3e460907640625c97e6c72a22ed32c84baa4353fc9cf38c3e6a51ad2bce"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "f5b9f79c72ceb264d9e781d5e5e67c5cd1f1c43f3ee6492885c1164ee23f9114"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/coding/requests.jsonl",
+    "bytes": 33863,
+    "sha256": "3cbb96ff78e727b8a1d1780a84935a3a165b06add0de7d24f7bde901b028411e"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "a7f63edf131fcf87d3c76acbf0f3a4fdb880f55968d6f31baee832a88134da12"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-3-N/warmup.json",
+    "bytes": 4223,
+    "sha256": "036959cba7c2233621d36a0af7fb6b035f919d991ab7e075f084f19c547a9665"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/acceptance.json",
+    "bytes": 3857,
+    "sha256": "cc127dd581dd1277c8ec3ecdf3633c751e6d32f6c77f28cffaa2777768853855"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/measurement.json",
+    "bytes": 8899,
+    "sha256": "e31df5dcdc0b8b6624ac937940448090db255e8031719ba1a5f31960ca153561"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics-after.txt",
+    "bytes": 59865,
+    "sha256": "b2ce4da18c08691bc52f6485eadfd31f4cbb2dc8fc663eea2b3e4f763018fe5c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics-before.txt",
+    "bytes": 59596,
+    "sha256": "b91d5bb90bb64df85437b0794d665772a0890ae2c3c51c1a3781a2c15c804953"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "c0576a5ec5d86a314eaa8b1de7e17a4a74b1b6bb795be8f65a4ca84986ba4c49"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/coding/requests.jsonl",
+    "bytes": 33863,
+    "sha256": "af23edaa68097f753f3f6dcd2855e1fa765ac712e787693600507535de030806"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "e2f78d82581429e4737a5a6fdc86a2fa96cfb9fc0bc277f978128cbd20981819"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-2/pos-4-V3/warmup.json",
+    "bytes": 4226,
+    "sha256": "210d327f9dd9372fe6fcd286df9405dfa5e08f76b92052ad3d326a23d883f8b1"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/acceptance.json",
+    "bytes": 3859,
+    "sha256": "c7e48dc97bb6aae6ee72de2c25e94e61aed67da2c96aed90168a4fecc4d18fdd"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/measurement.json",
+    "bytes": 8912,
+    "sha256": "7d184e1d65239a6368f11638cf21274b6423e25574a18edbd440df8b23627810"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics-after.txt",
+    "bytes": 59863,
+    "sha256": "6cf46b883162ee8b8635a32f3063810f04deab87d94de7ec58e6407e5b7e6ad1"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics-before.txt",
+    "bytes": 59613,
+    "sha256": "ab6e8f7fdf7ede047f1adb3a200b99b87753a90cd6f64f3ebe398bae99062008"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "ea3c0b30697bf8cd249d8ba825a76db11c41ef92f3b1f7a45d1b00cf4b06154c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/coding/requests.jsonl",
+    "bytes": 33856,
+    "sha256": "8e99d2ffd82ead9b5ddcbac48187a47638d039cbf756c1490b6d49ab9c155892"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "f0268f9ff3de45a6da77f116c86417419bdd74cd738d9af9150c73bb589a8bd3"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-1-V2/warmup.json",
+    "bytes": 4227,
+    "sha256": "a632bc47ebc1ee2bc5033820b921cf9849c2c90b3b4cc694b90d7c934f270bad"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/acceptance.json",
+    "bytes": 3878,
+    "sha256": "d1a1855f9655d810d808e003794b29c977b9c5bd6553b8ef78f85005d9671765"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/measurement.json",
+    "bytes": 8912,
+    "sha256": "e02164346058ed7a469ad424352a12e816088d9619fe16767b820766c0a7d519"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics-after.txt",
+    "bytes": 59867,
+    "sha256": "aec34053a6aca0576d157d0e9b5ef44a9cde3a2be5dc149424639cd4f648b38f"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics-before.txt",
+    "bytes": 59599,
+    "sha256": "8fad34bdc991b6df707fbde6e2172e7575a58b9da09a2a298b3043f1fe0839df"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "abce2ec4c6dea50f2f2a7c4eeb09f2e9f3eed67d5dc9ee9691ff6163ceee0a07"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/coding/requests.jsonl",
+    "bytes": 33855,
+    "sha256": "9c9de9cad72b0f8b31d5f16a97a19a30ca34cf594528d54a559d425dc60dd521"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "fc9ce1f579710d66f5d1b1a6b7bbf8f537f78d6bb7a3fc513ad9d6f8ef1d2d20"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-2-V3/warmup.json",
+    "bytes": 4226,
+    "sha256": "d364aefa51cd2516393339a3c8674a4abd4ad68231f415175b19db8b1aac89a7"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/acceptance.json",
+    "bytes": 3852,
+    "sha256": "ea1e7d6e6f862222189e90648710c4605596704795f7e5ddb31de95ecb0657da"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/measurement.json",
+    "bytes": 8789,
+    "sha256": "f8e18fcdfad06b021c51d0abc47ee09790bdc3be25601fa62644b0496b0557bd"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics-after.txt",
+    "bytes": 59845,
+    "sha256": "7a306b40cef1d7d8efdf44a3702020b3973da6dcbd96ab7ab426ed8eeaaa4e4e"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics-before.txt",
+    "bytes": 59564,
+    "sha256": "a04835b19ca64b04aa7c1f612a10e8f5807d0b723b97a7fede9f4f51d5d87d83"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "d491ab9737bf129df3584fd3bdaecf71afb127a5177675f1434a3a9c1f045e8c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/coding/requests.jsonl",
+    "bytes": 33850,
+    "sha256": "b7b9af20d4ad2d4635c36d0cfc06ebf3b741136dd55981740f61aedee2b71cfc"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "3063e50bc1839f24e0f7fa67f7efe55e7c44d7be042751632bb6a484b9a69a5f"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-3-V1/warmup.json",
+    "bytes": 4227,
+    "sha256": "af355814a868da99a82af9ca9a8346bec3d63606c80e3db59605f9e950c50772"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/acceptance.json",
+    "bytes": 3871,
+    "sha256": "e86755955462c9d2de516e79b32a6bf6aa421c755273cf902d303c46181ee94b"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/measurement.json",
+    "bytes": 8711,
+    "sha256": "dd25ff8a57d7eaabad8d777dda87fbfd961c6ecb2dd9c7b7005bb828b0246df7"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics-after.txt",
+    "bytes": 59831,
+    "sha256": "fa782510c19c7bd25e520208d03abae448f004485bcb884cc4d929b5b53f7d65"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics-before.txt",
+    "bytes": 59566,
+    "sha256": "6398d43051f66f5216aeab816bd50c72c0e6060126f648e7bb932156d51d7eb6"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "a9659dac8c31bd0b50e86544891a73784c381da5ee68343585c7b25ac41f91c0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/coding/requests.jsonl",
+    "bytes": 33858,
+    "sha256": "cdff851d3b4a0ff8b32ceb8150aa95b03a162f7d1fd684926de0e4be2e01332c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "78cc2f1efed111dabd896b9eeeb5f8e36ec982c59a46edc711fc262fa7316459"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-3/pos-4-N/warmup.json",
+    "bytes": 4226,
+    "sha256": "f36af5c2539a0a9e7489a2b64a3c87d75bef8b7d5a6c3bb994473d9853dc7065"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/acceptance.json",
+    "bytes": 3860,
+    "sha256": "f853c667064c49e8b69b46ed5e27766dfc37951bbce32184776eca8e862187cb"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/measurement.json",
+    "bytes": 8914,
+    "sha256": "80643be33248ae1c7bc83f974eb64c35e96a5df3440f46a639ddef94770436b7"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics-after.txt",
+    "bytes": 59859,
+    "sha256": "9d3f640f7c27a3555754823f3b1c1940734e363fafc39bce9ece474ff872974d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics-before.txt",
+    "bytes": 59608,
+    "sha256": "921a33222bc728d4f28ab5f202ba4299c67db41f75cbdf55f19303ba65f06404"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "f9820a2f062061411cc6f11e0129091014ee20f8c776a082cce16f928fe27a2c"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/coding/requests.jsonl",
+    "bytes": 33845,
+    "sha256": "bea4e2c16506e980575a829b8a3128952ff3c05ddb08cb1bcd83d31dc67bcbd2"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "448d8556d6f12059f7905b9ce568a59dba2ba39d367eec7d5ae53be58b4f6e40"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-1-V3/warmup.json",
+    "bytes": 4226,
+    "sha256": "3b4f9cc9fb0b75533e2a7ccb63f455a4b9efe213b5b72c128710fd3ea740e1b0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/acceptance.json",
+    "bytes": 3888,
+    "sha256": "aefd94ee7f726197604d6b002a8e8c406697a05fbb1d9f7bf530644183afd086"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/measurement.json",
+    "bytes": 8737,
+    "sha256": "fff24419d238909710afa85f52ccf79959fd5fbb305b87e8cb80ba5886ae2af0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics-after.txt",
+    "bytes": 59828,
+    "sha256": "f852c23f8b7a825182cc872bd9511bed38e045e0641162803e0b8c508b720750"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics-before.txt",
+    "bytes": 59575,
+    "sha256": "e910d677b4af9af92c1f77aa802e946721b36ebfbf3359a98e99c41db1042d0f"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "60639f45dafec08ba53314e161ed74b5b9f23ee8622bae6484c8842761435577"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/coding/requests.jsonl",
+    "bytes": 33864,
+    "sha256": "08753456d4d548bcddfbc3a9d230ec3cbf1dcd0a178e111a253e82e396f7b963"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "31b9ad19deae1bc42a9a07619df0910d8d77c111c1dea90a3ddb7d0496d34b13"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-2-N/warmup.json",
+    "bytes": 4227,
+    "sha256": "597e6846a549f7926a0fbcaedbaf691631d377fee19bd624a1f8704a221e3b42"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/acceptance.json",
+    "bytes": 3865,
+    "sha256": "4af62dc1038184a186ee0d0a23f59375e64052fe4787e1d52a99a1fd7242a2cf"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/measurement.json",
+    "bytes": 8927,
+    "sha256": "6f7263fa3db1f7071c818b363bb86e3e7631a18c37091891005c53cf9be00dc7"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics-after.txt",
+    "bytes": 59873,
+    "sha256": "f35ad7b53b41cdf7c57783abdcfdd1856cfbf44d8a810f47993b282c0aca2329"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics-before.txt",
+    "bytes": 59590,
+    "sha256": "e38c4e24bce3a15d2a08ec251f219c18ba8453c662da9bad36b1f5f1af3d05a2"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "d01dc59c0cc7e22ecb403b069bb4ee57d53c65877d1efa37e1af9253ab986572"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/coding/requests.jsonl",
+    "bytes": 33851,
+    "sha256": "d9fdb4dbb4d95b2a82eca997fbba0cadd4962df8f69fd8b4b9e7e20cbba69128"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "12a0bbb9a40a286463e1ea0aebcdab8e04287962a3246a9e73b3cae5753e9e01"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-3-V2/warmup.json",
+    "bytes": 4227,
+    "sha256": "9fc0654aa162c6c3359de25a57502f76a7d1ad7699ef9eabaaaa0345772e2453"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/acceptance.json",
+    "bytes": 3891,
+    "sha256": "44588b210185b1ed6f43d978dc782381de970d45daa468aca9d2b66d8b32bf6d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/measurement.json",
+    "bytes": 8840,
+    "sha256": "97155de1fe6513581c1c4b60a86d0a8628403fd289508f940679a8d7c880a3a0"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics-after.txt",
+    "bytes": 59836,
+    "sha256": "b9da1d69af4678ec698ca33a46c79fc99efd3713e30a967fc137def79a661ee2"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics-before.txt",
+    "bytes": 59572,
+    "sha256": "ec50d88fd9a559791497fead0f59240aa822e06c81ded38556bfb4ecece5310d"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "2d248e2c997fe77061122d11be186389315cfe8c931be67ba2a9c112a49dd260"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/coding/requests.jsonl",
+    "bytes": 33854,
+    "sha256": "8645f8e12dad53e1ec6af4255322d505b3b28516174f7a97bc8e576bc5a9083a"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "be59c7a6f86c8f4af5c5f2b252d1714b7bbf38428835d943a302dc4d448f77f4"
+  },
+  {
+    "file": "performance/results/runs-001/coding/block-4/pos-4-V1/warmup.json",
+    "bytes": 4224,
+    "sha256": "cd0bbc534d43876ba210a338ca4b6a1e39ec1d76ed6fdc2e776d08af5c91bf8a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/acceptance.json",
+    "bytes": 4486,
+    "sha256": "f9f7be022f41e174865655bc885ec96a692f8aaaf34b906a9e16b4aeae07bcef"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/measurement.json",
+    "bytes": 8745,
+    "sha256": "de8e958e230c1c363032f149095618f87b9cb964694a1d2654a54391c4bf878f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics-after.txt",
+    "bytes": 59852,
+    "sha256": "86ff71aad41d85b230209b8c4e8185b7bd79e0e91fa61d148cdbb3e73da62c65"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics-before.txt",
+    "bytes": 59570,
+    "sha256": "fa0a493b213de1c40b2b309173ec50cf3ea248bedf9dc7e1bd1022fa627546bd"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "123e89887f2213a1637d14f5960a7f0de89bb14a228670062ab1f5f636a2a8b8"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/independent/requests.jsonl",
+    "bytes": 33337,
+    "sha256": "fd8cb3868ee9582df3993c9529c5b34e203f4eed783407ff1cb1fd6b316de93e"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "482c108dfc3ed0e05b46058be978f093e1027a285cad814f14141752f64e995b"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-1-N/warmup.json",
+    "bytes": 4226,
+    "sha256": "fcbc89fede87c0833be5d2fb34a356c1fdac942b952c6b2659cb63b8259aca25"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/acceptance.json",
+    "bytes": 4472,
+    "sha256": "8bffb408a64234bd39b10be6047cde16bf86ccdc4c1e6387e007a50709efceb6"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/measurement.json",
+    "bytes": 8868,
+    "sha256": "9c15aedaba306b8267676b31744aa47af634b3d0e6d7a3ca2504c401038fad8d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics-after.txt",
+    "bytes": 59825,
+    "sha256": "4c36124fce2cb09e12a365d03468b5d142255883407330d24ae0a65937cd8bab"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics-before.txt",
+    "bytes": 59571,
+    "sha256": "87fbf57fbce6351f19c38f6731295cca64cc9156bfae549b0936d4caedb705b5"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "08980cfe99beea43211d4f189f44ac280eef7e2111e0baea5344fa2f7b5f563e"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/independent/requests.jsonl",
+    "bytes": 33335,
+    "sha256": "40fe1b39606e6547b75853bd76b16dee45d84568946ad3aea11ff75509632105"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "6e24bc0dcbab7816d3c29363ead30f07ba0cb9583e54a89d4454e46fc90a6a8d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-2-V1/warmup.json",
+    "bytes": 4223,
+    "sha256": "2a1d35f2f2275c6acd79c525b60d690a522b9e025019c27601dca0f2023851e5"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/acceptance.json",
+    "bytes": 4504,
+    "sha256": "f6f2e8fdee089dfc5c788e6f39ab896fe8d86c51efab05b501f8b77be09073f4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/measurement.json",
+    "bytes": 8963,
+    "sha256": "b7fcbdd456e783a4cc9d3b3eacfdd02d5a03c747d7e2cb4acc7c34039c691888"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics-after.txt",
+    "bytes": 59882,
+    "sha256": "b19c51753e39be2ed9b90c606524acc92155196425d5bb7457b22c9f6df61a0f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics-before.txt",
+    "bytes": 59599,
+    "sha256": "3bd5aa4051e6f6f08e17b6a2dd7e30436bf2e8d5ed62460405d6e47d777f8481"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "4bcc6295abf85c114bafa3c8bcb93f016aa803fa4842080b60a922b940e22163"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/independent/requests.jsonl",
+    "bytes": 33340,
+    "sha256": "8cd307c2850a30aa667893849cfc3acba528c4e83493c3df2563b9162a6f8527"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "80837c0885cce75f5a45ccc30d584af520ffa054173eec9182b0a884bbf0556d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-3-V3/warmup.json",
+    "bytes": 4223,
+    "sha256": "f4d02c37b77334c62e658137156a664713c6d241a51dc47d41080ac9d3cef6dd"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/acceptance.json",
+    "bytes": 4462,
+    "sha256": "234a6e55017c39d927891b2b1e2c643353b1beb11d6b468ee12bf1a5a8a9cbdb"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/measurement.json",
+    "bytes": 8973,
+    "sha256": "b7b745eaeae27b27120861260a4b26d6d3b2b553ac2be34365e0ece4c653d40d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics-after.txt",
+    "bytes": 59866,
+    "sha256": "cdf0d168e66a2a63eb2b6eefe15f55b3db7972ff5d4678851ef57336ab7ee671"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics-before.txt",
+    "bytes": 59593,
+    "sha256": "6013a64d222973ef72999f59ce7d2d929dd8e7d093a1083e6efe94ee7b806e7a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "b2ccae066a57f4c3398ae6842ec395e22a2153b40532b4440cebb76bc5ff1569"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/independent/requests.jsonl",
+    "bytes": 33335,
+    "sha256": "d0ca0d0feff8c52a09ed649915bba623e82021bc02a1095ce5999c518feb0df1"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "f40bd95cf09ba13b5840781db994c83a292705a8b490b8cf380c0a7bbb8bd317"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-1/pos-4-V2/warmup.json",
+    "bytes": 4224,
+    "sha256": "753ec7432d0980a2d42e8dfa422cc844039f2ac16019ea3be36134f4c8f84287"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/acceptance.json",
+    "bytes": 4481,
+    "sha256": "18ce8f53a7dfd8247946d31c46435c4f77437e7862ec1677ed7a0152f7eb8045"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/measurement.json",
+    "bytes": 8879,
+    "sha256": "8829964e339b68234fab8ad67a82725167948270af551521d672c9b45422345a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics-after.txt",
+    "bytes": 59851,
+    "sha256": "89ec7b32433c81aad80d360f3b26ec35198312e47ea6276828a54befcf5942f8"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics-before.txt",
+    "bytes": 59570,
+    "sha256": "f7da1b162dcb87d0652f06e034a5984ae34bbbee0bc10c01bb8fc4f8a57f656a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "3a6f0a845aa5ea6d9f59061119f8543d98b0d22e141fc46fb47f934a31428355"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/independent/requests.jsonl",
+    "bytes": 33324,
+    "sha256": "79b2b0a68ae040b9e894926dbc83bc8dbb05afd69a25d120e488e14edb85a679"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "2d09075fadc3c6bad1483f75f066b15cf6dc4a60feeafe622fedb9ad6c0c51cf"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-1-V1/warmup.json",
+    "bytes": 4226,
+    "sha256": "3769ae783f0ec11cb51054308e84d4ad2c30a850cf1aaf5927d5d47c86ff5a1f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/acceptance.json",
+    "bytes": 4500,
+    "sha256": "4fc48fc8f449052ae134430986f8f6bc5d4cfc7f13e88a99e4364ec3712db794"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/measurement.json",
+    "bytes": 8948,
+    "sha256": "970bda098356b32e11ac5055f368ff2702e4c595d5c24d2b04a58b444ab5f08c"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics-after.txt",
+    "bytes": 59862,
+    "sha256": "8d755c26b8a0730a811a2d92c977d789d351bd6d4340a91101cc7202bf677de7"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics-before.txt",
+    "bytes": 59594,
+    "sha256": "d41dc8272535f047106c7d17550a68483f0d6236e2264d3ea37be8c99705f6ce"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "78b1256a2307e86816edf28038ff7149e2e40b287ddd653837539c283f18a58b"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/independent/requests.jsonl",
+    "bytes": 33342,
+    "sha256": "fc158dc6e0e4eb5caa46f74834181ccc6047662591c064081234ecaf80843c98"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "cbaba55bacab6bced52b71c47ea8a49d5c0cf2b88905fae8c2a1273940eec523"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-2-V2/warmup.json",
+    "bytes": 4225,
+    "sha256": "ca27724b19ddcf41056070810e74a4441ba62389c1bd8b9b5d8abb77c5a199d4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/acceptance.json",
+    "bytes": 4508,
+    "sha256": "7867c2a3865aeff628b90293a3cbe9de73dd4f074c1c0b40f30d44405799ddd8"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/measurement.json",
+    "bytes": 8740,
+    "sha256": "7110e77bb1a243ff8fbebdd1d6de8297341070b6ed6ea034c7f08f94f9edc787"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics-after.txt",
+    "bytes": 59830,
+    "sha256": "f016c154a40070bbbb690827298096f4814a7f5111c0f011601d4a5f98c458e6"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics-before.txt",
+    "bytes": 59567,
+    "sha256": "3e12e0878abc68a40c14c6b6ea2cb3580bea5efea4f5faaf48a7eb7b3c87162f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "6a461e4dc1377578e5b6cca81049b6822e1574c605b96654c360c374948d5b84"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/independent/requests.jsonl",
+    "bytes": 33333,
+    "sha256": "a2834963cb2bbd484b606f06203121cbfe074c56c4f550a28a8b6474af9c70e7"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "b813796ccaba9671fa4f88892b8fdc12f9d180f460dc8eb25623bce13a0831a9"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-3-N/warmup.json",
+    "bytes": 4224,
+    "sha256": "08ce0e34f5e95b697f38fe25cf89eb3588f550b02b50f1953850a6e968979bab"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/acceptance.json",
+    "bytes": 4483,
+    "sha256": "fb92e277f77c860de9f4ecaaf8cf3bf6f524ebe750ee5d61a8a361bb14ff4b4f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/measurement.json",
+    "bytes": 8944,
+    "sha256": "b0baaff3693d97ddbd5c3060ed3ec5b904df89b60db1f2cb53634ab1cf5da3b9"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics-after.txt",
+    "bytes": 59861,
+    "sha256": "ec2087fe2b215133269a5ed7888550f8d9f627341b984b5b5d9006a2beceb898"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics-before.txt",
+    "bytes": 59593,
+    "sha256": "da4900b9160e81616ee77f5824c7aa55e03fd73c1769968660a56978c0d3302d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "42a7b6bd2cab36aeceeed6cddca71fa6a97b563c12b7bf01d82ffdeab9622664"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/independent/requests.jsonl",
+    "bytes": 33334,
+    "sha256": "98ff1e8b0721649f29a72592702b9374d3a40ee7bd43445da9a15ac279fa0146"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "c14b6e34d60528ccfd0be38ed82c1a774f460dfa4376695cf06fa594856ba2ca"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-2/pos-4-V3/warmup.json",
+    "bytes": 4226,
+    "sha256": "17e7ab954504aab4604e4059848b16c95f69ee00ccf665a489cd8001d4dc2a24"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/acceptance.json",
+    "bytes": 4485,
+    "sha256": "a3c1825957f86b660643c95a7531397798105e19a882a0cacfef719e890f1ccc"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/measurement.json",
+    "bytes": 8976,
+    "sha256": "533a1608004eab165af5341585ba9d6041ae63e251adff62a2f5d17db9687674"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics-after.txt",
+    "bytes": 59873,
+    "sha256": "dbfa7c264901556d46701d4cbcc5dddaccf38341bbbcc4c17f9d7c471d4f8668"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics-before.txt",
+    "bytes": 59594,
+    "sha256": "9212846f5e7eb83196eb770b093e92078a24e7c4d7f41fac4b8f68cb9cc08293"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "bb7dc0ba87c292e25c153c937bbec71b5538626bd54b526f05a637cc546470c4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/independent/requests.jsonl",
+    "bytes": 33330,
+    "sha256": "3cdca5c7d4286b764156ccd332fe4a0c61ffd4df3658e41274264b27f716a349"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "77b019eaa59d5679f69cd4b0dae028363865157fed21be196706e561a845868e"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-1-V2/warmup.json",
+    "bytes": 4225,
+    "sha256": "dbdb4855e385de4e41b91d43f017bbae1bf9089d46058da21d2a204f2b5daaad"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/acceptance.json",
+    "bytes": 4476,
+    "sha256": "84e929501c02719aea314b10f679112342d18fd1faa3040f7ed79014e83dacbc"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/measurement.json",
+    "bytes": 8956,
+    "sha256": "6ec97fbdb334faebba87f5269edb786a1f49d3a97a5f5b8103b1213a613ba9c8"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics-after.txt",
+    "bytes": 59868,
+    "sha256": "f71ef0bbc6d7e7b263fd8dfa91e22c79a95ac8145166ce1cfad044700835cd8f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics-before.txt",
+    "bytes": 59602,
+    "sha256": "4fdb0e50ac9188c4de6003bd0bc476b5d96f2a4eefdb01bcd7be676caf74ed7f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "d974cc2ae3bf8dad8630e9e03d20f1f20ff5f76aec7718e5233049375ea8baf7"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/independent/requests.jsonl",
+    "bytes": 33343,
+    "sha256": "7c4844a2ee08ced52fd48660d80b1aa4eda24c952b67d17cd36eb936c31ca5aa"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "8ea1010b708f92df07d15c67e33279685cd0c07f00b8d8b643cc71be2d5f4783"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-2-V3/warmup.json",
+    "bytes": 4226,
+    "sha256": "f73e1c3fff43a0409bbd4430b3f1cb34f7f922a8372970c9c28c516bf85d420c"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/acceptance.json",
+    "bytes": 4463,
+    "sha256": "d4c54534440551ac7d6ca69cecfe2b7e0ec060e75f259be99540442b50a1c6bd"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/measurement.json",
+    "bytes": 8821,
+    "sha256": "84adfb07b6fcc315bb1ccef297c3991c4c396d413a7e043557e6b7bbff92aeb4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics-after.txt",
+    "bytes": 59833,
+    "sha256": "136acf7156581bead20384e14194ca1c66bb8a661ab82e358c14ffb7d8484cf7"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics-before.txt",
+    "bytes": 59564,
+    "sha256": "b40edf230b5aae9c671fc19f93663d918f525cfc0718f8a4cbff175ce91ec5eb"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "0afb9eeec9460c37b7d3623631b64ced8d3f56b814792108f6c0c683b927617a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/independent/requests.jsonl",
+    "bytes": 33325,
+    "sha256": "7cae128a131122cd2263ec61443ba40225d990bef3b93927a0170bb4e4fa7e9a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "ed50581f9a0ef2d593568b3bcaaeecb85556c603005d02c628315394dffee34d"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-3-V1/warmup.json",
+    "bytes": 4224,
+    "sha256": "84add8444053bae564f11cf197659706a0edf7a75d1ff10709a5d3d28b617bda"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/acceptance.json",
+    "bytes": 4501,
+    "sha256": "d017d0904d4efcdbaa1008c66f816bdcb2e32967e81a44770779ac1376159264"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/measurement.json",
+    "bytes": 8729,
+    "sha256": "f546392d32c2e3fa370bcd2f522f850b4a312f21594484cba95afa4615d1220c"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics-after.txt",
+    "bytes": 59838,
+    "sha256": "28e0abac8a853af86630c25d892a81862474fd190f1a6535b077abd1feec7fcc"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics-before.txt",
+    "bytes": 59569,
+    "sha256": "9bdf1045fd5e9777d1c3303585604f2940b9cdda620764c5ed48c66594899a7a"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "3529049d0085711b771127c33c40ee7d383eabfc23036e12a5e0dc9d5291c0f9"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/independent/requests.jsonl",
+    "bytes": 33338,
+    "sha256": "7ce4175373997ba30a5aedd765798dfd7a10ab3c94ba3001c5c603358c22ac0e"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "38ccda7fcd8565fba719c7799fffb071c4b4b99a5950e9e5d25268eb25896be0"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-3/pos-4-N/warmup.json",
+    "bytes": 4226,
+    "sha256": "3b60737c50c12f37be36eccb7f688b802efa6e105f9ed60449c034445a70e7e4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/acceptance.json",
+    "bytes": 4500,
+    "sha256": "14d81f07a98e8ba2364fbea031de80b048ca0e90f170143ee9a4c8ae860952d4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/measurement.json",
+    "bytes": 8958,
+    "sha256": "544fe93cd0a6c186bf9456043f34c2f31118b869a60fcb342c45ffd622be1874"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics-after.txt",
+    "bytes": 59864,
+    "sha256": "64a72f426a2c9f74579e5971ca7b65e1823880b1edb04c09488b473a27a62311"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics-before.txt",
+    "bytes": 59609,
+    "sha256": "707fa058ce7c17e5c51f49c4718293d8689003f89a25a5d180085d4cc253c191"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "f7da052782598a288ee17db4d5934f5fb0942e77d893dcb0b53bac99f3db2bf4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/independent/requests.jsonl",
+    "bytes": 33336,
+    "sha256": "3de44b4d34aefbc0649cea7de1f6eb659f8c74cfceab53b8daa210a91d20ed7f"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/server-exit.json",
+    "bytes": 99,
+    "sha256": "bc779c754d4ffe5606439162b1eb90e4882ab8e440ae4d8207cf2f8b28fce10c"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-1-V3/warmup.json",
+    "bytes": 4224,
+    "sha256": "e276b7c0d6e5cdb9fb86a34781f7959971435b94d64c443f770783ca5fdc5382"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/acceptance.json",
+    "bytes": 4473,
+    "sha256": "9db36913f2a7e4d96555d5c55d4947645858595ce7f524d013799ca4a1ed8130"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/measurement.json",
+    "bytes": 8756,
+    "sha256": "5df962d57989ce26497a643256d6c5c0d428b5069958a6e3a0572d80fa336d59"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics-after.txt",
+    "bytes": 59839,
+    "sha256": "e8625ad897e530850112aee23e165d28a58acadb798be3be877b4333c6a561ed"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics-before.txt",
+    "bytes": 59586,
+    "sha256": "d52be44c855eb6373d099cc9f9b309079489a7645f6af1cffa090241ea41e9cf"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "c9d2c61d26021ab684c8aeb29e9846a7c196311b7f8c4f4d1c8e00f842127520"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/independent/requests.jsonl",
+    "bytes": 33335,
+    "sha256": "67f3c2fca289535ad68316974c1139e3cfd88c8eaf04c3f67cdc852dee99d087"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/server-exit.json",
+    "bytes": 99,
+    "sha256": "0f58a272550c4287f3f159bbc7518d792bdeef4d005aeff88422f53a12c37241"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-2-N/warmup.json",
+    "bytes": 4223,
+    "sha256": "aad5a84f64aed6ab29f7a76eb2188c298c673c0db5bac83f3af48985d1a0fee5"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/acceptance.json",
+    "bytes": 4454,
+    "sha256": "8cac0a5aaba17b030ceaa723ccd32753d4bdd7f4a856a0cda5e5d015221aa0ac"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/measurement.json",
+    "bytes": 8959,
+    "sha256": "87024013645633087fb546167e87b1e0c8f85e6c2a71df6dbc493351318204ee"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics-after.txt",
+    "bytes": 59860,
+    "sha256": "0fb702bb729b49e178295a82155a0b49cbd7a7c1a69edc3e683d485e5b098583"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics-before.txt",
+    "bytes": 59594,
+    "sha256": "e82286f67b1600a241b54c9cecd6acd71aecc1b166218792dd7267093e609035"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "4a89a118974d70adc1d1c4296508bbfc7eb91c40d8d1f156378c1289f5751974"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/independent/requests.jsonl",
+    "bytes": 33336,
+    "sha256": "15f39e5f2510849cc6f1a88d403feb7f20cd8041a7d8619711c10cfff85e1090"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/server-exit.json",
+    "bytes": 99,
+    "sha256": "4e641adf5df5961bcede4ec5d3b3ce81ba9dae591047bd8291f785eb8f3623d6"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-3-V2/warmup.json",
+    "bytes": 4225,
+    "sha256": "b2ca5dc02d367dfba74d77481c62e5d5ef99aca5d6f80fc9c2f1beddc985f1b4"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/acceptance.json",
+    "bytes": 4483,
+    "sha256": "1caf1607ffa1178fb324d6c71350834538d20d4a292c41f35f74578e02b4bc61"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/measurement.json",
+    "bytes": 8840,
+    "sha256": "c6b42df4a4b626614ba582cbc15323f05f9685d4eb12429453763ba00d8f2031"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics-after.txt",
+    "bytes": 59832,
+    "sha256": "a3b0dd6e5a5366a4a07a6e7879fee37177e83f70648f68ece700dbbc6194a46c"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics-before.txt",
+    "bytes": 59577,
+    "sha256": "1dd620e553fa1d69e0787e46819eea03ed23685ca72c84acb7ac3258584eec25"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "3568ef10a3d4afb903fd3705c257293dd547c5d8678b0aa3f8463eb744f57131"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/independent/requests.jsonl",
+    "bytes": 33339,
+    "sha256": "f84dbbfc884d7563d448b73f5932a63757d57651c8926ed1e8f792d7c08f39ed"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/server-exit.json",
+    "bytes": 99,
+    "sha256": "828f6d457c3ab4ec1fb9cd04dd4f5eb40d8c57f54064a111a65c27fcefa89765"
+  },
+  {
+    "file": "performance/results/runs-001/independent/block-4/pos-4-V1/warmup.json",
+    "bytes": 4225,
+    "sha256": "9d065ff4096f0909293222ae51865d54c16f312d51d254a74ed62a63192ac287"
+  },
+  {
+    "file": "performance/results/schedule-001.json",
+    "bytes": 6131,
+    "sha256": "fdb233252700773b9110c15aada8a82c43b1b4882342579d710766d8da7e51d7"
+  },
+  {
+    "file": "performance/results/summary-001.json",
+    "bytes": 294964,
+    "sha256": "540528ed8733c2b1a3fad6bf21bff44f03f58d345314e680e836954eebafe97d"
+  },
+  {
+    "file": "performance/results/terminal-001.json",
+    "bytes": 132,
+    "sha256": "89c71d0f090e1466bc2e9bfaf49890cc63dc7f882360119af2539aa12811ebb6"
+  },
+  {
+    "file": "performance/server-arguments.json",
+    "bytes": 6544,
+    "sha256": "25381e365dc502b961f86f876826e4a455be81706b60402528e47c8c67c009d2"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/acceptance.json",
+    "bytes": 361,
+    "sha256": "fcfa4f342f17253ea34b1f9fc73f6408cb92911263ac1aad012fd65df7a49406"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/coding/measurement.json",
+    "bytes": 11277,
+    "sha256": "04918dffe2bb476ea8e54d9119fff26ecce290c860630c40cb00a2d0b7f60c18"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/coding/metrics-after.txt",
+    "bytes": 59832,
+    "sha256": "4dd8d13bb6159ccd238c018aede55310712b32e56b7205ea23c76b16569887ef"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/coding/metrics-before.txt",
+    "bytes": 59568,
+    "sha256": "e67c7c8c54a7b00bfbbed7322a1b885660817a9f7b5a10c6eb6edc998e82370d"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "7d058424bf38656d146ca6562c880d5f81561c44857e32aed12ac743bd173984"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/coding/requests.jsonl",
+    "bytes": 33847,
+    "sha256": "c649652ef6c7b486fe3b99f74933dad03dbedbb98650ed664db252063069b3cc"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/invocation.json",
+    "bytes": 1620,
+    "sha256": "46d3f11a21b02b17abdb78628f17b6316c98eb21bb2c9631cd5f0ca9daf8f357"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/terminal.json",
+    "bytes": 116,
+    "sha256": "cbe97bdefb589074cb18e4b0a855e2100d6b189715ff061f98e1ca97d0dcd84c"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/replay/warmup.json",
+    "bytes": 4226,
+    "sha256": "c59e1cc4491395b1314733bfbfdab2585ad7c20ec72b743ac8b0787a3244a197"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/server-exit.json",
+    "bytes": 120,
+    "sha256": "a41b47ac51ac30b6ed8360987ff2c00eef2b5f143f6dbc3aaaef2983b8900f9c"
+  },
+  {
+    "file": "performance/validation/1-coding-baseline/server.log",
+    "bytes": 149781,
+    "sha256": "6109fc198fdd3993c38faa8a984fc0050d52a3cb052eb1bb977d02a028aee780"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/acceptance.json",
+    "bytes": 371,
+    "sha256": "1ee89a0d36c539e259bebf0aa8d7c39966788af61520ca7e0556b33e1f45fd0b"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/coding/measurement.json",
+    "bytes": 11517,
+    "sha256": "5b0b884ba448f7b0c8d61646594ae36b94fa03bb19d82c418f1007210b62d719"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/coding/metrics-after.txt",
+    "bytes": 59833,
+    "sha256": "90f6ecec749f69c98546b17f03ef988aae118641c678f95e5804c5153a158075"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/coding/metrics-before.txt",
+    "bytes": 59564,
+    "sha256": "cb40bd21a5e67a13eef41fee1d2a66ea67ccceb0cf89169f873d2e174415e617"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/coding/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "c9bd9ecac35aac69a3b860b61adc766800a97fea03a38b534e7307a87a2b6921"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/coding/requests.jsonl",
+    "bytes": 33850,
+    "sha256": "449a996e264b79b21d293c9b4d5731dc895d4834bcc8347e17203f6c7bf429ec"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/invocation.json",
+    "bytes": 1623,
+    "sha256": "453f85b16fee8bea56bb6431ff2a06e5f3e4b25b6eb3edf76b80e53ac9a84f0f"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/terminal.json",
+    "bytes": 116,
+    "sha256": "cbe97bdefb589074cb18e4b0a855e2100d6b189715ff061f98e1ca97d0dcd84c"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/replay/warmup.json",
+    "bytes": 4222,
+    "sha256": "0931d6a2eb6669c4f20725abc3535e96ff591fe1cf728063a85615cd89cc856c"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/server-exit.json",
+    "bytes": 120,
+    "sha256": "5b94ddd50a6d5af3d91e0858e79ae12beedff705b7882340f77814471eb41c49"
+  },
+  {
+    "file": "performance/validation/2-coding-token-reuse/server.log",
+    "bytes": 155608,
+    "sha256": "92e398c0d790b4d5871447f3d9a613538b2d71945ab157a4b34d7d2e0510d3d0"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/acceptance.json",
+    "bytes": 366,
+    "sha256": "7e1c9e16e194442cd537544c25f068d1193d5ce96b8abf8f63b8ada3a79d0ad1"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/independent/measurement.json",
+    "bytes": 11322,
+    "sha256": "a12f82e695771e06cb0f2762a14d8ce8946e5293b037b594dd3f820900099c25"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/independent/metrics-after.txt",
+    "bytes": 59849,
+    "sha256": "566361fe446a655c62cad566299d8a68b05f1fb013983fa47c0028bb9889c3d7"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/independent/metrics-before.txt",
+    "bytes": 59563,
+    "sha256": "9cbc035681ce16b896c6422f0dbe51174d21afe7f964d30701ed689838bae840"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "2f4911021d3167d2653053fc0a4940e501ca411e443b80e2073843b7a68b54b3"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/independent/requests.jsonl",
+    "bytes": 33338,
+    "sha256": "542ac115a3680ebe2fe86f7b8af84646efa741fbd226a2ac8eee53278fe88ca5"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/invocation.json",
+    "bytes": 1630,
+    "sha256": "0346832c0bdac6e300d9859d40b64e046eec5891cf6429e53ceb15c056907c43"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/terminal.json",
+    "bytes": 121,
+    "sha256": "d64a83dfb0bd840dad7928014a90ef660f62da95915043c6e77d463c1c77b4db"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/replay/warmup.json",
+    "bytes": 4222,
+    "sha256": "4d453cd32cf2c1f01f2241275e5ee0bcb658fc1e1180c302666ecb51dca5de7b"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/server-exit.json",
+    "bytes": 120,
+    "sha256": "2c98b840f0f959f7b2ee11cc92787cd780562eede27d38f011f5d8b4678764ec"
+  },
+  {
+    "file": "performance/validation/3-independent-baseline/server.log",
+    "bytes": 144815,
+    "sha256": "d25d5b320a34317179c42f35cb720883cee1527cd61439a0ae67ca84bed70158"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/acceptance.json",
+    "bytes": 370,
+    "sha256": "2c29850db60b320030a4d05863f88c838b5c68660fac2e017edf5dd1f3060505"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/independent/measurement.json",
+    "bytes": 11564,
+    "sha256": "bf0080f996a1c501e2d67a49fa0755b74b2eabc386fc1dea2896cf2ec6d0cdcd"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/independent/metrics-after.txt",
+    "bytes": 59832,
+    "sha256": "43978dde4eb7937b496562d4dfba0e50a44d25933705fe308c4287131757ece1"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/independent/metrics-before.txt",
+    "bytes": 59561,
+    "sha256": "e42af1652b03919886fe348bf6ae7d92e6f756f7ca5766cdabf874a8fc90a5e4"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/independent/metrics.jsonl",
+    "bytes": 247,
+    "sha256": "abb37169c5a2b7465a85f2af77f4135f3c6c422088d1c0e0fc3ecfa371c6e865"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/independent/requests.jsonl",
+    "bytes": 33334,
+    "sha256": "82c48114e5d38b195cff8a3b0b5f3276ca486f88b5bdf2d62e6851868618a105"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/invocation.json",
+    "bytes": 1633,
+    "sha256": "acbeab0b355479bcefd3a95ca98dd14705473f6c320c599f5f547648298a1e4c"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/terminal.json",
+    "bytes": 121,
+    "sha256": "d64a83dfb0bd840dad7928014a90ef660f62da95915043c6e77d463c1c77b4db"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/replay/warmup.json",
+    "bytes": 4226,
+    "sha256": "cf9a0fcb87cc527e5d6a413314058f790d823190ee1058cd6122cfd617b14e9a"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/server-exit.json",
+    "bytes": 120,
+    "sha256": "58f005d9673bcc9740fce7724be9217b6c6f6ed46244b28805e7be21bde0d0fc"
+  },
+  {
+    "file": "performance/validation/4-independent-token-reuse/server.log",
+    "bytes": 154798,
+    "sha256": "e978b0b694e6c8d2715b3ad320eee0dabe96ee22f09fa70a888ed4582b90213e"
+  },
+  {
+    "file": "performance/validation/recomputed-summary.json",
+    "bytes": 7076,
+    "sha256": "bd7d70735530d2e21a4f6a53a98133a780747acda934575ac685a827f8607d44"
+  },
+  {
+    "file": "performance/validation/recomputed-table.md",
+    "bytes": 570,
+    "sha256": "8b2f6ab85734bb1a80fa6474c2680fbb53bf2ae8496af3b0614e3f6ab6125a88"
+  },
+  {
+    "file": "performance/workload-v1.json",
+    "bytes": 9332719,
+    "sha256": "935e387020d27548aba5da24c997c9381a03bd4fc8735e3d1ef5e3c2dd44f833"
+  },
+  {
+    "file": "prerequisites/benchmark-shutdown.patch",
+    "bytes": 8404,
+    "sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977"
+  },
+  {
+    "file": "prerequisites/shutdown-C.patch",
+    "bytes": 8404,
+    "sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977"
+  },
+  {
+    "file": "README.md",
+    "bytes": 1733,
+    "sha256": "b6854611439fa190e868e8ca20388ed0a6793417ccd024dbb3308cf0f42276f2"
+  },
+  {
+    "file": "v1/benchmark.md",
+    "bytes": 3334,
+    "sha256": "f52ec949cb17b40a42d9389c1c4156ddd207b06b89cf360e44389c7a709a6295"
+  },
+  {
+    "file": "v1/design.md",
+    "bytes": 1867,
+    "sha256": "0afb390743f6341e2642ac83a92fd71df7c4d2be78a35153e7e09fc58eb6f6f8"
+  },
+  {
+    "file": "v1/validation.md",
+    "bytes": 2016,
+    "sha256": "fbdb88cab507f5b5f0a9422f91b501f2e4e6a179dc2b51f8c331048a616065d8"
+  },
+  {
+    "file": "v2/accounting-paired-summary.json",
+    "bytes": 16467,
+    "sha256": "ff257360c8385bc70704946a067c9f48c650cf9c01b257ab078b1bddfc6ebf47"
+  },
+  {
+    "file": "v2/design.md",
+    "bytes": 2350,
+    "sha256": "3abcd59ace37f172d3dd151de173f335311a7567e8e3a911df7918978cdaef36"
+  },
+  {
+    "file": "v2/historical-match/analysis.json",
+    "bytes": 66905,
+    "sha256": "a600e7d10c37efe1b70498d01cb7b0598c2836c5e557b524c80a8071ba25140b"
+  },
+  {
+    "file": "v2/historical-match/analyze.py",
+    "bytes": 2518,
+    "sha256": "7c23b796b0f7f966ac40989aee621e124b57977f4b5400c30ba3e39d3c68b2ca"
+  },
+  {
+    "file": "v2/historical-match/build.log",
+    "bytes": 523,
+    "sha256": "19b74e64f079c29d86dcee3d47c02795ca9015e74c8ec51e6e05b597bf38f305"
+  },
+  {
+    "file": "v2/historical-match/build.py",
+    "bytes": 457,
+    "sha256": "66afe0cb39637d8622ab37796992e55c329dbe38f4f7f0a94f59a6c2a6387617"
+  },
+  {
+    "file": "v2/historical-match/correctness.json",
+    "bytes": 38,
+    "sha256": "e79c08344f3a23d8ba1d21ce52e060e7ed18c90c44dd3d88535edc2088ecef08"
+  },
+  {
+    "file": "v2/historical-match/environment.json",
+    "bytes": 2448,
+    "sha256": "fd3d10086e116254cb77f625930c4f435aed4c1b850f9f53575397141338b3b6"
+  },
+  {
+    "file": "v2/historical-match/expected-native.json",
+    "bytes": 397,
+    "sha256": "5a53ffdb088c16ac16e9c21b673eaa66fe10ad4461e4c2f4cdbf44bda1a80b0a"
+  },
+  {
+    "file": "v2/historical-match/matcher.c",
+    "bytes": 3897,
+    "sha256": "527e31ea443c07b14e6cde9bfd4a617ac544bd98e824f5c69fc81fefcf326a77"
+  },
+  {
+    "file": "v2/historical-match/README.md",
+    "bytes": 2183,
+    "sha256": "492ec7318a111f10fa628eb28e0a8f8d2c3a28fc1528a378841a60a362728a08"
+  },
+  {
+    "file": "v2/historical-match/results.json",
+    "bytes": 1228195,
+    "sha256": "85fd86dd771ab7d727e788e6c24fa22879b0bb8377fb8edcdb2f54b3548459b5"
+  },
+  {
+    "file": "v2/historical-match/run.py",
+    "bytes": 8152,
+    "sha256": "9d90690988a104cd714f60c416f73919b59d9d49ce9920c2f64d47a9a7f12e3f"
+  },
+  {
+    "file": "v2/historical-match/samples.jsonl",
+    "bytes": 681409,
+    "sha256": "0f98ffaf5d873b766ab52419254ce6d33f018298ac826e697e064c8b3cfd414d"
+  },
+  {
+    "file": "v2/validation.md",
+    "bytes": 1223,
+    "sha256": "626532b610c8633b3f85872b6c51d5d61dcad945ddcf12edc9a703a196540769"
+  },
+  {
+    "file": "v3/design.md",
+    "bytes": 1425,
+    "sha256": "7708aa816aefd336a2a767ae356869e4173df09d610f8beb16843862a64d9a2c"
+  },
+  {
+    "file": "v3/validation.md",
+    "bytes": 1527,
+    "sha256": "7c6277d5b7f1eb44b3b8bde95cc0582b4067cc513d94e04df8c9f16a36890a3c"
+  }
+]

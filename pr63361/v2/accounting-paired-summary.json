@@ -1,0 +1,488 @@
+{
+  "blocks": [
+    {
+      "block": 1,
+      "native_cached_token_mismatches": [],
+      "groups": {
+        "all": {
+          "n_per_condition": 80,
+          "first_output_chunk_s": {
+            "C_mean_ms": 98.54737485,
+            "Python_mean_ms": 94.3900578375,
+            "C_median_ms": 97.707201,
+            "Python_median_ms": 91.0596645,
+            "Python_minus_C_mean_ms": -4.1573170125,
+            "Python_minus_C_median_ms": -3.097458500000002,
+            "percent": -4.218597419594284
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 321.465662625,
+            "Python_mean_ms": 316.3363582,
+            "C_median_ms": 318.5324435,
+            "Python_median_ms": 313.49159999999995,
+            "Python_minus_C_mean_ms": -5.129304424999999,
+            "Python_minus_C_median_ms": -2.6773979999999824,
+            "percent": -1.595599474953402
+          }
+        },
+        "512": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 89.892488,
+            "Python_mean_ms": 86.49373435,
+            "C_median_ms": 92.75126750000001,
+            "Python_median_ms": 83.6828675,
+            "Python_minus_C_mean_ms": -3.3987536500000006,
+            "Python_minus_C_median_ms": -2.8355055000000036,
+            "percent": -3.7809095349546906
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 303.52194185,
+            "Python_mean_ms": 299.6443981,
+            "C_median_ms": 303.05237750000003,
+            "Python_median_ms": 293.1424265,
+            "Python_minus_C_mean_ms": -3.877543749999995,
+            "Python_minus_C_median_ms": -2.6746680000000254,
+            "percent": -1.277516783915511
+          }
+        },
+        "1024": {
+          "n_per_condition": 40,
+          "first_output_chunk_s": {
+            "C_mean_ms": 95.728790575,
+            "Python_mean_ms": 94.221116975,
+            "C_median_ms": 92.3958985,
+            "Python_median_ms": 90.936568,
+            "Python_minus_C_mean_ms": -1.5076736000000017,
+            "Python_minus_C_median_ms": -0.5618550000000084,
+            "percent": -1.5749427010871897
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 317.4771439,
+            "Python_mean_ms": 314.221579275,
+            "C_median_ms": 306.707759,
+            "Python_median_ms": 300.995533,
+            "Python_minus_C_mean_ms": -3.2555646249999994,
+            "Python_minus_C_median_ms": -1.715099500000008,
+            "percent": -1.0254485047356487
+          }
+        },
+        "2048": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 112.83943024999999,
+            "Python_mean_ms": 102.62426305,
+            "C_median_ms": 114.233946,
+            "Python_median_ms": 105.2350435,
+            "Python_minus_C_mean_ms": -10.215167199999994,
+            "Python_minus_C_median_ms": -8.007665499999995,
+            "percent": -9.052834791320652
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 347.38642085,
+            "Python_mean_ms": 337.25787615,
+            "C_median_ms": 345.3142305,
+            "Python_median_ms": 338.5656795,
+            "Python_minus_C_mean_ms": -10.1285447,
+            "Python_minus_C_median_ms": -5.409046499999988,
+            "percent": -2.9156420896409796
+          }
+        }
+      }
+    },
+    {
+      "block": 2,
+      "native_cached_token_mismatches": [],
+      "groups": {
+        "all": {
+          "n_per_condition": 80,
+          "first_output_chunk_s": {
+            "C_mean_ms": 89.3503138125,
+            "Python_mean_ms": 93.925411525,
+            "C_median_ms": 85.3505895,
+            "Python_median_ms": 91.11980650000001,
+            "Python_minus_C_mean_ms": 4.5750977125,
+            "Python_minus_C_median_ms": 3.907296500000001,
+            "percent": 5.1204047498935035
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 313.4377538625,
+            "Python_mean_ms": 316.137375125,
+            "C_median_ms": 317.41806099999997,
+            "Python_median_ms": 310.929196,
+            "Python_minus_C_mean_ms": 2.6996212625000053,
+            "Python_minus_C_median_ms": 2.4373110000000224,
+            "percent": 0.8612942216540631
+          }
+        },
+        "512": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 83.29246935,
+            "Python_mean_ms": 90.55179555,
+            "C_median_ms": 82.95852199999999,
+            "Python_median_ms": 89.71847650000001,
+            "Python_minus_C_mean_ms": 7.2593262,
+            "Python_minus_C_median_ms": 4.007083000000009,
+            "percent": 8.715465223507612
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 298.2225347,
+            "Python_mean_ms": 303.5949523,
+            "C_median_ms": 294.4897955,
+            "Python_median_ms": 301.035311,
+            "Python_minus_C_mean_ms": 5.372417600000003,
+            "Python_minus_C_median_ms": 3.9193759999999997,
+            "percent": 1.8014794238820464
+          }
+        },
+        "1024": {
+          "n_per_condition": 40,
+          "first_output_chunk_s": {
+            "C_mean_ms": 86.50269795,
+            "Python_mean_ms": 89.835387025,
+            "C_median_ms": 81.617097,
+            "Python_median_ms": 85.564585,
+            "Python_minus_C_mean_ms": 3.3326890750000002,
+            "Python_minus_C_median_ms": 2.737864000000002,
+            "percent": 3.8526995735165936
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 310.09844105,
+            "Python_mean_ms": 311.394366975,
+            "C_median_ms": 309.883654,
+            "Python_median_ms": 301.33571400000005,
+            "Python_minus_C_mean_ms": 1.295925925000003,
+            "Python_minus_C_median_ms": 1.4967365000000257,
+            "percent": 0.41790791356834944
+          }
+        },
+        "2048": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 101.10339,
+            "Python_mean_ms": 105.4790765,
+            "C_median_ms": 99.34081549999999,
+            "Python_median_ms": 99.22551299999999,
+            "Python_minus_C_mean_ms": 4.375686499999999,
+            "Python_minus_C_median_ms": 5.452488000000002,
+            "percent": 4.327932525308986
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 335.33159865,
+            "Python_mean_ms": 338.16581425,
+            "C_median_ms": 338.19609649999995,
+            "Python_median_ms": 337.8420425,
+            "Python_minus_C_mean_ms": 2.834215600000013,
+            "Python_minus_C_median_ms": 2.8487815000000296,
+            "percent": 0.8451978911054425
+          }
+        }
+      }
+    },
+    {
+      "block": 3,
+      "native_cached_token_mismatches": [],
+      "groups": {
+        "all": {
+          "n_per_condition": 80,
+          "first_output_chunk_s": {
+            "C_mean_ms": 88.9835004875,
+            "Python_mean_ms": 90.9268588375,
+            "C_median_ms": 83.8056445,
+            "Python_median_ms": 84.9984345,
+            "Python_minus_C_mean_ms": 1.9433583499999993,
+            "Python_minus_C_median_ms": 3.014404500000005,
+            "percent": 2.1839535861741144
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 311.3467870125,
+            "Python_mean_ms": 314.6715554125,
+            "C_median_ms": 307.032021,
+            "Python_median_ms": 312.62487250000004,
+            "Python_minus_C_mean_ms": 3.324768400000009,
+            "Python_minus_C_median_ms": 4.769301000000013,
+            "percent": 1.0678666164833706
+          }
+        },
+        "512": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 81.70257335,
+            "Python_mean_ms": 86.4052197,
+            "C_median_ms": 78.756016,
+            "Python_median_ms": 82.2461885,
+            "Python_minus_C_mean_ms": 4.70264635,
+            "Python_minus_C_median_ms": 4.449027000000001,
+            "percent": 5.755811790474041
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 296.16229165,
+            "Python_mean_ms": 298.310267,
+            "C_median_ms": 287.8207795,
+            "Python_median_ms": 291.15760850000004,
+            "Python_minus_C_mean_ms": 2.1479753500000114,
+            "Python_minus_C_median_ms": 4.4684805000000125,
+            "percent": 0.7252696952178006
+          }
+        },
+        "1024": {
+          "n_per_condition": 40,
+          "first_output_chunk_s": {
+            "C_mean_ms": 87.70075022500001,
+            "Python_mean_ms": 86.1401535,
+            "C_median_ms": 81.9115095,
+            "Python_median_ms": 81.883983,
+            "Python_minus_C_mean_ms": -1.5605967250000006,
+            "Python_minus_C_median_ms": -0.6891470000000055,
+            "percent": -1.7794565280185526
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 306.911367675,
+            "Python_mean_ms": 310.15029075,
+            "C_median_ms": 296.0258145,
+            "Python_median_ms": 303.8288675,
+            "Python_minus_C_mean_ms": 3.2389230750000095,
+            "Python_minus_C_median_ms": 2.8070700000000386,
+            "percent": 1.0553284811626096
+          }
+        },
+        "2048": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 98.82992815,
+            "Python_mean_ms": 105.02190865,
+            "C_median_ms": 100.25607199999999,
+            "Python_median_ms": 101.85188450000001,
+            "Python_minus_C_mean_ms": 6.191980499999999,
+            "Python_minus_C_median_ms": 4.611637500000008,
+            "percent": 6.265288881523889
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 335.40212105,
+            "Python_mean_ms": 340.07537315,
+            "C_median_ms": 337.45485099999996,
+            "Python_median_ms": 339.23904200000004,
+            "Python_minus_C_mean_ms": 4.6732521000000045,
+            "Python_minus_C_median_ms": 6.416191500000025,
+            "percent": 1.3933281296403477
+          }
+        }
+      }
+    },
+    {
+      "block": 4,
+      "native_cached_token_mismatches": [],
+      "groups": {
+        "all": {
+          "n_per_condition": 80,
+          "first_output_chunk_s": {
+            "C_mean_ms": 88.8920285375,
+            "Python_mean_ms": 91.2883851125,
+            "C_median_ms": 84.981367,
+            "Python_median_ms": 88.0952565,
+            "Python_minus_C_mean_ms": 2.396356575,
+            "Python_minus_C_median_ms": -0.20640900000000784,
+            "percent": 2.6958059281874336
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 312.6600378875,
+            "Python_mean_ms": 314.02592005,
+            "C_median_ms": 307.220103,
+            "Python_median_ms": 309.326812,
+            "Python_minus_C_mean_ms": 1.3658821624999988,
+            "Python_minus_C_median_ms": 4.8790670000000205,
+            "percent": 0.4368585674487502
+          }
+        },
+        "512": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 82.2992156,
+            "Python_mean_ms": 81.6701909,
+            "C_median_ms": 82.0367875,
+            "Python_median_ms": 83.5707215,
+            "Python_minus_C_mean_ms": -0.6290247000000001,
+            "Python_minus_C_median_ms": -2.2151830000000032,
+            "percent": -0.764314332055438
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 296.75593645,
+            "Python_mean_ms": 295.937728,
+            "C_median_ms": 291.0127115,
+            "Python_median_ms": 290.2233615,
+            "Python_minus_C_mean_ms": -0.8182084500000044,
+            "Python_minus_C_median_ms": 1.3340980000000116,
+            "percent": -0.27571763510040315
+          }
+        },
+        "1024": {
+          "n_per_condition": 40,
+          "first_output_chunk_s": {
+            "C_mean_ms": 87.15732667500001,
+            "Python_mean_ms": 89.410591575,
+            "C_median_ms": 84.981367,
+            "Python_median_ms": 86.8118945,
+            "Python_minus_C_mean_ms": 2.2532648999999996,
+            "Python_minus_C_median_ms": -0.7531799999999933,
+            "percent": 2.585284549171818
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 309.66997105,
+            "Python_mean_ms": 310.544611025,
+            "C_median_ms": 294.996183,
+            "Python_median_ms": 299.2071385,
+            "Python_minus_C_mean_ms": 0.8746399749999988,
+            "Python_minus_C_median_ms": 2.5678579999999727,
+            "percent": 0.2824426185187745
+          }
+        },
+        "2048": {
+          "n_per_condition": 20,
+          "first_output_chunk_s": {
+            "C_mean_ms": 98.9542452,
+            "Python_mean_ms": 104.6621664,
+            "C_median_ms": 95.58069699999999,
+            "Python_median_ms": 106.279178,
+            "Python_minus_C_mean_ms": 5.7079211999999995,
+            "Python_minus_C_median_ms": 7.730154999999996,
+            "percent": 5.768242876759366
+          },
+          "http_e2e_s": {
+            "C_mean_ms": 334.544273,
+            "Python_mean_ms": 339.07673015,
+            "C_median_ms": 336.83983,
+            "Python_median_ms": 335.77921549999996,
+            "Python_minus_C_mean_ms": 4.532457150000002,
+            "Python_minus_C_median_ms": 8.26037149999999,
+            "percent": 1.3548153460693158
+          }
+        }
+      }
+    }
+  ],
+  "aggregate": {
+    "all": {
+      "first_output_chunk_s": {
+        "block_mean_differences_ms": [
+          -4.1573170125,
+          4.5750977125,
+          1.9433583499999993,
+          2.396356575
+        ],
+        "mean_difference_ms": 1.1893739062499997,
+        "range_ms": [
+          -4.1573170125,
+          4.5750977125
+        ],
+        "independent_blocks": 4
+      },
+      "http_e2e_s": {
+        "block_mean_differences_ms": [
+          -5.129304424999999,
+          2.6996212625000053,
+          3.324768400000009,
+          1.3658821624999988
+        ],
+        "mean_difference_ms": 0.5652418500000035,
+        "range_ms": [
+          -5.129304424999999,
+          3.324768400000009
+        ],
+        "independent_blocks": 4
+      }
+    },
+    "512": {
+      "first_output_chunk_s": {
+        "block_mean_differences_ms": [
+          -3.3987536500000006,
+          7.2593262,
+          4.70264635,
+          -0.6290247000000001
+        ],
+        "mean_difference_ms": 1.9835485499999999,
+        "range_ms": [
+          -3.3987536500000006,
+          7.2593262
+        ],
+        "independent_blocks": 4
+      },
+      "http_e2e_s": {
+        "block_mean_differences_ms": [
+          -3.877543749999995,
+          5.372417600000003,
+          2.1479753500000114,
+          -0.8182084500000044
+        ],
+        "mean_difference_ms": 0.7061601875000036,
+        "range_ms": [
+          -3.877543749999995,
+          5.372417600000003
+        ],
+        "independent_blocks": 4
+      }
+    },
+    "1024": {
+      "first_output_chunk_s": {
+        "block_mean_differences_ms": [
+          -1.5076736000000017,
+          3.3326890750000002,
+          -1.5605967250000006,
+          2.2532648999999996
+        ],
+        "mean_difference_ms": 0.6294209124999994,
+        "range_ms": [
+          -1.5605967250000006,
+          3.3326890750000002
+        ],
+        "independent_blocks": 4
+      },
+      "http_e2e_s": {
+        "block_mean_differences_ms": [
+          -3.2555646249999994,
+          1.295925925000003,
+          3.2389230750000095,
+          0.8746399749999988
+        ],
+        "mean_difference_ms": 0.538481087500003,
+        "range_ms": [
+          -3.2555646249999994,
+          3.2389230750000095
+        ],
+        "independent_blocks": 4
+      }
+    },
+    "2048": {
+      "first_output_chunk_s": {
+        "block_mean_differences_ms": [
+          -10.215167199999994,
+          4.375686499999999,
+          6.191980499999999,
+          5.7079211999999995
+        ],
+        "mean_difference_ms": 1.5151052500000006,
+        "range_ms": [
+          -10.215167199999994,
+          6.191980499999999
+        ],
+        "independent_blocks": 4
+      },
+      "http_e2e_s": {
+        "block_mean_differences_ms": [
+          -10.1285447,
+          2.834215600000013,
+          4.6732521000000045,
+          4.532457150000002
+        ],
+        "mean_difference_ms": 0.4778450375000046,
+        "range_ms": [
+          -10.1285447,
+          4.6732521000000045
+        ],
+        "independent_blocks": 4
+      }
+    }
+  },
+  "no_significance_claim": true,
+  "formal_four_stage_matrix": false
+}

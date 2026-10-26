@@ -1,0 +1,178 @@
+[
+  {
+    "id": "warm-long-0",
+    "lane": 0,
+    "index": 19,
+    "group": "subsequent",
+    "start_ns": 9241156148938828,
+    "end_ns": 9241177698393416,
+    "first_output_chunk_s": 3.186243044,
+    "http_e2e_s": 21.549454588,
+    "usage": {
+      "prompt_tokens": 34832,
+      "total_tokens": 35280,
+      "completion_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "created_cache_tokens": 34832
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-long-1",
+    "lane": 1,
+    "index": 19,
+    "group": "subsequent",
+    "start_ns": 9241156155361462,
+    "end_ns": 9241177867482283,
+    "first_output_chunk_s": 6.143218825,
+    "http_e2e_s": 21.712120821,
+    "usage": {
+      "prompt_tokens": 34832,
+      "total_tokens": 35280,
+      "completion_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 2048,
+        "created_cache_tokens": 32784
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-long-2",
+    "lane": 2,
+    "index": 19,
+    "group": "subsequent",
+    "start_ns": 9241156161273760,
+    "end_ns": 9241177970954989,
+    "first_output_chunk_s": 9.202910188,
+    "http_e2e_s": 21.809681229,
+    "usage": {
+      "prompt_tokens": 34831,
+      "total_tokens": 35279,
+      "completion_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 2048,
+        "created_cache_tokens": 32768
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-long-3",
+    "lane": 3,
+    "index": 19,
+    "group": "subsequent",
+    "start_ns": 9241156167036193,
+    "end_ns": 9241178033023453,
+    "first_output_chunk_s": 12.298655809,
+    "http_e2e_s": 21.86598726,
+    "usage": {
+      "prompt_tokens": 34831,
+      "total_tokens": 35279,
+      "completion_tokens": 448,
+      "prompt_tokens_details": {
+        "cached_tokens": 2048,
+        "created_cache_tokens": 32768
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-short-0",
+    "lane": 0,
+    "index": 6,
+    "group": "512",
+    "start_ns": 9241178033188573,
+    "end_ns": 9241178368254656,
+    "first_output_chunk_s": 0.082509893,
+    "http_e2e_s": 0.335066083,
+    "usage": {
+      "prompt_tokens": 512,
+      "total_tokens": 576,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "created_cache_tokens": 256
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-short-1",
+    "lane": 0,
+    "index": 0,
+    "group": "1024",
+    "start_ns": 9241178033780211,
+    "end_ns": 9241178370908531,
+    "first_output_chunk_s": 0.12858721,
+    "http_e2e_s": 0.33712832,
+    "usage": {
+      "prompt_tokens": 1024,
+      "total_tokens": 1088,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "created_cache_tokens": 768
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-short-2",
+    "lane": 0,
+    "index": 5,
+    "group": "2048",
+    "start_ns": 9241178034202275,
+    "end_ns": 9241178372442980,
+    "first_output_chunk_s": 0.128663999,
+    "http_e2e_s": 0.338240705,
+    "usage": {
+      "prompt_tokens": 2048,
+      "total_tokens": 2112,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 256,
+        "created_cache_tokens": 1792
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  },
+  {
+    "id": "warm-short-3",
+    "lane": 0,
+    "index": 0,
+    "group": "1024",
+    "start_ns": 9241178034640484,
+    "end_ns": 9241178372145013,
+    "first_output_chunk_s": 0.128608061,
+    "http_e2e_s": 0.337504529,
+    "usage": {
+      "prompt_tokens": 1024,
+      "total_tokens": 1088,
+      "completion_tokens": 64,
+      "prompt_tokens_details": {
+        "cached_tokens": 1008,
+        "created_cache_tokens": 16
+      }
+    },
+    "finish_reason": "length",
+    "status": "ok",
+    "prompt_token_ids": null
+  }
+]

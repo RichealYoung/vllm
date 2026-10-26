@@ -1,0 +1,214 @@
+diff --git a/tests/v1/engine/test_async_output_shutdown.py b/tests/v1/engine/test_async_output_shutdown.py
+new file mode 100644
+index 000000000..dace3a4e0
+--- /dev/null
++++ b/tests/v1/engine/test_async_output_shutdown.py
+@@ -0,0 +1,148 @@
++# SPDX-License-Identifier: Apache-2.0
++# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
++"""Real-engine shutdown/error controls without unrelated vision asset fixtures."""
++
++import asyncio
++import os
++import threading
++from concurrent.futures import ThreadPoolExecutor
++from functools import partial
++
++import pytest
++
++from tests.utils import RemoteOpenAIServer
++from vllm import SamplingParams
++from vllm.engine.arg_utils import AsyncEngineArgs
++from vllm.v1.engine.async_llm import AsyncLLM
++from vllm.v1.engine.core_client import BackgroundResources
++from vllm.v1.engine.exceptions import EngineDeadError
++
++MODEL = os.environ.get("VLLM_TEST_QWEN3_MODEL", "Qwen/Qwen3-0.6B")
++
++
++def engine_args():
++    return AsyncEngineArgs(
++        model=MODEL,
++        dtype="float16",
++        max_model_len=2048,
++        max_num_seqs=2,
++        max_num_batched_tokens=1024,
++        kv_cache_memory_bytes=512 << 20,
++        shutdown_timeout=10,
++        seed=0,
++    )
++
++
++@pytest.mark.asyncio
++async def test_cleanup_cancellation_does_not_report_engine_death():
++    engine = AsyncLLM.from_engine_args(engine_args())
++    entered, release = threading.Event(), threading.Event()
++    previous = threading.getprofile()
++    resources = engine.engine_core.resources
++
++    def observe(frame, event, arg):
++        if (
++            frame.f_code is BackgroundResources.__call__.__code__
++            and event == "return"
++            and frame.f_locals["self"] is resources
++        ):
++            entered.set()
++            assert release.wait(15), "cleanup observer timed out"
++
++    try:
++        async for out in engine.generate(
++            "Say hello.", SamplingParams(max_tokens=2, temperature=0), "warm"
++        ):
++            pass
++        assert out.finished and out.outputs[0].token_ids
++        handler = engine.output_handler
++        assert handler is not None and not handler.done()
++        threading.setprofile(observe)
++        with ThreadPoolExecutor(1) as pool:
++            shutdown = asyncio.get_running_loop().run_in_executor(
++                pool, partial(engine.shutdown, timeout=10)
++            )
++            try:
++                assert await asyncio.to_thread(entered.wait, 30)
++                await asyncio.wait_for(asyncio.shield(resources.output_queue_task), 10)
++                await asyncio.sleep(
++                    0
++                )  # Dispatch the awakened consumer, no wall-clock wait.
++                assert handler.cancelled(), "normal cleanup must cancel output waiters"
++            finally:
++                release.set()
++                await shutdown
++        await asyncio.gather(handler, return_exceptions=True)
++        assert handler.cancelled()
++    finally:
++        release.set()
++        threading.setprofile(previous)
++        await asyncio.to_thread(engine.shutdown, timeout=0)
++
++
++@pytest.mark.asyncio
++@pytest.mark.parametrize("failure", ["cancel_receiver", "kill_core"])
++async def test_unexpected_output_interruption_still_fails_request(failure):
++    engine = AsyncLLM.from_engine_args(engine_args())
++    stream = engine.generate(
++        "Count upwards forever.",
++        SamplingParams(max_tokens=1024, ignore_eos=True, temperature=0),
++        "failure-control",
++    )
++    try:
++        first = await anext(stream)
++        assert not first.finished and first.outputs[0].token_ids
++        if failure == "cancel_receiver":
++            engine.engine_core.resources.output_queue_task.cancel()
++        else:
++            manager = engine.engine_core.resources.engine_manager
++            assert manager is not None and len(manager.processes) == 1
++            process = manager.processes[0]
++            assert process.pid is not None and process.is_alive()
++            process.kill()  # Only the process owned by this real constructor.
++
++        async def consume():
++            async for _ in stream:
++                pass
++
++        with pytest.raises(EngineDeadError):
++            await asyncio.wait_for(consume(), 20)
++    finally:
++        await stream.aclose()
++        await asyncio.to_thread(engine.shutdown, timeout=0)
++
++
++def test_real_http_shutdown_does_not_report_engine_death(capfd, tmp_path):
++    args = [
++        "--dtype",
++        "float16",
++        "--max-model-len",
++        "2048",
++        "--max-num-seqs",
++        "2",
++        "--max-num-batched-tokens",
++        "1024",
++        "--kv-cache-memory-bytes",
++        str(512 << 20),
++        "--shutdown-timeout",
++        "10",
++    ]
++    with (
++        RemoteOpenAIServer(
++            MODEL, args, env_dict={"VLLM_LOGGING_LEVEL": "DEBUG"}
++        ) as server,
++        server.get_client() as client,
++    ):
++        response = client.chat.completions.create(
++            model=MODEL,
++            messages=[{"role": "user", "content": "Say hello."}],
++            temperature=0,
++            max_tokens=2,
++        )
++        assert response.usage.completion_tokens == 2
++    captured = capfd.readouterr()
++    text = captured.out + captured.err
++    (tmp_path / "server.log").write_text(text)
++    assert "engine client stopped" in text
++    assert "EngineDeadError" not in text, text[-12000:]
++    assert "output_handler failed" not in text, text[-12000:]
+diff --git a/vllm/v1/engine/core_client.py b/vllm/v1/engine/core_client.py
+index d9210feee..cbcd516c7 100644
+--- a/vllm/v1/engine/core_client.py
++++ b/vllm/v1/engine/core_client.py
+@@ -516,10 +516,14 @@ class BackgroundResources:
+     # Set if any of the engines are dead. Here so that the output
+     # processing threads can access it without holding a ref to the client.
+     engine_dead: bool = False
++    # Failure-driven cleanup must still wake output consumers with an error.
++    # Only cancellation initiated by normal shutdown is expected.
++    shutdown_requested: bool = False
+ 
+     def __call__(self):
+         """Clean up background resources."""
+         logger.debug_once("[shutdown] MPClient: background resource cleanup start")
++        self.shutdown_requested |= not self.engine_dead
+         self.engine_dead = True
+         if self.engine_manager is not None:
+             self.engine_manager.shutdown(
+@@ -784,6 +788,7 @@ class MPClient(EngineCoreClient):
+     def shutdown(self, timeout: float | None = None) -> None:
+         """Shutdown engine manager under timeout and clean up resources."""
+         if self._finalizer.detach() is not None:
++            self.resources.shutdown_requested |= not self.resources.engine_dead
+             timeout_str = "default" if timeout is None else f"{timeout}s"
+             logger.info("[shutdown] MPClient: start timeout=%s", timeout_str)
+             if self.resources.engine_manager is not None:
+@@ -1165,7 +1170,9 @@ class AsyncMPClient(MPClient):
+ 
+         self.client_count = client_count
+         self.client_index = client_index
+-        self.outputs_queue = asyncio.Queue[EngineCoreOutputs | Exception]()
++        self.outputs_queue = asyncio.Queue[
++            EngineCoreOutputs | Exception | asyncio.CancelledError
++        ]()
+ 
+         # locally-cached engine status
+         self._engine_status: dict[int, dict] = {}
+@@ -1255,7 +1262,11 @@ class AsyncMPClient(MPClient):
+             except Exception as e:
+                 outputs_queue.put_nowait(e)
+             except asyncio.CancelledError:
+-                outputs_queue.put_nowait(EngineDeadError())
++                outputs_queue.put_nowait(
++                    asyncio.CancelledError()
++                    if resources.shutdown_requested
++                    else EngineDeadError()
++                )
+ 
+         resources.output_queue_task = asyncio.create_task(
+             process_outputs_socket(), name="EngineCoreOutputQueueTask"
+@@ -1268,6 +1279,8 @@ class AsyncMPClient(MPClient):
+         # from this (run_output_handler) task to shut down the server.
+         assert self.outputs_queue is not None
+         outputs = await self.outputs_queue.get()
++        if isinstance(outputs, asyncio.CancelledError):
++            raise outputs
+         if isinstance(outputs, Exception):
+             raise self._format_exception(outputs) from None
+         return outputs

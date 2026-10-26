@@ -1,0 +1,163 @@
+{
+  "workload": "coding",
+  "block": 3,
+  "position": 2,
+  "letter": "D",
+  "stage": "V3",
+  "order": "CDBA",
+  "relative_output": "runs-001/coding/block-3/pos-2-V3",
+  "target_sha256": "f5375332ed0e5ffc12d3a7aba17fba1b731e5c1a3cb8781d6d2a265de52116bd",
+  "groups": {
+    "all": {
+      "first_output_chunk_s": {
+        "n": 80,
+        "mean": 0.418175531925,
+        "p50": 0.32048003950000004,
+        "p95": 0.5261303143999984
+      },
+      "http_e2e_s": {
+        "n": 80,
+        "mean": 8.2901067629625,
+        "p50": 8.3466835325,
+        "p95": 10.413730109349999
+      }
+    },
+    "first": {
+      "first_output_chunk_s": {
+        "n": 4,
+        "mean": 2.1977647035,
+        "p50": 2.202566436,
+        "p95": 3.1988941826499997
+      },
+      "http_e2e_s": {
+        "n": 4,
+        "mean": 8.5420673505,
+        "p50": 8.5491329245,
+        "p95": 8.6850346853
+      }
+    },
+    "later": {
+      "first_output_chunk_s": {
+        "n": 76,
+        "mean": 0.3245129439473684,
+        "p50": 0.316454713,
+        "p95": 0.46978946974999997
+      },
+      "http_e2e_s": {
+        "n": 76,
+        "mean": 8.276845679407895,
+        "p50": 8.3065826955,
+        "p95": 10.41609617875
+      }
+    }
+  },
+  "batch_s": 165.888819737,
+  "cpu": {
+    "seconds": {
+      "frontend": 24.64,
+      "engine_core": 69.71000000000001,
+      "other_workers": 0.0
+    },
+    "total_seconds": 94.35000000000001,
+    "seconds_per_request": 1.179375,
+    "details": [
+      {
+        "pid": 516665,
+        "group": "frontend",
+        "cpu_s": 24.64
+      },
+      {
+        "pid": 516684,
+        "group": "other_workers",
+        "cpu_s": 0.0
+      },
+      {
+        "pid": 516685,
+        "group": "engine_core",
+        "cpu_s": 69.71000000000001
+      }
+    ]
+  },
+  "actual_cached_tokens": {
+    "coding-0-00": 0,
+    "coding-1-00": 2048,
+    "coding-2-00": 2048,
+    "coding-3-00": 2048,
+    "coding-0-01": 16384,
+    "coding-1-01": 16384,
+    "coding-2-01": 16384,
+    "coding-3-01": 16384,
+    "coding-0-02": 17360,
+    "coding-1-02": 17360,
+    "coding-2-02": 17360,
+    "coding-3-02": 17360,
+    "coding-0-03": 18336,
+    "coding-1-03": 18336,
+    "coding-2-03": 18336,
+    "coding-3-03": 18336,
+    "coding-0-04": 19296,
+    "coding-1-04": 19296,
+    "coding-2-04": 19296,
+    "coding-3-04": 19296,
+    "coding-0-05": 20272,
+    "coding-1-05": 20272,
+    "coding-2-05": 20272,
+    "coding-3-05": 20272,
+    "coding-0-06": 21248,
+    "coding-1-06": 21248,
+    "coding-2-06": 21232,
+    "coding-3-06": 21248,
+    "coding-0-07": 22208,
+    "coding-1-07": 22208,
+    "coding-2-07": 22208,
+    "coding-3-07": 22208,
+    "coding-0-08": 23184,
+    "coding-1-08": 23184,
+    "coding-2-08": 23184,
+    "coding-3-08": 23184,
+    "coding-0-09": 24144,
+    "coding-1-09": 24144,
+    "coding-2-09": 24144,
+    "coding-3-09": 24144,
+    "coding-0-10": 25120,
+    "coding-1-10": 25120,
+    "coding-2-10": 25120,
+    "coding-3-10": 25120,
+    "coding-0-11": 26096,
+    "coding-1-11": 26096,
+    "coding-2-11": 26096,
+    "coding-3-11": 26096,
+    "coding-0-12": 27056,
+    "coding-1-12": 27056,
+    "coding-2-12": 27056,
+    "coding-3-12": 27056,
+    "coding-0-13": 28032,
+    "coding-1-13": 28032,
+    "coding-2-13": 28032,
+    "coding-3-13": 28032,
+    "coding-0-14": 29008,
+    "coding-1-14": 29008,
+    "coding-2-14": 28992,
+    "coding-3-14": 29008,
+    "coding-0-15": 29968,
+    "coding-1-15": 29968,
+    "coding-2-15": 29968,
+    "coding-3-15": 29968,
+    "coding-0-16": 30944,
+    "coding-1-16": 30944,
+    "coding-2-16": 30944,
+    "coding-3-16": 30944,
+    "coding-0-17": 31904,
+    "coding-1-17": 31904,
+    "coding-2-17": 31904,
+    "coding-3-17": 31904,
+    "coding-0-18": 32880,
+    "coding-1-18": 32880,
+    "coding-2-18": 32880,
+    "coding-3-18": 32880,
+    "coding-0-19": 33856,
+    "coding-1-19": 33856,
+    "coding-2-19": 33856,
+    "coding-3-19": 33856
+  }
+}

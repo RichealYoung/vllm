@@ -1,0 +1,177 @@
+{
+  "workload": "independent",
+  "block": 1,
+  "position": 2,
+  "letter": "B",
+  "stage": "V1",
+  "order": "ABDC",
+  "relative_output": "runs-001/independent/block-1/pos-2-V1",
+  "target_sha256": "bbfc82e55e9ee99e9cf324f73b4178c4ee225be3b6a67a1a8d92d8285e9de918",
+  "groups": {
+    "all": {
+      "first_output_chunk_s": {
+        "n": 80,
+        "mean": 0.092852987875,
+        "p50": 0.0869550835,
+        "p95": 0.12996054315
+      },
+      "http_e2e_s": {
+        "n": 80,
+        "mean": 0.3159635602125,
+        "p50": 0.3145383365,
+        "p95": 0.35699029499999985
+      }
+    },
+    "512": {
+      "first_output_chunk_s": {
+        "n": 20,
+        "mean": 0.08334963795,
+        "p50": 0.0802648245,
+        "p95": 0.1166776788
+      },
+      "http_e2e_s": {
+        "n": 20,
+        "mean": 0.2984178969,
+        "p50": 0.2878511565,
+        "p95": 0.33947189085
+      }
+    },
+    "1024": {
+      "first_output_chunk_s": {
+        "n": 40,
+        "mean": 0.091042298375,
+        "p50": 0.0877617625,
+        "p95": 0.1294075725
+      },
+      "http_e2e_s": {
+        "n": 40,
+        "mean": 0.31391468155,
+        "p50": 0.3011102555,
+        "p95": 0.35138490245000004
+      }
+    },
+    "2048": {
+      "first_output_chunk_s": {
+        "n": 20,
+        "mean": 0.1059777168,
+        "p50": 0.1097020655,
+        "p95": 0.13259896575000002
+      },
+      "http_e2e_s": {
+        "n": 20,
+        "mean": 0.33760698085,
+        "p50": 0.3379736035,
+        "p95": 0.3979028067
+      }
+    }
+  },
+  "batch_s": 6.323695663,
+  "cpu": {
+    "seconds": {
+      "frontend": 3.4400000000000013,
+      "engine_core": 5.230000000000004,
+      "other_workers": 0.0
+    },
+    "total_seconds": 8.670000000000005,
+    "seconds_per_request": 0.10837500000000007,
+    "details": [
+      {
+        "pid": 518246,
+        "group": "frontend",
+        "cpu_s": 3.4400000000000013
+      },
+      {
+        "pid": 518265,
+        "group": "other_workers",
+        "cpu_s": 0.0
+      },
+      {
+        "pid": 518266,
+        "group": "engine_core",
+        "cpu_s": 5.230000000000004
+      }
+    ]
+  },
+  "actual_cached_tokens": {
+    "independent-0-00": 0,
+    "independent-1-00": 256,
+    "independent-2-00": 1008,
+    "independent-3-00": 256,
+    "independent-0-01": 256,
+    "independent-1-01": 256,
+    "independent-3-01": 256,
+    "independent-2-01": 256,
+    "independent-0-02": 256,
+    "independent-1-02": 256,
+    "independent-2-02": 256,
+    "independent-3-02": 256,
+    "independent-0-03": 256,
+    "independent-1-03": 256,
+    "independent-2-03": 256,
+    "independent-3-03": 256,
+    "independent-0-04": 256,
+    "independent-1-04": 256,
+    "independent-2-04": 256,
+    "independent-3-04": 256,
+    "independent-0-05": 1008,
+    "independent-1-05": 256,
+    "independent-2-05": 496,
+    "independent-3-05": 256,
+    "independent-0-06": 496,
+    "independent-1-06": 256,
+    "independent-2-06": 256,
+    "independent-3-06": 256,
+    "independent-0-07": 256,
+    "independent-1-07": 496,
+    "independent-2-07": 1008,
+    "independent-3-07": 496,
+    "independent-0-08": 1008,
+    "independent-1-08": 496,
+    "independent-2-08": 496,
+    "independent-3-08": 1008,
+    "independent-0-09": 1008,
+    "independent-1-09": 256,
+    "independent-3-09": 496,
+    "independent-2-09": 256,
+    "independent-0-10": 256,
+    "independent-1-10": 1008,
+    "independent-2-10": 1008,
+    "independent-3-10": 256,
+    "independent-0-11": 256,
+    "independent-1-11": 1008,
+    "independent-2-11": 496,
+    "independent-3-11": 256,
+    "independent-0-12": 496,
+    "independent-2-12": 496,
+    "independent-1-12": 256,
+    "independent-3-12": 256,
+    "independent-0-13": 256,
+    "independent-2-13": 496,
+    "independent-1-13": 256,
+    "independent-3-13": 1008,
+    "independent-0-14": 1008,
+    "independent-2-14": 256,
+    "independent-3-14": 256,
+    "independent-1-14": 1008,
+    "independent-0-15": 256,
+    "independent-2-15": 1008,
+    "independent-3-15": 496,
+    "independent-1-15": 496,
+    "independent-0-16": 1008,
+    "independent-2-16": 1008,
+    "independent-3-16": 256,
+    "independent-1-16": 496,
+    "independent-0-17": 1008,
+    "independent-2-17": 256,
+    "independent-1-17": 496,
+    "independent-3-17": 496,
+    "independent-0-18": 1008,
+    "independent-2-18": 496,
+    "independent-1-18": 496,
+    "independent-3-18": 1008,
+    "independent-0-19": 1008,
+    "independent-2-19": 496,
+    "independent-3-19": 496,
+    "independent-1-19": 1008
+  }
+}

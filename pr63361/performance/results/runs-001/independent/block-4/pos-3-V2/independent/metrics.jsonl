@@ -1,0 +1,2 @@
+{"running": 0.0, "waiting": 0.0, "kv_fraction": 0.0, "preemptions": 0.0, "time_ns": 1792977516036311821, "label": "before"}
+{"running": 0.0, "waiting": 0.0, "kv_fraction": 0.0, "preemptions": 0.0, "time_ns": 1792977522343814501, "label": "after"}

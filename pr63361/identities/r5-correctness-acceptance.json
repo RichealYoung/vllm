@@ -1,0 +1,1174 @@
+{
+  "status": "approved_preparation_correctness_passed",
+  "base": "be08fa5355a049b838803540211fed5647490b39",
+  "original_pr_head_preserved": "580cf373d7af587f845e518650aef74744dfa359",
+  "performance_matrix": false,
+  "public_operations": false,
+  "stages": {
+    "V1": {
+      "cpu": {
+        "variant": "V1",
+        "revision": "r5",
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+          "V1-cpu-r5",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/utils_/test_session_prefix.py",
+          "tests/renderers/test_session_prefix.py",
+          "tests/v1/test_request.py",
+          "tests/config/test_config_utils.py",
+          "tests/v1/core/test_kv_cache_utils.py",
+          "tests/v1/core/test_prefix_caching.py",
+          "tests/multimodal/test_hasher.py",
+          "tests/renderers/test_session_prefix_media_fallback.py",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-cpu-r5-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-cpu-r5.xml"
+        ],
+        "exit_code": 0,
+        "test_execution": "fresh",
+        "tests": 366,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "gpu": {
+        "text": {
+          "variant": "V1",
+          "argv": [
+            "{AUTHOR_WORKSPACE}/.venv/bin/python",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V1",
+            "text",
+            "-v",
+            "-p",
+            "no:cacheprovider",
+            "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+            "-k",
+            "test_session_prefix_text_requests_preserve_native_ids_and_outputs",
+            "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V1/text-tmp",
+            "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V1/text.xml"
+          ],
+          "exit_code": 0,
+          "execution": "fresh",
+          "correctness_only": true,
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "matrix_requests": 36
+        }
+      },
+      "hooks": "passed, no modifications",
+      "tracked_source_files": 8415,
+      "source_manifest_sha256": "0b4002dcb02e767a1ff5d4b06dee591acd4a5d3283f00475db80c8c2e4b04786",
+      "native_installation": {
+        "native": {
+          "_moe_C_stable_libtorch.abi3.so": {
+            "sha256": "4a9acfccb88a92be43654feeeec920e6f6a6c38b9f647f9a6e050b4229555445",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/_moe_C_stable_libtorch.abi3.so",
+            "rebuilt": false
+          },
+          "cumem_allocator.abi3.so": {
+            "sha256": "84a10035646d050754ffc7c831c00d074a8efcbe045a7aaa37692d00ba60c17d",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/cumem_allocator.abi3.so",
+            "rebuilt": false
+          },
+          "spinloop.abi3.so": {
+            "sha256": "0fdbc8b0a52863765a22dce87319d041ca07bc6c71f383ed2f80bbb00e87d102",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/spinloop.abi3.so",
+            "rebuilt": false
+          },
+          "fs_io_C.abi3.so": {
+            "sha256": "6b6a219fbd33ee9378ecc7a8070fec5d4901cf3c339a8306ba8cbfb76c16638c",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/fs_io_C.abi3.so",
+            "rebuilt": false
+          },
+          "vllm_flash_attn/_vllm_fa2_C.abi3.so": {
+            "sha256": "5f60119678468c1860efabeb981a843cb48fb4dcb836888462c48ec26d3f0f6f",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so",
+            "rebuilt": false
+          },
+          "_C_stable_libtorch.abi3.so": {
+            "sha256": "cdee14e25bac28e65b0101951844e8ab5b089305e1aac07b4f7601a2cef97c43",
+            "source": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/native-build/_C_stable_libtorch.abi3.so",
+            "rebuilt": true
+          }
+        },
+        "source_manifest_sha256": "0b4002dcb02e767a1ff5d4b06dee591acd4a5d3283f00475db80c8c2e4b04786",
+        "distribution_metadata": "reused from F-adapted, not source identity"
+      }
+    },
+    "V2": {
+      "cpu": {
+        "variant": "V2",
+        "revision": "r5",
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+          "V2-cpu-r5",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/utils_/test_session_prefix.py",
+          "tests/renderers/test_session_prefix.py",
+          "tests/v1/test_request.py",
+          "tests/config/test_config_utils.py",
+          "tests/v1/core/test_kv_cache_utils.py",
+          "tests/v1/core/test_prefix_caching.py",
+          "tests/multimodal/test_hasher.py",
+          "tests/renderers/test_session_prefix_media_fallback.py",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V2-cpu-r5-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V2-cpu-r5.xml"
+        ],
+        "exit_code": 0,
+        "test_execution": "fresh",
+        "tests": 395,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "gpu": {
+        "text": {
+          "variant": "V2",
+          "argv": [
+            "{AUTHOR_WORKSPACE}/.venv/bin/python",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2",
+            "text",
+            "-v",
+            "-p",
+            "no:cacheprovider",
+            "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+            "-k",
+            "test_session_prefix_text_requests_preserve_native_ids_and_outputs",
+            "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2/text-tmp",
+            "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2/text.xml"
+          ],
+          "exit_code": 0,
+          "execution": "fresh",
+          "correctness_only": true,
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "matrix_requests": 72
+        },
+        "fallback": {
+          "variant": "V2",
+          "argv": [
+            "{AUTHOR_WORKSPACE}/.venv/bin/python",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2",
+            "fallback",
+            "-v",
+            "-p",
+            "no:cacheprovider",
+            "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+            "-k",
+            "test_session_prefix_image_requests_use_native_fallback",
+            "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2/fallback-tmp",
+            "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V2/fallback.xml"
+          ],
+          "exit_code": 0,
+          "execution": "fresh",
+          "correctness_only": true,
+          "tests": 1,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "matrix_requests": 9
+        }
+      },
+      "hooks": "passed, no modifications",
+      "tracked_source_files": 8418,
+      "source_manifest_sha256": "d4cc8dc85df17467b913b783e860ac5b7d89915bcf776330c9c7412a7fa6b7b7",
+      "native_installation": {
+        "native": {
+          "_moe_C_stable_libtorch.abi3.so": {
+            "sha256": "4a9acfccb88a92be43654feeeec920e6f6a6c38b9f647f9a6e050b4229555445",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/_moe_C_stable_libtorch.abi3.so",
+            "rebuilt": false
+          },
+          "cumem_allocator.abi3.so": {
+            "sha256": "84a10035646d050754ffc7c831c00d074a8efcbe045a7aaa37692d00ba60c17d",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/cumem_allocator.abi3.so",
+            "rebuilt": false
+          },
+          "spinloop.abi3.so": {
+            "sha256": "0fdbc8b0a52863765a22dce87319d041ca07bc6c71f383ed2f80bbb00e87d102",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/spinloop.abi3.so",
+            "rebuilt": false
+          },
+          "fs_io_C.abi3.so": {
+            "sha256": "6b6a219fbd33ee9378ecc7a8070fec5d4901cf3c339a8306ba8cbfb76c16638c",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/fs_io_C.abi3.so",
+            "rebuilt": false
+          },
+          "vllm_flash_attn/_vllm_fa2_C.abi3.so": {
+            "sha256": "5f60119678468c1860efabeb981a843cb48fb4dcb836888462c48ec26d3f0f6f",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so",
+            "rebuilt": false
+          },
+          "_C_stable_libtorch.abi3.so": {
+            "sha256": "cdee14e25bac28e65b0101951844e8ab5b089305e1aac07b4f7601a2cef97c43",
+            "source": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/native-build/_C_stable_libtorch.abi3.so",
+            "rebuilt": true
+          },
+          "_session_prefix.abi3.so": {
+            "sha256": "fff059187086dec0a5e422e2a669ab045a85a8164a3d8c2312e27efb71d56c4c",
+            "source": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V2-native-build-r5/_session_prefix.abi3.so",
+            "rebuilt": true
+          }
+        },
+        "source_manifest_sha256": "d4cc8dc85df17467b913b783e860ac5b7d89915bcf776330c9c7412a7fa6b7b7",
+        "distribution_metadata": "reused from F-adapted, not source identity"
+      }
+    },
+    "V3": {
+      "cpu": {
+        "variant": "V3",
+        "revision": "r5",
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+          "V3-cpu-r5",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/utils_/test_session_prefix.py",
+          "tests/renderers/test_session_prefix.py",
+          "tests/v1/test_request.py",
+          "tests/config/test_config_utils.py",
+          "tests/v1/core/test_kv_cache_utils.py",
+          "tests/v1/core/test_prefix_caching.py",
+          "tests/multimodal/test_hasher.py",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V3-cpu-r5-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V3-cpu-r5.xml"
+        ],
+        "exit_code": 0,
+        "test_execution": "fresh",
+        "tests": 403,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "gpu": {
+        "text": {
+          "variant": "V3",
+          "argv": [
+            "{AUTHOR_WORKSPACE}/.venv/bin/python",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3",
+            "text",
+            "-v",
+            "-p",
+            "no:cacheprovider",
+            "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+            "-k",
+            "test_session_prefix_text_requests_preserve_native_ids_and_outputs",
+            "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3/text-tmp",
+            "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3/text.xml"
+          ],
+          "exit_code": 0,
+          "execution": "fresh",
+          "correctness_only": true,
+          "tests": 8,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "matrix_requests": 72
+        },
+        "images": {
+          "variant": "V3",
+          "argv": [
+            "{AUTHOR_WORKSPACE}/.venv/bin/python",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+            "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3",
+            "images",
+            "-v",
+            "-p",
+            "no:cacheprovider",
+            "tests/entrypoints/openai/chat_completion/test_serving_chat.py",
+            "-k",
+            "test_session_prefix_image_requests_preserve_native_ids_and_outputs",
+            "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3/images-tmp",
+            "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/gpu-r5/V3/images.xml"
+          ],
+          "exit_code": 0,
+          "execution": "fresh",
+          "correctness_only": true,
+          "tests": 4,
+          "failures": 0,
+          "errors": 0,
+          "skipped": 0,
+          "matrix_requests": 60
+        }
+      },
+      "hooks": "passed, no modifications",
+      "tracked_source_files": 8417,
+      "source_manifest_sha256": "2a63666a3c3920083960abb46b233820fcb7fabf768b06e18fe112754bfd51f5",
+      "native_installation": {
+        "native": {
+          "_moe_C_stable_libtorch.abi3.so": {
+            "sha256": "4a9acfccb88a92be43654feeeec920e6f6a6c38b9f647f9a6e050b4229555445",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/_moe_C_stable_libtorch.abi3.so",
+            "rebuilt": false
+          },
+          "cumem_allocator.abi3.so": {
+            "sha256": "84a10035646d050754ffc7c831c00d074a8efcbe045a7aaa37692d00ba60c17d",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/cumem_allocator.abi3.so",
+            "rebuilt": false
+          },
+          "spinloop.abi3.so": {
+            "sha256": "0fdbc8b0a52863765a22dce87319d041ca07bc6c71f383ed2f80bbb00e87d102",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/spinloop.abi3.so",
+            "rebuilt": false
+          },
+          "fs_io_C.abi3.so": {
+            "sha256": "6b6a219fbd33ee9378ecc7a8070fec5d4901cf3c339a8306ba8cbfb76c16638c",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/fs_io_C.abi3.so",
+            "rebuilt": false
+          },
+          "vllm_flash_attn/_vllm_fa2_C.abi3.so": {
+            "sha256": "5f60119678468c1860efabeb981a843cb48fb4dcb836888462c48ec26d3f0f6f",
+            "source": "{AUTHOR_WORKSPACE}/source/vllm/vllm_flash_attn/_vllm_fa2_C.abi3.so",
+            "rebuilt": false
+          },
+          "_C_stable_libtorch.abi3.so": {
+            "sha256": "cdee14e25bac28e65b0101951844e8ab5b089305e1aac07b4f7601a2cef97c43",
+            "source": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/native-build/_C_stable_libtorch.abi3.so",
+            "rebuilt": true
+          },
+          "_session_prefix.abi3.so": {
+            "sha256": "fff059187086dec0a5e422e2a669ab045a85a8164a3d8c2312e27efb71d56c4c",
+            "source": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V2-native-build-r5/_session_prefix.abi3.so",
+            "rebuilt": true
+          }
+        },
+        "source_manifest_sha256": "2a63666a3c3920083960abb46b233820fcb7fabf768b06e18fe112754bfd51f5",
+        "distribution_metadata": "reused from F-adapted, not source identity"
+      }
+    }
+  },
+  "jobs": {
+    "codex-three-stage-build-20261025-001": {
+      "schema_version": 2,
+      "id": "codex-three-stage-build-20261025-001",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "be08 isolated source verification and affected native target rebuild; correctness preparation only",
+      "manager_pid": 477901,
+      "created_utc": "2026-10-25T12:19:29.691757+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-build-20261025-001.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/remote_build.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001"
+      ],
+      "command_sha256": "b4aeca35ab484db538fef8ef9930746b27664a2b0a9cf8f984d7f8082e6714ad",
+      "expected_duration_seconds": 3600,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T12:19:29.693193+00:00",
+      "child_pid": 477902,
+      "pgid": 477902,
+      "child_created": 1792930769.43,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T12:33:03.729449+00:00",
+      "elapsed_seconds": 814.0373403336853,
+      "signal": null
+    },
+    "codex-three-stage-cpu-20261025-002": {
+      "schema_version": 2,
+      "id": "codex-three-stage-cpu-20261025-002",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "after build: adapted full CPU correctness including real image processor; excludes GPU shutdown tests; no performance",
+      "manager_pid": 480055,
+      "created_utc": "2026-10-25T12:26:25.825464+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-cpu-20261025-002.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/remote_cpu_r2.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001"
+      ],
+      "command_sha256": "a63b2a6c89739de5c3e7d0b73db3753378832e432fc7a2b234ca8943455c25c8",
+      "expected_duration_seconds": 5400,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T12:26:25.827473+00:00",
+      "child_pid": 480056,
+      "pgid": 480056,
+      "child_created": 1792931185.56,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T12:48:27.494910+00:00",
+      "elapsed_seconds": 1321.6691162884235,
+      "signal": null
+    },
+    "codex-three-stage-hooks-20261025-002": {
+      "schema_version": 2,
+      "id": "codex-three-stage-hooks-20261025-002",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "repeat applicable hooks with upstream executable modes preserved; original evidence retained",
+      "manager_pid": 481093,
+      "created_utc": "2026-10-25T12:31:52.702231+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-hooks-20261025-002.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/remote_hooks_r2.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "F-adapted-hooks-r2"
+      ],
+      "command_sha256": "2ce0f3649d8d39575fc856b5873564f514af50caaf1d929237ad33a4ef792f99",
+      "expected_duration_seconds": 1800,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T12:31:52.703891+00:00",
+      "child_pid": 481094,
+      "pgid": 481094,
+      "child_created": 1792931512.44,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T12:32:28.628910+00:00",
+      "elapsed_seconds": 35.926276752725244,
+      "signal": null
+    },
+    "codex-three-stage-referencegpu-20261025-003": {
+      "schema_version": 2,
+      "id": "codex-three-stage-referencegpu-20261025-003",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "functional",
+      "purpose": "resume validated old-red with reusable verified CLI directory; patched controls and 72 text requests",
+      "manager_pid": 489153,
+      "created_utc": "2026-10-25T12:56:30.235114+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-referencegpu-20261025-003.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/reference_gpu_r3.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "resume-after-old-red"
+      ],
+      "command_sha256": "19a6652012fe1c0ba8b41fb37bc1de9c3c40da1e5b13b8577720e76df41f2a71",
+      "expected_duration_seconds": 2700,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        },
+        {
+          "path": "{AUTHOR_SHARED}/locks/gpu.lock",
+          "mode": "exclusive"
+        }
+      ],
+      "started_utc": "2026-10-25T12:56:30.287043+00:00",
+      "child_pid": 489156,
+      "pgid": 489156,
+      "child_created": 1792932990.02,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T13:06:06.721878+00:00",
+      "elapsed_seconds": 576.4362352769822,
+      "signal": null
+    },
+    "codex-three-stage-prepare-20261025-005": {
+      "schema_version": 2,
+      "id": "codex-three-stage-prepare-20261025-005",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "r5 stage snapshots include approved V2 image fallback GPU test and existing vLLM log fixture",
+      "manager_pid": 489971,
+      "created_utc": "2026-10-25T13:00:16.824834+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-prepare-20261025-005.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/remote_stage_prepare.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "r5"
+      ],
+      "command_sha256": "ed7ce9fb30e8c4db52f940e55e60bf906661331c8f2ce8215f6f4fd5bdf7a866",
+      "expected_duration_seconds": 900,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T13:00:16.826680+00:00",
+      "child_pid": 489979,
+      "pgid": 489979,
+      "child_created": 1792933216.56,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T13:00:57.716259+00:00",
+      "elapsed_seconds": 40.8909878898412,
+      "signal": null
+    },
+    "codex-three-stage-stagehooks-20261025-004": {
+      "schema_version": 2,
+      "id": "codex-three-stage-stagehooks-20261025-004",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "r5 applicable hooks after V2 image fallback and warning capture fixture completion",
+      "manager_pid": 491449,
+      "created_utc": "2026-10-25T13:03:35.662597+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-stagehooks-20261025-004.log",
+      "status": "finished",
+      "command_argv": [
+        "bash",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/stage_hooks.sh",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "r5"
+      ],
+      "command_sha256": "f808b61f86708958066c3d5b5cfe8d9044200f96a02ce3b6dd23bc00cac64a81",
+      "expected_duration_seconds": 1800,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T13:03:35.664227+00:00",
+      "child_pid": 491450,
+      "pgid": 491450,
+      "child_created": 1792933415.4,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T13:05:23.482641+00:00",
+      "elapsed_seconds": 107.81962080672383,
+      "signal": null
+    },
+    "codex-three-stage-stagecpu-20261025-001": {
+      "schema_version": 2,
+      "id": "codex-three-stage-stagecpu-20261025-001",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "build",
+      "purpose": "wait for reference GPU and r5 hooks, then sequential V1 V2 V3 CPU correctness and V1 lightweight 14-pair text contracts; no image matrix or GPU",
+      "manager_pid": 492361,
+      "created_utc": "2026-10-25T13:04:41.213933+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-stagecpu-20261025-001.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/stage_cpu_controller.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "r5"
+      ],
+      "command_sha256": "050f79b7c953d360f2d247916283ff0756bd5e376766254134df9c5e61912449",
+      "expected_duration_seconds": 7200,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        }
+      ],
+      "started_utc": "2026-10-25T13:04:41.215455+00:00",
+      "child_pid": 492362,
+      "pgid": 492362,
+      "child_created": 1792933480.95,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T13:49:13.355750+00:00",
+      "elapsed_seconds": 2672.1415198203176,
+      "signal": null
+    },
+    "codex-three-stage-stagegpu-20261025-001": {
+      "schema_version": 2,
+      "id": "codex-three-stage-stagegpu-20261025-001",
+      "project": "codex-pr63361",
+      "owner": "Codex",
+      "actor": "Codex",
+      "role": "primary",
+      "resource": "functional",
+      "purpose": "approved sequential V1 V2 V3 GPU correctness after CPU and lightweight version gates; no performance matrix",
+      "manager_pid": 493727,
+      "created_utc": "2026-10-25T13:49:19.367716+00:00",
+      "cwd": "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+      "log": "{AUTHOR_WORKSPACE}/coord-jobs/codex-three-stage-stagegpu-20261025-001.log",
+      "status": "finished",
+      "command_argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/stage_gpu.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "r5"
+      ],
+      "command_sha256": "ce85848aa6a1ef20e2957ae05ec8db12c0a4fc3c67e1178cd390b1f30a34caf0",
+      "expected_duration_seconds": 3600,
+      "overdue": false,
+      "hard_timeout": null,
+      "lock_fds_inherited_by_command": false,
+      "locks": [
+        {
+          "path": "{AUTHOR_SHARED}/locks/host.lock",
+          "mode": "shared"
+        },
+        {
+          "path": "{AUTHOR_SHARED}/locks/gpu.lock",
+          "mode": "exclusive"
+        }
+      ],
+      "started_utc": "2026-10-25T13:49:19.459202+00:00",
+      "child_pid": 495368,
+      "pgid": 495368,
+      "child_created": 1792936159.19,
+      "exit_code": 0,
+      "remaining_pids": [],
+      "finished_utc": "2026-10-25T14:36:18.850113+00:00",
+      "elapsed_seconds": 2819.3922052476555,
+      "signal": null
+    }
+  },
+  "limits": [
+    "Not upstream CI certification or PR Ready-for-review status",
+    "14-pair fresh execution is V1 lightweight text contracts, not a full image version matrix",
+    "Distribution version metadata was reused; source identity comes from exact manifests",
+    "No new T-only or multimodal performance conclusion"
+  ],
+  "V1_light_versions": {
+    "status": "passed",
+    "pairs": 14,
+    "fresh_tests": 182,
+    "parallel_processes": 2,
+    "image_processor_matrix": false,
+    "reports": [
+      {
+        "pair": [
+          "5.16.1",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.16.1-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.16.1-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.16.1-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.16.1",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.16.1-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.16.1-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.16.1-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.17.0",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.17.0-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.17.0-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.17.0-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.17.0",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.17.0-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.17.0-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.17.0-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.18.0",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.18.0-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.18.0-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.18.0-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.18.0",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.18.0-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.18.0-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.18.0-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.19.0",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.19.0-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.19.0-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.19.0-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.19.0",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.19.0-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.19.0-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.19.0-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.0",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.0-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.0-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.0-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.0",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.0-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.0-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.0-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.1",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.1-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.1-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.1-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.1",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.1-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.1-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.1-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.2",
+          "0.23.2"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.2-tok0.23.2",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.2-tok0.23.2-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.2-tok0.23.2.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      {
+        "pair": [
+          "5.20.2",
+          "0.23.3"
+        ],
+        "argv": [
+          "{AUTHOR_WORKSPACE}/.venv/bin/python",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/cpu_pytest.py",
+          "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5",
+          "tf5.20.2-tok0.23.3",
+          "-v",
+          "-p",
+          "no:cacheprovider",
+          "tests/renderers/test_session_prefix.py",
+          "-k",
+          "test_real_renderer_chat_growth_matches_native_and_hits or test_deepseek_documented_tools_preserve_native_ids_and_reuse or test_custom_encoding_methods_preserve_native_renderer_path or test_warning_callback_override_preserves_native_ids or test_missing_native_helper_uses_full_computation",
+          "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.2-tok0.23.3-tmp",
+          "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/V1-light-versions-r5/tf5.20.2-tok0.23.3.xml"
+        ],
+        "exit_code": 0,
+        "execution": "fresh V1, not a multimodal matrix",
+        "tests": 13,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0
+      }
+    ]
+  },
+  "V3_native_hash_audit": {
+    "trace_groups": [
+      {
+        "source": "trace-498408.jsonl",
+        "requests": 18,
+        "hash_enabled": false,
+        "receiver_cache_data_none": true,
+        "changed_image": {
+          "same_ids": true,
+          "different_media_hashes": true,
+          "reused_blocks": 0,
+          "media_offset": 222,
+          "block_size": 16
+        }
+      },
+      {
+        "source": "trace-498627.jsonl",
+        "requests": 18,
+        "hash_enabled": false,
+        "receiver_cache_data_none": true,
+        "changed_image": {
+          "same_ids": true,
+          "different_media_hashes": true,
+          "reused_blocks": 0,
+          "media_offset": 222,
+          "block_size": 16
+        }
+      },
+      {
+        "source": "trace-498848.jsonl",
+        "requests": 18,
+        "hash_enabled": true,
+        "receiver_cache_data_none": true,
+        "changed_image": {
+          "same_ids": true,
+          "different_media_hashes": true,
+          "reused_blocks": 13,
+          "media_offset": 222,
+          "block_size": 16
+        }
+      },
+      {
+        "source": "trace-499068.jsonl",
+        "requests": 18,
+        "hash_enabled": true,
+        "receiver_cache_data_none": true,
+        "changed_image": {
+          "same_ids": true,
+          "different_media_hashes": true,
+          "reused_blocks": 13,
+          "media_offset": 222,
+          "block_size": 16
+        }
+      }
+    ],
+    "status": "passed",
+    "image_valid_matrix_requests": 60,
+    "image_lifecycle_requests": 12,
+    "image_invalid_requests": 8,
+    "pure_text_requests": 72,
+    "native_hashes_exact": true,
+    "expected_reuse_blocks_exact": true
+  },
+  "V2_native_fallback_audit": {
+    "status": "passed",
+    "requests": 9,
+    "no_hash_reuse": true,
+    "native_hashes_exact": true
+  },
+  "shutdown": {
+    "needed_on_be08": true,
+    "valid_old_red": {
+      "status": "valid old-red control",
+      "execution": "reused actual first run, not rerun",
+      "junit_sha256": "6691ff5e5119d50766cd8bc8160664d2b8f238219c9efaa474ab8b2bdaa9f785",
+      "reason": "normal cleanup must cancel output waiters",
+      "initial_controller_failure": "expected EngineDeadError in failure text, but the actual contract fails at handler.cancelled()"
+    },
+    "positive_controls": {
+      "argv": [
+        "{AUTHOR_WORKSPACE}/.venv/bin/python",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/inputs/gpu_pytest.py",
+        "{AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001",
+        "N-shutdown-gpu",
+        "-v",
+        "-p",
+        "no:cacheprovider",
+        "tests/v1/engine/test_async_output_shutdown.py",
+        "--basetemp={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/N-shutdown-gpu-tmp",
+        "--junitxml={AUTHOR_WORKSPACE}/experiments/pr63361-three-stage-build-20261025-001/N-shutdown-gpu.xml"
+      ],
+      "exit_code": 0,
+      "fresh_execution": true,
+      "negative_control": false,
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  }
+}

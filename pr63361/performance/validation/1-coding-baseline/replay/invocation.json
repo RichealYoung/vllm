@@ -1,0 +1,34 @@
+{
+  "argv": [
+    "{AUTHOR_WORKSPACE}/experiments/pr63361-public-replay-validation-20261026-001/package-r6/pr63361/performance/client/replay_client.py",
+    "--url",
+    "http://127.0.0.1:18661",
+    "--case",
+    "coding",
+    "--fresh-server-confirmed",
+    "--server-pid",
+    "529039",
+    "--output",
+    "{AUTHOR_WORKSPACE}/experiments/pr63361-public-replay-validation-20261026-001/gpu-r6/1-coding-baseline/replay"
+  ],
+  "python": "3.12.3",
+  "workload_sha256": "935e387020d27548aba5da24c997c9381a03bd4fc8735e3d1ef5e3c2dd44f833",
+  "fresh_server_operator_confirmation": true,
+  "packages": {
+    "httpx": "0.28.1",
+    "httpcore": "1.0.9",
+    "anyio": "4.15.1",
+    "psutil": "7.2.2"
+  },
+  "inputs": {
+    "replay_client.py": "ed146731e96b73651040c9275c4a930f84ff3ecb5a8e2cd35c9d49936fde5e02",
+    "serve.py": "39ef897a53acf844b61659675ff1a636042f08275277d4fd79f591f07969ac28",
+    "summarize.py": "44c3a94ce100b80448b664df14362fb20d2c3805d415ffd6f01dc2e742afdca1",
+    "session_prefix_bench/adapter.py": "710e6819f75e1b240931dd690f7d6acaf3f30271d32112475b9b86a002ababe0",
+    "session_prefix_bench/common.py": "6a6ad58022259eb98eea9ed922609e2f4ba95b9d1dab3620d19f4f5ddd36eb24",
+    "session_prefix_bench/cpu.py": "63c33184c65e7e381c6af368e12c676ddcf6394397d1f45da91507fa3037993f",
+    "session_prefix_bench/measure.py": "8abbdcdc80468bccfdbb18bab447f13253ddc6e3ee236a91e8001a06f60724f2",
+    "session_prefix_bench/telemetry.py": "97541f251d8707e0b520c4d9bbb119ba99e48bba7a537901635855341d400d1e",
+    "session_prefix_bench/__init__.py": "b5129fe651fadc1e280fcc93fcc83586a00805759e594f94a0f9e83f6d1538fe"
+  }
+}

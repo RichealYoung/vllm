@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "instances": 32,
+  "measured_requests": 2560,
+  "warmup_requests": 256,
+  "summary": "summary-001.json"
+}

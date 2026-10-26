@@ -1,0 +1,1028 @@
+--- a/.buildkite/test_areas/misc.yaml
++++ b/.buildkite/test_areas/misc.yaml
+@@ -754,6 +754,14 @@
+   - tests/renderers/test_session_prefix.py
+   - tests/config/test_config_utils.py
+   - tests/entrypoints/openai/chat_completion/test_serving_chat.py
++  - csrc/session_prefix.cpp
++  - CMakeLists.txt
++  - setup.py
++  - vllm/_session_prefix.pyi
++  - vllm/v1/core/session_prefix.py
++  - vllm/v1/request.py
++  - vllm/v1/engine/core.py
++  - tests/v1/test_request.py
+   - tests/renderers/test_session_prefix_media_fallback.py
+   commands:
+   # Resolve the repository image's dependencies before creating a pinned overlay.
+@@ -764,7 +772,7 @@
+   # The audited environment must really reuse; these tests assert exact/partial hits.
+   - uv venv --system-site-packages .venv-session-prefix-audited
+   - uv pip install --python .venv-session-prefix-audited/bin/python transformers==5.20.2 tokenizers==0.23.2 huggingface-hub==1.31.0
+-  - .venv-session-prefix-audited/bin/python -m pytest -v tests/utils_/test_session_prefix.py tests/renderers/test_session_prefix.py tests/renderers/test_session_prefix_media_fallback.py tests/config/test_config_utils.py
++  - .venv-session-prefix-audited/bin/python -m pytest -v tests/utils_/test_session_prefix.py tests/renderers/test_session_prefix.py tests/renderers/test_session_prefix_media_fallback.py tests/v1/test_request.py tests/config/test_config_utils.py
+ 
+ - label: ":nvidia: (H200 MIG 18GB) Session Prefix Serving"
+   key: session-prefix-serving
+@@ -779,7 +787,7 @@
+     printf '#!/bin/sh\nexec "%s" -m vllm.entrypoints.cli.main "$@"\n' "$PWD/.venv-session-prefix-gpu/bin/python" > .venv-session-prefix-gpu/bin/vllm
+     chmod +x .venv-session-prefix-gpu/bin/vllm
+   - export PATH="$PWD/.venv-session-prefix-gpu/bin:$PATH"
+-  - .venv-session-prefix-gpu/bin/python -m pytest -v tests/entrypoints/openai/chat_completion/test_serving_chat.py -k 'test_session_prefix_text_requests_preserve_native_ids_and_outputs'
++  - .venv-session-prefix-gpu/bin/python -m pytest -v tests/entrypoints/openai/chat_completion/test_serving_chat.py -k 'test_session_prefix_text_requests_preserve_native_ids_and_outputs or test_session_prefix_image_requests_use_native_fallback'
+ 
+ - label: ":computer: (CPU) Reasoning + Renderers"
+   key: cpu-reasoning-renderers
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -164,6 +164,15 @@
+   WITH_SOABI)
+ 
+ #
++# Session-prefix helpers operate on Python objects through the stable API.
++define_extension_target(
++  _session_prefix
++  DESTINATION vllm
++  LANGUAGE CXX
++  SOURCES csrc/session_prefix.cpp
++  USE_SABI 3.11
++  WITH_SOABI)
++
+ # Forward the non-CUDA device extensions to external CMake scripts.
+ #
+ if (NOT VLLM_TARGET_DEVICE STREQUAL "cuda" AND
+--- /dev/null
++++ b/csrc/session_prefix.cpp
+@@ -0,0 +1,38 @@
++// SPDX-License-Identifier: Apache-2.0
++// SPDX-FileCopyrightText: Copyright contributors to the vLLM project
++
++#include <Python.h>
++
++namespace {
++PyObject* token_lcp(PyObject*, PyObject* args) {
++  PyObject *a, *b;
++  Py_ssize_t n;
++  if (!PyArg_ParseTuple(args, "OOn", &a, &b, &n)) return nullptr;
++  if (!PyList_CheckExact(a) || !PyList_CheckExact(b) || n < 0 ||
++      n > PyList_Size(a) || n > PyList_Size(b)) {
++    PyErr_SetString(PyExc_ValueError,
++                    "expected exact lists and bounded length");
++    return nullptr;
++  }
++  Py_ssize_t i = 0;
++  for (; i < n; ++i) {
++    PyObject *x = PyList_GetItem(a, i), *y = PyList_GetItem(b, i);
++    if (!PyLong_CheckExact(x) || !PyLong_CheckExact(y)) {
++      PyErr_SetString(PyExc_ValueError, "expected integer token IDs");
++      return nullptr;
++    }
++    unsigned long u = PyLong_AsUnsignedLong(x);
++    if (PyErr_Occurred()) return nullptr;
++    unsigned long v = PyLong_AsUnsignedLong(y);
++    if (PyErr_Occurred()) return nullptr;
++    if (u != v) break;
++  }
++  return PyLong_FromSsize_t(i);
++}
++PyMethodDef methods[] = {{"token_lcp", token_lcp, METH_VARARGS,
++                          "Exact token prefix length under the GIL."},
++                         {nullptr, nullptr, 0, nullptr}};
++PyModuleDef module = {PyModuleDef_HEAD_INIT, "_session_prefix", nullptr, -1,
++                      methods};
++}  // namespace
++PyMODINIT_FUNC PyInit__session_prefix() { return PyModule_Create(&module); }
+--- a/docs/features/automatic_prefix_caching.md
++++ b/docs/features/automatic_prefix_caching.md
+@@ -1,8 +1,8 @@
+ # Automatic Prefix Caching
+ 
+ For an opt-in optimization of repeated input CPU work using session Agent
+-Hints, see [Session prefix reuse](session_prefix_reuse.md). It reuses token
+-prefixes while retaining native KV lookup.
++Hints, see [Session prefix reuse](session_prefix_reuse.md). It independently
++reuses token prefixes and prompt hashes while retaining native KV lookup.
+ 
+ ## Introduction
+ 
+--- a/docs/features/session_prefix_reuse.md
++++ b/docs/features/session_prefix_reuse.md
+@@ -1,16 +1,17 @@
+ # Session prefix reuse
+ 
+ Session prefix reuse uses the existing session ID to select a recent candidate
+-for exact input tokenization reuse.
++for exact input tokenization and prompt block hash reuse.
+ Enable it explicitly; the default budget is zero (disabled):
+ 
+ ```console
+ vllm serve Qwen/Qwen3-0.6B \
+     --tokenizer-revision c1899de289a04d12100db370d81485cdf75e47ca \
+-    --session-token-cache-mb 32
++    --session-token-cache-mb 32 \
++    --session-hash-cache-mb 32
+ ```
+ 
+-Budgets are MiB per renderer. Histories
++Budgets are MiB per renderer and EngineCore, independently. Histories
+ occupy CPU memory; they do not retain physical KV blocks or replace APC.
+ Accounting includes reservations and in-flight readers, and conservatively
+ charges each token occurrence. The budget is not a process RSS limit.
+@@ -78,7 +79,7 @@
+ when those library versions satisfy vLLM's installation requirements.
+ 
+ The implementation requires GIL-enabled CPython. Token accounting uses Python
+-and does not depend on a native helper.
++and does not depend on a native helper. Hash reuse requires the optional native `token_lcp` helper. If it is unavailable, H warns and falls back; T remains independent.
+ 
+ ## Exactness and scope
+ 
+@@ -87,7 +88,11 @@
+ encoding overrides or content mismatches take the native path. Full input IDs
+ remain the correctness reference.
+ 
+-Requests containing images or other media use native tokenization.
++Hash reuse compares exact token IDs and resumes only complete validated blocks.
++Salt, hash-function state, weight version, reset and lifecycle boundaries isolate
++histories. Native full block hashing remains the correctness reference.
++
++Requests containing images or other media use native tokenization and native block hashing.
+ They do not publish media reuse histories. This stage optimizes text chat only.
+ 
+ No performance improvement is guaranteed. Misses, short inputs, frequent edits,
+--- a/setup.py
++++ b/setup.py
+@@ -1557,6 +1557,7 @@
+ if not _is_xpu():
+     ext_modules.append(CMakeExtension(name="vllm.spinloop"))
+     ext_modules.append(CMakeExtension(name="vllm.fs_io_C"))
++    ext_modules.append(CMakeExtension(name="vllm._session_prefix"))
+ 
+ if _is_hip():
+     ext_modules.append(CMakeExtension(name="vllm._rocm_C"))
+--- a/tests/config/test_config_utils.py
++++ b/tests/config/test_config_utils.py
+@@ -16,6 +16,15 @@
+ )
+ 
+ # Helpers
++
++
++def test_session_history_capacity_does_not_change_computation_graph():
++    assert (
++        CacheConfig().compute_hash()
++        == CacheConfig(session_hash_cache_mb=32).compute_hash()
++    )
++    with pytest.raises(ValueError):
++        CacheConfig(session_hash_cache_mb=-1)
+ 
+ 
+ def endswith_fqname(obj, suffix: str) -> bool:
+--- a/tests/entrypoints/openai/chat_completion/test_serving_chat.py
++++ b/tests/entrypoints/openai/chat_completion/test_serving_chat.py
+@@ -12,6 +12,7 @@
+ 
+ import pytest
+ import pytest_asyncio
++import regex as re
+ from openai import OpenAI
+ from starlette.requests import Request
+ 
+@@ -3444,7 +3445,7 @@
+ 
+ 
+ @pytest.mark.asyncio
+-@pytest.mark.parametrize("token_mb", [0, 8])
++@pytest.mark.parametrize(("token_mb", "hash_mb"), [(0, 0), (8, 0), (0, 8), (8, 8)])
+ @pytest.mark.parametrize(
+     ("model", "revision"),
+     [
+@@ -3460,7 +3461,7 @@
+     ids=["qwen3", "llama32"],
+ )
+ async def test_session_prefix_text_requests_preserve_native_ids_and_outputs(
+-    model, revision, token_mb, capfd, tmp_path
++    model, revision, token_mb, hash_mb, capfd, tmp_path
+ ):
+     """Exercise HTTP, renderer, IPC and native core with real model weights."""
+     from tests.models.utils import check_logprobs_close
+@@ -3472,6 +3473,8 @@
+         revision,
+         "--session-token-cache-mb",
+         str(token_mb),
++        "--session-hash-cache-mb",
++        str(hash_mb),
+         "--dtype",
+         "float16",
+         "--max-model-len",
+@@ -3567,3 +3570,157 @@
+     if token_mb and pinned:
+         assert "Session token reuse: route=exact" in server_log, server_log[-12000:]
+         assert "Session token reuse: route=partial" in server_log, server_log[-12000:]
++    if hash_mb:
++        assert re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
++            server_log[-12000:]
++        )
++
++
++@pytest.mark.asyncio
++async def test_session_prefix_image_requests_use_native_fallback(capfd, tmp_path):
++    """Text-only T/H must leave image requests on their native computation path."""
++    import io
++
++    import pybase64
++    from PIL import Image
++
++    token_mb = hash_mb = 8
++
++    from tests.models.utils import check_logprobs_close
++
++    model = os.environ.get("VLLM_TEST_QWEN25_VL_MODEL", "Qwen/Qwen2.5-VL-3B-Instruct")
++    revision = "66285546d2b821cf421d4f5eb2576359d3770cd3"
++    args = [
++        "--revision",
++        revision,
++        "--tokenizer-revision",
++        revision,
++        "--session-token-cache-mb",
++        str(token_mb),
++        "--session-hash-cache-mb",
++        str(hash_mb),
++        "--dtype",
++        "float16",
++        "--max-model-len",
++        "2048",
++        "--gpu-memory-utilization",
++        "0.7",
++        "--max-num-seqs",
++        "2",
++        "--limit-mm-per-prompt",
++        '{"image": 4, "video": 0}',
++        "--mm-processor-kwargs",
++        '{"min_pixels": 3136, "max_pixels": 3136}',
++        "--shutdown-timeout",
++        "10",
++    ]
++    images = []
++    for color in ("red", "blue"):
++        stream = io.BytesIO()
++        Image.new("RGB", (56, 56), color).save(stream, format="PNG")
++        images.append(
++            "data:image/png;base64," + pybase64.b64encode(stream.getvalue()).decode()
++        )
++
++    def output(response):
++        choice = response.choices[0]
++        return (
++            choice.token_ids,
++            choice.message.content or "",
++            [
++                {
++                    int(item.token.split(":", 1)[1]): item.logprob
++                    for item in token.top_logprobs
++                }
++                for token in choice.logprobs.content
++            ],
++        )
++
++    try:
++        with RemoteOpenAIServer(
++            model,
++            args,
++            env_dict={"VLLM_LOGGING_LEVEL": "DEBUG", "VLLM_SERVER_DEV_MODE": "1"},
++        ) as server:
++            async with server.get_async_client() as client:
++                previous_native = None
++                for turn, selected in enumerate(((0,), (1,), (0,))):
++                    text = "Describe 截图 e\u0301 👩‍💻." + " Continue." * max(
++                        0, turn - 2
++                    )
++                    content: list[dict[str, Any]] = [{"type": "text", "text": text}]
++                    content.extend(
++                        {"type": "image_url", "image_url": {"url": images[item]}}
++                        for item in selected
++                    )
++                    messages = [
++                        {
++                            "role": "system",
++                            "content": "Preserve the visible history. " * 40,
++                        },
++                        {"role": "user", "content": content},
++                    ]
++                    responses = []
++                    for hinted in (False, True, True):
++                        response = await client.chat.completions.create(
++                            model=model,
++                            messages=messages,
++                            temperature=0,
++                            seed=0,
++                            max_tokens=2,
++                            logprobs=True,
++                            top_logprobs=2,
++                            extra_body={
++                                "session_id": "images" if hinted else None,
++                                "return_token_ids": True,
++                                "return_tokens_as_token_ids": True,
++                            },
++                        )
++                        responses.append(response)
++                        with (tmp_path / "responses.jsonl").open(
++                            "a", encoding="utf-8"
++                        ) as response_log:
++                            response_log.write(
++                                json.dumps(
++                                    {
++                                        "turn": turn,
++                                        "session_hint": hinted,
++                                        "response": response.model_dump(mode="json"),
++                                    },
++                                    ensure_ascii=False,
++                                )
++                                + "\n"
++                            )
++                    native = responses[0]
++                    assert native.prompt_token_ids
++                    if turn == 2:
++                        assert previous_native is not None
++                        assert (
++                            native.prompt_token_ids == previous_native.prompt_token_ids
++                        )
++                    for response in responses[1:]:
++                        assert response.prompt_token_ids == native.prompt_token_ids
++                        assert (
++                            response.usage.prompt_tokens == native.usage.prompt_tokens
++                        )
++                        assert (
++                            response.usage.completion_tokens
++                            == native.usage.completion_tokens
++                        )
++                        check_logprobs_close(
++                            outputs_0_lst=[output(native)],
++                            outputs_1_lst=[output(response)],
++                            name_0="native image request without session",
++                            name_1="image session prefix reuse",
++                            always_check_logprobs=True,
++                        )
++                    previous_native = native
++    finally:
++        captured = capfd.readouterr()
++        server_log = captured.out + captured.err
++        (tmp_path / "server.log").write_text(server_log)
++    assert "Session token cache disabled:" not in server_log, server_log[-12000:]
++    assert "Session token reuse: route=" not in server_log, server_log[-12000:]
++    assert not re.search(r"Session hash reuse: reused_blocks=[1-9]", server_log), (
++        server_log[-12000:]
++    )
+--- a/tests/renderers/test_session_prefix.py
++++ b/tests/renderers/test_session_prefix.py
+@@ -259,6 +259,7 @@
+ from vllm.renderers.hf import HfRenderer
+ from vllm.renderers.params import TokenizeParams
+ from vllm.tokenizers import get_tokenizer
++from vllm.v1.core.session_prefix import SessionHashCache
+ 
+ assert importlib.util.find_spec('vllm._session_prefix') is None
+ config = VllmConfig(model_config=ModelConfig(
+@@ -282,6 +283,7 @@
+         assert actual['prompt_token_ids'] == expected
+         context.finish(publish=True)
+     assert renderer.session_token_cache.stats['exact'] > 0
++    assert SessionHashCache.create(8 << 20, 16) is None
+ finally:
+     renderer.shutdown()
+ """
+--- a/tests/renderers/test_session_prefix_media_fallback.py
++++ b/tests/renderers/test_session_prefix_media_fallback.py
+@@ -17,7 +17,7 @@
+ @pytest.mark.asyncio
+ @pytest.mark.parametrize(
+     "token_reuse,hash_reuse",
+-    [(False, False), (True, False)],
++    [(False, False), (True, False), (False, True), (True, True)],
+ )
+ async def test_multimodal_session_falls_back_to_native(token_reuse, hash_reuse):
+     """Image edits retain native IDs, media tensors and the complete hash chain."""
+@@ -32,6 +32,7 @@
+     from vllm.multimodal.cache import engine_receiver_cache_from_config
+     from vllm.utils.hashing import sha256
+     from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++    from vllm.v1.core.session_prefix import SessionHashCache
+     from vllm.v1.engine.input_processor import InputProcessor
+     from vllm.v1.request import Request
+ 
+@@ -79,6 +80,7 @@
+     assert receiver is not None
+     init_none_hash(sha256)
+     hasher = get_request_block_hasher(16, sha256)
++    hashes = SessionHashCache(1 << 20, 16) if hash_reuse else None
+     images = []
+     for color, size in (("red", (56, 56)), ("blue", (56, 56)), ("green", (84, 56))):
+         stream = io.BytesIO()
+@@ -135,9 +137,17 @@
+             if incoming.mm_features:
+                 receiver.get_and_update_features(incoming.mm_features)
+             assert incoming.mm_features == expected_input.mm_features
+-            actual = Request.from_engine_core_request(incoming, hasher)
++            prefix = hashes.prefix(incoming) if hashes else None
++            actual = Request.from_engine_core_request(incoming, hasher, prefix)
+             expected = Request.from_engine_core_request(expected_input, hasher)
+             assert actual.block_hashes == expected.block_hashes
++            if hashes:
++                if incoming.mm_features:
++                    assert prefix is None
++                retained_hashes = hashes.store.bytes_used
++                hashes.publish(incoming, actual, hashes.store.epoch)
++                if incoming.mm_features:
++                    assert hashes.store.bytes_used == retained_hashes
+     finally:
+         renderer.shutdown()
+     assert not torch.cuda.is_initialized()
+--- a/tests/utils_/test_session_prefix.py
++++ b/tests/utils_/test_session_prefix.py
+@@ -7,6 +7,8 @@
+ from concurrent.futures import ThreadPoolExecutor
+ from threading import Event
+ from typing import cast
++
++import pytest
+ 
+ from vllm.utils.session_prefix import (
+     PrefixContext,
+@@ -37,6 +39,94 @@
+         cases.append((a, b))
+     for a, b in cases:
+         assert lcp(a, b) == lcp(b, a) == reference(a, b)
++
++
++@pytest.mark.parametrize(
++    ("left", "right", "length", "expected"),
++    [
++        ([], [], 0, 0),
++        ([], [1], 0, 0),
++        ([1], [], 0, 0),
++        ([1, 2], [1, 2], 0, 0),
++        ([1, 2], [1, 2], 2, 2),
++        ([1, 2], [9, 2], 2, 0),
++        ([1, 2, 3], [1, 9, 3], 3, 1),
++        ([1, 2, 3], [1, 2, 9], 2, 2),
++        ([1, 2], [1, 2, 3], 2, 2),
++        ([1, 2, 3], [1, 2], 2, 2),
++    ],
++)
++def test_token_lcp_matches_bounded_prefix(left, right, length, expected):
++    from vllm import _session_prefix
++
++    before_left, before_right = left.copy(), right.copy()
++    assert _session_prefix.token_lcp(left, right, length) == expected
++    assert left == before_left and right == before_right
++
++
++@pytest.mark.parametrize("length", [-1, 2, sys.maxsize])
++def test_token_lcp_rejects_invalid_bounds(length):
++    from vllm import _session_prefix
++
++    for left, right in (([1], [1, 2]), ([1, 2], [1])):
++        with pytest.raises(ValueError, match="bounded length"):
++            _session_prefix.token_lcp(left, right, length)
++
++
++@pytest.mark.parametrize("invalid", [None, (1,), "1"])
++def test_token_lcp_rejects_non_lists(invalid):
++    from vllm import _session_prefix
++
++    for left, right in ((invalid, [1]), ([1], invalid)):
++        with pytest.raises(ValueError, match="exact lists"):
++            _session_prefix.token_lcp(cast(list[int], left), cast(list[int], right), 1)
++
++
++@pytest.mark.parametrize(
++    ("invalid", "error"),
++    [
++        (True, ValueError),
++        ("1", ValueError),
++        (1.0, ValueError),
++        (-1, OverflowError),
++        (1 << 300, OverflowError),
++    ],
++)
++def test_token_lcp_rejects_invalid_elements(invalid, error):
++    from vllm import _session_prefix
++
++    # Reach the invalid value after a valid prefix, in either input list.
++    invalid_ids = cast(list[int], [1, invalid])
++    for left, right in ((invalid_ids, [1, 2]), ([1, 2], invalid_ids)):
++        with pytest.raises(error):
++            _session_prefix.token_lcp(left, right, 2)
++        # A failed call leaves no error behind for subsequent valid calls.
++        assert _session_prefix.token_lcp([1, 2], [1, 2], 2) == 2
++
++
++def test_token_lcp_checks_exact_types_and_unsigned_long_range():
++    from vllm import _session_prefix
++
++    class ListSubclass(list):
++        pass
++
++    class IntSubclass(int):
++        pass
++
++    for left, right in ((ListSubclass([1]), [1]), ([1], ListSubclass([1]))):
++        with pytest.raises(ValueError, match="exact lists"):
++            _session_prefix.token_lcp(left, right, 1)
++    for left, right in (([IntSubclass(1)], [1]), ([1], [IntSubclass(1)])):
++        with pytest.raises(ValueError, match="integer token IDs"):
++            _session_prefix.token_lcp(left, right, 1)
++
++    maximum = (1 << (8 * struct.calcsize("L"))) - 1
++    assert _session_prefix.token_lcp([maximum], [int(str(maximum))], 1) == 1
++    for left, right in (([maximum + 1], [1]), ([1], [maximum + 1])):
++        with pytest.raises(OverflowError):
++            _session_prefix.token_lcp(left, right, 1)
++    with pytest.raises(OverflowError):
++        _session_prefix.token_lcp([], [], sys.maxsize + 1)
+ 
+ 
+ def test_token_accounting_never_understates_owned_list_and_elements():
+--- a/tests/v1/test_request.py
++++ b/tests/v1/test_request.py
+@@ -5,6 +5,181 @@
+ from vllm.v1.engine import EngineCoreRequest
+ from vllm.v1.kv_hints import KvHintAction, KvHintsEnvelope
+ from vllm.v1.request import Request, RequestStatus
++
++
++def test_hash_publication_reserved_before_reset_cannot_publish_after_reset():
++    import threading
++    from concurrent.futures import ThreadPoolExecutor
++
++    from vllm.utils.hashing import sha256
++    from vllm.utils.session_prefix import Reservation
++    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++    from vllm.v1.core.session_prefix import SessionHashCache
++
++    init_none_hash(sha256)
++    hasher = get_request_block_hasher(4, sha256)
++    incoming = EngineCoreRequest(
++        request_id="inflight",
++        prompt_token_ids=list(range(33)),
++        mm_features=None,
++        sampling_params=SamplingParams(max_tokens=1),
++        pooling_params=None,
++        arrival_time=0.0,
++        lora_request=None,
++        cache_salt=None,
++        data_parallel_rank=None,
++        session_id="session",
++    )
++    native = Request.from_engine_core_request(incoming, hasher)
++    for close in (False, True):
++        cache = SessionHashCache(1 << 20, 4)
++        entered, release = threading.Event(), threading.Event()
++        previous = threading.getprofile()
++
++        def observe(frame, event, arg, cache=cache, entered=entered, release=release):
++            if (
++                frame.f_code is Reservation.commit.__code__
++                and event == "call"
++                and frame.f_locals["self"].store is cache.store
++            ):
++                entered.set()
++                assert release.wait(10)
++
++        threading.setprofile(observe)
++        try:
++            with ThreadPoolExecutor(1) as pool:
++                future = pool.submit(cache.publish, incoming, native, cache.store.epoch)
++                try:
++                    assert entered.wait(10), "real commit was not reached"
++                    assert cache.store.bytes_used > 0
++                    cache.store.clear(close=close)
++                finally:
++                    release.set()
++                future.result(timeout=10)
++        finally:
++            release.set()
++            threading.setprofile(previous)
++        assert cache.store.bytes_used == 0
++        assert cache.prefix(incoming) is None
++
++
++def test_session_hash_reuse_preserves_native_chain_and_decode():
++    from vllm.utils.hashing import sha256
++    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++    from vllm.v1.core.session_prefix import SessionHashCache
++
++    init_none_hash(sha256)
++    for block_size in (2, 4, 16):
++        hasher = get_request_block_hasher(block_size, sha256)
++        cache = SessionHashCache(1 << 20, block_size)
++        for turn, ids in enumerate(
++            (list(range(33)), list(range(35)), [99] + list(range(34)))
++        ):
++            incoming = EngineCoreRequest(
++                request_id=str(turn),
++                prompt_token_ids=ids,
++                mm_features=None,
++                sampling_params=SamplingParams(max_tokens=3),
++                pooling_params=None,
++                arrival_time=0.0,
++                lora_request=None,
++                cache_salt="salt",
++                data_parallel_rank=None,
++                session_id="session",
++            )
++            expected = Request.from_engine_core_request(incoming, hasher)
++            initial = cache.prefix(incoming)
++            actual = Request.from_engine_core_request(incoming, hasher, initial)
++            assert actual.block_hashes == expected.block_hashes
++            if turn == 1:
++                assert initial is not None and initial[1]
++            cache.publish(incoming, actual, cache.store.epoch)
++            for token in range(100, 118):
++                actual.append_output_token_ids(token)
++                expected.append_output_token_ids(token)
++                assert actual.block_hashes == expected.block_hashes
++        incoming.cache_salt = "different"
++        assert cache.prefix(incoming) is None
++        assert cache.stats["reused_blocks"] > 0
++        cache.store.clear()
++        assert cache.store.bytes_used == 0
++
++
++def test_initial_hashes_reject_invalid_block_count():
++    import pytest
++
++    from vllm.utils.hashing import sha256
++    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++
++    init_none_hash(sha256)
++    with pytest.raises(ValueError, match="initial prompt block hashes"):
++        Request(
++            "invalid",
++            [1],
++            SamplingParams(max_tokens=1),
++            None,
++            block_hasher=get_request_block_hasher(16, sha256),
++            initial_block_hashes=(16, [b"invalid"]),
++        )
++
++
++def test_session_hash_reset_close_and_eviction_preserve_native_results():
++    from vllm.utils.hashing import sha256
++    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++    from vllm.v1.core.session_prefix import SessionHashCache
++
++    init_none_hash(sha256)
++    hasher = get_request_block_hasher(4, sha256)
++    incoming = EngineCoreRequest(
++        request_id="lifecycle",
++        prompt_token_ids=list(range(33)),
++        mm_features=None,
++        sampling_params=SamplingParams(max_tokens=1),
++        pooling_params=None,
++        arrival_time=0.0,
++        lora_request=None,
++        cache_salt="salt",
++        data_parallel_rank=None,
++        session_id="session",
++    )
++    native = Request.from_engine_core_request(incoming, hasher)
++    for close in (False, True):
++        cache = SessionHashCache(1 << 20, 4)
++        cache.publish(incoming, native, cache.store.epoch)
++        initial = cache.prefix(incoming)
++        assert initial is not None
++        epoch = cache.store.epoch
++        cache.store.clear(close=close)
++        cache.publish(incoming, native, epoch)
++        assert cache.store.bytes_used == 0  # Stale work cannot repopulate.
++        actual = Request.from_engine_core_request(incoming, hasher, initial)
++        assert actual.block_hashes == native.block_hashes  # Existing reader is valid.
++        assert cache.prefix(incoming) is None
++        if not close:
++            cache.publish(incoming, actual, cache.store.epoch)
++            assert cache.prefix(incoming) is not None
++
++    probe = SessionHashCache(1 << 20, 4)
++    probe.publish(incoming, native, probe.store.epoch)
++    capacity = probe.store.bytes_used + 1
++    cache = SessionHashCache(capacity, 4)
++    cache.publish(incoming, native, cache.store.epoch)
++    with cache.store.borrow(("salt", "session")) as snapshot:
++        assert snapshot is not None
++        incoming.session_id = "another"
++        cache.publish(incoming, native, cache.store.epoch)
++        assert cache.prefix(incoming) is None  # Pinned retired reader consumes budget.
++        assert 0 < cache.store.bytes_used <= capacity
++        assert snapshot.hashes == native.block_hashes
++    assert cache.store.bytes_used == 0
++    incoming.session_id = "session"
++    cache.publish(incoming, native, cache.store.epoch)
++    initial = cache.prefix(incoming)
++    assert initial is not None
++    assert (
++        Request.from_engine_core_request(incoming, hasher, initial).block_hashes
++        == native.block_hashes
++    )
+ 
+ 
+ def test_request_status_fmt_str():
+--- /dev/null
++++ b/vllm/_session_prefix.pyi
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: Apache-2.0
++# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
++
++def token_lcp(a: list[int], b: list[int], length: int) -> int: ...
+--- a/vllm/config/cache.py
++++ b/vllm/config/cache.py
+@@ -253,6 +253,10 @@
+     `ModelConfig` and that value should be manually duplicated here."""
+     enable_prefix_caching: bool = True
+     """Whether to enable prefix caching."""
++    session_hash_cache_mb: int = Field(default=0, ge=0)
++    """Per-engine CPU session prompt/hash history budget in MiB.
++    Zero disables it. This does not reserve or retain physical KV blocks.
++    """
+     prefix_caching_hash_algo: PrefixCachingHashAlgo = "sha256"
+     """Set the hash algorithm for prefix caching:
+ 
+@@ -400,6 +404,7 @@
+         the final hidden states.
+         """
+         ignored_factors = {
++            "session_hash_cache_mb",
+             # Runtime/derived knobs that don't affect compiled graph shape
+             "gpu_memory_utilization",
+             "kv_cache_memory_bytes",
+--- a/vllm/engine/arg_utils.py
++++ b/vllm/engine/arg_utils.py
+@@ -678,6 +678,7 @@
+     io_processor_plugin: str | None = None
+     renderer_num_workers: int = 1
+     session_token_cache_mb: int = 0
++    session_hash_cache_mb: int = 0
+     skip_mm_profiling: bool = MultiModalConfig.skip_mm_profiling
+     video_pruning_rate: float | None = MultiModalConfig.video_pruning_rate
+     video_pruning_method: str = MultiModalConfig.video_pruning_method
+@@ -1405,6 +1406,9 @@
+         )
+         cache_group.add_argument(
+             "--prefix-caching-hash-algo", **cache_kwargs["prefix_caching_hash_algo"]
++        )
++        cache_group.add_argument(
++            "--session-hash-cache-mb", **cache_kwargs["session_hash_cache_mb"]
+         )
+         cache_group.add_argument(
+             "--prefix-cache-retention-interval",
+@@ -2312,6 +2316,7 @@
+             num_gpu_blocks_override=self.num_gpu_blocks_override,
+             sliding_window=sliding_window,
+             enable_prefix_caching=self.enable_prefix_caching,
++            session_hash_cache_mb=self.session_hash_cache_mb,
+             prefix_caching_hash_algo=self.prefix_caching_hash_algo,
+             prefix_cache_retention_interval=self.prefix_cache_retention_interval,
+             kv_cache_dtype_skip_layers=self.kv_cache_dtype_skip_layers,
+--- /dev/null
++++ b/vllm/v1/core/session_prefix.py
+@@ -0,0 +1,105 @@
++# SPDX-License-Identifier: Apache-2.0
++# SPDX-FileCopyrightText: Copyright contributors to the vLLM project
++"""Session-selected prompt hash snapshots; never retains physical KV blocks."""
++
++import struct
++import sys
++import threading
++from collections import Counter
++from dataclasses import dataclass
++
++from vllm.logger import init_logger
++from vllm.utils.session_prefix import SessionPrefixStore, token_bytes
++from vllm.v1.core import kv_cache_utils
++from vllm.v1.core.kv_cache_utils import BlockHash
++from vllm.v1.engine import EngineCoreRequest
++from vllm.v1.request import Request
++
++logger = init_logger(__name__)
++
++
++@dataclass(frozen=True)
++class HashSnapshot:
++    ids: list[int]
++    hashes: list[BlockHash]
++
++
++class SessionHashCache:
++    @classmethod
++    def create(cls, capacity: int, block_size: int) -> "SessionHashCache | None":
++        try:
++            return cls(capacity, block_size)
++        except ImportError as exc:
++            logger.warning("Session hash cache disabled: %s", exc)
++            return None
++
++    def __init__(self, capacity: int, block_size: int):
++        from vllm import _session_prefix
++
++        self.helper = _session_prefix
++        self.block_size = block_size
++        self.none_hash = kv_cache_utils.NONE_HASH
++        self.store: SessionPrefixStore[HashSnapshot] = SessionPrefixStore(capacity)
++        self.stats: Counter[str] = Counter()
++        self._stats_lock = threading.Lock()
++
++    @staticmethod
++    def eligible(request: EngineCoreRequest) -> bool:
++        return bool(
++            request.session_id
++            and type(request.prompt_token_ids) is list
++            and request.prompt_embeds is None
++            and request.prompt_is_token_ids is None
++            and not request.mm_features
++            and request.lora_request is None
++            and not request.resumable
++            and request.pooling_params is None
++            and request.sampling_params is not None
++        )
++
++    def prefix(self, request: EngineCoreRequest) -> tuple[int, list[BlockHash]] | None:
++        if not self.eligible(request) or self.none_hash != kv_cache_utils.NONE_HASH:
++            return None
++        key = (request.cache_salt, request.session_id)
++        with self.store.borrow(key) as old:
++            if old is None:
++                return None
++            ids = request.prompt_token_ids
++            assert ids is not None
++            limit = min(len(old.hashes), len(ids) // self.block_size) * self.block_size
++            try:
++                count = self.helper.token_lcp(ids, old.ids, limit) // self.block_size
++            except (OverflowError, ValueError):
++                return None
++            with self._stats_lock:
++                self.stats["reused_blocks"] += count
++            logger.debug("Session hash reuse: reused_blocks=%d", count)
++            return (self.block_size, old.hashes[:count]) if count else None
++
++    def publish(self, request: EngineCoreRequest, result: Request, epoch: int) -> None:
++        if (
++            not self.eligible(request)
++            or epoch != self.store.epoch
++            or self.none_hash != kv_cache_utils.NONE_HASH
++        ):
++            return
++        ids = request.prompt_token_ids
++        assert ids is not None
++        hashes = result.block_hashes
++        key = (request.cache_salt, request.session_id)
++        size = (
++            1024
++            + sum(map(sys.getsizeof, key))
++            + token_bytes(ids)
++            + sys.getsizeof([])
++            + len(hashes) * struct.calcsize("P")
++            + sum(map(sys.getsizeof, hashes))
++        )
++        reservation = self.store.reserve(key, size)
++        if reservation is not None:
++            try:
++                snapshot = HashSnapshot(ids.copy(), hashes.copy())
++                if reservation.epoch == epoch:
++                    reservation.commit(snapshot, size)
++            finally:
++                reservation.cancel()
+--- a/vllm/v1/engine/core.py
++++ b/vllm/v1/engine/core.py
+@@ -4,6 +4,7 @@
+ import os
+ import queue
+ import signal
++import sysconfig
+ import threading
+ import time
+ from collections import defaultdict, deque
+@@ -224,6 +225,21 @@
+                 hash_block_size, caching_hash_fn
+             )
+ 
++        self.session_hash_cache = None
++        if (
++            vllm_config.cache_config.session_hash_cache_mb
++            and self.request_block_hasher is not None
++            and kv_connector is None
++            and vllm_config.lora_config is None
++            and not vllm_config.model_config.is_encoder_decoder
++            and not sysconfig.get_config_var("Py_GIL_DISABLED")
++        ):
++            from vllm.v1.core.session_prefix import SessionHashCache
++
++            self.session_hash_cache = SessionHashCache.create(
++                vllm_config.cache_config.session_hash_cache_mb << 20, hash_block_size
++            )
++
+         self.step_fn = (
+             self.step if self.batch_queue is None else self.step_with_batch_queue
+         )
+@@ -823,6 +839,8 @@
+ 
+     def shutdown(self):
+         logger.debug_once("[shutdown] EngineCore: tearing down local resources")
++        if self.session_hash_cache is not None:
++            self.session_hash_cache.store.clear(close=True)
+         self.structured_output_manager.clear_backend()
+         if self.model_executor:
+             self.model_executor.shutdown()
+@@ -871,6 +889,13 @@
+     def reset_prefix_cache(
+         self, reset_running_requests: bool = False, reset_connector: bool = False
+     ) -> bool:
++        if self.session_hash_cache is not None:
++            self.session_hash_cache.store.clear()
++            logger.debug(
++                "Session hash history reset: epoch=%d bytes=%d",
++                self.session_hash_cache.store.epoch,
++                self.session_hash_cache.store.bytes_used,
++            )
+         return self.scheduler.reset_prefix_cache(
+             reset_running_requests, reset_connector
+         )
+@@ -1105,6 +1130,8 @@
+         return self.model_executor.collective_rpc(method, timeout, args, kwargs)
+ 
+     def set_weight_version(self, weight_version: str) -> None:
++        if self.session_hash_cache is not None:
++            self.session_hash_cache.store.clear()
+         self._weight_version = weight_version
+ 
+     def get_weight_version(self) -> str:
+@@ -1125,7 +1152,12 @@
+                 request.mm_features
+             )
+ 
+-        req = Request.from_engine_core_request(request, self.request_block_hasher)
++        cache = self.session_hash_cache
++        epoch = cache.store.epoch if cache is not None else 0
++        initial_hashes = cache.prefix(request) if cache is not None else None
++        req = Request.from_engine_core_request(
++            request, self.request_block_hasher, initial_block_hashes=initial_hashes
++        )
+         if req.use_structured_output:
+             # Note on thread safety: no race condition.
+             # `grammar_init` is only invoked in input processing thread. For
+@@ -1133,6 +1165,8 @@
+             # grammar compilation is async. Scheduler always checks grammar
+             # compilation status before scheduling request.
+             self.structured_output_manager.grammar_init(req)
++        if cache is not None:
++            cache.publish(request, req, epoch)
+         return req, request.current_wave
+ 
+     def _eep_scale_up_before_kv_init(self):
+--- a/vllm/v1/request.py
++++ b/vllm/v1/request.py
+@@ -80,6 +80,7 @@
+         reasoning_parser_kwargs: dict[str, Any] | None = None,
+         abort_immediately: bool = False,
+         kv_hints: KvHintsEnvelope | None = None,
++        initial_block_hashes: tuple[int, list["BlockHash"]] | None = None,
+     ) -> None:
+         self.request_id = request_id
+         self.client_index = client_index
+@@ -223,6 +224,21 @@
+         self.spec_decode_metrics: RequestSpecDecodeMetrics | None = None
+ 
+         self.block_hashes: list[BlockHash] = []
++        if initial_block_hashes is not None:
++            block_size, hashes = initial_block_hashes
++            if (
++                block_hasher is None
++                or block_size <= 0
++                or len(hashes) > self.num_prompt_tokens // block_size
++                or prompt_token_ids is None
++                or prompt_embeds is not None
++                or prompt_is_token_ids is not None
++                or self.mm_features
++                or lora_request is not None
++                or resumable
++            ):
++                raise ValueError("invalid initial prompt block hashes")
++            self.block_hashes = hashes.copy()
+         # Store the block hasher without binding self to avoid creating a
+         # reference cycle (Request -> partial -> Request) that prevents
+         # immediate garbage collection via reference counting.
+@@ -245,6 +261,7 @@
+         cls,
+         request: EngineCoreRequest,
+         block_hasher: Callable[["Request"], list["BlockHash"]] | None,
++        initial_block_hashes: tuple[int, list["BlockHash"]] | None = None,
+     ) -> "Request":
+         return cls(
+             request_id=request.request_id,
+@@ -261,6 +278,7 @@
+             priority=request.priority,
+             trace_headers=request.trace_headers,
+             block_hasher=block_hasher,
++            initial_block_hashes=initial_block_hashes,
+             resumable=request.resumable,
+             session_id=request.session_id,
+             kv_hints=request.kv_hints,

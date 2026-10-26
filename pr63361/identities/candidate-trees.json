@@ -1,0 +1,23 @@
+{
+  "V1": {
+    "git_tree_sha": "77222e382866e588680bdbc9bfd1202000e77e2d",
+    "source_manifest_sha256": "c031b52d74166632a133b4f679cea00735603b2a8abb76ed3258aeaf48a4cc7a",
+    "base": "be08fa5355a049b838803540211fed5647490b39",
+    "commit_created": false,
+    "original_index_untouched": true
+  },
+  "V2": {
+    "git_tree_sha": "a06fb67442ae2dd23783bfd72297037fd74283e5",
+    "source_manifest_sha256": "b34486a371511b2682f17f5e9031e18a8189595935fc67700fc48455de19a0b2",
+    "base": "be08fa5355a049b838803540211fed5647490b39",
+    "commit_created": false,
+    "original_index_untouched": true
+  },
+  "V3": {
+    "git_tree_sha": "f6c7fe28a6732a72f3fbee3ca9cad942f274369d",
+    "source_manifest_sha256": "6bf420cc7d6e0746df74a8950e992ca1cf739ed38bc31b266046111580460ab6",
+    "base": "be08fa5355a049b838803540211fed5647490b39",
+    "commit_created": false,
+    "original_index_untouched": true
+  }
+}

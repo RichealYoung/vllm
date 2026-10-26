@@ -1,0 +1,290 @@
+[
+  {
+    "workload": "coding",
+    "block": 1,
+    "position": 1,
+    "letter": "A",
+    "stage": "N",
+    "order": "ABDC",
+    "relative_output": "runs-001/coding/block-1/pos-1-N"
+  },
+  {
+    "workload": "coding",
+    "block": 1,
+    "position": 2,
+    "letter": "B",
+    "stage": "V1",
+    "order": "ABDC",
+    "relative_output": "runs-001/coding/block-1/pos-2-V1"
+  },
+  {
+    "workload": "coding",
+    "block": 1,
+    "position": 3,
+    "letter": "D",
+    "stage": "V3",
+    "order": "ABDC",
+    "relative_output": "runs-001/coding/block-1/pos-3-V3"
+  },
+  {
+    "workload": "coding",
+    "block": 1,
+    "position": 4,
+    "letter": "C",
+    "stage": "V2",
+    "order": "ABDC",
+    "relative_output": "runs-001/coding/block-1/pos-4-V2"
+  },
+  {
+    "workload": "coding",
+    "block": 2,
+    "position": 1,
+    "letter": "B",
+    "stage": "V1",
+    "order": "BCAD",
+    "relative_output": "runs-001/coding/block-2/pos-1-V1"
+  },
+  {
+    "workload": "coding",
+    "block": 2,
+    "position": 2,
+    "letter": "C",
+    "stage": "V2",
+    "order": "BCAD",
+    "relative_output": "runs-001/coding/block-2/pos-2-V2"
+  },
+  {
+    "workload": "coding",
+    "block": 2,
+    "position": 3,
+    "letter": "A",
+    "stage": "N",
+    "order": "BCAD",
+    "relative_output": "runs-001/coding/block-2/pos-3-N"
+  },
+  {
+    "workload": "coding",
+    "block": 2,
+    "position": 4,
+    "letter": "D",
+    "stage": "V3",
+    "order": "BCAD",
+    "relative_output": "runs-001/coding/block-2/pos-4-V3"
+  },
+  {
+    "workload": "coding",
+    "block": 3,
+    "position": 1,
+    "letter": "C",
+    "stage": "V2",
+    "order": "CDBA",
+    "relative_output": "runs-001/coding/block-3/pos-1-V2"
+  },
+  {
+    "workload": "coding",
+    "block": 3,
+    "position": 2,
+    "letter": "D",
+    "stage": "V3",
+    "order": "CDBA",
+    "relative_output": "runs-001/coding/block-3/pos-2-V3"
+  },
+  {
+    "workload": "coding",
+    "block": 3,
+    "position": 3,
+    "letter": "B",
+    "stage": "V1",
+    "order": "CDBA",
+    "relative_output": "runs-001/coding/block-3/pos-3-V1"
+  },
+  {
+    "workload": "coding",
+    "block": 3,
+    "position": 4,
+    "letter": "A",
+    "stage": "N",
+    "order": "CDBA",
+    "relative_output": "runs-001/coding/block-3/pos-4-N"
+  },
+  {
+    "workload": "coding",
+    "block": 4,
+    "position": 1,
+    "letter": "D",
+    "stage": "V3",
+    "order": "DACB",
+    "relative_output": "runs-001/coding/block-4/pos-1-V3"
+  },
+  {
+    "workload": "coding",
+    "block": 4,
+    "position": 2,
+    "letter": "A",
+    "stage": "N",
+    "order": "DACB",
+    "relative_output": "runs-001/coding/block-4/pos-2-N"
+  },
+  {
+    "workload": "coding",
+    "block": 4,
+    "position": 3,
+    "letter": "C",
+    "stage": "V2",
+    "order": "DACB",
+    "relative_output": "runs-001/coding/block-4/pos-3-V2"
+  },
+  {
+    "workload": "coding",
+    "block": 4,
+    "position": 4,
+    "letter": "B",
+    "stage": "V1",
+    "order": "DACB",
+    "relative_output": "runs-001/coding/block-4/pos-4-V1"
+  },
+  {
+    "workload": "independent",
+    "block": 1,
+    "position": 1,
+    "letter": "A",
+    "stage": "N",
+    "order": "ABDC",
+    "relative_output": "runs-001/independent/block-1/pos-1-N"
+  },
+  {
+    "workload": "independent",
+    "block": 1,
+    "position": 2,
+    "letter": "B",
+    "stage": "V1",
+    "order": "ABDC",
+    "relative_output": "runs-001/independent/block-1/pos-2-V1"
+  },
+  {
+    "workload": "independent",
+    "block": 1,
+    "position": 3,
+    "letter": "D",
+    "stage": "V3",
+    "order": "ABDC",
+    "relative_output": "runs-001/independent/block-1/pos-3-V3"
+  },
+  {
+    "workload": "independent",
+    "block": 1,
+    "position": 4,
+    "letter": "C",
+    "stage": "V2",
+    "order": "ABDC",
+    "relative_output": "runs-001/independent/block-1/pos-4-V2"
+  },
+  {
+    "workload": "independent",
+    "block": 2,
+    "position": 1,
+    "letter": "B",
+    "stage": "V1",
+    "order": "BCAD",
+    "relative_output": "runs-001/independent/block-2/pos-1-V1"
+  },
+  {
+    "workload": "independent",
+    "block": 2,
+    "position": 2,
+    "letter": "C",
+    "stage": "V2",
+    "order": "BCAD",
+    "relative_output": "runs-001/independent/block-2/pos-2-V2"
+  },
+  {
+    "workload": "independent",
+    "block": 2,
+    "position": 3,
+    "letter": "A",
+    "stage": "N",
+    "order": "BCAD",
+    "relative_output": "runs-001/independent/block-2/pos-3-N"
+  },
+  {
+    "workload": "independent",
+    "block": 2,
+    "position": 4,
+    "letter": "D",
+    "stage": "V3",
+    "order": "BCAD",
+    "relative_output": "runs-001/independent/block-2/pos-4-V3"
+  },
+  {
+    "workload": "independent",
+    "block": 3,
+    "position": 1,
+    "letter": "C",
+    "stage": "V2",
+    "order": "CDBA",
+    "relative_output": "runs-001/independent/block-3/pos-1-V2"
+  },
+  {
+    "workload": "independent",
+    "block": 3,
+    "position": 2,
+    "letter": "D",
+    "stage": "V3",
+    "order": "CDBA",
+    "relative_output": "runs-001/independent/block-3/pos-2-V3"
+  },
+  {
+    "workload": "independent",
+    "block": 3,
+    "position": 3,
+    "letter": "B",
+    "stage": "V1",
+    "order": "CDBA",
+    "relative_output": "runs-001/independent/block-3/pos-3-V1"
+  },
+  {
+    "workload": "independent",
+    "block": 3,
+    "position": 4,
+    "letter": "A",
+    "stage": "N",
+    "order": "CDBA",
+    "relative_output": "runs-001/independent/block-3/pos-4-N"
+  },
+  {
+    "workload": "independent",
+    "block": 4,
+    "position": 1,
+    "letter": "D",
+    "stage": "V3",
+    "order": "DACB",
+    "relative_output": "runs-001/independent/block-4/pos-1-V3"
+  },
+  {
+    "workload": "independent",
+    "block": 4,
+    "position": 2,
+    "letter": "A",
+    "stage": "N",
+    "order": "DACB",
+    "relative_output": "runs-001/independent/block-4/pos-2-N"
+  },
+  {
+    "workload": "independent",
+    "block": 4,
+    "position": 3,
+    "letter": "C",
+    "stage": "V2",
+    "order": "DACB",
+    "relative_output": "runs-001/independent/block-4/pos-3-V2"
+  },
+  {
+    "workload": "independent",
+    "block": 4,
+    "position": 4,
+    "letter": "B",
+    "stage": "V1",
+    "order": "DACB",
+    "relative_output": "runs-001/independent/block-4/pos-4-V1"
+  }
+]

@@ -1,0 +1,3858 @@
+{
+  "purpose": "post_hoc_existing_records_only",
+  "new_experiment": false,
+  "threshold_not_preregistered": true,
+  "rule": "round indices 5..19, sort four client start_ns values, count adjacent gaps <50ms",
+  "frontend_cpu_block_mean_percent": -25.13138300288199,
+  "frontend_cpu_N_mean_ms_per_request": 389.53124999999994,
+  "frontend_cpu_V1_mean_ms_per_request": 291.6875,
+  "paired_frontend_cpu": [
+    {
+      "block": 1,
+      "N_frontend_cpu_s": 29.779999999999998,
+      "V1_frontend_cpu_s": 22.320000000000004,
+      "frontend_cpu_percent": -25.050369375419724,
+      "frontend_cpu_difference_ms_per_request": -93.24999999999991,
+      "engine_core_cpu_difference_s": -1.6500000000000057
+    },
+    {
+      "block": 2,
+      "N_frontend_cpu_s": 32.14,
+      "V1_frontend_cpu_s": 24.910000000000004,
+      "frontend_cpu_percent": -22.495332918481637,
+      "frontend_cpu_difference_ms_per_request": -90.37499999999997,
+      "engine_core_cpu_difference_s": -1.1099999999999994
+    },
+    {
+      "block": 3,
+      "N_frontend_cpu_s": 31.269999999999996,
+      "V1_frontend_cpu_s": 23.46,
+      "frontend_cpu_percent": -24.976015350175874,
+      "frontend_cpu_difference_ms_per_request": -97.62499999999994,
+      "engine_core_cpu_difference_s": -3.3100000000000023
+    },
+    {
+      "block": 4,
+      "N_frontend_cpu_s": 31.459999999999994,
+      "V1_frontend_cpu_s": 22.65,
+      "frontend_cpu_percent": -28.00381436745072,
+      "frontend_cpu_difference_ms_per_request": -110.12499999999993,
+      "engine_core_cpu_difference_s": -5.240000000000009
+    }
+  ],
+  "runs": [
+    {
+      "stage": "N",
+      "block": 1,
+      "run": "runs-001/coding/block-1/pos-1-N",
+      "frontend_cpu_s": 29.779999999999998,
+      "frontend_cpu_s_per_request": 0.37224999999999997,
+      "engine_core_cpu_s": 66.96000000000001,
+      "mean_first_output_chunk_ms": 629.090801575,
+      "adjacent_start_pairs_under_50ms": 45,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.318446,
+            17.018702,
+            2.299929
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            27.73031,
+            19.642709,
+            5.378781
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            30.933649,
+            20.014312,
+            2.453777
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            29.864939,
+            10.023114,
+            4.094613
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            30.910817,
+            12.071105,
+            6.195363
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            31.159916,
+            11.26016,
+            4.3841
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.659221,
+            19.351231,
+            5.360889
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            34.17483,
+            10.976854,
+            4.800976
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            33.797579,
+            6.74722,
+            8.38643
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.36502,
+            27.317942,
+            7.334083
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.054952,
+            22.936959,
+            19.599407
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            40.811143,
+            24.453187,
+            16.728935
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.127258,
+            25.122077,
+            18.256434
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.550496,
+            22.287946,
+            14.695091
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.445144,
+            12.59809,
+            4.621649
+          ],
+          "adjacent_pairs_under_50ms": 3
+        }
+      ]
+    },
+    {
+      "stage": "V1",
+      "block": 1,
+      "run": "runs-001/coding/block-1/pos-2-V1",
+      "frontend_cpu_s": 22.320000000000004,
+      "frontend_cpu_s_per_request": 0.279,
+      "engine_core_cpu_s": 65.31,
+      "mean_first_output_chunk_ms": 459.0099793375,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.640699,
+            402.959857,
+            15.205097
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.285298,
+            481.176157,
+            13.056849
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            3.360616,
+            453.14822,
+            14.4904
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            2.77525,
+            439.096389,
+            14.401341
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            6.050107,
+            421.349048,
+            6.265027
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            5.789278,
+            455.815227,
+            8.575913
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.340563,
+            486.831403,
+            4.734927
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.571473,
+            554.73669,
+            17.028214
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            4.318078,
+            584.298799,
+            17.609433
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.201526,
+            569.627353,
+            6.273615
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            3.404468,
+            624.023799,
+            8.898831
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            22.067104,
+            643.807659,
+            18.963992
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            3.741764,
+            648.193259,
+            4.132815
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            7.133247,
+            720.654753,
+            6.316402
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.459003,
+            768.331251,
+            7.646874
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V3",
+      "block": 1,
+      "run": "runs-001/coding/block-1/pos-3-V3",
+      "frontend_cpu_s": 22.99,
+      "frontend_cpu_s_per_request": 0.287375,
+      "engine_core_cpu_s": 65.52,
+      "mean_first_output_chunk_ms": 412.2281827625,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.564043,
+            415.869845,
+            14.774876
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.145942,
+            427.917185,
+            14.07253
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.522944,
+            441.407555,
+            15.190752
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.190063,
+            454.532209,
+            15.979632
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.512378,
+            468.998509,
+            15.141684
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.335771,
+            471.82945,
+            16.795385
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.974392,
+            518.614828,
+            7.513561
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.118961,
+            562.528061,
+            7.619076
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.590521,
+            651.324009,
+            18.73692
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.689514,
+            694.003905,
+            18.309489
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.380287,
+            769.895645,
+            3.658726
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.387226,
+            821.70344,
+            20.685333
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.725371,
+            813.900669,
+            19.877969
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            27.708031,
+            854.556458,
+            27.563003
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            25.283953,
+            840.19615,
+            46.999648
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V2",
+      "block": 1,
+      "run": "runs-001/coding/block-1/pos-4-V2",
+      "frontend_cpu_s": 22.790000000000006,
+      "frontend_cpu_s_per_request": 0.2848750000000001,
+      "engine_core_cpu_s": 63.78999999999999,
+      "mean_first_output_chunk_ms": 407.407978425,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.153254,
+            370.121333,
+            13.241293
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.655355,
+            404.268425,
+            15.182505
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.113058,
+            409.190301,
+            14.917784
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.19619,
+            391.559793,
+            16.646255
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.861284,
+            417.487445,
+            16.420914
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.852754,
+            490.698541,
+            15.456802
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.040441,
+            503.773853,
+            18.348132
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.266855,
+            540.636406,
+            18.991217
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.8043,
+            544.547067,
+            17.557044
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.575901,
+            586.375217,
+            18.224805
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.908309,
+            594.297418,
+            18.852317
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            22.253292,
+            612.006487,
+            19.606067
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.409707,
+            630.603993,
+            21.044955
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.53925,
+            664.588691,
+            18.546213
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.061578,
+            745.414248,
+            22.649005
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V1",
+      "block": 2,
+      "run": "runs-001/coding/block-2/pos-1-V1",
+      "frontend_cpu_s": 24.910000000000004,
+      "frontend_cpu_s_per_request": 0.31137500000000007,
+      "engine_core_cpu_s": 71.82,
+      "mean_first_output_chunk_ms": 487.5907954375,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.640568,
+            371.263916,
+            5.432454
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            13.92323,
+            402.690409,
+            4.345833
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            3.204992,
+            401.273031,
+            5.276938
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            5.871127,
+            463.789604,
+            15.081818
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            5.91217,
+            434.083417,
+            16.962925
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            5.873234,
+            452.164867,
+            9.791142
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            6.107294,
+            495.606783,
+            6.206806
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            18.358167,
+            545.982109,
+            6.417147
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            18.358176,
+            589.81706,
+            8.953201
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            22.476872,
+            625.946346,
+            5.798865
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            21.75052,
+            640.327943,
+            6.843085
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            6.095017,
+            652.198451,
+            7.626763
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            5.031209,
+            671.584739,
+            6.946747
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            19.777325,
+            687.55104,
+            22.267714
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            21.259832,
+            688.001448,
+            7.339884
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V2",
+      "block": 2,
+      "run": "runs-001/coding/block-2/pos-2-V2",
+      "frontend_cpu_s": 25.970000000000002,
+      "frontend_cpu_s_per_request": 0.32462500000000005,
+      "engine_core_cpu_s": 73.24,
+      "mean_first_output_chunk_ms": 433.8521293375,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.161814,
+            346.651037,
+            7.581331
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.01886,
+            364.08257,
+            14.247491
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.109077,
+            376.865636,
+            14.330478
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            6.136982,
+            411.390255,
+            8.187695
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            5.784539,
+            415.142424,
+            6.751518
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            4.895542,
+            430.192081,
+            16.955237
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.019077,
+            429.725161,
+            15.37522
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.523833,
+            425.966174,
+            17.745811
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.445908,
+            414.007562,
+            21.288658
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.506384,
+            461.538962,
+            6.479837
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.355338,
+            473.060254,
+            12.401072
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.233347,
+            480.85435,
+            20.407578
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.572293,
+            492.421663,
+            8.549325
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.380316,
+            506.615711,
+            20.777994
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.970365,
+            502.149995,
+            19.525033
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "N",
+      "block": 2,
+      "run": "runs-001/coding/block-2/pos-3-N",
+      "frontend_cpu_s": 32.14,
+      "frontend_cpu_s_per_request": 0.40175,
+      "engine_core_cpu_s": 72.92999999999999,
+      "mean_first_output_chunk_ms": 645.537512425,
+      "adjacent_start_pairs_under_50ms": 45,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            27.182624,
+            17.212932,
+            11.318539
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            25.709277,
+            16.400627,
+            5.801168
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            29.16391,
+            4.882983,
+            4.968531
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.979499,
+            13.923532,
+            6.642387
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            30.658453,
+            21.290011,
+            13.798058
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.013849,
+            20.183366,
+            14.379505
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            33.891806,
+            20.07906,
+            6.045813
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            34.998906,
+            14.175799,
+            7.500731
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.839539,
+            23.332606,
+            13.237348
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            36.125354,
+            22.174451,
+            21.663633
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            34.736364,
+            23.481117,
+            18.846002
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            37.738397,
+            24.640589,
+            7.059023
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            42.147628,
+            24.246006,
+            13.247994
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.756908,
+            24.825728,
+            15.153917
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            40.497794,
+            26.605719,
+            7.142819
+          ],
+          "adjacent_pairs_under_50ms": 3
+        }
+      ]
+    },
+    {
+      "stage": "V3",
+      "block": 2,
+      "run": "runs-001/coding/block-2/pos-4-V3",
+      "frontend_cpu_s": 24.24,
+      "frontend_cpu_s_per_request": 0.303,
+      "engine_core_cpu_s": 68.77,
+      "mean_first_output_chunk_ms": 417.6598370625,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            13.164219,
+            341.897059,
+            14.265136
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            13.578397,
+            356.672989,
+            14.247934
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            14.307583,
+            375.880042,
+            5.889696
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            16.347935,
+            413.229491,
+            14.931925
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            16.035541,
+            422.015812,
+            15.964009
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            16.061127,
+            432.430209,
+            19.158526
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            15.850543,
+            447.925269,
+            17.658553
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            16.295569,
+            428.800608,
+            16.509682
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            16.843572,
+            472.00513,
+            19.301172
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            18.634998,
+            490.070291,
+            16.466408
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            20.408063,
+            494.844449,
+            18.973868
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            18.99431,
+            524.555579,
+            20.839285
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            21.228143,
+            549.929104,
+            20.271877
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            22.841271,
+            560.59207,
+            21.925316
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            3,
+            2
+          ],
+          "adjacent_start_gaps_ms": [
+            23.021937,
+            636.999231,
+            20.750826
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V2",
+      "block": 3,
+      "run": "runs-001/coding/block-3/pos-1-V2",
+      "frontend_cpu_s": 24.4,
+      "frontend_cpu_s_per_request": 0.305,
+      "engine_core_cpu_s": 68.57000000000001,
+      "mean_first_output_chunk_ms": 420.1639007,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.953511,
+            393.885726,
+            14.535622
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.011732,
+            434.223508,
+            16.700353
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.481614,
+            474.980859,
+            15.108115
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.513682,
+            491.296954,
+            15.61315
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.832575,
+            506.028273,
+            16.196706
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.231308,
+            531.61697,
+            18.437935
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.143122,
+            534.171493,
+            17.705876
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.792455,
+            535.4316,
+            16.756432
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.528563,
+            548.025924,
+            17.845567
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.312454,
+            538.838833,
+            18.960788
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.461717,
+            546.076986,
+            18.356223
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.793651,
+            580.353372,
+            17.891468
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.754609,
+            578.083718,
+            19.812804
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            22.535722,
+            560.925344,
+            21.594139
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.213432,
+            588.774361,
+            21.018821
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V3",
+      "block": 3,
+      "run": "runs-001/coding/block-3/pos-2-V3",
+      "frontend_cpu_s": 24.64,
+      "frontend_cpu_s_per_request": 0.308,
+      "engine_core_cpu_s": 69.71000000000001,
+      "mean_first_output_chunk_ms": 418.17553192500003,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.522351,
+            391.17048,
+            14.174569
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.84974,
+            428.306159,
+            15.843268
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.862492,
+            437.349095,
+            16.064414
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.573985,
+            447.586032,
+            17.184534
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.6267,
+            447.516882,
+            16.403819
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.670328,
+            463.640782,
+            16.20511
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.354723,
+            459.467424,
+            19.390865
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.927346,
+            411.162253,
+            17.491647
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.929296,
+            399.940349,
+            3.240702
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.474024,
+            432.369536,
+            8.278169
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.120822,
+            488.196344,
+            18.209707
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.298253,
+            503.144162,
+            20.306894
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.853274,
+            516.981772,
+            18.903289
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.533359,
+            519.295863,
+            23.651294
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.894563,
+            532.718443,
+            22.064479
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V1",
+      "block": 3,
+      "run": "runs-001/coding/block-3/pos-3-V1",
+      "frontend_cpu_s": 23.46,
+      "frontend_cpu_s_per_request": 0.29325,
+      "engine_core_cpu_s": 67.4,
+      "mean_first_output_chunk_ms": 483.1179912125,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            13.798982,
+            420.443904,
+            4.89332
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.657912,
+            427.245619,
+            14.647681
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.24136,
+            397.330872,
+            15.729555
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.48529,
+            424.455533,
+            15.627464
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.333127,
+            431.339123,
+            7.268737
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            2.940306,
+            478.76543,
+            6.323046
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.548793,
+            517.994275,
+            6.303134
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.647874,
+            563.48131,
+            6.704932
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.068221,
+            595.413194,
+            6.52453
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            3.148817,
+            635.909877,
+            6.591763
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            6.386436,
+            636.469287,
+            3.031221
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            6.83393,
+            591.07656,
+            9.708692
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            7.562653,
+            615.935037,
+            7.523822
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            4.601869,
+            624.797287,
+            7.964349
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            7.393466,
+            584.005445,
+            3.272747
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "N",
+      "block": 3,
+      "run": "runs-001/coding/block-3/pos-4-N",
+      "frontend_cpu_s": 31.269999999999996,
+      "frontend_cpu_s_per_request": 0.390875,
+      "engine_core_cpu_s": 70.71000000000001,
+      "mean_first_output_chunk_ms": 644.15531205,
+      "adjacent_start_pairs_under_50ms": 45,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            27.171986,
+            18.100465,
+            2.550698
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.734803,
+            18.183501,
+            11.520082
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            29.44106,
+            18.963368,
+            3.967589
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            31.136137,
+            21.343886,
+            7.943031
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.546642,
+            21.130463,
+            6.296598
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            31.872527,
+            20.586577,
+            6.43412
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            33.556286,
+            25.006888,
+            6.301817
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.193367,
+            21.563025,
+            6.656595
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            36.568012,
+            20.675574,
+            6.751083
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            30.812639,
+            24.506174,
+            9.658271
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            37.983917,
+            32.792939,
+            3.343289
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            37.259936,
+            24.887216,
+            6.98434
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.600548,
+            27.697039,
+            7.011805
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.160648,
+            26.270139,
+            7.124745
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.040415,
+            14.888971,
+            7.646686
+          ],
+          "adjacent_pairs_under_50ms": 3
+        }
+      ]
+    },
+    {
+      "stage": "V3",
+      "block": 4,
+      "run": "runs-001/coding/block-4/pos-1-V3",
+      "frontend_cpu_s": 24.79,
+      "frontend_cpu_s_per_request": 0.309875,
+      "engine_core_cpu_s": 69.72,
+      "mean_first_output_chunk_ms": 436.2405460375,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.179139,
+            370.201161,
+            13.288296
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.243045,
+            385.468745,
+            15.633645
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            14.678774,
+            402.275334,
+            16.483006
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.529518,
+            396.87653,
+            14.979786
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.181537,
+            404.233493,
+            17.005983
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.801615,
+            419.153235,
+            15.951734
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.084014,
+            440.712336,
+            18.424979
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.105914,
+            452.101989,
+            17.024702
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.732288,
+            464.014994,
+            4.093888
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.460671,
+            465.868803,
+            19.453208
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.164446,
+            459.668401,
+            16.329851
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            6.743169,
+            474.881042,
+            9.269897
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.65676,
+            507.537075,
+            9.065306
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.464986,
+            495.903512,
+            21.960669
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.134416,
+            530.789432,
+            21.847629
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "N",
+      "block": 4,
+      "run": "runs-001/coding/block-4/pos-2-N",
+      "frontend_cpu_s": 31.459999999999994,
+      "frontend_cpu_s_per_request": 0.39324999999999993,
+      "engine_core_cpu_s": 70.49,
+      "mean_first_output_chunk_ms": 645.5635380374999,
+      "adjacent_start_pairs_under_50ms": 45,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            26.820032,
+            17.602507,
+            10.557993
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.718117,
+            18.978118,
+            5.286657
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            28.288916,
+            18.996229,
+            3.781247
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            29.59949,
+            19.169682,
+            8.379114
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            30.831776,
+            20.381033,
+            15.027746
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            33.619579,
+            20.109027,
+            6.411535
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.825706,
+            21.129588,
+            6.453375
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            34.108792,
+            22.463428,
+            3.030043
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            35.770113,
+            22.735845,
+            3.426563
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            36.964178,
+            24.664611,
+            16.043027
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.667178,
+            24.527895,
+            5.817527
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            38.070083,
+            23.925799,
+            4.942608
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.011145,
+            25.561881,
+            5.602146
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            40.407189,
+            24.300305,
+            13.573043
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            41.763512,
+            26.411233,
+            7.425265
+          ],
+          "adjacent_pairs_under_50ms": 3
+        }
+      ]
+    },
+    {
+      "stage": "V2",
+      "block": 4,
+      "run": "runs-001/coding/block-4/pos-3-V2",
+      "frontend_cpu_s": 23.110000000000007,
+      "frontend_cpu_s_per_request": 0.2888750000000001,
+      "engine_core_cpu_s": 65.42,
+      "mean_first_output_chunk_ms": 425.605295425,
+      "adjacent_start_pairs_under_50ms": 30,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            7.089029,
+            363.438186,
+            5.919133
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            3.967739,
+            368.357298,
+            14.272881
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            5.911585,
+            368.004499,
+            4.136638
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.274112,
+            373.920372,
+            6.131701
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.442357,
+            413.473188,
+            16.676034
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.916762,
+            422.635675,
+            19.828724
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.88121,
+            448.915585,
+            18.143758
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.365776,
+            469.143707,
+            17.12272
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.436326,
+            491.710708,
+            19.343832
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.798639,
+            565.869441,
+            17.768186
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.580428,
+            601.455657,
+            20.251112
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.684785,
+            630.562081,
+            19.659814
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.33821,
+            637.449369,
+            19.814889
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.064307,
+            640.84374,
+            20.767008
+          ],
+          "adjacent_pairs_under_50ms": 2
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.471908,
+            697.92248,
+            21.624421
+          ],
+          "adjacent_pairs_under_50ms": 2
+        }
+      ]
+    },
+    {
+      "stage": "V1",
+      "block": 4,
+      "run": "runs-001/coding/block-4/pos-4-V1",
+      "frontend_cpu_s": 22.65,
+      "frontend_cpu_s_per_request": 0.28312499999999996,
+      "engine_core_cpu_s": 65.24999999999999,
+      "mean_first_output_chunk_ms": 631.5774603000001,
+      "adjacent_start_pairs_under_50ms": 45,
+      "total_adjacent_pairs": 45,
+      "rounds": [
+        {
+          "index": 5,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.288806,
+            2.641149,
+            2.287084
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 6,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            16.40166,
+            5.383697,
+            5.199617
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 7,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            15.367219,
+            2.31277,
+            2.17
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 8,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.099449,
+            2.916723,
+            2.074204
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 9,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            20.466452,
+            6.138189,
+            5.717875
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 10,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            17.912982,
+            4.219401,
+            2.894825
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 11,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            18.656265,
+            3.122358,
+            2.120284
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 12,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.657833,
+            5.52241,
+            3.886399
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 13,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            19.727736,
+            3.057371,
+            2.204875
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 14,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.00547,
+            3.072022,
+            2.144654
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 15,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            21.580559,
+            6.883165,
+            6.920938
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 16,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            22.232768,
+            6.688977,
+            6.544034
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 17,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.11196,
+            7.3173,
+            6.858339
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 18,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.699072,
+            3.437724,
+            3.187732
+          ],
+          "adjacent_pairs_under_50ms": 3
+        },
+        {
+          "index": 19,
+          "ordered_lanes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "adjacent_start_gaps_ms": [
+            23.268553,
+            7.579422,
+            6.916032
+          ],
+          "adjacent_pairs_under_50ms": 3
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Client request-start timing and process CPU are observations, not direct queue telemetry",
+    "Correlation does not establish mediation, causality or a general-arrival TTFT expectation",
+    "No per-request frontend CPU, current cache-hit counter or new profiling was captured"
+  ]
+}

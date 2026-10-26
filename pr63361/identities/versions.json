@@ -1,0 +1,16 @@
+{
+  "base": "be08fa5355a049b838803540211fed5647490b39",
+  "preserved_original_head": "580cf373d7af587f845e518650aef74744dfa359",
+  "final_candidates": "candidate-trees.json",
+  "candidate_ids_are": "Git trees, not commits",
+  "published_commits": null,
+  "measured_source": "measured-{N,V1,V2,V3}.json; original r5 patches under patches/measured-r5",
+  "common_performance_patch_sha256": "70e3bf517fe6e023d0f1eb7957c4f1bba0814d42a3d0aaa07c900f15bdebd977",
+  "final_candidates_include_common_patch": false,
+  "performance_conditions_all_include_common_patch": true,
+  "M2_workload_sha256": "935e387020d27548aba5da24c997c9381a03bd4fc8735e3d1ef5e3c2dd44f833",
+  "original_M2_archive_sha256": "1b230eeb315b85868fc769a88e830d5848c66d14bbb4bed7205dd9a609e54ddb",
+  "original_r5_archive_sha256": "b4e405bf0818009077a6fc3a2f6fe2334c6e43348f87e18b5ef3f46b4d596e88",
+  "original_final_functional_archive_sha256": "4b7a487c041dcc26276549d7da91a90854698547b971f5ebbffeba07c931fa6a",
+  "new_public_client_runtime_validation": "passed; see performance/replay-validation.json; existing server libraries reused, not a clean GPU-stack build"
+}

@@ -1,0 +1,19 @@
+{
+  "case": "independent",
+  "condition": "baseline",
+  "status": "passed",
+  "requests": 80,
+  "warmup_requests": 8,
+  "reused_tokens_from_DEBUG_log": 0,
+  "route_observations": 0,
+  "server_exit": {
+    "returncode": 0,
+    "forced_api_kill": false,
+    "owned_pids": [
+      529623,
+      529624
+    ],
+    "remaining_pids": []
+  },
+  "measurement_valid": true
+}
