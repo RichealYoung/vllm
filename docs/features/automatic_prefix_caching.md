@@ -1,8 +1,8 @@
 # Automatic Prefix Caching
 
 For an opt-in optimization of repeated input CPU work using session Agent
-Hints, see [Session prefix reuse](session_prefix_reuse.md). It reuses token
-prefixes while retaining native KV lookup.
+Hints, see [Session prefix reuse](session_prefix_reuse.md). It independently
+reuses token prefixes and prompt hashes while retaining native KV lookup.
 
 ## Introduction
 

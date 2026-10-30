@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor
 from threading import Event
 from typing import cast
 
+import pytest
+
 from vllm.utils.session_prefix import (
     PrefixContext,
     SessionPrefixStore,
@@ -38,6 +40,94 @@ def test_lcp_matches_character_scan():
         cases.append((a, b))
     for a, b in cases:
         assert lcp(a, b) == lcp(b, a) == reference(a, b)
+
+
+@pytest.mark.parametrize(
+    ("left", "right", "length", "expected"),
+    [
+        ([], [], 0, 0),
+        ([], [1], 0, 0),
+        ([1], [], 0, 0),
+        ([1, 2], [1, 2], 0, 0),
+        ([1, 2], [1, 2], 2, 2),
+        ([1, 2], [9, 2], 2, 0),
+        ([1, 2, 3], [1, 9, 3], 3, 1),
+        ([1, 2, 3], [1, 2, 9], 2, 2),
+        ([1, 2], [1, 2, 3], 2, 2),
+        ([1, 2, 3], [1, 2], 2, 2),
+    ],
+)
+def test_token_lcp_matches_bounded_prefix(left, right, length, expected):
+    from vllm import _session_prefix
+
+    before_left, before_right = left.copy(), right.copy()
+    assert _session_prefix.token_lcp(left, right, length) == expected
+    assert left == before_left and right == before_right
+
+
+@pytest.mark.parametrize("length", [-1, 2, sys.maxsize])
+def test_token_lcp_rejects_invalid_bounds(length):
+    from vllm import _session_prefix
+
+    for left, right in (([1], [1, 2]), ([1, 2], [1])):
+        with pytest.raises(ValueError, match="bounded length"):
+            _session_prefix.token_lcp(left, right, length)
+
+
+@pytest.mark.parametrize("invalid", [None, (1,), "1"])
+def test_token_lcp_rejects_non_lists(invalid):
+    from vllm import _session_prefix
+
+    for left, right in ((invalid, [1]), ([1], invalid)):
+        with pytest.raises(ValueError, match="exact lists"):
+            _session_prefix.token_lcp(cast(list[int], left), cast(list[int], right), 1)
+
+
+@pytest.mark.parametrize(
+    ("invalid", "error"),
+    [
+        (True, ValueError),
+        ("1", ValueError),
+        (1.0, ValueError),
+        (-1, OverflowError),
+        (1 << 300, OverflowError),
+    ],
+)
+def test_token_lcp_rejects_invalid_elements(invalid, error):
+    from vllm import _session_prefix
+
+    # Reach the invalid value after a valid prefix, in either input list.
+    invalid_ids = cast(list[int], [1, invalid])
+    for left, right in ((invalid_ids, [1, 2]), ([1, 2], invalid_ids)):
+        with pytest.raises(error):
+            _session_prefix.token_lcp(left, right, 2)
+        # A failed call leaves no error behind for subsequent valid calls.
+        assert _session_prefix.token_lcp([1, 2], [1, 2], 2) == 2
+
+
+def test_token_lcp_checks_exact_types_and_unsigned_long_range():
+    from vllm import _session_prefix
+
+    class ListSubclass(list):
+        pass
+
+    class IntSubclass(int):
+        pass
+
+    for left, right in ((ListSubclass([1]), [1]), ([1], ListSubclass([1]))):
+        with pytest.raises(ValueError, match="exact lists"):
+            _session_prefix.token_lcp(left, right, 1)
+    for left, right in (([IntSubclass(1)], [1]), ([1], [IntSubclass(1)])):
+        with pytest.raises(ValueError, match="integer token IDs"):
+            _session_prefix.token_lcp(left, right, 1)
+
+    maximum = (1 << (8 * struct.calcsize("L"))) - 1
+    assert _session_prefix.token_lcp([maximum], [int(str(maximum))], 1) == 1
+    for left, right in (([maximum + 1], [1]), ([1], [maximum + 1])):
+        with pytest.raises(OverflowError):
+            _session_prefix.token_lcp(left, right, 1)
+    with pytest.raises(OverflowError):
+        _session_prefix.token_lcp([], [], sys.maxsize + 1)
 
 
 def test_token_accounting_never_understates_owned_list_and_elements():
