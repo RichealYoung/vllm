@@ -11,10 +11,11 @@ After tokenization, EngineCore still computes the prefix-cache hash of every com
 - Opt-in, with a separate CPU memory budget (`--session-hash-cache-mb`, default 0). It can be enabled with or without tokenization reuse.
 - EngineCore checks the token IDs itself and does not trust the frontend's match. Cache salt, resets and model-weight updates keep histories separate. Unsupported requests, such as LoRA, prompt embeddings or multimodal inputs, use normal hashing.
 - On growing chat histories, adding hash reuse to tokenization reuse reduced mean time to first output by **17.0%** on average across four pairs of runs. End-to-end latency changed by about **−0.1%**.
+- The [final text evaluation](final-text-evaluation-20261030/README.md) measured both mechanisms together on the current source against the baseline. Mean time to first output fell **31.5%** on synthetic growing histories and **30.3%** on replayed real coding-agent trajectories. Hash reuse cut EngineCore request preprocessing from 13.9 to 4.3 ms. With no usable history, the combination was 4.6% slower.
 
 ## Validation
 
-The performance measurements below use the earlier frozen `be08fa535` source; they were not rerun after updating to main. Setup: Qwen3-0.6B on an RTX 3090, four concurrent clients, four fresh-server runs of 80 requests per configuration.
+The performance measurements below use the earlier frozen `be08fa535` source; they were not rerun after updating to main. Current-source results for tokenization and hash reuse together are in the [final text evaluation](final-text-evaluation-20261030/README.md); the incremental effect of hash reuse alone was not remeasured. Setup: Qwen3-0.6B on an RTX 3090, four concurrent clients, four fresh-server runs of 80 requests per configuration.
 
 | Metric | Token reuse | Token + hash reuse | Result |
 |---|---:|---:|---|
@@ -40,5 +41,6 @@ Correctness on the updated source: 397 CPU tests, 72 requests to running Qwen3 a
 ## Code
 
 - [Incremental changes: token reuse → hash reuse](https://github.com/RichealYoung/vllm/compare/045e9051b2c8c93e90aed3e30516855edc57d99d...813ade25f0fdecb93a1ab0547f362c1b0404aa37)
+- Evaluated final text version: [source `797e19367`](https://github.com/RichealYoung/vllm/tree/797e19367fa3ce44c48f9579f474753e861247d0), the same hash reuse patch on the current PR head plus [suffix-only hash accounting](../patches/current-main/hash-accounting.patch) · [changes from the PR head](https://github.com/RichealYoung/vllm/compare/04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8...797e19367fa3ce44c48f9579f474753e861247d0)
 - [Full source snapshot](https://github.com/RichealYoung/vllm/tree/813ade25f0fdecb93a1ab0547f362c1b0404aa37) · [patch](../patches/current-main/text-to-hash.patch) · [raw performance results](../performance/results/summary-001.json)
 - Next: [image compatibility](../v3/README.md)

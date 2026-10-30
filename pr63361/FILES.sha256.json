@@ -86,8 +86,8 @@
   },
   {
     "file": "identities/versions.json",
-    "bytes": 4014,
-    "sha256": "aec5e5f7b5d27042207439e3a9330f922bcb05985f001bee86704667bb5dede2"
+    "bytes": 4473,
+    "sha256": "57f3535db9c07809004c03330f2b0c3d0fcd0c8a6f7d68d14aeffc1a950be78a"
   },
   {
     "file": "patches/BASE-to-V1.patch",
@@ -98,6 +98,11 @@
     "file": "patches/current-main/BASE-to-text.patch",
     "bytes": 98045,
     "sha256": "4902dd00f07101ec07aa66a6dc1d0931717f5986acc5b169469aafe1cd2d4e3f"
+  },
+  {
+    "file": "patches/current-main/hash-accounting.patch",
+    "bytes": 12388,
+    "sha256": "44a0aa95b845dbf74ba4348a8604866b523940a61dcec0e08e390b5f0bc3da4a"
   },
   {
     "file": "patches/current-main/hash-to-image.patch",
@@ -1766,8 +1771,8 @@
   },
   {
     "file": "README.md",
-    "bytes": 3166,
-    "sha256": "65ba55f399afb62dcf31ebe8df85670d174d7004d57d88324e230c22f1e66d56"
+    "bytes": 3542,
+    "sha256": "36eec9e3db9c91663d2de92da626d50971195d4b5b40f369af1394b49aa840ec"
   },
   {
     "file": "v1/accounting-update-20261030/acceptance.json",
@@ -1845,6 +1850,21 @@
     "sha256": "93dbd7eba1e0e70ac0a25e776ff79183bb7f2b65e5c97fd978d8425b20816dd8"
   },
   {
+    "file": "v2/final-text-evaluation-20261030/evidence-scenario-a.tar.gz",
+    "bytes": 2927752,
+    "sha256": "31217472cf27ebae5f2f61b6ec055a8a78b7f9bdeb12edb478ddbaa7eb3b5be1"
+  },
+  {
+    "file": "v2/final-text-evaluation-20261030/evidence-scenario-e.tar.gz",
+    "bytes": 6028361,
+    "sha256": "9f94dad0c0939299f68182aa91f97979d04326d0fa6e8179497bd0509003c3e0"
+  },
+  {
+    "file": "v2/final-text-evaluation-20261030/README.md",
+    "bytes": 7029,
+    "sha256": "1a8a839bfc627f7c4c8f000c2e9b48f448d96920bc5a0c2215e86dddc528755e"
+  },
+  {
     "file": "v2/historical-match/analysis.json",
     "bytes": 66905,
     "sha256": "a600e7d10c37efe1b70498d01cb7b0598c2836c5e557b524c80a8071ba25140b"
@@ -1906,8 +1926,8 @@
   },
   {
     "file": "v2/README.md",
-    "bytes": 4386,
-    "sha256": "7e02564358cab8b5107450003e542399798cfe4afc48e3db7f838a5fa1172226"
+    "bytes": 5426,
+    "sha256": "9430c5c62fc95bf5085d808a75a3804fcf0beabc84aa2186bb7c7c754d6147d1"
   },
   {
     "file": "v2/validation.md",

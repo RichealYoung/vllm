@@ -1,0 +1,275 @@
+diff --git a/tests/renderers/test_session_prefix_media_fallback.py b/tests/renderers/test_session_prefix_media_fallback.py
+index 430712bf8637561358a9ec120487b13c1673bc9d..078437e933230d71b7b7432d46ea0ea577d024eb 100644
+--- a/tests/renderers/test_session_prefix_media_fallback.py
++++ b/tests/renderers/test_session_prefix_media_fallback.py
+@@ -138,14 +138,16 @@ async def test_multimodal_session_falls_back_to_native(token_reuse, hash_reuse):
+                 receiver.get_and_update_features(incoming.mm_features)
+             assert incoming.mm_features == expected_input.mm_features
+             prefix = hashes.prefix(incoming) if hashes else None
+-            actual = Request.from_engine_core_request(incoming, hasher, prefix)
++            actual = Request.from_engine_core_request(
++                incoming, hasher, prefix.initial_block_hashes if prefix else None
++            )
+             expected = Request.from_engine_core_request(expected_input, hasher)
+             assert actual.block_hashes == expected.block_hashes
+             if hashes:
+                 if incoming.mm_features:
+                     assert prefix is None
+                 retained_hashes = hashes.store.bytes_used
+-                hashes.publish(incoming, actual, hashes.store.epoch)
++                hashes.publish(incoming, actual, hashes.store.epoch, prefix)
+                 if incoming.mm_features:
+                     assert hashes.store.bytes_used == retained_hashes
+     finally:
+diff --git a/tests/v1/test_request.py b/tests/v1/test_request.py
+index 8767e79619dde31fc4d08f4d12dabef14d030a1c..243c2b8ff72a41942f868f9d238968e083590c76 100644
+--- a/tests/v1/test_request.py
++++ b/tests/v1/test_request.py
+@@ -88,12 +88,13 @@ def test_session_hash_reuse_preserves_native_chain_and_decode():
+                 session_id="session",
+             )
+             expected = Request.from_engine_core_request(incoming, hasher)
+-            initial = cache.prefix(incoming)
++            prefix = cache.prefix(incoming)
++            initial = prefix.initial_block_hashes if prefix else None
+             actual = Request.from_engine_core_request(incoming, hasher, initial)
+             assert actual.block_hashes == expected.block_hashes
+             if turn == 1:
+                 assert initial is not None and initial[1]
+-            cache.publish(incoming, actual, cache.store.epoch)
++            cache.publish(incoming, actual, cache.store.epoch, prefix)
+             for token in range(100, 118):
+                 actual.append_output_token_ids(token)
+                 expected.append_output_token_ids(token)
+@@ -146,8 +147,9 @@ def test_session_hash_reset_close_and_eviction_preserve_native_results():
+     for close in (False, True):
+         cache = SessionHashCache(1 << 20, 4)
+         cache.publish(incoming, native, cache.store.epoch)
+-        initial = cache.prefix(incoming)
+-        assert initial is not None
++        prefix = cache.prefix(incoming)
++        assert prefix is not None
++        initial = prefix.initial_block_hashes
+         epoch = cache.store.epoch
+         cache.store.clear(close=close)
+         cache.publish(incoming, native, epoch)
+@@ -174,14 +176,79 @@ def test_session_hash_reset_close_and_eviction_preserve_native_results():
+     assert cache.store.bytes_used == 0
+     incoming.session_id = "session"
+     cache.publish(incoming, native, cache.store.epoch)
+-    initial = cache.prefix(incoming)
+-    assert initial is not None
++    prefix = cache.prefix(incoming)
++    assert prefix is not None
+     assert (
+-        Request.from_engine_core_request(incoming, hasher, initial).block_hashes
++        Request.from_engine_core_request(
++            incoming, hasher, prefix.initial_block_hashes
++        ).block_hashes
+         == native.block_hashes
+     )
+ 
+ 
++def test_session_hash_reuse_charges_full_scan_size_with_validated_bound():
++    import struct
++    import sys
++
++    from vllm.utils.hashing import sha256
++    from vllm.utils.session_prefix import token_bytes
++    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
++    from vllm.v1.core.session_prefix import SessionHashCache
++
++    init_none_hash(sha256)
++    hasher = get_request_block_hasher(4, sha256)
++    cache = SessionHashCache(1 << 20, 4)
++    key = ("salt", "session")
++    base = [151000 + i for i in range(40)]
++    turns = (base, base + [7, 151669, 3], base[:21] + [5] * 30)
++    for turn, ids in enumerate(turns):
++        incoming = EngineCoreRequest(
++            request_id=str(turn),
++            prompt_token_ids=ids.copy(),
++            mm_features=None,
++            sampling_params=SamplingParams(max_tokens=1),
++            pooling_params=None,
++            arrival_time=0.0,
++            lora_request=None,
++            cache_salt="salt",
++            data_parallel_rank=None,
++            session_id="session",
++        )
++        prefix = cache.prefix(incoming)
++        assert (prefix is None) == (turn == 0)
++        if prefix is not None:
++            assert prefix.ids is incoming.prompt_token_ids
++            assert prefix.tokens == (40 if turn == 1 else 21)
++        actual = Request.from_engine_core_request(
++            incoming, hasher, prefix.initial_block_hashes if prefix else None
++        )
++        cache.publish(incoming, actual, cache.store.epoch, prefix)
++        with cache.store.borrow(key) as snapshot:
++            assert snapshot is not None and snapshot.ids == ids
++            assert snapshot.bound is not None and snapshot.bound >= max(ids)
++            hashes = snapshot.hashes
++            expected = (
++                1024
++                + sum(map(sys.getsizeof, key))
++                + token_bytes(ids)
++                + sys.getsizeof([])
++                + len(hashes) * struct.calcsize("P")
++                + sum(map(sys.getsizeof, hashes))
++            )
++        assert cache.store.bytes_used == expected
++
++    # A prefix found for another prompt list is not trusted for accounting: the
++    # published list's leading IDs were never compared with the snapshot.
++    incoming.prompt_token_ids = turns[2] + [9]
++    prefix = cache.prefix(incoming)
++    assert prefix is not None and prefix.tokens == 48
++    incoming.prompt_token_ids = [1 << 32] + turns[2][1:] + [9]
++    native = Request.from_engine_core_request(incoming, hasher)
++    cache.publish(incoming, native, cache.store.epoch, prefix)
++    with cache.store.borrow(key) as snapshot:
++        assert snapshot is not None and snapshot.bound is None
++
++
+ def test_request_status_fmt_str():
+     """Test that the string representation of RequestStatus is correct."""
+     assert f"{RequestStatus.WAITING}" == "WAITING"
+diff --git a/vllm/v1/core/session_prefix.py b/vllm/v1/core/session_prefix.py
+index 191554751eba0c1164bca867c88ff90f9f8eb7c6..da7f120799c05b1fcb0a4f5ebfc85608e9399fa0 100644
+--- a/vllm/v1/core/session_prefix.py
++++ b/vllm/v1/core/session_prefix.py
+@@ -9,7 +9,7 @@ from collections import Counter
+ from dataclasses import dataclass
+ 
+ from vllm.logger import init_logger
+-from vllm.utils.session_prefix import SessionPrefixStore, token_bytes
++from vllm.utils.session_prefix import SessionPrefixStore, token_bound, token_bytes
+ from vllm.v1.core import kv_cache_utils
+ from vllm.v1.core.kv_cache_utils import BlockHash
+ from vllm.v1.engine import EngineCoreRequest
+@@ -22,6 +22,27 @@ logger = init_logger(__name__)
+ class HashSnapshot:
+     ids: list[int]
+     hashes: list[BlockHash]
++    # Validated upper bound of ``ids`` (see token_bound), or None if unknown.
++    bound: int | None = None
++
++
++@dataclass(frozen=True)
++class HashPrefix:
++    """Snapshot block hashes that a request's prompt can reuse.
++
++    The first ``tokens`` IDs of ``ids`` equal the snapshot's IDs, whose
++    validated upper bound is ``bound``.
++    """
++
++    block_size: int
++    hashes: list[BlockHash]
++    ids: list[int]
++    tokens: int
++    bound: int | None
++
++    @property
++    def initial_block_hashes(self) -> tuple[int, list[BlockHash]]:
++        return self.block_size, self.hashes
+ 
+ 
+ class SessionHashCache:
+@@ -57,7 +78,7 @@ class SessionHashCache:
+             and request.sampling_params is not None
+         )
+ 
+-    def prefix(self, request: EngineCoreRequest) -> tuple[int, list[BlockHash]] | None:
++    def prefix(self, request: EngineCoreRequest) -> HashPrefix | None:
+         if not self.eligible(request) or self.none_hash != kv_cache_utils.NONE_HASH:
+             return None
+         key = (request.cache_salt, request.session_id)
+@@ -68,15 +89,26 @@ class SessionHashCache:
+             assert ids is not None
+             limit = min(len(old.hashes), len(ids) // self.block_size) * self.block_size
+             try:
+-                count = self.helper.token_lcp(ids, old.ids, limit) // self.block_size
++                tokens = self.helper.token_lcp(ids, old.ids, limit)
+             except (OverflowError, ValueError):
+                 return None
++            count = tokens // self.block_size
+             with self._stats_lock:
+                 self.stats["reused_blocks"] += count
+             logger.debug("Session hash reuse: reused_blocks=%d", count)
+-            return (self.block_size, old.hashes[:count]) if count else None
++            if not count:
++                return None
++            return HashPrefix(
++                self.block_size, old.hashes[:count], ids, tokens, old.bound
++            )
+ 
+-    def publish(self, request: EngineCoreRequest, result: Request, epoch: int) -> None:
++    def publish(
++        self,
++        request: EngineCoreRequest,
++        result: Request,
++        epoch: int,
++        prefix: HashPrefix | None = None,
++    ) -> None:
+         if (
+             not self.eligible(request)
+             or epoch != self.store.epoch
+@@ -85,12 +117,19 @@ class SessionHashCache:
+             return
+         ids = request.prompt_token_ids
+         assert ids is not None
++        if prefix is not None and prefix.ids is ids and prefix.bound is not None:
++            # token_lcp matched the leading IDs against a snapshot validated when
++            # it was stored, so only the remaining IDs need scanning.
++            suffix = token_bound(ids[prefix.tokens :])
++            bound = None if suffix is None else max(prefix.bound, suffix)
++        else:
++            bound = token_bound(ids)
+         hashes = result.block_hashes
+         key = (request.cache_salt, request.session_id)
+         size = (
+             1024
+             + sum(map(sys.getsizeof, key))
+-            + token_bytes(ids)
++            + token_bytes(ids, bound)
+             + sys.getsizeof([])
+             + len(hashes) * struct.calcsize("P")
+             + sum(map(sys.getsizeof, hashes))
+@@ -98,7 +137,7 @@ class SessionHashCache:
+         reservation = self.store.reserve(key, size)
+         if reservation is not None:
+             try:
+-                snapshot = HashSnapshot(ids.copy(), hashes.copy())
++                snapshot = HashSnapshot(ids.copy(), hashes.copy(), bound)
+                 if reservation.epoch == epoch:
+                     reservation.commit(snapshot, size)
+             finally:
+diff --git a/vllm/v1/engine/core.py b/vllm/v1/engine/core.py
+index 90289eb9a78a13b15120ebefafa9dba7bca12301..ad2f5b2da5ff1d1ce8a3b97c0c8a42ef04983a17 100644
+--- a/vllm/v1/engine/core.py
++++ b/vllm/v1/engine/core.py
+@@ -1156,9 +1156,11 @@ class EngineCore:
+ 
+         cache = self.session_hash_cache
+         epoch = cache.store.epoch if cache is not None else 0
+-        initial_hashes = cache.prefix(request) if cache is not None else None
++        prefix = cache.prefix(request) if cache is not None else None
+         req = Request.from_engine_core_request(
+-            request, self.request_block_hasher, initial_block_hashes=initial_hashes
++            request,
++            self.request_block_hasher,
++            initial_block_hashes=prefix.initial_block_hashes if prefix else None,
+         )
+         if req.use_structured_output:
+             # Note on thread safety: no race condition.
+@@ -1168,7 +1170,7 @@ class EngineCore:
+             # compilation status before scheduling request.
+             self.structured_output_manager.grammar_init(req)
+         if cache is not None:
+-            cache.publish(request, req, epoch)
++            cache.publish(request, req, epoch, prefix)
+         return req, request.current_wave
+ 
+     def _eep_scale_up_before_kv_init(self):

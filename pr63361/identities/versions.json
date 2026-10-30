@@ -28,6 +28,18 @@
       "tree": "2094b1a7e43d916344f9aa75dd50c4f27ac2e1ad",
       "parent": "813ade25f0fdecb93a1ab0547f362c1b0404aa37",
       "branch": "codex/pr63361-v3-image-compat-main-20261026"
+    },
+    "final_text_evaluation": {
+      "commit": "797e19367fa3ce44c48f9579f474753e861247d0",
+      "tree": "a006b84d56bfc27841116d2a14851ec5baa8865c",
+      "parent": "63f8b288f",
+      "chain": [
+        "04d5f00e8 (PR head)",
+        "63f8b288f (text-to-hash.patch, unchanged)",
+        "797e19367 (suffix-only hash accounting)"
+      ],
+      "branch": "claude/final-candidate-20261030",
+      "results": "v2/final-text-evaluation-20261030/README.md"
     }
   },
   "measured_source": "measured-{N,V1,V2,V3}.json; original r5 patches under patches/measured-r5",
