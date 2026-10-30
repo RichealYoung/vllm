@@ -10,6 +10,13 @@
       "parent": "85e199e60ca87a4b136aeaa0842541139b94c778",
       "branch": "codex/agent-hint-session-prefix-main-20261023"
     },
+    "token_reuse_accounting": {
+      "commit": "04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8",
+      "tree": "538920299a37ccd572c2a5ca2d882958ff9fb9a2",
+      "parent": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+      "branch": "codex/agent-hint-session-prefix-main-20261023",
+      "note": "current PR head; follow-ups below remain based on 045e9051b"
+    },
     "hash_reuse": {
       "commit": "813ade25f0fdecb93a1ab0547f362c1b0404aa37",
       "tree": "70a720a04bc62f912076b4226e5ca0bc4b982752",

@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "head": "04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8",
+  "tree": "538920299a37ccd572c2a5ca2d882958ff9fb9a2",
+  "parent": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+  "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+  "pipeline": "same commands, runtime, natives and models as v1/main-update-20261026; candidate = that accepted tree with the 4 changed files replaced",
+  "identities": {
+    "base": "85e199e60ca87a4b136aeaa0842541139b94c778",
+    "head": "04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8",
+    "parent": "045e9051b2c8c93e90aed3e30516855edc57d99d",
+    "transport": "git show (LF index blobs)",
+    "files_archive_sha256": "566d522ed2428198dc5274cdbbfc18ed1c91ac6b683c640e40a1f5eb46add583",
+    "files": {
+      "tests/renderers/test_session_prefix.py": "98c02c90b6357602726963498c34e5bd16ca7f663e7dffabe4f56cdff937e104",
+      "tests/utils_/test_session_prefix.py": "7a160f8b47e8ec88cebd74a8da6680fcdd56a8ec2c0c5a6a3265b844ce57b2a7",
+      "vllm/renderers/session_prefix.py": "e54ca1122d4a17cde2582ad9b38b2180613276c755a92c1cff1d5d876cd098a7",
+      "vllm/utils/session_prefix.py": "8e68970a778a38422064f35395a7484da4ec55cfb4d77375362abe199d70b4c4"
+    }
+  },
+  "hooks": {
+    "passed": 18,
+    "exit_code": 0,
+    "scratch_changes": []
+  },
+  "upstream_reasoning_cli": {
+    "tests": 19,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "red_mapping": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 1
+  },
+  "cpu": {
+    "tests": 371,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "exit_code": 0
+  },
+  "gpu": {
+    "tests": 4,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "requests": 36,
+    "exit_code": 0
+  },
+  "attempt1": "hooks failed (ruff-format, E501, 3 mypy errors in new lines) before any test ran; fixed by amending the commit; evidence-attempt1-hooks-failed.tar.gz",
+  "performance_rerun": false
+}

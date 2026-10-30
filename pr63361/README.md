@@ -4,7 +4,7 @@
 
 Successive chat turns often resend most of the previous conversation. This feature uses an agent hint, the existing `session_id`, to select the previous rendered prompt, reuse token IDs for its unchanged prefix, and tokenize only the remaining suffix. Text comparison and tokenizer compatibility checks determine whether reuse is safe.
 
-The current PR has been updated to main: [text-reuse correctness checks](v1/main-update-20261026/README.md). Both optional follow-ups now derive from that same source and passed [fresh CPU/GPU validation](followups-current-text-20261026/README.md). The performance experiment retains its original frozen source and data.
+The current PR has been updated to main: [text-reuse correctness checks](v1/main-update-20261026/README.md), followed by a [memory-accounting update](v1/accounting-update-20261030/README.md) at `04d5f00e8`. Both optional follow-ups derive from the earlier `045e9051b` and passed [fresh CPU/GPU validation](followups-current-text-20261026/README.md) there; their incremental patches also apply cleanly on `04d5f00e8`, which was checked with `git apply` but not revalidated. The performance experiment retains its original frozen source and data.
 
 - [Run the baseline and token reuse comparison](performance/REPRODUCTION.md).
 - [Performance results and limitations](v1/benchmark.md).
@@ -17,7 +17,7 @@ The default instructions cover tokenization reuse. Optional follow-ups describe 
 
 | Scope | Source snapshot | Incremental review |
 |---|---|---|
-| Text tokenization reuse | [Source](https://github.com/RichealYoung/vllm/tree/045e9051b2c8c93e90aed3e30516855edc57d99d) | [Upstream → token reuse](https://github.com/RichealYoung/vllm/compare/85e199e60ca87a4b136aeaa0842541139b94c778...045e9051b2c8c93e90aed3e30516855edc57d99d) |
+| Text tokenization reuse | [Source](https://github.com/RichealYoung/vllm/tree/04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8) | [Upstream → token reuse](https://github.com/RichealYoung/vllm/compare/85e199e60ca87a4b136aeaa0842541139b94c778...04d5f00e8bf6836c3a4ead37e9ec7dc04ec68ee8) |
 | Add block-hash reuse | [Source](https://github.com/RichealYoung/vllm/tree/813ade25f0fdecb93a1ab0547f362c1b0404aa37) | [Token reuse → hash reuse](https://github.com/RichealYoung/vllm/compare/045e9051b2c8c93e90aed3e30516855edc57d99d...813ade25f0fdecb93a1ab0547f362c1b0404aa37) |
 | Add image compatibility | [Source](https://github.com/RichealYoung/vllm/tree/4327e413c12ca9c3a066035f827d5f1c9bb5487a) | [Hash reuse → image compatibility](https://github.com/RichealYoung/vllm/compare/813ade25f0fdecb93a1ab0547f362c1b0404aa37...4327e413c12ca9c3a066035f827d5f1c9bb5487a) |
 

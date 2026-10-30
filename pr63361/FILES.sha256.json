@@ -86,8 +86,8 @@
   },
   {
     "file": "identities/versions.json",
-    "bytes": 3656,
-    "sha256": "986e8fbf7020e83cab2baf40e9c4ee7c126c40624f89a0bbff91bad5ca209920"
+    "bytes": 4014,
+    "sha256": "aec5e5f7b5d27042207439e3a9330f922bcb05985f001bee86704667bb5dede2"
   },
   {
     "file": "patches/BASE-to-V1.patch",
@@ -103,6 +103,11 @@
     "file": "patches/current-main/hash-to-image.patch",
     "bytes": 48761,
     "sha256": "7382b187765de591f8a0b5c7ee718f34fb729fa6980a54d5cf44f6fb3d6e4ed3"
+  },
+  {
+    "file": "patches/current-main/text-accounting.patch",
+    "bytes": 10183,
+    "sha256": "7a4a722efa39428aa054e7aa375a0a146f77f00c1819c896e76336b0e58e9ae9"
   },
   {
     "file": "patches/current-main/text-to-hash.patch",
@@ -1761,8 +1766,33 @@
   },
   {
     "file": "README.md",
-    "bytes": 2942,
-    "sha256": "bda1b03e0374b44d4504da795a3a886434cb8c828131b0ad60b766ac1241dfee"
+    "bytes": 3166,
+    "sha256": "65ba55f399afb62dcf31ebe8df85670d174d7004d57d88324e230c22f1e66d56"
+  },
+  {
+    "file": "v1/accounting-update-20261030/acceptance.json",
+    "bytes": 1945,
+    "sha256": "072de66f7d0b8b9ef069e1cb541a578d2f1a9d25074b616a6556fc8d6d2bb258"
+  },
+  {
+    "file": "v1/accounting-update-20261030/evidence-attempt1-hooks-failed.tar.gz",
+    "bytes": 436665,
+    "sha256": "fdd115de401ad2176290981050ed92982a182d96774cadd5e9cfd1036429b51b"
+  },
+  {
+    "file": "v1/accounting-update-20261030/evidence-portable.tar.gz",
+    "bytes": 501724,
+    "sha256": "00ad393cb5f56c0008934b7686ced62cfb29ec6a835b3dfea87c722eda5a2ddd"
+  },
+  {
+    "file": "v1/accounting-update-20261030/file-sha256.json",
+    "bytes": 5530,
+    "sha256": "34a928eb88452800da61d8c40b98d4aea11a69e5e0671f66356ad0762c0d4313"
+  },
+  {
+    "file": "v1/accounting-update-20261030/README.md",
+    "bytes": 3501,
+    "sha256": "c6e7940654710946b0063ed09c3da5f8ff99b9e026536ce005241efe54b8cfbb"
   },
   {
     "file": "v1/benchmark.md",
@@ -1801,8 +1831,8 @@
   },
   {
     "file": "v1/validation.md",
-    "bytes": 2498,
-    "sha256": "32a0362c653c7d8287be8e4da7d43b1d2a3135e0e617bcf390c3520a5cbab5c5"
+    "bytes": 2625,
+    "sha256": "9d59ed7e814be18e801088efaba2b73514fbffd6cff390d4cf7892452fb7557a"
   },
   {
     "file": "v2/accounting-paired-summary.json",
