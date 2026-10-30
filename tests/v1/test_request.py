@@ -88,12 +88,13 @@ def test_session_hash_reuse_preserves_native_chain_and_decode():
                 session_id="session",
             )
             expected = Request.from_engine_core_request(incoming, hasher)
-            initial = cache.prefix(incoming)
+            prefix = cache.prefix(incoming)
+            initial = prefix.initial_block_hashes if prefix else None
             actual = Request.from_engine_core_request(incoming, hasher, initial)
             assert actual.block_hashes == expected.block_hashes
             if turn == 1:
                 assert initial is not None and initial[1]
-            cache.publish(incoming, actual, cache.store.epoch)
+            cache.publish(incoming, actual, cache.store.epoch, prefix)
             for token in range(100, 118):
                 actual.append_output_token_ids(token)
                 expected.append_output_token_ids(token)
@@ -146,8 +147,9 @@ def test_session_hash_reset_close_and_eviction_preserve_native_results():
     for close in (False, True):
         cache = SessionHashCache(1 << 20, 4)
         cache.publish(incoming, native, cache.store.epoch)
-        initial = cache.prefix(incoming)
-        assert initial is not None
+        prefix = cache.prefix(incoming)
+        assert prefix is not None
+        initial = prefix.initial_block_hashes
         epoch = cache.store.epoch
         cache.store.clear(close=close)
         cache.publish(incoming, native, epoch)
@@ -174,12 +176,77 @@ def test_session_hash_reset_close_and_eviction_preserve_native_results():
     assert cache.store.bytes_used == 0
     incoming.session_id = "session"
     cache.publish(incoming, native, cache.store.epoch)
-    initial = cache.prefix(incoming)
-    assert initial is not None
+    prefix = cache.prefix(incoming)
+    assert prefix is not None
     assert (
-        Request.from_engine_core_request(incoming, hasher, initial).block_hashes
+        Request.from_engine_core_request(
+            incoming, hasher, prefix.initial_block_hashes
+        ).block_hashes
         == native.block_hashes
     )
+
+
+def test_session_hash_reuse_charges_full_scan_size_with_validated_bound():
+    import struct
+    import sys
+
+    from vllm.utils.hashing import sha256
+    from vllm.utils.session_prefix import token_bytes
+    from vllm.v1.core.kv_cache_utils import get_request_block_hasher, init_none_hash
+    from vllm.v1.core.session_prefix import SessionHashCache
+
+    init_none_hash(sha256)
+    hasher = get_request_block_hasher(4, sha256)
+    cache = SessionHashCache(1 << 20, 4)
+    key = ("salt", "session")
+    base = [151000 + i for i in range(40)]
+    turns = (base, base + [7, 151669, 3], base[:21] + [5] * 30)
+    for turn, ids in enumerate(turns):
+        incoming = EngineCoreRequest(
+            request_id=str(turn),
+            prompt_token_ids=ids.copy(),
+            mm_features=None,
+            sampling_params=SamplingParams(max_tokens=1),
+            pooling_params=None,
+            arrival_time=0.0,
+            lora_request=None,
+            cache_salt="salt",
+            data_parallel_rank=None,
+            session_id="session",
+        )
+        prefix = cache.prefix(incoming)
+        assert (prefix is None) == (turn == 0)
+        if prefix is not None:
+            assert prefix.ids is incoming.prompt_token_ids
+            assert prefix.tokens == (40 if turn == 1 else 21)
+        actual = Request.from_engine_core_request(
+            incoming, hasher, prefix.initial_block_hashes if prefix else None
+        )
+        cache.publish(incoming, actual, cache.store.epoch, prefix)
+        with cache.store.borrow(key) as snapshot:
+            assert snapshot is not None and snapshot.ids == ids
+            assert snapshot.bound is not None and snapshot.bound >= max(ids)
+            hashes = snapshot.hashes
+            expected = (
+                1024
+                + sum(map(sys.getsizeof, key))
+                + token_bytes(ids)
+                + sys.getsizeof([])
+                + len(hashes) * struct.calcsize("P")
+                + sum(map(sys.getsizeof, hashes))
+            )
+        assert cache.store.bytes_used == expected
+
+    # A prefix found for another prompt list is not trusted for accounting: the
+    # published list's leading IDs were never compared with the snapshot.
+    incoming.prompt_token_ids = turns[2] + [9]
+    prefix = cache.prefix(incoming)
+    assert prefix is not None and prefix.tokens == 48
+    incoming.prompt_token_ids = [1 << 32] + turns[2][1:] + [9]
+    native = Request.from_engine_core_request(incoming, hasher)
+    cache.publish(incoming, native, cache.store.epoch, prefix)
+    with cache.store.borrow(key) as snapshot:
+        assert snapshot is not None and snapshot.bound is None
 
 
 def test_request_status_fmt_str():

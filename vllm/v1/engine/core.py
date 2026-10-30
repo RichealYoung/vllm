@@ -1156,9 +1156,11 @@ class EngineCore:
 
         cache = self.session_hash_cache
         epoch = cache.store.epoch if cache is not None else 0
-        initial_hashes = cache.prefix(request) if cache is not None else None
+        prefix = cache.prefix(request) if cache is not None else None
         req = Request.from_engine_core_request(
-            request, self.request_block_hasher, initial_block_hashes=initial_hashes
+            request,
+            self.request_block_hasher,
+            initial_block_hashes=prefix.initial_block_hashes if prefix else None,
         )
         if req.use_structured_output:
             # Note on thread safety: no race condition.
@@ -1168,7 +1170,7 @@ class EngineCore:
             # compilation status before scheduling request.
             self.structured_output_manager.grammar_init(req)
         if cache is not None:
-            cache.publish(request, req, epoch)
+            cache.publish(request, req, epoch, prefix)
         return req, request.current_wave
 
     def _eep_scale_up_before_kv_init(self):

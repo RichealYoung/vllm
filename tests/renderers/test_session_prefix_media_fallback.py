@@ -138,14 +138,16 @@ async def test_multimodal_session_falls_back_to_native(token_reuse, hash_reuse):
                 receiver.get_and_update_features(incoming.mm_features)
             assert incoming.mm_features == expected_input.mm_features
             prefix = hashes.prefix(incoming) if hashes else None
-            actual = Request.from_engine_core_request(incoming, hasher, prefix)
+            actual = Request.from_engine_core_request(
+                incoming, hasher, prefix.initial_block_hashes if prefix else None
+            )
             expected = Request.from_engine_core_request(expected_input, hasher)
             assert actual.block_hashes == expected.block_hashes
             if hashes:
                 if incoming.mm_features:
                     assert prefix is None
                 retained_hashes = hashes.store.bytes_used
-                hashes.publish(incoming, actual, hashes.store.epoch)
+                hashes.publish(incoming, actual, hashes.store.epoch, prefix)
                 if incoming.mm_features:
                     assert hashes.store.bytes_used == retained_hashes
     finally:
